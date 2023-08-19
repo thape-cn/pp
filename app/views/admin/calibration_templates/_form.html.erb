@@ -1,0 +1,59 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <%= f.label :template_name, t("calibration.template_name"), class: 'col-3 col-form-label' %>
+    <div class="col-9">
+      <%= f.text_field :template_name, class: "form-control" %>
+    </div>
+  </div>
+  <% if calibration_template.company_evaluation_template.group_level == 'staff' %>
+    <div class="row mb-3">
+      <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-6 col-form-label' %>
+      <div class="col-6">
+        <%= f.number_field :apa_grade_rate, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: 'col-6 col-form-label' %>
+      <div class="col-6">
+        <%= f.number_field :b_grade_rate, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: 'col-6 col-form-label' %>
+      <div class="col-6">
+        <%= f.number_field :cd_grade_rate, class: "form-control" %>
+      </div>
+    </div>
+  <% else %>
+    <div class="row mb-3">
+      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-6 col-form-label' %>
+      <div class="col-6">
+        <%= f.number_field :below_standard_rate, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: 'col-6 col-form-label' %>
+      <div class="col-6">
+        <%= f.number_field :standards_compliant_rate, class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-6 col-form-label' %>
+      <div class="col-6">
+        <%= f.number_field :beyond_standard_rate, class: "form-control" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <div class="form-group mt-2">
+        <div class="form-check form-switch form-switch-xl">
+          <%= f.check_box :enforce_distribute, class: "form-check-input" %>
+          <%= f.label :enforce_distribute, t("calibration.enforce_distribute"), class: "form-check-label" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

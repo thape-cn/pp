@@ -1,0 +1,8 @@
+---
+hrbp_user_managed_department_one:
+  managed_dept_code: "00010201010"
+  user: user_guochunzhong
+
+hrbp_user_managed_department_two:
+  managed_dept_code: "0001010013"
+  user: user_guochunzhong

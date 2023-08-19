@@ -1,0 +1,7 @@
+---
+zh-CN:
+  staff:
+    calibration_table_sessions:
+      show:
+        title: "校准绩效"
+        save_tips: "请在九宫格页面进行定案提交。"

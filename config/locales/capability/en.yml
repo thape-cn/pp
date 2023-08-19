@@ -1,0 +1,8 @@
+---
+en:
+  capability:
+    en_name: "Pure english name"
+    name: "Capability name"
+    description: "Description"
+    category_name: "Category"
+    evaluation_roles: "Evaluation roles"

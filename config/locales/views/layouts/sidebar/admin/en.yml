@@ -1,0 +1,22 @@
+---
+en:
+  layouts:
+    sidebars:
+      admin:
+        header: "Home"
+        dashboard: "Dashboard"
+        setup: "Setup"
+        evaluation: "Evaluation"
+        company_evaluations: "Company evaluation"
+        company_evaluation_templates: "Evaluation template"
+        user_capabilities: "User’s capabilities"
+        archived_user_capabilities: "Trash of users capabilities"
+        user_calibrations: "User’s calibrations"
+        user_performances: "User’s uploaded performances"
+        account: "Account"
+        hrbp_managed_departments: "HRBP managed department"
+        job_roles: "Job roles"
+        evaluation_roles: "Evaluation roles"
+        all_calibration_session: "All calibration session"
+        calibration_session: "Calibration session"
+        background_jobs: "Background jobs"

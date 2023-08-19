@@ -1,0 +1,12 @@
+---
+euc_one_form_status_one:
+  evaluation_user_capability: euc_one
+  previous_form_status:
+  form_status: initial
+  user: user_guochunzhong
+
+euc_one_form_status_two:
+  evaluation_user_capability: euc_one
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_fangzixue

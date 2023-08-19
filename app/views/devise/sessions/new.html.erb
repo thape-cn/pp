@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card-group d-block d-md-flex row">
+        <% if Rails.env.development? %>
+          <div class="card col-md-7 p-4 mb-0">
+            <div class="card-body">
+              <h1>Login</h1>
+              <p class="text-medium-emphasis"><%= t('.title') %></p>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <div class="input-group mb-3">
+                  <span class="input-group-text">
+                    <%= svg_icon('free.svg#cil-user', %w[icon]) %>
+                  </span>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                </div>
+                <div class="input-group mb-4">
+                  <span class="input-group-text">
+                    <%= svg_icon('free.svg#cil-lock-locked', %w[icon]) %>
+                  </span>
+                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <%= f.submit t('user.sign_in'), class: "btn btn-primary px-4" -%>
+                  </div>
+                  <div class="col-6 text-end">
+                    <%= link_to t('user.forgot_password'), new_user_password_path, class: "btn btn-link px-0" -%>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+        <div class="card col-md-5 text-white bg-primary py-5">
+          <div class="card-body text-center">
+            <div>
+              <h2><%= t('user.sign_in_via_openid') -%></h2>
+              <p><%= t('user.welcome_text_in_login') %></p>
+              <%= form_tag '/auth/openid_connect', method: 'post', remote: false do %>
+                <button type='submit' class="btn btn-lg btn-outline-light mt-3"><%= t('user.click_to_sign_in') -%></button>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

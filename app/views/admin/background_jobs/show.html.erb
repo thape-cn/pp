@@ -1,0 +1,6 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<iframe id="sidekiq_iframe" src="/admin/sidekiq" class="w-100" style="height: calc(100vh - 188px);">
+</iframe>

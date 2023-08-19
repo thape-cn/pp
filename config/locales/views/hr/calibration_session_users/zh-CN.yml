@@ -1,0 +1,10 @@
+---
+zh-CN:
+  hr:
+    calibration_session_users:
+      index:
+        title: "校验会话的员工"
+        company_evaluation_title: "考评标题"
+      undo_confirm:
+        title: "确认重新校准到？"
+        calibration_session_status_not_in_proofreading: "该员工已经不在校验中，无法重新校准。"

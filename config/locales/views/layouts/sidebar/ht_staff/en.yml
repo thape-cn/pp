@@ -1,0 +1,12 @@
+---
+en:
+  layouts:
+    sidebars:
+      hr_staff:
+        header: "Home"
+        dashboard: "Dashboard"
+        evaluation: "Evaluation"
+        user_capabilities: "User’s capabilities"
+        calibration: "Calibration"
+        calibration_session: "Calibration sessions"
+        calibration_session_users: "Calibration session users"

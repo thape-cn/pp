@@ -1,0 +1,61 @@
+<div class="sidebar sidebar-dark sidebar-fixed bg-dark-gradient <%= current_user&.sidebar_narrow? ? "sidebar-narrow-unfoldable" : "" -%>" id="sidebar" data-controller="sidebar">
+  <div class="sidebar-brand d-none d-md-flex">
+    <%= link_to root_path, class: "text-reset text-decoration-none" do %>
+      <image class="sidebar-brand-full" width="118" height="46" alt="TH Logo" src="<%= asset_path('th-logo.png') -%>" />
+    <% end %>
+    <%= link_to root_path, class: "text-reset text-decoration-none" do %>
+      <svg alt="Thape PP Logo" class="sidebar-brand-narrow" height="46" width="46">
+        <use xlink:href="<%= asset_path('th-logo.svg#signet') %>"></use>
+      </svg>
+    <% end %>
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable" data-action="click->sidebar#click"></button>
+  </div>
+  <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+    <%= nav_item(t('.dashboard'), hr_root_path, 'free.svg#cil-speedometer') -%>
+
+    <li class="nav-title"><%= t('.evaluation') -%></li>
+    <li class="nav-group <%= %w[user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[user_capabilities].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_hr_evaluation_user_capabilities_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.user_capabilities') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[user_capabilities].include?(controller_name) %>
+          <%= render partial: 'hr/evaluation_user_capabilities/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+
+    <li class="nav-title"><%= t('.calibration') -%></li>
+    <li class="nav-group <%= %w[calibration_sessions].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[calibration_sessions].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_hr_calibration_sessions_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.calibration_session') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[calibration_sessions].include?(controller_name) %>
+          <%= render partial: 'hr/calibration_sessions/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+
+    <li class="nav-title"><%= t('evaluation.history_evaluation') -%></li>
+    <li class="nav-group <%= %w[history_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[history_user_capabilities].include?(controller_name) -%>
+      data-expender-url-value="<%= history_expender_hr_evaluation_user_capabilities_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('evaluation.history_user_capabilities') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[history_user_capabilities].include?(controller_name) %>
+          <%= render partial: 'hr/evaluation_user_capabilities/history_expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).closed_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>

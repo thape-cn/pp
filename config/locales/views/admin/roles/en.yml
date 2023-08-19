@@ -1,0 +1,12 @@
+---
+en:
+  admin:
+    roles:
+      index:
+        title: "Role management"
+        role_name: "Role name"
+        status: "Status"
+      new:
+        title: "Create role"
+      edit:
+        title: "Edit role：%{role_name}"

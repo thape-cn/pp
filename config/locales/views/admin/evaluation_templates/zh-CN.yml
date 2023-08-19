@@ -1,0 +1,28 @@
+---
+zh-CN:
+  admin:
+    evaluation_templates:
+      index:
+        title: "考评模版"
+        template_title: "模版标题"
+        group_level: "考评组别"
+        breadcrumb_title: "%{title}的考评模版"
+        title_and_total_proportion: "模版的总分比例分配"
+        pct_proportion: "工作质量、工作量、工作态度三项占总分比例"
+        rate_proportion: "业绩与其他能力占总分比例"
+        work_pct: "工作百分比"
+        work_quality_matric: "工作质量量表"
+        work_load_matric: "工作量量表"
+        work_attitude_matric: "工作态度量表"
+        performance_rate: "业绩比例"
+        management_subtotal_rate: "管理能力比例"
+        profession_subtotal_rate: "专业能力比例"
+        performance_subtotal_rate: "业绩比例"
+        professional_management_matric: "专业/管理能力量表"
+        performance_matric: "业绩量表"
+        total_reverse_matric: "总分反向量表"
+      new:
+        title: "新建考评模版"
+      edit:
+        title: "编辑考评模版"
+        brief: "简介"

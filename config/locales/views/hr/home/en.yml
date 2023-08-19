@@ -1,0 +1,15 @@
+---
+en:
+  hr:
+    home:
+      index:
+        title: "HR Home"
+        evaluation: "Grade"
+        mark_score: "Performance scoring"
+        calibration: "Calibration"
+        need_review_evaluations: "Need to evaluate: %{count} people"
+        need_calibration_session_users: "Need to calibrate: %{count} people"
+        need_review_calibration_session_users: "Need to review calibrate：%{count} people"
+        evaluation_signing: "Evaluation signing"
+        proofreading_calibration_session: "Proofreading calibration session"
+        click_to_start: "Click to start"

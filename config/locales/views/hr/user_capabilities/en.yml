@@ -1,0 +1,8 @@
+---
+en:
+  hr:
+    user_capabilities:
+      index:
+        breadcrumb_title: "%{title}"
+      edit:
+        title: "Edit staff reviews"

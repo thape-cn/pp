@@ -1,0 +1,10 @@
+---
+cs_one:
+  calibration_template: ct_one_1
+  owner: user_guochunzhong
+  session_name: MyString
+
+cs_two:
+  calibration_template: ct_one_1
+  owner: user_guochunzhong
+  session_name: MyString

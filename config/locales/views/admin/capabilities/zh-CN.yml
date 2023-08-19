@@ -1,0 +1,8 @@
+---
+zh-CN:
+  admin:
+    capabilities:
+      index:
+        title: "能力"
+      edit:
+        title: "编辑能力: %{category_name}"

@@ -1,0 +1,30 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with model: @archived_evaluation_user_capability, url: restore_admin_company_evaluation_archived_user_capability_path(id: @archived_evaluation_user_capability.id, company_evaluation_id: @company_evaluation.id), method: :put do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <% euc_original = EvaluationUserCapability.find_by(id: @archived_evaluation_user_capability.id) %>
+      <% euc_duplicate = EvaluationUserCapability.find_by(
+        company_evaluation_template_id: @archived_evaluation_user_capability.company_evaluation_template_id,
+        user_id: @archived_evaluation_user_capability.user_id,
+        job_role_id: @archived_evaluation_user_capability.job_role_id) %>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <% if euc_original.present? %>
+            <%= t('.original_evaluation_user_capability_existing_already') %>
+          <% elsif euc_duplicate.present? %>
+            <%= t('.duplicate_evaluation_user_capability_existing_already') %>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <% if euc_original.blank? && euc_duplicate.blank? %>
+          <%= f.submit t('form.confirm'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <% end %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

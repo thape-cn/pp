@@ -1,0 +1,125 @@
+<div class="sidebar sidebar-dark sidebar-fixed bg-dark-gradient <%= current_user&.sidebar_narrow? ? "sidebar-narrow-unfoldable" : "" -%>" id="sidebar" data-controller="sidebar">
+  <div class="sidebar-brand d-none d-md-flex">
+    <%= link_to root_path, class: "text-reset text-decoration-none" do %>
+      <image width="118" height="46" alt="TH Logo" class="sidebar-brand-full" src="<%= asset_path('th-logo.png') -%>" />
+    <% end %>
+    <%= link_to root_path, class: "text-reset text-decoration-none" do %>
+      <svg alt="Thape PP Logo" class="sidebar-brand-narrow" height="46" width="46">
+        <use xlink:href="<%= asset_path('th-logo.svg#signet') %>"></use>
+      </svg>
+    <% end %>
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable" data-action="click->sidebar#click"></button>
+  </div>
+  <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+    <%= nav_item(t('.dashboard'), root_path, 'free.svg#cil-speedometer') -%>
+
+    <li class="nav-title"><%= t('.evaluation') -%></li>
+    <li class="nav-group <%= %w[user_capabilities user_descriptions archived_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[user_capabilities user_descriptions archived_user_capabilities].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_evaluation_user_capabilities_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.user_capabilities') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[user_capabilities user_descriptions archived_user_capabilities].include?(controller_name) %>
+          <%= render partial: 'admin/evaluation_user_capabilities/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+    <li class="nav-group <%= %w[user_calibrations].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[user_calibrations].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_calibration_session_users_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.user_calibrations') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[user_calibrations].include?(controller_name) %>
+          <%= render partial: 'admin/calibration_session_users/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+
+    <li class="nav-group <%= %w[calibration_sessions].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[calibration_sessions].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_calibration_sessions_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.calibration_session') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[calibration_sessions].include?(controller_name) %>
+          <%= render partial: 'admin/calibration_sessions/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+
+    <li class="nav-title"><%= t('user.account') -%></li>
+    <%= nav_item(t('user.users'), admin_users_path, 'free.svg#cil-user') -%>
+    <%= nav_item(t('user.duplicate_users'), admin_duplicate_users_path, 'free.svg#cil-user-x') -%>
+    <%= nav_item(t('.hrbp_managed_departments'), admin_hrbp_managed_departments_path, 'free.svg#cil-people') %>
+    <%= nav_item(t('.job_roles'), admin_job_roles_path, 'free.svg#cil-rowing') -%>
+    <%= nav_item(t('.evaluation_roles'), admin_evaluation_roles_path, 'free.svg#cil-check') %>
+    <%= nav_item(t('evaluation.capabilities'), admin_capabilities_path, 'free.svg#cil-weightlifitng') %>
+    <li class="nav-group <%= %w[role_users roles].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[role_users roles].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_roles_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-functions', 'nav-icon') -%>
+        <%= t('user.roles') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[role_users roles].include?(controller_name) %>
+          <%= render partial: 'admin/roles/expender', locals: {roles: policy_scope(Role).all} -%>
+        <% end %>
+      </ul>
+    </li>
+
+    <li class="nav-title"><%= t('.setup') -%></li>
+    <%= nav_item(t('.company_evaluations'), admin_company_evaluations_path, 'free.svg#cil-wifi-signal-0') %>
+    <li class="nav-group <%= %w[evaluation_templates company_evaluation_templates].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[evaluation_templates company_evaluation_templates].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_company_evaluation_templates_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-1', 'nav-icon') -%>
+        <%= t('.company_evaluation_templates') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[evaluation_templates company_evaluation_templates].include?(controller_name) %>
+          <%= render partial: 'admin/company_evaluation_templates/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+
+    <li class="nav-group <%= %w[user_job_role_performances].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[user_job_role_performances].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_user_job_role_performances_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.user_performances') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[user_job_role_performances].include?(controller_name) %>
+          <%= render partial: 'admin/user_job_role_performances/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+    <%= nav_item(t('.background_jobs'), admin_background_jobs_path, 'free.svg#cil-applications-settings') %>
+
+    <li class="nav-title"><%= t('evaluation.history_evaluation') -%></li>
+    <li class="nav-group <%= %w[history_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[history_user_capabilities].include?(controller_name) -%>
+      data-expender-url-value="<%= history_expender_admin_evaluation_user_capabilities_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('evaluation.history_user_capabilities') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[history_user_capabilities].include?(controller_name) %>
+          <%= render partial: 'admin/evaluation_user_capabilities/history_expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).closed_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,8 @@
+---
+er_functional_operation:
+  role_name: "职能运营"
+  auxiliary: "职能"
+
+er_technical_director:
+  role_name: "技术主管"
+  auxiliary: "建筑施工图"

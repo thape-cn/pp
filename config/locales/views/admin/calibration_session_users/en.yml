@@ -1,0 +1,9 @@
+---
+en:
+  admin:
+    calibration_session_users:
+      confirm_destroy:
+        title: "Confirm destroy?"
+        confirm: "Confirm delete %{name}'s %{title} ?"
+      undo_confirm:
+        title: "Confirm recalibration this person?"

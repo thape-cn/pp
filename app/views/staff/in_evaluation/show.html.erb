@@ -1,0 +1,34 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-3">
+    <div id="list-evaluation" class="list-group">
+      <a class="list-group-item" href="#list-brief"><%= t("evaluation.brief") -%></a>
+      <a class="list-group-item" href="#list-employee-info"><%= t("evaluation.employee_info") -%></a>
+      <% if @job_role_performances.present? || @performance_capabilities.present? %>
+        <a class="list-group-item" href="#list-performance"><%= t("evaluation.performance") -%></a>
+      <% end %>
+      <% if @professional_capabilities.present? %>
+        <a class="list-group-item" href="#list-professional"><%= t("evaluation.professional_capability") -%></a>
+      <% end %>
+      <% if @management_capabilities.present? %>
+        <a class="list-group-item" href="#list-management"><%= t("evaluation.management_capability") -%></a>
+      <% end %>
+      <a class="list-group-item" href="#list-overall"><%= t("evaluation.overall") -%></a>
+      <% if @evaluation_user_capability.form_status == "hr_review_completed" %>
+        <a class="list-group-item" href="#list-sign"><%= t("evaluation.sign") -%></a>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-9">
+    <%= render partial: 'in_evaluation_form', locals: {
+      group_level: @evaluation_user_capability.company_evaluation_template.group_level,
+      evaluation_user_capability: @evaluation_user_capability,
+      job_role_performances: @job_role_performances,
+      performance_capabilities: @performance_capabilities,
+      management_capabilities: @management_capabilities,
+      professional_capabilities: @professional_capabilities} -%>
+  </div>
+</div>

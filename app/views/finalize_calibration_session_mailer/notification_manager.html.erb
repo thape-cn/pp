@@ -1,0 +1,41 @@
+<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+  <tr>
+    <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+      <p style="margin: 0;"><%= @manager.chinese_name -%>，您好：</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 10px 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+      <p style="margin: 0;">以下员工绩效评价已至员工确认环节，校准后的绩效等级如下：</p>
+      <ul style="padding: 0; margin: 10px 0 10px 0; list-style-type: disc;">
+        <% @calibration_session.calibration_session_users.each do |csu| %>
+          <%
+          next if csu.new_calibration_session_id.present?
+          evaluation_user_capability = csu.evaluation_user_capability
+          next if evaluation_user_capability.manager_user_id != @manager.id
+          %>
+          <li style="margin:0 0 10px 30px;"><%= evaluation_user_capability.user.chinese_name %>：<%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_matric, evaluation_user_capability.total_evaluation_score) -%></li>
+        <% end %>
+      </ul>
+      <p style="margin: 0;">详细评价，请登录绩效系统查看。</p>
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 0 20px;">
+      <!-- Button : BEGIN -->
+      <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
+        <tr>
+          <td class="button-td button-td-primary" style="border-radius: 4px; background: #222222;">
+            <a class="button-a button-a-primary" href="<%= staff_root_url -%>" style="background: #222222; border: 1px solid #000000; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: #ffffff; display: block; border-radius: 4px;">登录链接</a>
+          </td>
+        </tr>
+      </table>
+      <!-- Button : END -->
+    </td>
+  </tr>
+  <tr>
+    <td style="padding: 40px 20px 20px 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+      <p style="margin: 0;">集团人力资源部</p>
+    </td>
+  </tr>
+</table>

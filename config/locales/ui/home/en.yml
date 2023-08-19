@@ -1,0 +1,6 @@
+---
+en:
+  ui:
+    home:
+      evaluation_user_capabilities_status:
+        chart_title: "Form progress"

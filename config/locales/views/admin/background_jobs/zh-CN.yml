@@ -1,0 +1,6 @@
+---
+zh-CN:
+  admin:
+    background_jobs:
+      show:
+        title: "后端队列状态"

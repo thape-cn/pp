@@ -1,0 +1,22 @@
+{
+	"folders":
+	[
+		{
+      "path": ".",
+      "folder_exclude_patterns": [".bundle",".ruby-lsp",".vscode",".idea",".capistrano","log","tmp",
+                                  "node_modules", "public/packs", "public/packs-test", "public/assets"],
+      "file_exclude_patterns": ["*.sublime-workspace",".DS_Store","config/master.key",
+                                "config/credentials.yml.enc"]
+    },
+    {
+      "path": "./node_modules/@coreui/coreui",
+      "folder_exclude_patterns": ["dist"]
+    }
+	],
+  "settings":
+  {
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "tab_size": 2
+  }
+}

@@ -1,0 +1,102 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <%= form_with model: @company_evaluation_template, url: admin_company_evaluation_template_path(id: @company_evaluation_template.id, company_evaluation_id: @company_evaluation.id) do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <%= f.label :title, t("admin.evaluation_templates.index.template_title"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :title, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <%= f.label :group_level, t("admin.evaluation_templates.index.group_level"), class: 'col-2 col-form-label' %>
+            <div class="col-4">
+              <%= f.select :group_level, CompanyEvaluationTemplate.group_level_options, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <%= f.label :brief, t("admin.evaluation_templates.edit.brief"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_area :brief, class: 'form-control', rows: 8, maxlength: 5000, placeholder: 'User Markdown for formatting' %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :pct_proportion, t("admin.evaluation_templates.index.pct_proportion"), class: 'col-6 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :pct_proportion, class: 'form-control' %>
+            </div>
+            <%= f.label :rate_proportion, t("admin.evaluation_templates.index.rate_proportion"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :rate_proportion, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :work_quality_pct, t("evaluation.work_quality_pct"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :work_quality_pct, class: 'form-control' %>
+            </div>
+            <%= f.label :work_load_pct, t("evaluation.work_load_pct"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :work_load_pct, class: 'form-control' %>
+            </div>
+            <%= f.label :work_attitude_pct, t("evaluation.work_attitude_pct"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :work_attitude_pct, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :work_quality_matric, t("admin.evaluation_templates.index.work_quality_matric"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.select :work_quality_matric, all_matrics, {}, class: 'form-control' %>
+            </div>
+            <%= f.label :work_load_matric, t("admin.evaluation_templates.index.work_load_matric"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.select :work_load_matric, all_matrics, {}, class: 'form-control' %>
+            </div>
+            <%= f.label :work_attitude_matric, t("admin.evaluation_templates.index.work_attitude_matric"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.select :work_attitude_matric, all_matrics, {}, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :management_subtotal_rate, t("admin.evaluation_templates.index.management_subtotal_rate"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :management_subtotal_rate, class: 'form-control' %>
+            </div>
+            <%= f.label :profession_subtotal_rate, t("admin.evaluation_templates.index.profession_subtotal_rate"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :profession_subtotal_rate, class: 'form-control' %>
+            </div>
+            <%= f.label :performance_subtotal_rate, t("admin.evaluation_templates.index.performance_subtotal_rate"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.number_field :performance_subtotal_rate, class: 'form-control' %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :professional_management_matric, t("admin.evaluation_templates.index.professional_management_matric"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.select :professional_management_matric, all_matrics, {}, class: 'form-control' %>
+            </div>
+            <%= f.label :performance_matric, t("admin.evaluation_templates.index.performance_matric"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.select :performance_matric, all_matrics, {}, class: 'form-control' %>
+            </div>
+            <%= f.label :total_reverse_matric, t("admin.evaluation_templates.index.total_reverse_matric"), class: 'col-2 col-form-label' %>
+            <div class="col-2">
+              <%= f.select :total_reverse_matric, reverse_total_evaluation_score_matrics, {}, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

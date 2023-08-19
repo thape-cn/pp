@@ -1,0 +1,9 @@
+---
+zh-CN:
+  admin:
+    calibration_session_users:
+      confirm_destroy:
+        title: "确认删除？"
+        confirm: "确认删除 %{name} 的 %{title} ？"
+      undo_confirm:
+        title: "确认重新校准到？"

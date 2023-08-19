@@ -1,0 +1,36 @@
+---
+en:
+  devise:
+    registrations:
+      new:
+        title: "Register"
+        register_description: "Create your account"
+        password_placeholder: "Password"
+        repeat_password_placeholder: "Repeat password"
+        create: "Create Account"
+      edit:
+        section:
+          email:
+            title: "Change email"
+            description: ""
+          password:
+            title: "Change password"
+            description: "Leave blank if you don't want to change it"
+          password_confirmation:
+            title: "Change password confirmation"
+            description: "Retype the password for make sure not typo it."
+          current_password:
+            title: "Current password"
+            description: "we need your current password to confirm your changes"
+    sessions:
+      new:
+        title: "Sign In to your account"
+    passwords:
+      new:
+        title: "Forgot ?"
+        forgot_description: "Oops! You're lost your password."
+        instructions: "Input your email to reset password."
+        placeholder_email: "joe@hotmail.com"
+        send_reset_instruction: "Send me reset password instructions"
+      edit:
+        title: "Change your password"

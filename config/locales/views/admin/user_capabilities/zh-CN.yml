@@ -1,0 +1,18 @@
+---
+zh-CN:
+  admin:
+    user_capabilities:
+      index:
+        breadcrumb_title: "%{title}"
+      new:
+        title: "上传文件以发起新员工考评表单"
+      edit:
+        title: "编辑员工考评"
+      show:
+        title: "表单状态历史"
+      sent_hr_review_completed_confirm:
+        title: "确认给所有等待确认的用户发送通知？"
+      sent_self_assessment_confirm:
+        title: "请上传启动表单后，发送邮件的Excel"
+      custom_description_dialog:
+        title: "自定义用户表单能力项描述"

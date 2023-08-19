@@ -1,0 +1,3 @@
+<% company_evaluations.each do |company_evaluation| %>
+  <%= nav_item(company_evaluation.title, admin_company_evaluation_user_calibrations_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-balance-scale') %>
+<% end %>

@@ -1,0 +1,36 @@
+---
+zh-CN:
+  devise:
+    registrations:
+      new:
+        title: "注册用户"
+        register_description: "创建您的帐户"
+        password_placeholder: "输入密码"
+        repeat_password_placeholder: "重复输入密码"
+        create: "创建账户"
+      edit:
+        section:
+          email:
+            title: "更改email"
+            description: ""
+          password:
+            title: "更改密码"
+            description: "如果您不想更改，请留空"
+          password_confirmation:
+            title: "更改密码的确认"
+            description: "重新输入密码以确保没有输入错误。"
+          current_password:
+            title: "当前密码"
+            description: "我们需要您当前的密码来确认您的更改"
+    sessions:
+      new:
+        title: "登录到您的帐户"
+    passwords:
+      new:
+        title: "忘记密码 ?"
+        forgot_description: "哎呀！您丢失了密码。"
+        instruction: "输入您的电子邮件以重置密码"
+        placeholder_email: "xiaoming@163.com"
+        send_reset_instruction: "向我发送重置密码说明"
+      edit:
+        title: "更改您的密码"

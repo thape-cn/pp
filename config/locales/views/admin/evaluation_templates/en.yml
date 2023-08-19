@@ -1,0 +1,28 @@
+---
+en:
+  admin:
+    evaluation_templates:
+      index:
+        title: "Evaluation templates"
+        template_title: "Evaluation templates title"
+        group_level: "Group level"
+        breadcrumb_title: "%{title}'s evaluation templates"
+        title_and_total_proportion: "Template title & total proportion"
+        pct_proportion: "The proportion of work quality, workload and work attitude in the total score"
+        rate_proportion: "Proportion of performance and other abilities to the total score"
+        work_pct: "Work percentage"
+        work_quality_matric: "Work quality matric"
+        work_load_matric: "Work load matric"
+        work_attitude_matric: "Work attitude matric"
+        performance_rate: "Performance rate"
+        management_subtotal_rate: "Mangement subtotal rate"
+        profession_subtotal_rate: "Profession subtotal rate"
+        performance_subtotal_rate: "Performance subtotal rate"
+        professional_management_matric: "Professional management matric"
+        performance_matric: "Performance matric"
+        total_reverse_matric: "Total reverse matric"
+      new:
+        title: "New evaluation template"
+      edit:
+        title: "Edit evaluation template"
+        brief: "Brief"

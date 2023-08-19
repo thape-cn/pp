@@ -1,0 +1,61 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with model: @company_evaluation_template, url: admin_company_evaluation_templates_path(company_evaluation_id: @company_evaluation.id) do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.index.template_title"), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.text_field :title, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :work_quality_pct, t("evaluation.work_quality_pct"), class: 'col-6 col-form-label' %>
+            <div class="col-6">
+              <%= f.number_field :work_quality_pct, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :work_load_pct, t("evaluation.work_load_pct"), class: 'col-6 col-form-label' %>
+            <div class="col-6">
+              <%= f.number_field :work_load_pct, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :work_attitude_pct, t("evaluation.work_attitude_pct"), class: 'col-6 col-form-label' %>
+            <div class="col-6">
+              <%= f.number_field :work_attitude_pct, class: 'form-control' -%>
+            </div>
+          </div>
+
+          <div class="row mb-1">
+            <%= f.label :performance_subtotal_rate, t("admin.evaluation_templates.index.performance_subtotal_rate"), class: 'col-6 col-form-label' %>
+            <div class="col-6">
+              <%= f.number_field :performance_subtotal_rate, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :management_subtotal_rate, t("admin.evaluation_templates.index.management_subtotal_rate"), class: 'col-6 col-form-label' %>
+            <div class="col-6">
+              <%= f.number_field :management_subtotal_rate, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :profession_subtotal_rate, t("admin.evaluation_templates.index.profession_subtotal_rate"), class: 'col-6 col-form-label' %>
+            <div class="col-6">
+              <%= f.number_field :profession_subtotal_rate, class: 'form-control' -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.create'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

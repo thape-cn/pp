@@ -1,0 +1,12 @@
+---
+zh-CN:
+  staff:
+    calibration_sessions:
+      index:
+        title: "校验会话"
+      show:
+        title: "校准绩效"
+        finalized: "该绩效校准已经定案。"
+        can_not_start: "该绩效校准会话未激活。"
+      fixed:
+        title: "校验会话明细"

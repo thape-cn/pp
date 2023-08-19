@@ -1,0 +1,122 @@
+<div class="container-fluid">
+  <% company_evaluation_template = evaluation_user_capability.company_evaluation_template %>
+  <% if [evaluation_user_capability.work_quality.present?, evaluation_user_capability.work_load.present?, evaluation_user_capability.work_attitude.present?,
+    evaluation_user_capability.calibration_work_quality.present?, evaluation_user_capability.calibration_work_load.present?, evaluation_user_capability.calibration_work_attitude.present?].any? %>
+    <table class="table">
+      <thead>
+      <tr>
+        <th class="w-75"><%= t("evaluation.fixed_output") -%></th>
+        <th><%= t("evaluation.capability_result") -%></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><%= t('calibration.pre_work_quality') -%></td>
+        <td><%= public_send(company_evaluation_template.work_quality_matric).invert[to_matrics_value(evaluation_user_capability.work_quality)] || evaluation_user_capability.work_quality -%></td>
+      </tr>
+      <tr>
+        <td><%= t('calibration.pre_work_load') -%></td>
+        <td><%= public_send(company_evaluation_template.work_load_matric).invert[to_matrics_value(evaluation_user_capability.work_load)] || evaluation_user_capability.work_load -%></td>
+      </tr>
+      <tr>
+        <td><%= t('calibration.pre_work_attitude') -%></td>
+        <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[to_matrics_value(evaluation_user_capability.work_attitude)] || evaluation_user_capability.work_attitude -%></td>
+      </tr>
+      <tr>
+        <td><%= t('evaluation.work_quality_pct') -%></td>
+        <td><%= public_send(company_evaluation_template.work_quality_matric).invert[evaluation_user_capability.calibration_work_quality] || evaluation_user_capability.calibration_work_quality -%></td>
+      </tr>
+      <tr>
+        <td><%= t('evaluation.work_load_pct') -%></td>
+        <td><%= public_send(company_evaluation_template.work_load_matric).invert[evaluation_user_capability.calibration_work_load] || evaluation_user_capability.calibration_work_load -%></td>
+      </tr>
+      <tr>
+        <td><%= t('evaluation.work_attitude_pct') -%></td>
+        <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[evaluation_user_capability.calibration_work_attitude] || evaluation_user_capability.calibration_work_attitude -%></td>
+      </tr>
+      </tbody>
+    </table>
+  <% end %>
+  <% if job_role_performances.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="w-75"><%= t("evaluation.performance") -%></th>
+          <th><%= t("evaluation.performance_result") -%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% job_role_performances.each do |jrep| %>
+          <tr>
+            <td><%= jrep.obj_name -%></td>
+            <td><%= public_send(company_evaluation_template.performance_matric).invert[jrep.obj_result] || jrep.obj_result -%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <% if professional_capabilities.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="w-75"><%= t("evaluation.professional_capability") -%></th>
+          <th><%= t("evaluation.capability_result") -%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% professional_capabilities.each do |cap| %>
+          <tr>
+            <td><%= cap.name -%></td>
+            <td><%= public_send(company_evaluation_template.professional_management_matric).invert[to_matrics_value(evaluation_user_capability.attributes[cap.en_name])] || evaluation_user_capability.attributes[cap.en_name] -%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <% if management_capabilities.present? %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="w-75"><%= t("evaluation.management_capability") -%></th>
+          <th><%= t("evaluation.capability_result") -%></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% management_capabilities.each do |cap| %>
+          <tr>
+            <td><%= cap.name -%></td>
+            <td><%= public_send(company_evaluation_template.professional_management_matric).invert[to_matrics_value(evaluation_user_capability.attributes[cap.en_name])] || evaluation_user_capability.attributes[cap.en_name] -%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="row">
+    <div class="col-12">
+      <label for="self_overall_output" class="form-label" style="margin-left: 0.75rem;"><%= t('evaluation.self_overall_output') -%></label>
+      <div class="form-control min-vh-8">
+        <%= markdown(evaluation_user_capability.self_overall_output) -%>
+      </div>
+      <label for="self_overall_improvement" class="form-label" style="margin-left: 0.75rem;"><%= t('evaluation.self_overall_improvement') -%></label>
+      <div class="form-control min-vh-8">
+        <%= markdown(evaluation_user_capability.self_overall_improvement) -%>
+      </div>
+      <label for="self_overall_plan" class="form-label" style="margin-left: 0.75rem;"><%= t('evaluation.self_overall_plan') -%></label>
+      <div class="form-control min-vh-8">
+        <%= markdown(evaluation_user_capability.self_overall_plan) -%>
+      </div>
+      <label for="manager_overall_output" class="form-label" style="margin-left: 0.75rem;"><%= t('evaluation.manager_overall_output') -%></label>
+      <div class="form-control min-vh-8">
+        <%= markdown(evaluation_user_capability.manager_overall_output) -%>
+      </div>
+      <label for="manager_overall_improvement" class="form-label" style="margin-left: 0.75rem;"><%= t('evaluation.manager_overall_improvement') -%></label>
+      <div class="form-control min-vh-8">
+        <%= markdown(evaluation_user_capability.manager_overall_improvement) -%>
+      </div>
+      <label for="manager_overall_plan" class="form-label" style="margin-left: 0.75rem;"><%= t('evaluation.manager_overall_plan') -%></label>
+      <div class="form-control min-vh-8">
+        <%= markdown(evaluation_user_capability.manager_overall_plan) -%>
+      </div>
+    </div>
+  </div>
+</div>

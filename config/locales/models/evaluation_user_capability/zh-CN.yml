@@ -1,0 +1,20 @@
+---
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        evaluation_user_capability:
+          attributes:
+            self_overall_output:
+              too_short: "字数不足，需%{count}个字以上"
+            self_overall_improvement:
+              too_short: "字数不足，需%{count}个字以上"
+            self_overall_plan:
+              too_short: "字数不足，需%{count}个字以上"
+    models:
+      evaluation_user_capability: "用户考评能力"
+    attributes:
+      evaluation_user_capability:
+        self_overall_output: "员工自评: 本阶段工作产出"
+        self_overall_improvement: "员工自评: 本阶段待改善点"
+        self_overall_plan: "员工自评: 下阶段工作展望"

@@ -1,0 +1,8 @@
+---
+zh-CN:
+  staff:
+    signing:
+      show:
+        title: "签字确认考评结果"
+      update:
+        update_success: "考评结果签字确认成功。"

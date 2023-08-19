@@ -1,0 +1,20 @@
+<% content_for :head do %>
+  <%= append_stylesheet_pack_tag 'chartjs' %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'doughnut' %>
+<% end %>
+
+<% content_for :eucs_status_button do %>
+  <%= link_to t('form.export'), admin_root_path(format: :xlsx), class: "btn btn-secondary" %>
+<% end %>
+
+<% @company_evaluations.each do |company_evaluation| %>
+  <%= render partial: 'ui/home/evaluation_user_capabilities_status', locals: {
+    title_my_class: 'my-1',
+    page_raw_path: admin_root_path,
+    display_label: @display_label,
+    display_form_status: @display_form_status,
+    company_evaluation_title: company_evaluation.title,
+    evaluation_user_capabilities: @evaluation_user_capabilities.where(company_evaluation_template: {company_evaluation_id: company_evaluation.id})
+  } %>
+<% end %>

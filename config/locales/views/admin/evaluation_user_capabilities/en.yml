@@ -1,0 +1,11 @@
+---
+en:
+  admin:
+    evaluation_user_capabilities:
+      confirm_destroy:
+        title: "Confirm destroy?"
+        confirm: "Confirm delete %{name}'s %{title} ?"
+      overall_text:
+        title: "Evaluation details"
+      expender:
+        archived_user_capabilities_title: "Trash of %{title}"

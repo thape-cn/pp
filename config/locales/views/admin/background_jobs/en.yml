@@ -1,0 +1,6 @@
+---
+en:
+  admin:
+    background_jobs:
+      show:
+        title: "Background jobs status"

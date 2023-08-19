@@ -1,0 +1,42 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <%= form_with model: @capability, url: admin_capability_path(id: @capability.id), method: :put do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title", category_name: @capability.category_name) -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-1">
+            <%= f.label :en_name, t("capability.en_name"), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_field :en_name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :name, t("capability.name"), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :name, t("capability.description"), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_area :description, class: "form-control", rows: 5 %>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :category_name, t("capability.category_name"), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.select :category_name, Capability.category_options, {}, class: 'form-control' -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

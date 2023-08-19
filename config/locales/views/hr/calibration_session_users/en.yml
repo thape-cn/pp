@@ -1,0 +1,10 @@
+---
+en:
+  hr:
+    calibration_session_users:
+      index:
+        title: "HR calibration session users"
+        company_evaluation_title: "Company evaluation title"
+      undo_confirm:
+        title: "Confirm recalibration this person?"
+        calibration_session_status_not_in_proofreading: "The employee is no longer in calibration and cannot be recalibrated."

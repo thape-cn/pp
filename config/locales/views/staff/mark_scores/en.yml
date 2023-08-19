@@ -1,0 +1,8 @@
+---
+en:
+  staff:
+    mark_scores:
+      show:
+        title: "Mark scores form"
+        staff_table_black: "You have no staff-level people to rate."
+        save_and_confirm_tips: "Please save before submitting."

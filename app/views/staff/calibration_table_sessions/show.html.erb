@@ -1,0 +1,27 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'calibration-table' %>
+<% end %>
+
+<%= content_tag :h3, class: 'mt-1', id: 'i18n-root',
+  data: {"calibration-table": @calibration_labels,
+    "calibration-session-id": @calibration_session.id,
+    "group-level": @group_level,
+    "cil-print": asset_path('free.svg#cil-print'),
+    "comment-square": asset_path('free.svg#cil-comment-square'),
+    "arrow-from-top": asset_path('free.svg#cil-arrow-thick-from-top'),
+    "arrow-from-bottom": asset_path('free.svg#cil-arrow-thick-from-bottom')} do %>
+  <%= t("calibration.session_name_title", session_name: @calibration_session.session_name) %>
+<% end %>
+
+<div class="row justify-content-center">
+  <nav class="d-flex justify-content-center">
+    <div class="nav nav-tabs" role="tablist" id="switch-nav">
+    </div>
+  </nav>
+  <div class="tab-content mt-1" id="nav-tabContent">
+    <div class="tab-pane fade show active" role="tabpanel">
+      <%= content_tag :div, nil, id: "calibration-table", data: {header: @table_headers} %>
+    </div>
+  </div>
+</div>

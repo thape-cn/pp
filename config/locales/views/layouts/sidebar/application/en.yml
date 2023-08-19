@@ -1,0 +1,8 @@
+---
+en:
+  layouts:
+    sidebars:
+      application:
+        header: "Home"
+        dashboard: "Dashboard"
+        account: "Account"

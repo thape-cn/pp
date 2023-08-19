@@ -1,0 +1,6 @@
+---
+en:
+  admin:
+    user_descriptions:
+      index:
+        title: "User-based custom capability descriptions"

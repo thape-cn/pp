@@ -1,0 +1,54 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <%= form_with model: @job_role_evaluation_performance, url: admin_company_evaluation_performance_path(id: @job_role_evaluation_performance.id), method: :put do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title", obj_name: @job_role_evaluation_performance.obj_name) -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <%= f.label :obj_name, t("evaluation.obj_name"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :obj_name, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :obj_metric, t("evaluation.obj_metric"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_area :obj_metric, class: "form-control", rows: 5 %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :obj_weight_pct, t("evaluation.obj_weight_pct"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.number_field :obj_weight_pct, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :obj_result, t("evaluation.obj_result"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.number_field :obj_result, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8">
+              <div class="form-group mt-2">
+                <div class="form-check form-switch form-switch-xl">
+                  <%= f.check_box :obj_result_fixed, class: "form-check-input" %>
+                  <%= f.label :obj_result_fixed, t("evaluation.obj_result_fixed"), class: "form-check-label" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

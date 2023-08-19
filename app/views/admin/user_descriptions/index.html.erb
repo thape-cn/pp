@@ -1,0 +1,30 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="row justify-content-center mt-3">
+  <div class="col-lg-12">
+    <div class="container">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t('user.chinese_name') -%></th>
+            <th><%= t("admin.evaluation_templates.index.template_title") -%></th>
+            <th><%= t('evaluation.capabilities') -%></th>
+            <th><%= t('capability.description') -%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @evaluation_user_capability_descriptions.each do |eucd| %>
+            <tr>
+              <td><%= eucd.user.chinese_name -%></td>
+              <td><%= eucd.company_evaluation_template.title -%></td>
+              <td><%= eucd.capability.name -%></td>
+              <td><%= eucd.description -%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

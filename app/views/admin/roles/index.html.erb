@@ -1,0 +1,45 @@
+<% content_for :head do %>
+  <%= append_stylesheet_pack_tag 'selectize' %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'selectize_user_ids' %>
+<% end %>
+
+<%- content_for :action_bar do %>
+  <ol>
+    <li class="action_bar-item">
+      <%= link_to new_admin_role_path, class: "btn btn-outline-primary", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+        <%= t("form.new") -%> <%= svg_icon('free.svg#cil-plus', %w[icon]) -%>
+      <% end %>
+    </li>
+  </ol>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t('.role_name') -%></th>
+            <th><%= t('.status') -%></th>
+            <th><%= t('form.action') -%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @roles.each do |role| %>
+            <tr>
+              <td><%= role.role_name -%></td>
+              <td></td>
+              <td>
+                <%= link_to edit_admin_role_path(id: role.id), class: 'px-2', data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do %>
+                  <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+  </div>
+</div>

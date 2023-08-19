@@ -1,0 +1,8 @@
+---
+zh-CN:
+  hr:
+    user_capabilities:
+      index:
+        breadcrumb_title: "%{title}"
+      edit:
+        title: "编辑员工考评"

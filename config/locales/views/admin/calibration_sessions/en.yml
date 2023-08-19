@@ -1,0 +1,20 @@
+---
+en:
+  admin:
+    calibration_sessions:
+      index:
+        title: "Calibration session list"
+      new:
+        title: "Upload files to initiate new calibration"
+      edit:
+        title: "Edit calibration session"
+      show:
+        title: "Calibration session detail"
+      undo_confirm:
+        title: "Confirm entire group recalibration?"
+      approve_confirm:
+        title: "Pass this calibration result?"
+      reconcile_session_status:
+        notice: "Calibration status reconciliation check started, please wait."
+      destroy_confirm:
+        title: "Sure to delete this calibration session?"

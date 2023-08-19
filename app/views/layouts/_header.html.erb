@@ -1,0 +1,29 @@
+<header class="header header-sticky">
+  <div class="container-fluid">
+    <button class="header-toggler px-md-0 me-md-3 d-md-none" type="button" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
+      <%= svg_icon('free.svg#cil-menu', %w[icon icon-lg]) %>
+    </button>
+    <a class="header-brand d-md-none">
+      <image width="118" height="46" alt="TH Logo" src="<%= asset_path('th-logo.png') -%>" />
+    </a>
+    <div id="flash-root" class="d-flex ms-auto">
+      <% flash.each do |k, v| %>
+        <div class="mb-0 alert alert-<%= k == "alert" ? "danger" : (k == "notice" ? "primary" : k) -%> alert-dismissible fade show" role="alert">
+          <%= sanitize v.html_safe -%>
+          <button aria-label="Close" class="btn-close" data-coreui-dismiss="alert" type="button"></button>
+        </div>
+      <% end %>
+    </div>
+    <ul class="header-nav ms-auto">
+      <li class="nav-item dropdown d-flex align-items-center" data-controller="expender" data-expender-loaded-value="<%= false %>" data-expender-url-value="<%= ui_avatar_area_path %>">
+        <a class="nav-link py-0" data-action="expender#click" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <div class="avatar avatar-md">
+            <img alt="user@email.com" class="avatar-img" src="<%= asset_path('default_avatar.jpg') %>"/>
+            <span class="avatar-status bg-secondary"></span>
+          </div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end pt-0" data-expender-target="htc"></div>
+      </li>
+    </ul>
+  </div>
+</header>

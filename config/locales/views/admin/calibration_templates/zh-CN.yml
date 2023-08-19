@@ -1,0 +1,10 @@
+---
+zh-CN:
+  admin:
+    calibration_templates:
+      new:
+        title: "新建校准模版"
+      edit:
+        title: "编辑校准模版"
+      confirm_destroy:
+        title: "确认删除校准模版？"

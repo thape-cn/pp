@@ -1,0 +1,10 @@
+---
+en:
+  admin:
+    calibration_templates:
+      new:
+        title: "New calibration templates"
+      edit:
+        title: "Edit calibration templates"
+      confirm_destroy:
+        title: "Confirm to delete calibration template?"

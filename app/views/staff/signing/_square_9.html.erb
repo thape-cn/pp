@@ -1,0 +1,63 @@
+<div class="col-8 px-3">
+  <table class="table table-borderless">
+    <tbody>
+      <tr style="height: 66px;">
+        <td rowspan="4" class="text-end"><%= group_level == "staff" ? t("evaluation.work_load_pct") : t("evaluation.performance") %></td>
+        <td class="border border-primary">B
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 1 && vertical_position == 1  -%>
+          </div>
+        </td>
+        <td class="border border-primary">A
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 2 && vertical_position == 1  -%>
+          </div>
+        </td>
+        <td class="border border-primary">A+
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 3 && vertical_position == 1  -%>
+          </div>
+        </td>
+      </tr>
+      <tr style="height: 66px;">
+        <td class="border border-primary">C
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 1 && vertical_position == 2 -%>
+          </div>
+        </td>
+        <td class="border border-primary">B
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 2 && vertical_position == 2 -%>
+          </div>
+        </td>
+        <td class="border border-primary">A
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 3 && vertical_position == 2 -%>
+          </div>
+        </td>
+      </tr>
+      <tr style="height: 66px;">
+        <td class="border border-primary">D
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 1 && vertical_position == 3 -%>
+          </div>
+        </td>
+        <td class="border border-primary">C
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 2 && vertical_position == 3  -%>
+          </div>
+        </td>
+        <td class="border border-primary">B
+          <div class="p-0 text-center">
+            <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 3 && vertical_position == 3  -%>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-end">
+          <%= group_level == "staff" ? t("evaluation.work_quality_pct") : t("evaluation.professional_management_capability") %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

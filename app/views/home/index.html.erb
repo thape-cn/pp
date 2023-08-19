@@ -1,0 +1,39 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="row">
+  <div class="col-lg-9">
+    <div class="card mb-4">
+      <div class="card-body p-4">
+        <div class="row">
+          <div class="col">
+            <div class="card-title fs-4 fw-semibold"><%= t('user.account') -%></div>
+            <div class="card-subtitle text-disabled mb-4"><%= User.count -%> <%= t('.registered_users') -%></div>
+          </div>
+          <div class="col-auto ms-auto">
+            <%= form_tag '/auth/openid_connect', method: 'post', remote: false do %>
+              <button type='submit' class="btn btn-primary">
+                <%= svg_icon('free.svg#cil-user-plus', %w[icon me-2]) %>
+                <%= t('user.click_to_sign_in') -%>
+              </button>
+            <% end %>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table mb-0">
+            <thead class="fw-semibold text-disabled">
+              <tr class="align-middle">
+                <th><%= t('.user') -%></th>
+                <th class="text-center"><%= t('.company_evaluation') -%></th>
+                <th><%= t('evaluation.evaluation_status') %></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

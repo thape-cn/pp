@@ -1,0 +1,110 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<%- content_for :action_bar do %>
+  <ol>
+    <li class="action_bar-item">
+      <%= link_to new_admin_company_evaluation_template_path, class: "btn btn-outline-primary", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do %>
+        <%= t("form.new") -%> <%= svg_icon('free.svg#cil-plus', %w[icon]) -%>
+      <% end %>
+    </li>
+  </ol>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t('.title_and_total_proportion') -%></th>
+            <th><%= t('.work_pct') -%></th>
+            <th><%= t('.performance_rate') -%></th>
+            <th><%= t('.professional_management_matric') -%></th>
+            <th><%= t('.performance_matric') -%></th>
+            <th><%= t('.total_reverse_matric') -%></th>
+            <th><%= t('form.action') -%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @company_evaluation_templates.each do |template| %>
+            <tr>
+              <td>
+                <%= template.title -%>
+                <br />
+                <%= t('.pct_proportion') -%>: <%= template.pct_proportion -%>%
+                <br />
+                <%= t('.rate_proportion') -%>: <%= template.rate_proportion -%>%
+              </td>
+              <td>
+                <%= t('evaluation.work_quality_pct') -%>: <%= template.work_quality_pct -%>%
+                <br />
+                <%= t('evaluation.work_load_pct') -%>: <%= template.work_load_pct -%>%
+                <br />
+                <%= t('evaluation.work_attitude_pct') -%>: <%= template.work_attitude_pct -%>%
+              </td>
+              <td>
+                <%= t('.management_subtotal_rate') -%>: <%= template.management_subtotal_rate -%>%
+                <br />
+                <%= t('.profession_subtotal_rate') -%>: <%= template.profession_subtotal_rate -%>%
+                <br />
+                <%= t('.performance_subtotal_rate') -%>: <%= template.performance_subtotal_rate -%>%
+              </td>
+              <td><%= all_matrics.invert[template.professional_management_matric] -%></td>
+              <td><%= all_matrics.invert[template.performance_matric] -%></td>
+              <td><%= reverse_total_evaluation_score_matrics.invert[template.total_reverse_matric] -%></td>
+              <td>
+                <%= link_to edit_admin_company_evaluation_template_path(id: template.id, company_evaluation_id: @company_evaluation.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                  <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
+                <% end %>
+                <%= link_to new_admin_company_evaluation_template_calibration_template_path(template_id: template.id, company_evaluation_id: @company_evaluation.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                  <%= svg_icon('free.svg#cil-plus', %w[icon icon-lg]) -%>
+                <% end %>
+              </td>
+            </tr>
+            <% template.calibration_templates.each do |ct| %>
+              <% if template.group_level == 'staff' %>
+                <tr>
+                  <td colspan="2" class="text-end"><%= ct.template_name -%></td>
+                  <td><%= t('calibration.apa_grade') -%>: <%= ct.apa_grade_rate -%>%</td>
+                  <td><%= t('calibration.b_grade') -%>: <%= ct.b_grade_rate -%>%</td>
+                  <td><%= t('calibration.cd_grade') -%>: <%= ct.cd_grade_rate -%>%</td>
+                  <td><%= t('calibration.enforce') -%>: <%= svg_icon('free.svg#cil-sad', %w[icon]) if ct.enforce_distribute-%></td>
+                  <td>
+                    <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                      <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
+                    <% end %>
+                    <% if ct.calibration_sessions.blank? %>
+                      <%= link_to confirm_destroy_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                        <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg]) -%>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% else %>
+                <tr>
+                  <td colspan="2" class="text-end"><%= ct.template_name -%></td>
+                  <td><%= t('calibration.below_standard_rate') -%>: <%= ct.below_standard_rate -%>%</td>
+                  <td><%= t('calibration.standards_compliant_rate') -%>: <%= ct.standards_compliant_rate -%>%</td>
+                  <td><%= t('calibration.beyond_standard_rate') -%>: <%= ct.beyond_standard_rate -%>%</td>
+                  <td><%= t('calibration.enforce') -%>: <%= svg_icon('free.svg#cil-sad', %w[icon]) if ct.enforce_distribute-%></td>
+                  <td>
+                    <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                      <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
+                    <% end %>
+                    <% if ct.calibration_sessions.blank? %>
+                      <%= link_to confirm_destroy_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                        <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg]) -%>
+                      <% end %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

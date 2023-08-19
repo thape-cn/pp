@@ -1,0 +1,29 @@
+---
+euc_one:
+  company_evaluation_template: ect_one
+  user: user_guochunzhong
+  job_role: job_one
+  company: "My company"
+  department: "My department"
+  dept_code: "My dept code"
+  title: "My title"
+  work_quality: 1
+  work_load: 1
+  work_attitude: 1
+  form_status: "self_assessment_done"
+  self_overall_output: "12345678901234567890"
+  self_overall_improvement: "12345678901234567890"
+  self_overall_plan: "12345678901234567890"
+
+euc_two:
+  company_evaluation_template: ect_one
+  user: user_guochunzhong
+  job_role: job_one
+  company: "My company two"
+  department: "My department two"
+  dept_code: "My dept code two"
+  title: "My title two"
+  work_quality: 2
+  work_load: 2
+  work_attitude: 2
+  form_status: "initial"

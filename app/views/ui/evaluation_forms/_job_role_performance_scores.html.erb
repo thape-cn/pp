@@ -1,0 +1,7 @@
+<p class="fs-6 fw-semibold mb-0">
+  <%= t("evaluation.manager_given_score") -%>
+  <span class="fw-bold float-end">
+    <% score = jrep.obj_result -%>
+    <%= public_send(evaluation_user_capability.company_evaluation_template.performance_matric).invert[score] || t("evaluation.not_rated") -%>
+  </span>
+</p>

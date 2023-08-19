@@ -1,0 +1,24 @@
+<% user.user_job_roles.where(is_active: true).each do |ujr| %>
+  <span class="badge bg-primary">
+    <%= ujr.job_role.st_code -%>
+  </span>
+  <span class="badge bg-warning">
+    <%= ujr.company -%>
+  </span>
+  <span class="badge bg-info">
+    <%= ujr.department -%>
+  </span>
+  <span class="badge bg-success">
+    <%= ujr.title -%>
+  </span>
+  <span class="badge bg-danger">
+    <%= ujr.job_role.job_level -%>
+  </span>
+  <span class="badge bg-danger">
+    <%= ujr.job_role.job_code -%>
+  </span>
+  <span class="badge bg-primary">
+    <%= ujr.manager_user&.chinese_name -%>
+  </span>
+  <br />
+<% end %>

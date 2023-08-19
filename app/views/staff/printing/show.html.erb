@@ -1,0 +1,25 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="fs-3 fw-semibold"><%= title -%></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    window.print();
+  });
+</script>
+
+<div class="row justify-content-center">
+  <div class="col-12">
+    <%= render partial: 'print_form', locals: {
+      group_level: @evaluation_user_capability.company_evaluation_template.group_level,
+      evaluation_user_capability: @evaluation_user_capability,
+      job_role_performances: @job_role_performances,
+      performance_capabilities: @performance_capabilities,
+      management_capabilities: @management_capabilities,
+      professional_capabilities: @professional_capabilities,
+      horizontal_position: @horizontal_position,
+      vertical_position: @vertical_position} -%>
+  </div>
+</div>

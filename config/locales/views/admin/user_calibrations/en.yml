@@ -1,0 +1,6 @@
+---
+en:
+  admin:
+    user_calibrations:
+      index:
+        breadcrumb_title: "User calibration: %{title}"

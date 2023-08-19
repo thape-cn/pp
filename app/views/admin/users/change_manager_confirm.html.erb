@@ -1,0 +1,24 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with url: change_manager_admin_users_path, multipart: true, method: :put do %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <%= label_tag :file, t("form.upload_file"), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= file_field_tag :file, class: 'form-control' -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag t('form.upload_and_update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

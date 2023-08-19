@@ -1,0 +1,8 @@
+---
+zh-CN:
+  capability:
+    en_name: "英语名字"
+    name: "能力名称"
+    description: "描述"
+    category_name: "分类"
+    evaluation_roles: "考评角色"

@@ -1,0 +1,9 @@
+<% if user.admin? %>
+  <span class="badge bg-danger"><%= I18n.t("user.admin") -%></span>
+<% end %>
+<% if user.hr_staff? %>
+  <span class="badge bg-warning"><%= I18n.t("user.hr_staff") -%></span>
+<% end %>
+<% if user.hr_bp? %>
+  <span class="badge bg-info"><%= I18n.t("user.hr_bp") -%></span>
+<% end %>

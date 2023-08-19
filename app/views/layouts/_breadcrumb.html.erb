@@ -1,0 +1,30 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mb-4">
+    <% breadcrumbs[0..-2].each do |item| %>
+      <li class="breadcrumb-item">
+        <% if item[:link].nil? %>
+          <span>
+            <%= item[:text] -%>
+          </span>
+        <% else %>
+          <a href="<%= item[:link] -%>">
+            <%= item[:text] -%>
+          </a>
+        <% end %>
+      </li>
+    <% end %>
+    <% if (last_item = breadcrumbs.last) %>
+      <li class="breadcrumb-item active">
+        <% if last_item[:link].nil? %>
+          <span>
+            <%= last_item[:text] %>
+          </span>
+        <% else %>
+          <a href="<%= last_item[:link] -%>">
+            <%= last_item[:text] -%>
+          </a>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+</nav>

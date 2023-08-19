@@ -1,0 +1,23 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'calibration-panel' %>
+<% end %>
+
+<%= content_tag :h3, class: 'mt-1', id: 'i18n-root',
+  data: {calibration: @calibration_labels,
+    "calibration-session-id": @calibration_session.id,
+    "group-level": @group_level} do %>
+  <%= t("calibration.session_name_title", session_name: @calibration_session.session_name) %>
+<% end %>
+
+<div class="row justify-content-center">
+  <nav class="d-flex justify-content-center">
+    <div class="nav nav-tabs" role="tablist" id="switch-nav">
+    </div>
+  </nav>
+  <div class="tab-content mt-1" id="nav-tabContent">
+    <div class="tab-pane fade show active" role="tabpanel">
+      <%= content_tag :div, nil, class: "container", id: "calibration-panel", data: {} %>
+    </div>
+  </div>
+</div>

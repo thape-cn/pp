@@ -1,0 +1,12 @@
+---
+zh-CN:
+  layouts:
+    sidebars:
+      staff:
+        header: "员工首页"
+        dashboard: "主页"
+        evaluation: "评估"
+        user_capabilities: "员工的考评"
+        evaluation_progress: "表单进度"
+        calibration: "校准"
+        calibration_session: "我参与的校准"

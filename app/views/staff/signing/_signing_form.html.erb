@@ -1,0 +1,189 @@
+<%= form_with model: evaluation_user_capability, url: staff_signing_path(id: evaluation_user_capability.id) do |f| %>
+  <div class="scrollspy-evaluation" data-coreui-spy="scroll" data-coreui-target="#list-evaluation" data-coreui-smooth-scroll="true" tabindex="0">
+    <div id="list-brief">
+      <h4 class="p-2 bg-primary text-emphasis-primary rounded-top"><%= t("evaluation.brief") -%></h4>
+      <div class="px-2">
+        <%= markdown(evaluation_user_capability.company_evaluation_template.brief) %>
+      </div>
+    </div>
+    <div id="list-employee-info">
+      <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.employee_info") -%></h4>
+      <div class="px-2">
+        <table class="table table-bordered border-primary">
+          <tbody>
+          <tr>
+            <td><%= t("user.chinese_name") -%></td>
+            <td><%= evaluation_user_capability.user.chinese_name -%></td>
+            <td><%= t("user.company") -%></td>
+            <td><%= evaluation_user_capability.company -%></td>
+          </tr>
+          <tr>
+            <td><%= t("user.department") -%></td>
+            <td><%= evaluation_user_capability.department -%></td>
+            <td><%= t("user.hire_date") -%></td>
+            <td><%= evaluation_user_capability.user.hire_date -%></td>
+          </tr>
+          <tr>
+            <td><%= t("user.manager_user") -%></td>
+            <td><%= evaluation_user_capability.manager_user&.chinese_name -%></td>
+            <td><%= t("user.title") -%></td>
+            <td><%= evaluation_user_capability.title -%></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% if job_role_performances.present? || performance_capabilities.present? %>
+      <div id="list-performance">
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.performance") -%></h4>
+        <div class="px-2">
+          <hr />
+          <% performance_capabilities.each do |capability| %>
+            <h5><%= capability.name -%></h5>
+            <% eucd = EvaluationUserCapabilityDescription.find_by(
+              company_evaluation_template_id: evaluation_user_capability.company_evaluation_template_id,
+              user_id: evaluation_user_capability.user_id,
+              capability_id: capability.id) %>
+            <% if eucd.present? %>
+              <%= markdown(eucd.description) -%>
+            <% else %>
+              <%= markdown(capability.description) -%>
+            <% end %>
+            <%= render partial: 'ui/evaluation_forms/fix_capability_scores', locals: {evaluation_user_capability: evaluation_user_capability, capability: capability} %>
+            <hr />
+          <% end %>
+          <% job_role_performances.each do |jrep| %>
+            <h5><%= jrep.obj_name -%></h5>
+            <%= markdown(jrep.obj_metric) -%>
+            <%= render partial: 'ui/evaluation_forms/job_role_performance_scores', locals: {evaluation_user_capability: evaluation_user_capability, jrep: jrep} %>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if professional_capabilities.present? %>
+      <div id="list-professional">
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.professional_capability") -%></h4>
+        <div class="px-2">
+          <hr />
+          <% professional_capabilities.each do |capability| %>
+            <h5><%= capability.name -%></h5>
+            <%= markdown(capability.description) -%>
+            <%= render partial: 'ui/evaluation_forms/professional_capability_scores', locals: {evaluation_user_capability: evaluation_user_capability, capability: capability} %>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if management_capabilities.present? %>
+      <div id="list-management">
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.management_capability") -%></h4>
+        <div class="px-2">
+          <hr />
+          <% management_capabilities.each do |capability| %>
+            <h5><%= capability.name -%></h5>
+            <%= markdown(capability.description) -%>
+            <%= render partial: 'ui/evaluation_forms/management_capability_scores', locals: {evaluation_user_capability: evaluation_user_capability, capability: capability} %>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div id="list-overall">
+      <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.overall") -%></h4>
+
+      <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.summary") -%></h5>
+      <div class="px-2">
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.self_overall_output') -%></h6>
+          <%= markdown(evaluation_user_capability.self_overall_output) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.self_overall_improvement') -%></h6>
+          <%= markdown(evaluation_user_capability.self_overall_improvement) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.self_overall_plan') -%></h6>
+          <%= markdown(evaluation_user_capability.self_overall_plan) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.manager_overall_output') -%></h6>
+          <%= markdown(evaluation_user_capability.manager_overall_output) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.manager_overall_improvement') -%></h6>
+          <%= markdown(evaluation_user_capability.manager_overall_improvement) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.manager_overall_plan') -%></h6>
+          <%= markdown(evaluation_user_capability.manager_overall_plan) %>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-4">
+          <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.grade") -%></h5>
+          <p class="p-2 fs-3"><%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_matric, evaluation_user_capability.total_evaluation_score) -%></p>
+        </div>
+        <%= render partial: 'square_9',
+          locals: {group_level: group_level,
+            horizontal_position: horizontal_position, vertical_position: vertical_position} %>
+      </div>
+    </div>
+    <% if evaluation_user_capability.form_status == "hr_review_completed" && evaluation_user_capability.user_id == current_user.id %>
+      <div id="list-sign">
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.sign") -%></h4>
+        <div class="px-2">
+          <p class="py-4"><%= t("evaluation.confirm_above") -%></p>
+          <div class="row g-5">
+            <div class="col-md-6">
+              <div class="row mb-3">
+                <%= f.label :sign_staff_name, t('evaluation.sign_staff_name'), class: "col-sm-4 col-form-label" %>
+                <div class="col-sm-8">
+                  <%# please leave user.chinese_name blank as it's design purpose %>
+                  <%= text_field_tag :sign_staff_name, nil, class: "form-control dark:bg-transparent", disabled: true %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row mb-3">
+                <%= f.label :sign_date, t('evaluation.sign_date'), class: "col-sm-4 col-form-label" %>
+                <div class="col-sm-8">
+                  <%= f.date_field :sign_date, class: "form-control dark:bg-transparent", disabled: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= f.submit t("form.save_and_confirm"), class: "btn btn-primary me-2" %>
+      <%= link_to t("form.close"), staff_root_path, class: "btn btn-secondary" %>
+    <% elsif evaluation_user_capability.form_status == "data_locked" %>
+      <div id="list-sign">
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.sign") -%></h4>
+        <div class="px-2">
+          <p class="py-4"><%= t("evaluation.confirm_above") -%></p>
+          <div class="row g-5">
+            <div class="col-md-6">
+              <div class="row mb-3">
+                <%= f.label :sign_staff_name, t('evaluation.sign_staff_name'), class: "col-sm-4 col-form-label" %>
+                <div class="col-sm-8">
+                  <%= text_field_tag :sign_staff_name, evaluation_user_capability.user.chinese_name, class: "form-control dark:bg-transparent", disabled: true %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="row mb-3">
+                <%= f.label :sign_date, t('evaluation.sign_date'), class: "col-sm-4 col-form-label" %>
+                <div class="col-sm-8">
+                  <%= f.date_field :sign_date, class: "form-control dark:bg-transparent", disabled: true %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

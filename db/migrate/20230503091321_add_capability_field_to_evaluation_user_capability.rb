@@ -1,0 +1,44 @@
+class AddCapabilityFieldToEvaluationUserCapability < ActiveRecord::Migration[7.1]
+  def change
+    rename_column :evaluation_user_capabilities, :work_quality_final, :annual_output
+    rename_column :evaluation_user_capabilities, :work_load_final, :coaching
+    rename_column :evaluation_user_capabilities, :work_attitude_final, :concept
+    add_column :evaluation_user_capabilities, :cooperation, :integer
+    add_column :evaluation_user_capabilities, :craftsmanship, :integer
+    add_column :evaluation_user_capabilities, :customer_insight, :integer
+    add_column :evaluation_user_capabilities, :customer_needs, :integer
+    add_column :evaluation_user_capabilities, :customer_needs_non, :integer
+    add_column :evaluation_user_capabilities, :goal_achieved, :integer
+    add_column :evaluation_user_capabilities, :graphic_interior, :integer
+    add_column :evaluation_user_capabilities, :graphic_landscape, :integer
+    add_column :evaluation_user_capabilities, :graphic_planning, :integer
+    add_column :evaluation_user_capabilities, :graphic_quality, :integer
+    add_column :evaluation_user_capabilities, :graphic_quality_landscape, :integer
+    add_column :evaluation_user_capabilities, :high_quality, :integer
+    add_column :evaluation_user_capabilities, :high_efficiency, :integer
+    add_column :evaluation_user_capabilities, :implementation, :integer
+    add_column :evaluation_user_capabilities, :implementation_landscape, :integer
+    add_column :evaluation_user_capabilities, :innovation, :integer
+    add_column :evaluation_user_capabilities, :learning, :integer
+    add_column :evaluation_user_capabilities, :logic, :integer
+    add_column :evaluation_user_capabilities, :logic_landscape, :integer
+    add_column :evaluation_user_capabilities, :norms, :integer
+    add_column :evaluation_user_capabilities, :norms_landscape, :integer
+    add_column :evaluation_user_capabilities, :onsite, :integer
+    add_column :evaluation_user_capabilities, :onsite_landscape, :integer
+    add_column :evaluation_user_capabilities, :organizational_capabilities, :integer
+    add_column :evaluation_user_capabilities, :planning, :integer
+    add_column :evaluation_user_capabilities, :planning_landscape, :integer
+    add_column :evaluation_user_capabilities, :presentation, :integer
+    add_column :evaluation_user_capabilities, :presentation_arch, :integer
+    add_column :evaluation_user_capabilities, :presentation_landscape, :integer
+    add_column :evaluation_user_capabilities, :presentation_planning, :integer
+    add_column :evaluation_user_capabilities, :product_design_landscape, :integer
+    add_column :evaluation_user_capabilities, :professional_level, :integer
+    add_column :evaluation_user_capabilities, :realization, :integer
+    add_column :evaluation_user_capabilities, :realization_landscape, :integer
+    add_column :evaluation_user_capabilities, :results, :integer
+    add_column :evaluation_user_capabilities, :shape, :integer
+    add_column :evaluation_user_capabilities, :technical, :integer
+  end
+end

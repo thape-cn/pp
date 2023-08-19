@@ -1,0 +1,18 @@
+---
+capable_coaching:
+  en_name: "coaching"
+  name: "辅导与发展"
+  description: "<p>了解并根据下属特点；定期反馈和赋能；帮助下属发展。</p>"
+  category_name: "管理能力"
+
+capable_goal_achieved:
+  en_name: "goal achieved"
+  name: "达成项目结果"
+  description: "<p>根据目标制定工作计划；通过有效协调资源；确保目标实现。</p>"
+  category_name: "管理能力"
+
+capable_technical:
+  en_name: "technical"
+  name: "技术能力"
+  description: ""
+  category_name: "专业能力"

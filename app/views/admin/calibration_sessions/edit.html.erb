@@ -1,0 +1,38 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with model: @calibration_session, url: admin_calibration_session_path(id: @calibration_session.id), method: :put do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <%= f.label :session_name, t("calibration.session_name"), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.text_field :session_name, class: 'form-control' -%>
+            </div>
+          </div>
+          <% if %w[waiting_manager_score calibrating].include?(@calibration_session.session_status) %>
+            <div class="row mb-3">
+              <%= f.label :calibration_template, t('calibration.calibration_template'), class: 'col-4 col-form-label' %>
+              <div class="col-8">
+                <%= f.select :calibration_template_id, @calibration_session.calibration_template.company_evaluation_template.calibration_templates.collect {|ct| [ct.template_name, ct.id]}, {}, class: 'form-control' -%>
+              </div>
+            </div>
+          <% end %>
+          <div class="row mb-3">
+            <%= f.label :session_status, t('calibration.session_status_name'), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.select :session_status, CalibrationSession.session_status_options, {}, class: 'form-control' -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.save'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

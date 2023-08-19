@@ -1,0 +1,67 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <%= form_with(model: @user, url: account_profile_path, html: { method: :put }) do |f| %>
+        <div class="row">
+          <div class="col-md-4">
+            <h5>
+              <%= t(".section.preferred_language.title") %>
+            </h5>
+            <p class="text-medium-emphasis">
+              <%= t(".section.preferred_language.description") %>
+            </p>
+          </div>
+          <div class="col-md-8">
+              <div class="form-group text-left">
+                <%= f.label :preferred_language %>
+                <%= f.select :preferred_language, language_options, {}, { class: "form-control w-75" } %>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h5>
+              <%= t(".section.preferred_page_length.title") %>
+            </h5>
+            <p class="text-medium-emphasis">
+              <%= t(".section.preferred_page_length.description") %>
+            </p>
+          </div>
+          <div class="col-md-8">
+              <div class="form-group text-left">
+                <%= f.label :preferred_page_length %>
+                <%= f.select :preferred_page_length, User.length_menu_options, {}, { class: "form-control w-75" } %>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <h5>
+              <%= t(".section.sidebar_narrow.title") %>
+            </h5>
+            <p class="text-medium-emphasis">
+              <%= t(".section.sidebar_narrow.description") %>
+            </p>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group mt-2">
+              <div class="form-check form-switch form-switch-xl">
+                <%= f.check_box :sidebar_narrow, class: "form-check-input" %>
+                <%= f.label :sidebar_narrow, t(".sidebar_narrow"), class: "form-check-label" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 offset-md-4">
+              <%= f.submit t(".submit"), class: "btn btn-block btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

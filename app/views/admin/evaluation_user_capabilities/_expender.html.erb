@@ -1,0 +1,5 @@
+<% company_evaluations.each do |company_evaluation| %>
+  <%= nav_item(company_evaluation.title, admin_company_evaluation_user_capabilities_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-balance-scale') -%>
+  <%= nav_item(t("evaluation.custom_description"), admin_company_evaluation_user_descriptions_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-fingerprint') -%>
+  <%= nav_item(t(".archived_user_capabilities_title", title: company_evaluation.title), admin_company_evaluation_archived_user_capabilities_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-trash') -%>
+<% end %>

@@ -1,0 +1,431 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema[7.1].define(version: 2023_08_03_034248) do
+  create_table "archived_evaluation_user_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_evaluation_template_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "job_role_id", null: false
+    t.decimal "work_quality", precision: 5, scale: 2
+    t.decimal "annual_output", precision: 5, scale: 2
+    t.decimal "work_load", precision: 5, scale: 2
+    t.decimal "coaching", precision: 5, scale: 2
+    t.decimal "work_attitude", precision: 5, scale: 2
+    t.decimal "concept", precision: 5, scale: 2
+    t.bigint "manager_user_id"
+    t.string "company", null: false
+    t.string "department", null: false
+    t.string "dept_code", null: false
+    t.string "title", null: false
+    t.text "self_overall_output"
+    t.text "self_overall_improvement"
+    t.text "self_overall_plan"
+    t.text "manager_overall_output"
+    t.text "manager_overall_improvement"
+    t.text "manager_overall_plan"
+    t.date "sign_date"
+    t.string "form_status", default: "initial"
+    t.decimal "cooperation", precision: 5, scale: 2
+    t.decimal "craftsmanship", precision: 5, scale: 2
+    t.decimal "customer_insight", precision: 5, scale: 2
+    t.decimal "customer_needs", precision: 5, scale: 2
+    t.decimal "customer_needs_non", precision: 5, scale: 2
+    t.decimal "goal_achieved", precision: 5, scale: 2
+    t.decimal "graphic_interior", precision: 5, scale: 2
+    t.decimal "graphic_landscape", precision: 5, scale: 2
+    t.decimal "graphic_planning", precision: 5, scale: 2
+    t.decimal "graphic_quality", precision: 5, scale: 2
+    t.decimal "graphic_quality_landscape", precision: 5, scale: 2
+    t.decimal "high_quality", precision: 5, scale: 2
+    t.decimal "high_efficiency", precision: 5, scale: 2
+    t.decimal "implementation", precision: 5, scale: 2
+    t.decimal "implementation_landscape", precision: 5, scale: 2
+    t.decimal "innovation", precision: 5, scale: 2
+    t.decimal "learning", precision: 5, scale: 2
+    t.decimal "logic", precision: 5, scale: 2
+    t.decimal "logic_landscape", precision: 5, scale: 2
+    t.decimal "norms", precision: 5, scale: 2
+    t.decimal "norms_landscape", precision: 5, scale: 2
+    t.decimal "onsite", precision: 5, scale: 2
+    t.decimal "onsite_landscape", precision: 5, scale: 2
+    t.decimal "organizational_capabilities", precision: 5, scale: 2
+    t.decimal "planning", precision: 5, scale: 2
+    t.decimal "planning_landscape", precision: 5, scale: 2
+    t.decimal "presentation", precision: 5, scale: 2
+    t.decimal "presentation_arch", precision: 5, scale: 2
+    t.decimal "presentation_landscape", precision: 5, scale: 2
+    t.decimal "presentation_planning", precision: 5, scale: 2
+    t.decimal "product_design_landscape", precision: 5, scale: 2
+    t.decimal "professional_level", precision: 5, scale: 2
+    t.decimal "realization", precision: 5, scale: 2
+    t.decimal "realization_landscape", precision: 5, scale: 2
+    t.decimal "results", precision: 5, scale: 2
+    t.decimal "shape", precision: 5, scale: 2
+    t.decimal "technical", precision: 5, scale: 2
+    t.integer "calibration_management_profession_score"
+    t.integer "calibration_performance_score"
+    t.integer "calibration_work_load"
+    t.integer "calibration_work_attitude"
+    t.integer "calibration_work_quality"
+    t.float "manager_scored_total_evaluation_score"
+    t.float "final_total_evaluation_score"
+    t.boolean "capability_columns_all_null", default: false, null: false
+    t.decimal "planning_interior", precision: 5, scale: 2
+    t.decimal "space_creativity", precision: 5, scale: 2
+    t.decimal "shape_interior", precision: 5, scale: 2
+    t.decimal "graphic_interior_aico", precision: 5, scale: 2
+    t.decimal "presentation_interior_aico", precision: 5, scale: 2
+    t.decimal "implementation_interior_aico", precision: 5, scale: 2
+    t.datetime "deleted_time", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "deleted_reason"
+    t.bigint "deleted_user_id", null: false
+    t.index ["deleted_user_id"], name: "index_archived_evaluation_user_capabilities_on_deleted_user_id"
+  end
+
+  create_table "calibration_session_judges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "calibration_session_id", null: false
+    t.bigint "judge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calibration_session_id"], name: "index_calibration_session_judges_on_calibration_session_id"
+    t.index ["judge_id"], name: "index_calibration_session_judges_on_judge_id"
+  end
+
+  create_table "calibration_session_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "calibration_session_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "evaluation_user_capability_id", null: false
+    t.bigint "new_calibration_session_id"
+    t.index ["calibration_session_id"], name: "index_calibration_session_users_on_calibration_session_id"
+    t.index ["evaluation_user_capability_id"], name: "idx_on_evaluation_user_capability_id_08738755c2"
+    t.index ["new_calibration_session_id"], name: "index_calibration_session_users_on_new_calibration_session_id"
+    t.index ["user_id"], name: "index_calibration_session_users_on_user_id"
+  end
+
+  create_table "calibration_sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "session_name"
+    t.bigint "calibration_template_id", null: false
+    t.bigint "owner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "session_status", default: "waiting_manager_score", null: false
+    t.index ["calibration_template_id"], name: "index_calibration_sessions_on_calibration_template_id"
+    t.index ["owner_id"], name: "index_calibration_sessions_on_owner_id"
+  end
+
+  create_table "calibration_templates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_evaluation_template_id", null: false
+    t.boolean "enforce_distribute", default: false, null: false
+    t.integer "apa_grade_rate", default: 30, null: false
+    t.integer "b_grade_rate", default: 40, null: false
+    t.integer "cd_grade_rate", default: 30, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "template_name"
+    t.integer "below_standard_rate", default: 30, null: false
+    t.integer "standards_compliant_rate", default: 40, null: false
+    t.integer "beyond_standard_rate", default: 30, null: false
+    t.index ["company_evaluation_template_id"], name: "index_calibration_templates_on_company_evaluation_template_id"
+  end
+
+  create_table "capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "en_name"
+    t.string "name"
+    t.string "description"
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "company_evaluation_templates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.bigint "company_evaluation_id", null: false
+    t.integer "work_quality_pct", default: 35, null: false
+    t.integer "work_load_pct", default: 50, null: false
+    t.integer "work_attitude_pct", default: 15, null: false
+    t.integer "performance_subtotal_rate", default: 50, null: false
+    t.integer "management_subtotal_rate", default: 15, null: false
+    t.integer "profession_subtotal_rate", default: 35, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "brief"
+    t.string "professional_management_matric", default: "grading_3_matric"
+    t.string "performance_matric", default: "grading_3_matric"
+    t.string "total_reverse_matric", default: "grading_5_matric"
+    t.integer "pct_proportion", default: 100
+    t.integer "rate_proportion", default: 0
+    t.string "group_level", default: "staff"
+    t.string "work_quality_matric", default: "grading_3_matric"
+    t.string "work_load_matric", default: "grading_3_matric"
+    t.string "work_attitude_matric", default: "grading_3_matric"
+    t.index ["company_evaluation_id"], name: "index_company_evaluation_templates_on_company_evaluation_id"
+  end
+
+  create_table "company_evaluations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "euc_form_status_histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "evaluation_user_capability_id", null: false
+    t.string "previous_form_status"
+    t.string "form_status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evaluation_user_capability_id"], name: "idx_on_evaluation_user_capability_id_a9dc1f363d"
+    t.index ["user_id"], name: "index_euc_form_status_histories_on_user_id"
+  end
+
+  create_table "evaluation_role_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "evaluation_role_id", null: false
+    t.bigint "capability_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["capability_id"], name: "index_evaluation_role_capabilities_on_capability_id"
+    t.index ["evaluation_role_id"], name: "index_evaluation_role_capabilities_on_evaluation_role_id"
+  end
+
+  create_table "evaluation_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "role_name"
+    t.string "auxiliary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "evaluation_user_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_evaluation_template_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "job_role_id", null: false
+    t.decimal "work_quality", precision: 5, scale: 2
+    t.decimal "annual_output", precision: 5, scale: 2
+    t.decimal "work_load", precision: 5, scale: 2
+    t.decimal "coaching", precision: 5, scale: 2
+    t.decimal "work_attitude", precision: 5, scale: 2
+    t.decimal "concept", precision: 5, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "manager_user_id"
+    t.string "company", null: false
+    t.string "department", null: false
+    t.string "dept_code", null: false
+    t.string "title", null: false
+    t.text "self_overall_output"
+    t.text "self_overall_improvement"
+    t.text "self_overall_plan"
+    t.text "manager_overall_output"
+    t.text "manager_overall_improvement"
+    t.text "manager_overall_plan"
+    t.date "sign_date"
+    t.string "form_status", default: "initial"
+    t.decimal "cooperation", precision: 5, scale: 2
+    t.decimal "craftsmanship", precision: 5, scale: 2
+    t.decimal "customer_insight", precision: 5, scale: 2
+    t.decimal "customer_needs", precision: 5, scale: 2
+    t.decimal "customer_needs_non", precision: 5, scale: 2
+    t.decimal "goal_achieved", precision: 5, scale: 2
+    t.decimal "graphic_interior", precision: 5, scale: 2
+    t.decimal "graphic_landscape", precision: 5, scale: 2
+    t.decimal "graphic_planning", precision: 5, scale: 2
+    t.decimal "graphic_quality", precision: 5, scale: 2
+    t.decimal "graphic_quality_landscape", precision: 5, scale: 2
+    t.decimal "high_quality", precision: 5, scale: 2
+    t.decimal "high_efficiency", precision: 5, scale: 2
+    t.decimal "implementation", precision: 5, scale: 2
+    t.decimal "implementation_landscape", precision: 5, scale: 2
+    t.decimal "innovation", precision: 5, scale: 2
+    t.decimal "learning", precision: 5, scale: 2
+    t.decimal "logic", precision: 5, scale: 2
+    t.decimal "logic_landscape", precision: 5, scale: 2
+    t.decimal "norms", precision: 5, scale: 2
+    t.decimal "norms_landscape", precision: 5, scale: 2
+    t.decimal "onsite", precision: 5, scale: 2
+    t.decimal "onsite_landscape", precision: 5, scale: 2
+    t.decimal "organizational_capabilities", precision: 5, scale: 2
+    t.decimal "planning", precision: 5, scale: 2
+    t.decimal "planning_landscape", precision: 5, scale: 2
+    t.decimal "presentation", precision: 5, scale: 2
+    t.decimal "presentation_arch", precision: 5, scale: 2
+    t.decimal "presentation_landscape", precision: 5, scale: 2
+    t.decimal "presentation_planning", precision: 5, scale: 2
+    t.decimal "product_design_landscape", precision: 5, scale: 2
+    t.decimal "professional_level", precision: 5, scale: 2
+    t.decimal "realization", precision: 5, scale: 2
+    t.decimal "realization_landscape", precision: 5, scale: 2
+    t.decimal "results", precision: 5, scale: 2
+    t.decimal "shape", precision: 5, scale: 2
+    t.decimal "technical", precision: 5, scale: 2
+    t.integer "calibration_management_profession_score"
+    t.integer "calibration_performance_score"
+    t.integer "calibration_work_load"
+    t.integer "calibration_work_attitude"
+    t.integer "calibration_work_quality"
+    t.float "manager_scored_total_evaluation_score"
+    t.float "final_total_evaluation_score"
+    t.boolean "capability_columns_all_null", default: false, null: false
+    t.decimal "planning_interior", precision: 5, scale: 2
+    t.decimal "space_creativity", precision: 5, scale: 2
+    t.decimal "shape_interior", precision: 5, scale: 2
+    t.decimal "graphic_interior_aico", precision: 5, scale: 2
+    t.decimal "presentation_interior_aico", precision: 5, scale: 2
+    t.decimal "implementation_interior_aico", precision: 5, scale: 2
+    t.index ["job_role_id"], name: "index_evaluation_user_capabilities_on_job_role_id"
+    t.index ["manager_user_id"], name: "index_evaluation_user_capabilities_on_manager_user_id"
+    t.index ["user_id"], name: "index_evaluation_user_capabilities_on_user_id"
+  end
+
+  create_table "evaluation_user_capability_descriptions", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.bigint "company_evaluation_template_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "capability_id", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["capability_id"], name: "index_evaluation_user_capability_descriptions_on_capability_id"
+    t.index ["company_evaluation_template_id"], name: "idx_on_company_evaluation_template_id_22b2013026"
+    t.index ["user_id"], name: "index_evaluation_user_capability_descriptions_on_user_id"
+  end
+
+  create_table "hr_user_managed_companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "managed_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_hr_user_managed_companies_on_user_id"
+  end
+
+  create_table "hrbp_user_managed_departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "managed_dept_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "auto_generated", default: true, null: false
+    t.boolean "can_view_staff_evaluation_detail", default: true, null: false
+    t.index ["user_id"], name: "index_hrbp_user_managed_departments_on_user_id"
+  end
+
+  create_table "job_role_evaluation_performances", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "company_evaluation_id", null: false
+    t.string "import_guid", null: false
+    t.string "dept_code", null: false
+    t.string "st_code", null: false
+    t.string "obj_name", null: false
+    t.text "obj_metric"
+    t.integer "obj_weight_pct", default: 0, null: false
+    t.integer "obj_result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "en_name"
+    t.boolean "obj_result_fixed", default: true
+    t.bigint "evaluation_user_capability_id"
+    t.index ["company_evaluation_id"], name: "idx_on_company_evaluation_id_0c1a9c1fa4"
+    t.index ["evaluation_user_capability_id"], name: "idx_on_evaluation_user_capability_id_e9250cbc67"
+    t.index ["user_id"], name: "index_job_role_evaluation_performances_on_user_id"
+  end
+
+  create_table "job_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "st_code"
+    t.integer "job_level"
+    t.string "job_code"
+    t.string "job_family"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "evaluation_role_id"
+    t.index ["evaluation_role_id"], name: "index_job_roles_on_evaluation_role_id"
+  end
+
+  create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "role_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_job_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "job_role_id", null: false
+    t.bigint "manager_user_id"
+    t.string "company"
+    t.string "department"
+    t.string "dept_code"
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "job_user_id"
+    t.boolean "is_active", default: false, null: false
+    t.index ["job_role_id"], name: "index_user_job_roles_on_job_role_id"
+    t.index ["manager_user_id"], name: "index_user_job_roles_on_manager_user_id"
+    t.index ["user_id"], name: "index_user_job_roles_on_user_id"
+  end
+
+  create_table "user_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_user_roles_on_role_id"
+    t.index ["user_id"], name: "index_user_roles_on_user_id"
+  end
+
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "on_dark", default: false, null: false
+    t.string "preferred_language"
+    t.integer "preferred_page_length", default: 10, null: false
+    t.string "chinese_name", null: false
+    t.date "hire_date", null: false
+    t.string "clerk_code", null: false
+    t.boolean "is_active", default: false, null: false
+    t.string "wecom_id"
+    t.boolean "sidebar_narrow", default: false, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "calibration_session_judges", "calibration_sessions"
+  add_foreign_key "calibration_session_users", "calibration_sessions"
+  add_foreign_key "calibration_session_users", "users"
+  add_foreign_key "calibration_sessions", "calibration_templates"
+  add_foreign_key "calibration_templates", "company_evaluation_templates"
+  add_foreign_key "company_evaluation_templates", "company_evaluations"
+  add_foreign_key "euc_form_status_histories", "evaluation_user_capabilities"
+  add_foreign_key "evaluation_role_capabilities", "capabilities"
+  add_foreign_key "evaluation_role_capabilities", "evaluation_roles"
+  add_foreign_key "evaluation_user_capabilities", "job_roles"
+  add_foreign_key "evaluation_user_capabilities", "users"
+  add_foreign_key "job_role_evaluation_performances", "company_evaluations"
+  add_foreign_key "job_role_evaluation_performances", "evaluation_user_capabilities"
+  add_foreign_key "job_role_evaluation_performances", "users"
+  add_foreign_key "job_roles", "evaluation_roles"
+  add_foreign_key "user_job_roles", "job_roles"
+  add_foreign_key "user_job_roles", "users"
+  add_foreign_key "user_roles", "roles"
+  add_foreign_key "user_roles", "users"
+end

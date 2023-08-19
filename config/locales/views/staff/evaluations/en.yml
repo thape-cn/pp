@@ -1,0 +1,8 @@
+---
+en:
+  staff:
+    evaluations:
+      show:
+        title: "Evaluation form"
+      update:
+        update_success: "Update success"

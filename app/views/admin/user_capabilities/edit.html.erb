@@ -1,0 +1,98 @@
+<div class="modal-dialog modal-xl">
+  <div class="modal-content">
+    <%= form_with model: @evaluation_user_capability, url: admin_company_evaluation_user_capability_path(id: @evaluation_user_capability.id, company_evaluation_id: @company_evaluation.id), method: :patch do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <%= f.label :form_status, t('evaluation.evaluation_status'), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.select :form_status, EvaluationUserCapability.form_status_options, {}, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row">
+            <%= f.label :job_role_id, t('user.job_role_id'), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_field :job_role_id, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-3">
+            </div>
+            <div class="col-9">
+              <%= t("evaluation.job_role_change_hint") %>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <%= f.label :manager_user_id, t('user.manager_user_id'), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_field :manager_user_id, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <%= f.label :manager_overall_output, t('evaluation.manager_overall_output'), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_area :manager_overall_output, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <%= f.label :manager_overall_improvement, t('evaluation.manager_overall_improvement'), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_area :manager_overall_improvement, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <%= f.label :manager_overall_plan, t('evaluation.manager_overall_plan'), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= f.text_area :manager_overall_plan, class: 'form-control' -%>
+            </div>
+          </div>
+          <% Capability.performance_column_names.each do |column_name| %>
+            <% next if @evaluation_user_capability.attributes[column_name].blank? %>
+            <div class="row mb-2">
+              <%= f.label column_name, t("evaluation.#{column_name}_pct"), class: 'col-3 col-form-label' %>
+              <div class="col-9">
+                <%= f.text_field column_name, class: 'form-control' -%>
+              </div>
+            </div>
+          <% end %>
+          <% Capability.profession_column_label_and_names.each do |cp| %>
+            <% next if @evaluation_user_capability.attributes[cp.second].blank? %>
+            <div class="row mb-2">
+              <%= f.label cp.second, cp.first, class: 'col-3 col-form-label' %>
+              <div class="col-9">
+                <%= f.text_field cp.second, class: 'form-control' -%>
+              </div>
+            </div>
+          <% end %>
+          <% Capability.management_column_label_and_names.each do |cp| %>
+            <% next if @evaluation_user_capability.attributes[cp.second].blank? %>
+            <div class="row mb-2">
+              <%= f.label cp.second, cp.first, class: 'col-3 col-form-label' %>
+              <div class="col-9">
+                <%= f.text_field cp.second, class: 'form-control' -%>
+              </div>
+            </div>
+          <% end %>
+          <hr/>
+          <% Capability.calibration_column_names.each do |column_name| %>
+            <% next if @evaluation_user_capability.attributes[column_name].blank? %>
+            <div class="row mb-2">
+              <%= f.label column_name, t("calibration.#{column_name}"), class: 'col-3 col-form-label' %>
+              <div class="col-9">
+                <%= f.text_field column_name, class: 'form-control' -%>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+---
+ct_one_1:
+  company_evaluation_template: ect_one
+  enforce_distribute: true
+
+ct_one_2:
+  company_evaluation_template: ect_one
+  enforce_distribute: false
+
+ct_two_1:
+  company_evaluation_template: ect_two
+  enforce_distribute: true
+
+ct_two_2:
+  company_evaluation_template: ect_two
+  enforce_distribute: false

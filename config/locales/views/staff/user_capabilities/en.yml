@@ -1,0 +1,6 @@
+---
+en:
+  staff:
+    user_capabilities:
+      index:
+        title: "员工的考评"

@@ -1,0 +1,36 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <%= form_with model: @company_evaluation, url: admin_company_evaluation_path(id: @company_evaluation.id), method: :put do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <%= f.label :title, t("admin.company_evaluations.index.title"), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.text_field :title, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :start_date, t("admin.company_evaluations.index.start_date"), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.text_field :start_date, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :end_date, t("admin.company_evaluations.index.end_date"), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.text_field :end_date, class: 'form-control' -%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.save'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

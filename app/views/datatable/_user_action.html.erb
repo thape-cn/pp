@@ -1,0 +1,17 @@
+<div class="d-flex flex-row align-items-center flex-wrap">
+  <% if policy(user).impersonation? %>
+    <%= link_to impersonation_admin_user_path(id: user.id), class: 'pe-2', data: {controller: "modal", action: "modal#click"} do %>
+      <%= svg_icon('free.svg#cil-account-logout', %w[icon icon-lg pt-1]) %>
+    <% end %>
+  <% end %>
+  <% if policy(user).edit? %>
+    <%= link_to edit_admin_user_path(id: user.id), class: 'pe-2', data: {controller: "modal", action: "modal#click"} do %>
+      <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg pt-1]) %>
+    <% end %>
+  <% end %>
+  <% if policy(user).new_evaluation? %>
+    <%= link_to new_evaluation_admin_user_path(id: user.id), data: {controller: "modal", action: "modal#click"} do %>
+      <%= svg_icon('free.svg#cil-balance-scale', %w[icon icon-lg]) %>
+    <% end %>
+  <% end %>
+</div>

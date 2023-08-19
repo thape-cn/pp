@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t("evaluation.previous_evaluation_status") -%></th>
+        <th><%= t("evaluation.evaluation_status") -%></th>
+        <th><%= t("user.users") -%></th>
+        <th><%= t("form.status_time") -%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% euc_form_status_histories.each do |euc_history| %>
+        <tr>
+          <td><%= EvaluationUserCapability.form_status_options.invert[euc_history.previous_form_status] -%></td>
+          <td><%= EvaluationUserCapability.form_status_options.invert[euc_history.form_status] -%></td>
+          <td><%= euc_history.user.chinese_name -%></td>
+          <td><%= local_time(euc_history.created_at) -%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

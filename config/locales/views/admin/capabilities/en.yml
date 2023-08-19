@@ -1,0 +1,8 @@
+---
+en:
+  admin:
+    capabilities:
+      index:
+        title: "Capabilities"
+      edit:
+        title: "Edit capability: %{category_name}"

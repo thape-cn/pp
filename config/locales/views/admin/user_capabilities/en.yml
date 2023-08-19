@@ -1,0 +1,18 @@
+---
+en:
+  admin:
+    user_capabilities:
+      index:
+        breadcrumb_title: "%{title}"
+      new:
+        title: "Upload a file to initiate a new employee appraisal form"
+      edit:
+        title: "Edit staff reviews"
+      show:
+        title: "Form state history"
+      sent_hr_review_completed_confirm:
+        title: "Confirm to send notification to all users waiting for confirmation?"
+      sent_self_assessment_confirm:
+        title: "Please upload Excel after starting the form and send email"
+      custom_description_dialog:
+        title: "Custom evaluation user capability description"

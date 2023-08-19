@@ -1,0 +1,8 @@
+---
+zh-CN:
+  admin:
+    duplicate_users:
+      index:
+        title: "合并重复的用户"
+      edit:
+        title: "合并用户"

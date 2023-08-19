@@ -1,0 +1,19 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'ui/calibration_sessions/overall_dialog_body',
+          locals: {evaluation_user_capability: @evaluation_user_capability,
+            job_role_performances: @job_role_performances,
+            professional_capabilities: @professional_capabilities,
+            management_capabilities: @management_capabilities,
+          } %>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+  </div>
+</div>

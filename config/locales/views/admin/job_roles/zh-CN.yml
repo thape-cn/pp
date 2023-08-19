@@ -1,0 +1,9 @@
+---
+zh-CN:
+  admin:
+    job_roles:
+      index:
+        title: "工作角色"
+        evaluation_role: "考评角色"
+      edit:
+        title: "编辑工作角色: %{st_code}"

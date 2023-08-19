@@ -1,0 +1,20 @@
+---
+ect_one:
+  company_evaluation: ce_one
+  title: "2023年年中绩效评价沟通表（员工层）"
+  work_quality_pct: 35
+  work_load_pct: 50
+  work_attitude_pct: 15
+  management_subtotal_rate: 15
+  profession_subtotal_rate: 35
+  performance_subtotal_rate: 50
+
+ect_two:
+  company_evaluation: ce_one
+  title: "2023年年中绩效评价沟通表（主管层）"
+  work_quality_pct: 35
+  work_load_pct: 50
+  work_attitude_pct: 15
+  management_subtotal_rate: 20
+  profession_subtotal_rate: 30
+  performance_subtotal_rate: 50

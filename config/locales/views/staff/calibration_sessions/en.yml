@@ -1,0 +1,12 @@
+---
+en:
+  staff:
+    calibration_sessions:
+      index:
+        title: "Calibration sessions"
+      show:
+        title: "Calibration performance"
+        finalized: "This performance calibration has been finalized."
+        can_not_start: "This performance calibration session is not active."
+      fixed:
+        title: "HR calibration session detail"

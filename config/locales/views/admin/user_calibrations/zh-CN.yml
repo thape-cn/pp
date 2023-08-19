@@ -1,0 +1,6 @@
+---
+zh-CN:
+  admin:
+    user_calibrations:
+      index:
+        breadcrumb_title: "员工校准：%{title}"

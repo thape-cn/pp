@@ -1,0 +1,7 @@
+---
+en:
+  staff:
+    calibration_table_sessions:
+      show:
+        title: "Calibration performance"
+        save_tips: "Please submit the final decision on the 9-grid interface."

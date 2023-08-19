@@ -1,0 +1,192 @@
+<%= form_with model: evaluation_user_capability, url: staff_signing_path(id: evaluation_user_capability.id) do |f| %>
+  <div>
+    <div>
+      <h4 class="p-2 bg-primary text-emphasis-primary rounded-top"><%= t("evaluation.brief") -%></h4>
+      <div class="px-2">
+        <%= markdown(evaluation_user_capability.company_evaluation_template.brief) %>
+      </div>
+    </div>
+    <div>
+      <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.employee_info") -%></h4>
+      <div class="px-2">
+        <table class="table table-bordered border-primary">
+          <tbody>
+          <tr>
+            <td><%= t("user.chinese_name") -%></td>
+            <td><%= evaluation_user_capability.user.chinese_name -%></td>
+            <td><%= t("user.company") -%></td>
+            <td><%= evaluation_user_capability.company -%></td>
+          </tr>
+          <tr>
+            <td><%= t("user.department") -%></td>
+            <td><%= evaluation_user_capability.department -%></td>
+            <td><%= t("user.hire_date") -%></td>
+            <td><%= evaluation_user_capability.user.hire_date -%></td>
+          </tr>
+          <tr>
+            <td><%= t("user.manager_user") -%></td>
+            <td><%= evaluation_user_capability.manager_user&.chinese_name -%></td>
+            <td><%= t("user.title") -%></td>
+            <td><%= evaluation_user_capability.title -%></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <% if job_role_performances.present? || performance_capabilities.present? %>
+      <div>
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.performance") -%></h4>
+        <div class="px-2" style="break-after: auto;">
+          <hr />
+          <% performance_capabilities.each do |capability| %>
+            <h5><%= capability.name -%></h5>
+
+          <% eucd = EvaluationUserCapabilityDescription.find_by(
+            company_evaluation_template_id: evaluation_user_capability.company_evaluation_template_id,
+            user_id: evaluation_user_capability.user_id,
+            capability_id: capability.id) %>
+          <% if eucd.present? %>
+            <%= markdown(eucd.description) -%>
+          <% else %>
+            <%= markdown(capability.description) -%>
+          <% end %>
+
+            <p class="fs-6 fw-semibold mb-0">
+              <%= t("evaluation.manager_given_score") -%>
+              <span class="fw-bold float-end">
+                <% if %w[work_quality].include?(capability.en_name) %>
+                  <% score = evaluation_user_capability.calibration_work_quality || evaluation_user_capability.work_quality -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_quality_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <% elsif %w[work_load].include?(capability.en_name) %>
+                  <% score = evaluation_user_capability.calibration_work_load || evaluation_user_capability.work_load -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_load_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <% elsif %w[work_attitude].include?(capability.en_name) %>
+                  <% score = evaluation_user_capability.calibration_work_attitude || evaluation_user_capability.work_attitude -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_attitude_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <% else %>
+                  <% score = evaluation_user_capability.attributes[capability.en_name] -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <% end %>
+              </span>
+            </p>
+            <hr />
+          <% end %>
+          <% job_role_performances.each do |jrep| %>
+            <h5><%= jrep.obj_name -%></h5>
+            <%= markdown(jrep.obj_metric) -%>
+            <%= hidden_field_tag 'jrep_id[]', jrep.id %>
+            <p class="fs-6 fw-semibold mb-0">
+              <%= t("evaluation.manager_given_score") -%>
+              <span class="fw-bold float-end">
+                <% score = jrep.obj_result -%>
+                <%= public_send(evaluation_user_capability.company_evaluation_template.performance_matric).invert[score] || t("evaluation.not_rated") -%>
+              </span>
+            </p>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if professional_capabilities.present? %>
+      <div style="break-after: auto;">
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.professional_capability") -%></h4>
+        <div class="px-2">
+          <hr />
+          <% professional_capabilities.each do |capability| %>
+            <h5><%= capability.name -%></h5>
+            <%= markdown(capability.description) -%>
+            <p class="fs-6 fw-semibold mb-0">
+              <%= t("evaluation.manager_given_score") -%>
+              <span class="fw-bold float-end">
+                <% score = evaluation_user_capability.attributes[capability.en_name] -%>
+                <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+              </span>
+            </p>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <% if management_capabilities.present? %>
+      <div>
+        <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.management_capability") -%></h4>
+        <div class="px-2" style="break-after: auto;">
+          <hr />
+          <% management_capabilities.each do |capability| %>
+            <h5><%= capability.name -%></h5>
+            <%= markdown(capability.description) -%>
+            <p class="fs-6 fw-semibold mb-0">
+              <%= t("evaluation.manager_given_score") -%>
+              <span class="fw-bold float-end">
+                <% score = evaluation_user_capability.attributes[capability.en_name] -%>
+                <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+              </span>
+            </p>
+            <hr />
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div>
+      <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.overall") -%></h4>
+
+      <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.summary") -%></h5>
+      <div class="px-2" style="break-after: auto;">
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.self_overall_output') -%></h6>
+          <%= markdown(evaluation_user_capability.self_overall_output) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.self_overall_improvement') -%></h6>
+          <%= markdown(evaluation_user_capability.self_overall_improvement) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.self_overall_plan') -%></h6>
+          <%= markdown(evaluation_user_capability.self_overall_plan) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.manager_overall_output') -%></h6>
+          <%= markdown(evaluation_user_capability.manager_overall_output) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.manager_overall_improvement') -%></h6>
+          <%= markdown(evaluation_user_capability.manager_overall_improvement) %>
+        </div>
+        <div class="mb-3">
+          <h6 class="fw-bold"><%= t('evaluation.manager_overall_plan') -%></h6>
+          <%= markdown(evaluation_user_capability.manager_overall_plan) %>
+        </div>
+      </div>
+
+      <div class="row mt-3" style="break-after: auto;">
+        <div class="col-4">
+          <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.grade") -%></h5>
+          <p class="p-2 fs-3"><%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_matric, evaluation_user_capability.total_evaluation_score) -%></p>
+        </div>
+        <%= render partial: 'staff/signing/square_9',
+          locals: {group_level: group_level,
+           horizontal_position: horizontal_position, vertical_position: vertical_position} %>
+      </div>
+    </div>
+    <div>
+      <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.sign") -%></h4>
+      <div class="px-2">
+        <p class="py-4"><%= t("evaluation.confirm_above") -%></p>
+        <div class="row g-5">
+          <div class="col-6">
+            <%= t('evaluation.sign_staff_name') -%>：
+            <% if evaluation_user_capability.form_status == "data_locked" %>
+              <%= evaluation_user_capability.user.chinese_name -%>
+            <% end %>
+          </div>
+          <div class="col-6">
+            <%= t('evaluation.sign_date') -%>：
+            <% if evaluation_user_capability.form_status == "data_locked" %>
+              <%= evaluation_user_capability.sign_date -%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

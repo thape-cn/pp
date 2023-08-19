@@ -1,0 +1,8 @@
+---
+zh-CN:
+  staff:
+    evaluations:
+      show:
+        title: "评价表"
+      update:
+        update_success: "保存成功。"

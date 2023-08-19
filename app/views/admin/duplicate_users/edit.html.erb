@@ -1,0 +1,43 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <%= form_with url: admin_duplicate_user_path(id: @clerk_code), method: 'PUT', local: true do |f| %>
+      <div class="modal-header">
+        <h5 class="modal-title"><%= t(".title") -%></h5>
+        <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row g-4">
+            <% @duplicate_users.each do |user| %>
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <address>
+                      <strong><%= user.chinese_name %></strong><br>
+                      <a href="mailto:<%= user.email -%>"><%= user.email -%></a>
+                      <p class="m-0"><%= t("user.current_sign_in_at") -%>: <%= local_time(user.current_sign_in_at) if user.current_sign_in_at.present? -%></p>
+                      <p class="m-0"><%= t("user.last_sign_in_at") -%>: <%= local_time(user.last_sign_in_at) if user.last_sign_in_at.present? -%></p>
+                      <p class="m-0"><%= t("user.user_is_active") -%>: <%= user.is_active %></p>
+                    </address>
+                    <div class="form-group row">
+                      <div class="col-9">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="main_user_id" id="merge-user-id-<%= user.id -%>" value="<%= user.id -%>">
+                          <label class="form-check-label" for="merge-user-id-<%= user.id -%>"><%= t('user.keep_user_tips') -%></label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <%= f.submit t('form.merge'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

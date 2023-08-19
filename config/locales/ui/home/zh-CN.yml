@@ -1,0 +1,6 @@
+---
+zh-CN:
+  ui:
+    home:
+      evaluation_user_capabilities_status:
+        chart_title: "表单进度"

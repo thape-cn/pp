@@ -1,0 +1,7 @@
+---
+zh-CN:
+  support:
+    array:
+      last_word_connector: " 和 "
+      two_words_connector: "；"
+      words_connector: "；"

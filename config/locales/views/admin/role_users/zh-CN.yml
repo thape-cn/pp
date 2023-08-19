@@ -1,0 +1,6 @@
+---
+zh-CN:
+  admin:
+    role_users:
+      index:
+        title: "角色：%{role_name} 的人员"

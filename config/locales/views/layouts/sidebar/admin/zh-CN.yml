@@ -1,0 +1,22 @@
+---
+zh-CN:
+  layouts:
+    sidebars:
+      admin:
+        header: "首页"
+        dashboard: "主页"
+        setup: "配置"
+        evaluation: "考评"
+        company_evaluations: "公司考评"
+        company_evaluation_templates: "考评模版"
+        user_capabilities: "员工的考评"
+        archived_user_capabilities: "回收站的员工的考评"
+        user_calibrations: "员工的校准"
+        user_performances: "员工上传的业绩"
+        account: "账号"
+        hrbp_managed_departments: "HRBP 管理的部门"
+        job_roles: "工作角色"
+        evaluation_roles: "考评角色"
+        all_calibration_session: "所有校验会话"
+        calibration_session: "校验会话"
+        background_jobs: "后端队列"

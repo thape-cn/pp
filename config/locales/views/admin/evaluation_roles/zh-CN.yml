@@ -1,0 +1,10 @@
+---
+zh-CN:
+  admin:
+    evaluation_roles:
+      index:
+        title: "考评角色"
+        role_name: "角色名称"
+        auxiliary: "辅助列"
+      edit:
+        title: "编辑考评角色: %{role_name}"

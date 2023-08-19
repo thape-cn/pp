@@ -1,0 +1,15 @@
+---
+default: &default
+  corpid: <%= Rails.application.credentials.wechat_corpid! %>
+  corpsecret: <%= Rails.application.credentials.wechat_corpsecret! %>
+  agentid: <%= Rails.application.credentials.wechat_agentid! %>
+
+production:
+  <<: *default
+  access_token: "/var/www/pp_vendor/shared/tmp/pp_vendor_access_token"
+
+development:
+  <<: *default
+
+test:
+  <<: *default

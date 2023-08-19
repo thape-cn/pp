@@ -1,0 +1,8 @@
+---
+zh-CN:
+  staff:
+    mark_scores:
+      show:
+        title: "直属上级评价"
+        staff_table_black: "您没有需要打分的员工层人员。"
+        save_and_confirm_tips: "请先保存，再提交。"

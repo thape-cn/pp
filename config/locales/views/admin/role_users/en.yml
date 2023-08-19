@@ -1,0 +1,6 @@
+---
+en:
+  admin:
+    role_users:
+      index:
+        title: "Role：%{role_name} users"

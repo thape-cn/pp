@@ -1,0 +1,12 @@
+---
+zh-CN:
+  admin:
+    user_job_role_performances:
+      index:
+        title: "上传的用户工作角色业绩"
+        breadcrumb_title: "%{title}的上传工作业绩"
+        upload_performance: "上传业绩"
+      edit:
+        title: "编辑用户角色业绩：%{obj_name}"
+      new:
+        title: "上传CSV文件新增用户业绩"

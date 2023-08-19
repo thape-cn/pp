@@ -1,0 +1,15 @@
+---
+en:
+  admin:
+    company_evaluations:
+      index:
+        title: "Company evaluation"
+        company_evaluation_title: "Company evaluation title"
+        start_date: "Start date"
+        end_date: "End date"
+      new:
+        title: "Create company evaluation"
+      edit:
+        title: "Edit company evaluation"
+      confirm_remove_leaving_employee_eucs:
+        title: "Delete the unconfirmed form of the resigned employee?"

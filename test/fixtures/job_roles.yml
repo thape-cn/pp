@@ -1,0 +1,12 @@
+---
+job_one:
+  st_code: 307020900
+  job_level: 8
+  job_code: 一级结构工程师
+  job_family: 子公司结构
+
+job_two:
+  st_code: 307020301
+  job_level: 19
+  job_code: 董事长
+  job_family: 子公司经营管理

@@ -1,0 +1,12 @@
+---
+en:
+  admin:
+    user_job_role_performances:
+      index:
+        title: "Uploaded user job role performance"
+        breadcrumb_title: "Uploaded job performance for %{title}"
+        upload_performance: "Upload performance"
+      edit:
+        title: "Edit user job role performance: %{obj_name}"
+      new:
+        title: "Upload CSV file to add user performance"

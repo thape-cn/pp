@@ -1,0 +1,99 @@
+<% content_for :head do %>
+  <%= append_stylesheet_pack_tag 'selectize' %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'selectize_user_ids' %>
+<% end %>
+
+<%- content_for :action_bar do %>
+  <ol>
+    <li class="action_bar-item">
+      <%= link_to excel_report_admin_company_evaluation_user_calibrations_path(company_evaluation_id: @company_evaluation.id, format: :xlsx), class: "btn btn-outline-primary" do -%>
+        <%= t("form.excel_report") %> <%= svg_icon('free.svg#cil-copy', %w[icon]) -%>
+      <% end %>
+    </li>
+  </ol>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <%= form_tag admin_company_evaluation_user_calibrations_path(company_evaluation_id: @company_evaluation.id), method: :get do -%>
+        <div class="row g-3 align-items-center m-2">
+          <label class="col-auto"><%= t("user.chinese_name") -%>：</label>
+          <div class="col-md-3" data-controller="selectize-user-ids">
+            <%= select_tag :user_id, options_from_collection_for_select(User.where(id: @user_id), "id", "name_with_clerk_code", @user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
+          </div>
+          <div class="col-auto">
+            <div class="form-group">
+              <div class="form-check form-switch form-switch-xl">
+                <%= check_box_tag :select_no_evaluation_user_capability, 'true', @select_no_evaluation_user_capability, class: "form-check-input" %>
+                <%= label_tag :select_no_evaluation_user_capability, t("calibration.select_no_evaluation_user_capability"), class: "form-check-label" %>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <%= submit_tag t("form.confirm"), class: 'btn btn-primary' %>
+          </div>
+        </div>
+      <% end -%>
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th><%= t('user.chinese_name') -%></th>
+            <th><%= t('calibration.session_name_and_template') -%></th>
+            <th><%= t('calibration.owner_judge') -%></th>
+            <th><%= t('form.action') -%></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @calibration_session_users.each do |csu| %>
+            <tr>
+              <td>
+                <% evaluation_user_capability = csu.evaluation_user_capability %>
+                <% if evaluation_user_capability.present? %>
+                  <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= EvaluationUserCapability.form_status_options.invert[evaluation_user_capability.form_status] -%>">
+                    <%= csu.user.chinese_name -%>
+                  </span>
+                <% else %>
+                  <span class="bg-danger-gradient">
+                    <%= csu.user.chinese_name -%>
+                  </span>
+                <% end %>
+                <br />
+                ID: <%= csu.user_id -%>
+              </td>
+              <td>
+                <%= csu.calibration_session.calibration_template.template_name -%>
+                <br/>
+                <%= csu.calibration_session.session_name -%>
+              </td>
+              <td>
+                <%= csu.calibration_session.owner.chinese_name -%> ID: <%= csu.calibration_session.owner_id -%>
+                <% if policy(current_user).impersonation? %>
+                  <%= link_to impersonation_admin_user_path(id: csu.calibration_session.owner.id), class: 'pe-2', data: {controller: "modal", action: "modal#click"} do %>
+                    <%= svg_icon('free.svg#cil-account-logout', %w[icon icon-lg pt-1]) -%>
+                  <% end %>
+                <% end %>
+                <br/>
+                <% csu.calibration_session.calibration_session_judges.each do |sj| -%>
+                  <%= sj.judge.chinese_name -%>  ID: <%= sj.judge_id -%>
+                  <%= link_to impersonation_admin_user_path(id: sj.judge.id), class: 'pe-1', data: {controller: "modal", action: "modal#click"} do %>
+                    <%= svg_icon('free.svg#cil-account-logout', %w[icon icon-lg pt-1]) -%>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if policy(csu).confirm_destroy? %>
+                  <%= link_to confirm_destroy_admin_calibration_session_user_path(id: csu.id), class: 'pe-1', data: {controller: "modal", action: "modal#click", "modal-page-reload-value": true} do %>
+                    <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg pt-1]) -%>
+                  <% end %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%== pagy_bootstrap_nav(@pagy) %>
+    </div>
+  </div>
+</div>

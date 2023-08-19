@@ -1,0 +1,10 @@
+---
+en:
+  admin:
+    archived_user_capabilities:
+      index:
+        breadcrumb_title: "Trash of %{title}"
+      confirm_restore:
+        title: "Confirm restore?"
+        original_evaluation_user_capability_existing_already: "The user's evaluation record already exists and cannot be restored."
+        duplicate_evaluation_user_capability_existing_already: "Evaluation records similar to this record company_evaluation_template_id, user_id, and job_role_id already exist and cannot be restored."

@@ -1,0 +1,10 @@
+---
+zh-CN:
+  admin:
+    archived_user_capabilities:
+      index:
+        breadcrumb_title: "%{title}的回收站"
+      confirm_restore:
+        title: "确认恢复？"
+        original_evaluation_user_capability_existing_already: "用户的考评记录已经存在，无法恢复。"
+        duplicate_evaluation_user_capability_existing_already: "和这条记录company_evaluation_template_id、user_id和job_role_id相似的考评记录已经存在，无法恢复。"

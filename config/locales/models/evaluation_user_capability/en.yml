@@ -1,0 +1,20 @@
+---
+en:
+  activerecord:
+    errors:
+      models:
+        evaluation_user_capability:
+          attributes:
+            self_overall_output:
+              too_short: "too short，minimum length %{count}"
+            self_overall_improvement:
+              too_short: "too short，minimum length %{count}"
+            self_overall_plan:
+              too_short: "too short，minimum length %{count}"
+    models:
+      evaluation_user_capability: "Evaluation user capability"
+    attributes:
+      evaluation_user_capability:
+        self_overall_output: "Self overall output"
+        self_overall_improvement: "Self overall improvement"
+        self_overall_plan: "Self overall plan"
