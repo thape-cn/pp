@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def set_edit_page_layout_data
-    @_wrapper_class = %w[wrapper d-flex flex-column min-vh-100 bg-light]
+    @_wrapper_class = %w[wrapper d-flex flex-column min-vh-100 bg-light bg-opacity-50 dark:bg-transparent]
     @_sidebar_name = "application"
   end
 
