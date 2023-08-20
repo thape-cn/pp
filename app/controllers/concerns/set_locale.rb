@@ -21,7 +21,7 @@ module SetLocale
   private
 
   def find_locale
-    locale_from_params || locale_from_user || locale_from_header || I18n.default_locale
+    locale_from_params || locale_from_user || I18n.default_locale
   end
 
   def locale_from_params
@@ -32,10 +32,6 @@ module SetLocale
     return unless user_signed_in?
 
     permit_locale(current_user.preferred_language)
-  end
-
-  def locale_from_header
-    permit_locale request.env.fetch("HTTP_ACCEPT_LANGUAGE", "").scan(/^[a-z]{2}/).first
   end
 
   # Makes sure locale is in the available locales list
