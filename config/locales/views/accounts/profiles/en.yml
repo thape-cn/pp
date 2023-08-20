@@ -5,6 +5,7 @@ en:
       show:
         title: "Edit Profile"
         sidebar_narrow: "Narrow sidebar"
+        on_dark: "Dark Theme"
         email: "Email"
         submit: "Submit"
         updated: "Profile update successfully"
@@ -18,3 +19,6 @@ en:
           sidebar_narrow:
             title: "Change sidebar width"
             description: "Whether to display narrow sidebars to fit width-constrained monitors."
+          on_dark:
+            title: "Display theme"
+            description: "Whether to show dark mode in the modern display like OLED."
