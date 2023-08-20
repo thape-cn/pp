@@ -10,7 +10,7 @@ gem "mail"
 gem "jbuilder"
 gem "propshaft"
 
-gem "sqlite3", "~> 2.6"
+gem "trilogy"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
