@@ -466,13 +466,6 @@ GEM
       logger (>= 1.7.0)
       rack (>= 3.2.0)
       redis-client (>= 0.29.0)
-    sqlite3 (2.9.5-aarch64-linux-gnu)
-    sqlite3 (2.9.5-aarch64-linux-musl)
-    sqlite3 (2.9.5-arm-linux-gnu)
-    sqlite3 (2.9.5-arm-linux-musl)
-    sqlite3 (2.9.5-arm64-darwin)
-    sqlite3 (2.9.5-x86_64-linux-gnu)
-    sqlite3 (2.9.5-x86_64-linux-musl)
     sshkit (1.25.0)
       base64
       logger
@@ -501,6 +494,8 @@ GEM
     tidewave (0.5.2)
       rack (>= 2.0)
     timeout (0.6.1)
+    trilogy (2.12.6)
+      bigdecimal
     tsort (0.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -582,9 +577,9 @@ DEPENDENCIES
   selenium-webdriver (>= 4.31.0)
   shakapacker (~> 8.2)
   sidekiq
-  sqlite3 (~> 2.6)
   standard
   tidewave
+  trilogy
   tzinfo-data
   web-console
   wechat!

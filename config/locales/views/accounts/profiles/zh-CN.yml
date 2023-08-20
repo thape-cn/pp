@@ -5,6 +5,7 @@ zh-CN:
       show:
         title: "编辑个人资料"
         sidebar_narrow: "窄侧边栏"
+        on_dark: "暗黑模式"
         email: "电子邮箱"
         submit: "提交"
         updated: "个人资料保存成功"
@@ -18,3 +19,6 @@ zh-CN:
           sidebar_narrow:
             title: "更改侧边栏宽度"
             description: "是否显示窄侧边栏以适应宽度受限的显示器。"
+          on_dark:
+            title: "更改显示主题"
+            description: "是否显示暗黑模式以适应OLED等现代显示器。"

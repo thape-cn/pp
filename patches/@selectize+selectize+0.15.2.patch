@@ -1,46 +1,39 @@
+diff --git a/node_modules/@selectize/selectize/dist/js/selectize.js b/node_modules/@selectize/selectize/dist/js/selectize.js
+index 8603a89..7a0970d 100644
+--- a/node_modules/@selectize/selectize/dist/js/selectize.js
++++ b/node_modules/@selectize/selectize/dist/js/selectize.js
+@@ -1284,7 +1284,7 @@ $.extend(Selectize.prototype, {
+ 		classes           = $input.attr('class') || '';
+ 
+     $wrapper          = $('<div>').addClass(settings.wrapperClass).addClass(classes + ' selectize-control').addClass(inputMode);
+-		$control          = $('<div>').addClass(settings.inputClass + ' selectize-input items').appendTo($wrapper);
++		$control          = $('<div>').addClass(settings.inputClass + ' selectize-input items dark:bg-transparent').appendTo($wrapper);
+ 		$control_input    = $('<input type="select-one" autocomplete="new-password" autofill="no" />').appendTo($control).attr('tabindex', $input.is(':disabled') ? '-1' : self.tabIndex);
+ 		$dropdown_parent  = $(settings.dropdownParent || $wrapper);
+ 		$dropdown         = $('<div>').addClass(settings.dropdownClass).addClass(inputMode + ' selectize-dropdown').hide().appendTo($dropdown_parent);
 diff --git a/node_modules/@selectize/selectize/dist/scss/selectize.bootstrap5.scss b/node_modules/@selectize/selectize/dist/scss/selectize.bootstrap5.scss
-index ac37fff..ace1c24 100644
+index ac37fff..d053721 100644
 --- a/node_modules/@selectize/selectize/dist/scss/selectize.bootstrap5.scss
 +++ b/node_modules/@selectize/selectize/dist/scss/selectize.bootstrap5.scss
 @@ -1,6 +1,6 @@
 -@import "lib/bootstrap5/functions";
 -@import "lib/bootstrap5/variables";
 -@import "lib/bootstrap5/mixins";
-+@import "@coreui/coreui/scss/functions";
-+@import "@coreui/coreui/scss/variables";
-+@import "@coreui/coreui/scss/mixins";
++@import "@coreui/coreui-pro/scss/functions";
++@import "@coreui/coreui-pro/scss/variables";
++@import "@coreui/coreui-pro/scss/mixins";
  
  $enable-shadows: true !default;
  $select-font-family: inherit !default;
 diff --git a/node_modules/@selectize/selectize/dist/scss/selectize.scss b/node_modules/@selectize/selectize/dist/scss/selectize.scss
-index 25e4a35..289f295 100644
+index 25e4a35..b0c4233 100644
 --- a/node_modules/@selectize/selectize/dist/scss/selectize.scss
 +++ b/node_modules/@selectize/selectize/dist/scss/selectize.scss
-@@ -74,7 +74,6 @@ $select-spinner-border-color: $select-color-border;
- }
+@@ -96,7 +96,6 @@ $select-spinner-border-color: $select-color-border;
  
- @import "plugins/drag_drop.scss";
--@import "plugins/dropdown_header.scss";
- @import "plugins/optgroup_columns.scss";
- @import "plugins/remove_button.scss";
- @import "plugins/clear_button.scss";
-@@ -177,9 +176,6 @@ $select-spinner-border-color: $select-color-border;
-     }
-   }
-   > input {
--    &::-ms-clear {
--      display: none;
--    }
-     display: inline-block !important;
-     padding: 0 !important;
-     min-height: 0 !important;
-@@ -192,6 +188,9 @@ $select-spinner-border-color: $select-color-border;
-     line-height: inherit !important;
-     user-select: auto !important;
-     box-shadow: none !important;
-+    &::-ms-clear {
-+      display: none;
-+    }
-     &:focus {
-       outline: none !important;
-     }
+ .#{$selectize}-input,
+ .#{$selectize}-control.single .#{$selectize}-input.input-active {
+-  background: $select-color-input;
+   cursor: text;
+   display: inline-block;
+ }
