@@ -35,9 +35,9 @@ importers:
       '@coreui/chartjs':
         specifier: ^3.1.2
         version: 3.1.2(@popperjs/core@2.11.8)(postcss@8.5.6)
-      '@coreui/coreui':
-        specifier: 4.3.2
-        version: 4.3.2(@popperjs/core@2.11.8)(postcss@8.5.6)
+      '@coreui/coreui-pro':
+        specifier: 4.4.4
+        version: 4.4.4(@popperjs/core@2.11.8)(postcss@8.5.6)
       '@coreui/icons':
         specifier: ^3.0.1
         version: 3.0.1
@@ -691,6 +691,11 @@ packages:
 
   '@coreui/chartjs@3.1.2':
     resolution: {integrity: sha512-d3MGk3KZNAt29VRKP/XYiGmT56KTqtuOhLEg5HNwb7P7ZmEgOJoHxFHVCVE4I36hfgQCjZZVknsuk2ZTfF/2fw==}
+
+  '@coreui/coreui-pro@4.4.4':
+    resolution: {integrity: sha512-aEUiOp80oELc4QW6nk16uU8XjgKvbp5y+IxnpIwcLn92sw3uqKj1peqfuZHJ+EEi23gYEPIN9LdszUi+ci4IRg==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.6
 
   '@coreui/coreui@4.3.2':
     resolution: {integrity: sha512-SKGY6E6v7QGq0P3YTnZQRSrU8t0euLQ3UV/FH5j0JmHYBBu7Mv0Hd9g8AESnj8xrCelKZ5bdZKZhmKaIdG5clw==}
@@ -3533,6 +3538,13 @@ snapshots:
       chart.js: 3.9.1
     transitivePeerDependencies:
       - '@popperjs/core'
+      - postcss
+
+  '@coreui/coreui-pro@4.4.4(@popperjs/core@2.11.8)(postcss@8.5.6)':
+    dependencies:
+      '@popperjs/core': 2.11.8
+      postcss-combine-duplicated-selectors: 10.0.3(postcss@8.5.6)
+    transitivePeerDependencies:
       - postcss
 
   '@coreui/coreui@4.3.2(@popperjs/core@2.11.8)(postcss@8.5.6)':

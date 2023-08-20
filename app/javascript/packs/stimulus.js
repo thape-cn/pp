@@ -1,4 +1,4 @@
-global.coreui = require("@coreui/coreui")
+global.coreui = require("@coreui/coreui-pro")
 import { Application } from "@hotwired/stimulus"
 import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 
