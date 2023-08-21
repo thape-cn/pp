@@ -31,7 +31,7 @@
 /config/master.key
 /config/credentials.yml.enc
 
-rails-starter.sublime-workspace
+pp.sublime-workspace
 .DS_Store
 
 /public/packs
