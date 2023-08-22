@@ -88,7 +88,8 @@ module Admin
     def create
       company_evaluation = CompanyEvaluation.find(params[:company_evaluation_id])
       authorize EvaluationUserCapability.new
-      Initiation.new_evaluation(company_evaluation, params[:file])
+      import_excel_file = current_user.import_excel_files.create(title: company_evaluation.title, import_type: "new_evaluation")
+      import_excel_file.excel_file.attach(params[:file])
     end
 
     def excel_report
