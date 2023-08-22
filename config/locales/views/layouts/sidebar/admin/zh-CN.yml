@@ -19,4 +19,5 @@ zh-CN:
         evaluation_roles: "考评角色"
         all_calibration_session: "所有校验会话"
         calibration_session: "校验会话"
+        import_excel_files: "导入的Excel文件"
         background_jobs: "后端队列"

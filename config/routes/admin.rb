@@ -45,11 +45,13 @@ namespace :admin do
         get :excel_report
       end
     end
+    resources :import_excel_files, only: %i[index]
     member do
       get :confirm_remove_leaving_employee_eucs
       put :remove_leaving_employee_eucs
     end
-  end
+  end # of company_evaluations
+
   resources :company_evaluation_templates, only: %i[] do
     collection do
       get :all
@@ -92,6 +94,11 @@ namespace :admin do
     collection do
       get :expender
       post :reconcile_session_status
+    end
+  end
+  resources :import_excel_files, only: %i[] do
+    collection do
+      get :expender
     end
   end
   resources :users, only: %i[index edit update new create] do

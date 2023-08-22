@@ -55,6 +55,20 @@
       </ul>
     </li>
 
+    <li class="nav-group <%= %w[import_excel_files].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[import_excel_files].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_admin_import_excel_files_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-data-transfer-down', 'nav-icon') -%>
+        <%= t('.import_excel_files') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[import_excel_files].include?(controller_name) %>
+          <%= render partial: 'admin/import_excel_files/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
+
     <li class="nav-title"><%= t('user.account') -%></li>
     <%= nav_item(t('user.users'), admin_users_path, 'free.svg#cil-user') -%>
     <%= nav_item(t('user.duplicate_users'), admin_duplicate_users_path, 'free.svg#cil-user-x') -%>

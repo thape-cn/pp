@@ -19,4 +19,5 @@ en:
         evaluation_roles: "Evaluation roles"
         all_calibration_session: "All calibration session"
         calibration_session: "Calibration session"
+        import_excel_files: "Import Excel files"
         background_jobs: "Background jobs"
