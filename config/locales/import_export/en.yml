@@ -1,5 +1,7 @@
 ---
 en:
-  form:
+  import_exports:
+    title: "Title"
+    import_type_title: "Import type"
     import_type:
       new_evaluation: "New evaluation"

@@ -4,7 +4,7 @@ class ImportExcelFile < ApplicationRecord
 
   def self.import_type_options
     {
-      I18n.t("form.import_type.new_evaluation") => "new_evaluation"
+      I18n.t("import_exports.import_type.new_evaluation") => "new_evaluation"
     }
   end
 end

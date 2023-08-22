@@ -1,5 +1,7 @@
 ---
 zh-CN:
-  form:
+  import_exports:
+    title: "标题"
+    import_type_title: "导入类型"
     import_type:
       new_evaluation: "新考评"
