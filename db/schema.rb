@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_08_03_034248) do
+ActiveRecord::Schema[7.1].define(version: 2023_08_22_034232) do
   create_table "archived_evaluation_user_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "company_evaluation_template_id", null: false
     t.bigint "user_id", null: false
@@ -290,7 +290,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_08_03_034248) do
     t.index ["user_id"], name: "index_evaluation_user_capabilities_on_user_id"
   end
 
-  create_table "evaluation_user_capability_descriptions", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "evaluation_user_capability_descriptions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "company_evaluation_template_id", null: false
     t.bigint "user_id", null: false
     t.bigint "capability_id", null: false
@@ -318,6 +318,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_08_03_034248) do
     t.boolean "auto_generated", default: true, null: false
     t.boolean "can_view_staff_evaluation_detail", default: true, null: false
     t.index ["user_id"], name: "index_hrbp_user_managed_departments_on_user_id"
+  end
+
+  create_table "import_excel_files", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.string "import_type", null: false
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_import_excel_files_on_user_id"
   end
 
   create_table "job_role_evaluation_performances", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

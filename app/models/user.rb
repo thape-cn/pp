@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :hrbp_user_managed_departments
   has_many :euc_form_status_histories
   has_many :calibration_session_users
+  has_many :import_excel_files
 
   normalizes :email, with: ->(email) { email.downcase.strip }
 
