@@ -5,3 +5,4 @@ zh-CN:
     import_type_title: "导入类型"
     import_type:
       new_evaluation: "新考评"
+      new_calibration_session: "新校准会话"
