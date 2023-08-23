@@ -6,3 +6,4 @@ en:
     import_type:
       new_evaluation: "New evaluation"
       new_calibration_session: "New calibration session"
+      new_performance: "New performance"
