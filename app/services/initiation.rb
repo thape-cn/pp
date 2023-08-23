@@ -1,6 +1,6 @@
 class Initiation
-  def self.new_calibration(company_evaluation, excel_file_path)
-    xlsx = Roo::Excelx.new(excel_file_path)
+  def self.new_calibration(company_evaluation, excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(excel_file.download))
     xlsx.default_sheet = "校准"
 
     xlsx.each(

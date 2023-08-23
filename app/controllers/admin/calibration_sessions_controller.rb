@@ -51,7 +51,11 @@ module Admin
     def create
       company_evaluation = CompanyEvaluation.find(params[:company_evaluation_id])
       authorize CalibrationSession.new
-      Initiation.new_calibration(company_evaluation, params[:file])
+      import_excel_file = current_user.import_excel_files
+        .create(company_evaluation_id: company_evaluation.id,
+          title: company_evaluation.title, import_type: "new_calibration_session")
+      import_excel_file.excel_file.attach(params[:file])
+      ImportNewCalibrationSessionJob.perform_async(import_excel_file.id)
     end
 
     def edit
