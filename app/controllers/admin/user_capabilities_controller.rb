@@ -92,6 +92,7 @@ module Admin
         .create(company_evaluation_id: company_evaluation.id,
           title: company_evaluation.title, import_type: "new_evaluation")
       import_excel_file.excel_file.attach(params[:file])
+      ImportNewEvaluationJob.perform_async(import_excel_file.id)
     end
 
     def excel_report

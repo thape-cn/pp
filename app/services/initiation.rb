@@ -74,8 +74,8 @@ class Initiation
     end
   end
 
-  def self.new_evaluation(company_evaluation, excel_file_path)
-    xlsx = Roo::Excelx.new(excel_file_path)
+  def self.new_evaluation(company_evaluation, excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(excel_file.download))
     xlsx.default_sheet = "启动表单"
 
     xlsx.each(
