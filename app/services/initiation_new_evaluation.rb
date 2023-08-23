@@ -1,4 +1,4 @@
-class InitiationNewCalibration
+class InitiationNewEvaluation
   def self.do_import(company_evaluation, excel_file)
     xlsx = Roo::Excelx.new(StringIO.new(excel_file.download))
     xlsx.default_sheet = "启动表单"
