@@ -183,16 +183,6 @@ namespace :import do
     end
   end
 
-  desc "Import job role evaluation performance"
-  task :job_role_evaluation_performance, [:company_evaluation_id, :csv_file] => [:environment] do |task, args|
-    company_evaluation_id = args[:company_evaluation_id]
-    csv_file_path = args[:csv_file]
-
-    company_evaluation = CompanyEvaluation.find(company_evaluation_id)
-
-    Initiation.new_performance(company_evaluation, csv_file_path)
-  end
-
   def correct_email(email)
     first_email_part = email.split("@")[0]
     "#{first_email_part}@thape.com.cn"

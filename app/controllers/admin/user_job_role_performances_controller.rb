@@ -45,7 +45,7 @@ module Admin
 
     def create
       authorize JobRoleEvaluationPerformance
-      Initiation.new_performance(@company_evaluation, params[:file])
+      InitiationNewPerformance.do_import(@company_evaluation, params[:file])
     end
 
     def excel_report
