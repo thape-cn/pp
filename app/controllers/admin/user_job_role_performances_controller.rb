@@ -45,7 +45,11 @@ module Admin
 
     def create
       authorize JobRoleEvaluationPerformance
-      InitiationNewPerformance.do_import(@company_evaluation, params[:file])
+      import_excel_file = current_user.import_excel_files
+        .create(company_evaluation_id: @company_evaluation.id,
+          title: @company_evaluation.title, import_type: "new_performance")
+      import_excel_file.excel_file.attach(params[:file])
+      ImportNewPerformanceJob.perform_async(import_excel_file.id)
     end
 
     def excel_report
