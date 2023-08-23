@@ -22,8 +22,8 @@
               <td><%= index -%></td>
               <td><%= ief.user.chinese_name -%></td>
               <td><%= ief.user.clerk_code -%></td>
-              <td><%= ief.import_type -%></td>
-              <td><%= ief.title -%></td>
+              <td><%= ImportExcelFile.import_type_options.invert[ief.import_type] -%></td>
+              <td><%= link_to ief.title, rails_blob_path(ief.excel_file, disposition: "attachment") -%></td>
               <td><%= local_time(ief.created_at) -%></td>
             </tr>
           <% end %>
