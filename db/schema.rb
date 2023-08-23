@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_08_22_054920) do
+ActiveRecord::Schema[7.1].define(version: 2023_08_23_060649) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -354,6 +354,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_08_22_054920) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "company_evaluation_id", null: false
+    t.index ["company_evaluation_id"], name: "index_import_excel_files_on_company_evaluation_id"
     t.index ["user_id"], name: "index_import_excel_files_on_user_id"
   end
 
