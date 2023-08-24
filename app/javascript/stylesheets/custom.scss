@@ -117,6 +117,10 @@
   transform: rotate(90deg);
 }
 
+.rotate_180 {
+  transform: rotate(180deg);
+}
+
 .hidden-first-column {
   tr > *:nth-child(1) {
     display: none;
