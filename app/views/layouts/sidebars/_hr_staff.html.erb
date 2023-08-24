@@ -43,6 +43,10 @@
       </ul>
     </li>
 
+    <li class="nav-title"><%= t('performance.presentation') -%></li>
+    <%= nav_item(t('performance.staff_performances'), hr_staff_performances_path, 'free.svg#cil-speedometer') -%>
+    <%= nav_item(t('performance.manager_performances'), hr_manager_performances_path, 'free.svg#cil-speedometer') -%>
+
     <li class="nav-title"><%= t('evaluation.history_evaluation') -%></li>
     <li class="nav-group <%= %w[history_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
       data-expender-loaded-value=<%= %w[history_user_capabilities].include?(controller_name) -%>
