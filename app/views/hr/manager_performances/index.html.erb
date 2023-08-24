@@ -7,8 +7,12 @@
     <div class="container">
       <%= form_tag hr_manager_performances_path, method: :get do -%>
         <div class="row g-3 align-items-center m-2">
+          <div class="col-3">
+            <label><%= t("performance.company_evaluation") -%></label>
+            <%= select_tag :company_evaluation_id, options_from_collection_for_select(CompanyEvaluation.all.order(id: :desc), "id", "title", @company_evaluation_id), {class: 'form-control'} -%>
+          </div>
           <div class="col">
-            <%= submit_tag t("form.confirm"), class: 'btn btn-primary' %>
+            <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
           </div>
         </div>
       <% end -%>

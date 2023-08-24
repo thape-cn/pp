@@ -121,6 +121,10 @@
   transform: rotate(180deg);
 }
 
+.mt-button {
+  margin-top: 1.4rem !important;
+}
+
 .hidden-first-column {
   tr > *:nth-child(1) {
     display: none;
