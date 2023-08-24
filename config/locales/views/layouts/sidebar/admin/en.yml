@@ -7,7 +7,6 @@ en:
         dashboard: "Dashboard"
         setup: "Setup"
         evaluation: "Evaluation"
-        company_evaluations: "Company evaluation"
         company_evaluation_templates: "Evaluation template"
         user_capabilities: "User’s capabilities"
         archived_user_capabilities: "Trash of users capabilities"

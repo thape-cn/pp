@@ -1,6 +1,7 @@
 ---
 zh-CN:
   performance:
+    company_evaluation: "Company evaluation"
     presentation: "Performance presentation"
     staff_performances: "Staff performances"
     manager_performances: "Manager performances"

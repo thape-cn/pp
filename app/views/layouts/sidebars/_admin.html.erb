@@ -91,7 +91,7 @@
     </li>
 
     <li class="nav-title"><%= t('.setup') -%></li>
-    <%= nav_item(t('.company_evaluations'), admin_company_evaluations_path, 'free.svg#cil-wifi-signal-0') %>
+    <%= nav_item(t('performance.company_evaluation'), admin_company_evaluations_path, 'free.svg#cil-wifi-signal-0') %>
     <li class="nav-group <%= %w[evaluation_templates company_evaluation_templates].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
       data-expender-loaded-value=<%= %w[evaluation_templates company_evaluation_templates].include?(controller_name) -%>
       data-expender-url-value="<%= expender_admin_company_evaluation_templates_path -%>">
