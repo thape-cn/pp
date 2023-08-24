@@ -82,19 +82,19 @@ export function calibrationEucsByManager(row, column, calibration_eucs) {
 
 function calibrateStaffClass(grade, is_over) {
   if (is_over) return "col-3 bg-secondary min-vh-22";
-  if (grade == "A+") return "col-3 bg-info-gradient min-vh-22";
-  if (grade == "A") return "col-3 bg-info-gradient min-vh-22";
-  if (grade == "B") return "col-3 bg-primary-gradient min-vh-22";
-  if (grade == "C") return "col-3 bg-warning-gradient min-vh-22";
-  if (grade == "D") return "col-3 bg-warning-gradient min-vh-22";
+  if (grade == "A+") return "col-3 bg-info min-vh-22";
+  if (grade == "A") return "col-3 bg-info min-vh-22";
+  if (grade == "B") return "col-3 bg-primary min-vh-22";
+  if (grade == "C") return "col-3 bg-warning min-vh-22";
+  if (grade == "D") return "col-3 bg-warning min-vh-22";
   return "col-3 min-vh-22";
 }
 
 function calibrateManagerClass(row, column, is_over) {
   if (is_over) return "col-3 bg-secondary min-vh-22";
-  if (column == "1") return "col-3 bg-warning-gradient min-vh-22";
-  if (column == "2") return "col-3 bg-primary-gradient min-vh-22";
-  if (column == "3") return "col-3 bg-info-gradient min-vh-22";
+  if (column == "1") return "col-3 bg-warning min-vh-22";
+  if (column == "2") return "col-3 bg-primary min-vh-22";
+  if (column == "3") return "col-3 bg-info min-vh-22";
   return "col-3 min-vh-22";
 }
 
