@@ -2,13 +2,13 @@
   <%= append_javascript_pack_tag 'stimulus' %>
 <% end %>
 
-<div class="col-12 px-3">
+<div class="col-12">
   <table class="table table-borderless">
     <tbody>
       <tr style="height: 66px;">
         <td rowspan="4" class="text-end"><%= t("evaluation.work_load_pct") %></td>
-        <td class="border border-primary">B
-          <% @evaluation_user_capabilities_group["11"].each do |euc| %>
+        <td class="border border-primary"><h5>B</h5>
+          <% @evaluation_user_capabilities_group["11"].take(9).each do |euc| %>
             <span class="btn btn-light rounded-pill m-1">
               <%= euc.user.chinese_name -%>
               <span class="badge ms-1 rounded-pill bg-info">
@@ -17,8 +17,8 @@
             </span>
           <% end %>
         </td>
-        <td class="border border-primary">A
-          <% @evaluation_user_capabilities_group["12"].each do |euc| %>
+        <td class="border border-primary"><h5>A</h5>
+          <% @evaluation_user_capabilities_group["12"].take(9).each do |euc| %>
             <span class="btn btn-light rounded-pill m-1">
               <%= euc.user.chinese_name -%>
               <span class="badge ms-1 rounded-pill bg-info">
@@ -27,40 +27,8 @@
             </span>
           <% end %>
         </td>
-        <td class="border border-primary">A+
-          <% @evaluation_user_capabilities_group["13"].each do |euc| %>
-            <span class="btn btn-light rounded-pill m-1">
-              <%= euc.user.chinese_name -%>
-              <span class="badge ms-1 rounded-pill bg-info">
-                <%= euc.total_evaluation_score -%>
-              </span>
-            </span>
-          <% end %>
-        </td>
-      </tr>
-      <tr style="height: 66px;">
-        <td class="border border-primary">C
-          <% @evaluation_user_capabilities_group["21"].each do |euc| %>
-            <span class="btn btn-light rounded-pill m-1">
-              <%= euc.user.chinese_name -%>
-              <span class="badge ms-1 rounded-pill bg-info">
-                <%= euc.total_evaluation_score -%>
-              </span>
-            </span>
-          <% end %>
-        </td>
-        <td class="border border-primary">B
-          <% @evaluation_user_capabilities_group["22"].each do |euc| %>
-            <span class="btn btn-light rounded-pill m-1">
-              <%= euc.user.chinese_name -%>
-              <span class="badge ms-1 rounded-pill bg-info">
-                <%= euc.total_evaluation_score -%>
-              </span>
-            </span>
-          <% end %>
-        </td>
-        <td class="border border-primary">A
-          <% @evaluation_user_capabilities_group["23"].each do |euc| %>
+        <td class="border border-primary"><h5>A+</h5>
+          <% @evaluation_user_capabilities_group["13"].take(9).each do |euc| %>
             <span class="btn btn-light rounded-pill m-1">
               <%= euc.user.chinese_name -%>
               <span class="badge ms-1 rounded-pill bg-info">
@@ -71,8 +39,8 @@
         </td>
       </tr>
       <tr style="height: 66px;">
-        <td class="border border-primary">D
-          <% @evaluation_user_capabilities_group["31"].each do |euc| %>
+        <td class="border border-primary"><h5>C</h5>
+          <% @evaluation_user_capabilities_group["21"].take(9).each do |euc| %>
             <span class="btn btn-light rounded-pill m-1">
               <%= euc.user.chinese_name -%>
               <span class="badge ms-1 rounded-pill bg-info">
@@ -81,8 +49,8 @@
             </span>
           <% end %>
         </td>
-        <td class="border border-primary">C
-          <% @evaluation_user_capabilities_group["32"].each do |euc| %>
+        <td class="border border-primary"><h5>B</h5>
+          <% @evaluation_user_capabilities_group["22"].take(9).each do |euc| %>
             <span class="btn btn-light rounded-pill m-1">
               <%= euc.user.chinese_name -%>
               <span class="badge ms-1 rounded-pill bg-info">
@@ -91,8 +59,40 @@
             </span>
           <% end %>
         </td>
-        <td class="border border-primary">B
-          <% @evaluation_user_capabilities_group["33"].each do |euc| %>
+        <td class="border border-primary"><h5>A</h5>
+          <% @evaluation_user_capabilities_group["23"].take(9).each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+      <tr style="height: 66px;">
+        <td class="border border-primary"><h5>D</h5>
+          <% @evaluation_user_capabilities_group["31"].take(9).each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary"><h5>C</h5>
+          <% @evaluation_user_capabilities_group["32"].take(9).each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary"><h5>B</h5>
+          <% @evaluation_user_capabilities_group["33"].take(9).each do |euc| %>
             <span class="btn btn-light rounded-pill m-1">
               <%= euc.user.chinese_name -%>
               <span class="badge ms-1 rounded-pill bg-info">
