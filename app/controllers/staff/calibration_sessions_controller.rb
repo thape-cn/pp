@@ -1,6 +1,7 @@
 module Staff
   class CalibrationSessionsController < BaseController
     include Pagy::Backend
+    include StaffManagerGroup
     before_action :check_brower, only: %i[show], if: -> { request.format.html? }
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
@@ -140,18 +141,6 @@ module Staff
         staff_group(need_calibration_evaluation_user_capabilities)
       when "manager"
         manager_group(need_calibration_evaluation_user_capabilities)
-      end
-    end
-
-    def staff_group(evaluation_user_capabilities)
-      evaluation_user_capabilities.group_by do |euc|
-        "#{euc.group_of_staff_work_load}#{euc.group_of_staff_work_quality_and_work_attitude}"
-      end
-    end
-
-    def manager_group(evaluation_user_capabilities)
-      evaluation_user_capabilities.group_by do |euc|
-        "#{euc.group_of_manager_performance}#{euc.group_of_manager_capability}"
       end
     end
 

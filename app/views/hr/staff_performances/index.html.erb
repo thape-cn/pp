@@ -1,3 +1,112 @@
 <% content_for :head do %>
   <%= append_javascript_pack_tag 'stimulus' %>
 <% end %>
+
+<div class="col-12 px-3">
+  <table class="table table-borderless">
+    <tbody>
+      <tr style="height: 66px;">
+        <td rowspan="4" class="text-end"><%= t("evaluation.work_load_pct") %></td>
+        <td class="border border-primary">B
+          <% @evaluation_user_capabilities_group["11"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary">A
+          <% @evaluation_user_capabilities_group["12"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary">A+
+          <% @evaluation_user_capabilities_group["13"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+      <tr style="height: 66px;">
+        <td class="border border-primary">C
+          <% @evaluation_user_capabilities_group["21"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary">B
+          <% @evaluation_user_capabilities_group["22"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary">A
+          <% @evaluation_user_capabilities_group["23"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+      <tr style="height: 66px;">
+        <td class="border border-primary">D
+          <% @evaluation_user_capabilities_group["31"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary">C
+          <% @evaluation_user_capabilities_group["32"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+        <td class="border border-primary">B
+          <% @evaluation_user_capabilities_group["33"].each do |euc| %>
+            <span class="btn btn-light rounded-pill m-1">
+              <%= euc.user.chinese_name -%>
+              <span class="badge ms-1 rounded-pill bg-info">
+                <%= euc.total_evaluation_score -%>
+              </span>
+            </span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" class="text-end">
+          <%= t("evaluation.work_quality_pct") %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
