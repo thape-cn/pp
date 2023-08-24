@@ -126,7 +126,7 @@ module Admin
 
     def change_manager
       authorize User
-      Initiation.change_manager(params[:file])
+      InitiationChangeManager.do_change(params[:file])
     end
 
     private
