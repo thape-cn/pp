@@ -28,7 +28,7 @@
       </ul>
     </li>
 
-    <li class="nav-title"><%= t('.calibration') -%></li>
+    <li class="nav-title"><%= t('calibration.calibration') -%></li>
     <li class="nav-group <%= %w[calibration_sessions].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
       data-expender-loaded-value=<%= %w[calibration_sessions].include?(controller_name) -%>
       data-expender-url-value="<%= expender_hr_calibration_sessions_path -%>">

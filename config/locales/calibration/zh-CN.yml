@@ -1,6 +1,7 @@
 ---
 zh-CN:
   calibration:
+    calibration: "校准"
     template_name: "模版名称"
     session_name_title: "绩效校准会话：%{session_name}"
     calibration_template: "校准模版"

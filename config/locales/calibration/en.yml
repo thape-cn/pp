@@ -1,6 +1,7 @@
 ---
 en:
   calibration:
+    calibration: "Calibration"
     template_name: "Template name"
     session_name_title: "Calibration session name: %{session_name}"
     calibration_template: "Calibration template"

@@ -7,6 +7,5 @@ zh-CN:
         dashboard: "主页"
         evaluation: "考评"
         user_capabilities: "员工的考评"
-        calibration: "校准"
         calibration_session: "校验会话"
         calibration_session_users: "校验会话中的员工"
