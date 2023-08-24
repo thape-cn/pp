@@ -11,6 +11,10 @@
             <label><%= t("performance.company_evaluation") -%></label>
             <%= select_tag :company_evaluation_id, options_from_collection_for_select(CompanyEvaluation.all.order(id: :desc), "id", "title", @company_evaluation_id), {class: 'form-control'} -%>
           </div>
+          <div class="col-3">
+            <label><%= t("user.company") -%></label>
+            <%= select_tag :company, options_for_select(@companies, @company), {class: 'form-control'} -%>
+          </div>
           <div class="col">
             <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
           </div>
