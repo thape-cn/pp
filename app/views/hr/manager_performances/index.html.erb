@@ -32,7 +32,7 @@
       <% end -%>
       <table class="table table-borderless">
         <tbody>
-          <tr style="height: 66px;">
+          <tr>
             <td rowspan="4" class="text-end"><%= t("evaluation.performance") -%></td>
             <td class="position-relative border border-primary bg-warning">
               <h5>B</h5>
@@ -65,7 +65,7 @@
               <% end %>
             </td>
           </tr>
-          <tr style="height: 66px;">
+          <tr>
             <td class="position-relative border border-primary bg-warning">
               <h5>C</h5>
               <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
@@ -97,7 +97,7 @@
               <% end %>
             </td>
           </tr>
-          <tr style="height: 66px;">
+          <tr>
             <td class="position-relative border border-primary bg-warning">
               <h5>D</h5>
               <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
