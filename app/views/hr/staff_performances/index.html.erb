@@ -15,6 +15,10 @@
             <label><%= t("user.company") -%></label>
             <%= select_tag :company, options_for_select(@companies, @company), {class: 'form-control'} -%>
           </div>
+          <div class="col-3">
+            <label><%= t("user.department") -%></label>
+            <%= select_tag :department, options_for_select(@departments, @department), {include_blank: true, class: 'form-control'} -%>
+          </div>
           <div class="col">
             <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
           </div>
