@@ -1,0 +1,9 @@
+<h5>B</h5>
+<% @evaluation_user_capabilities.each do |euc| %>
+  <span class="btn btn-light rounded-pill m-1">
+    <%= euc.user.chinese_name -%>
+    <span class="badge ms-1 rounded-pill bg-info">
+      <%= euc.total_evaluation_score -%>
+    </span>
+  </span>
+<% end %>
