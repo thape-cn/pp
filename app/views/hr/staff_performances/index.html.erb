@@ -1,5 +1,7 @@
 <% content_for :head do %>
+  <%= append_stylesheet_pack_tag 'selectize' %>
   <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'selectize_user_ids' %>
 <% end %>
 
 <div class="row justify-content-center">
@@ -18,6 +20,10 @@
           <div class="col-3">
             <label><%= t("user.department") -%></label>
             <%= select_tag :department, options_for_select(@departments, @department), {include_blank: true, class: 'form-control'} -%>
+          </div>
+          <div class="col-2" data-controller="selectize-user-ids">
+            <label><%= t("user.chinese_name") -%></label>
+            <%= select_tag :user_id, options_from_collection_for_select(User.where(id: @user_id), "id", "name_with_clerk_code", @user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
           </div>
           <div class="col">
             <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
