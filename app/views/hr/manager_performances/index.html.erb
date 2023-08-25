@@ -23,8 +23,8 @@
       <table class="table table-borderless">
         <tbody>
           <tr style="height: 66px;">
-            <td rowspan="4" class="text-end"><%= t("evaluation.work_load_pct") %></td>
-            <td class="border border-primary"><h5>B</h5>
+            <td rowspan="4" class="text-end"><%= t("evaluation.performance") -%></td>
+            <td class="border border-primary bg-warning"><h5>B</h5>
               <% @evaluation_user_capabilities_group["11"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -34,7 +34,7 @@
                 </span>
               <% end %>
             </td>
-            <td class="border border-primary"><h5>A</h5>
+            <td class="border border-primary bg-primary"><h5>A</h5>
               <% @evaluation_user_capabilities_group["12"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -44,7 +44,7 @@
                 </span>
               <% end %>
             </td>
-            <td class="border border-primary"><h5>A+</h5>
+            <td class="border border-primary bg-info"><h5>A+</h5>
               <% @evaluation_user_capabilities_group["13"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -56,7 +56,7 @@
             </td>
           </tr>
           <tr style="height: 66px;">
-            <td class="border border-primary"><h5>C</h5>
+            <td class="border border-primary bg-warning"><h5>C</h5>
               <% @evaluation_user_capabilities_group["21"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -66,7 +66,7 @@
                 </span>
               <% end %>
             </td>
-            <td class="border border-primary"><h5>B</h5>
+            <td class="border border-primary bg-primary"><h5>B</h5>
               <% @evaluation_user_capabilities_group["22"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -76,7 +76,7 @@
                 </span>
               <% end %>
             </td>
-            <td class="border border-primary"><h5>A</h5>
+            <td class="border border-primary bg-info"><h5>A</h5>
               <% @evaluation_user_capabilities_group["23"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -88,7 +88,7 @@
             </td>
           </tr>
           <tr style="height: 66px;">
-            <td class="border border-primary"><h5>D</h5>
+            <td class="border border-primary bg-warning"><h5>D</h5>
               <% @evaluation_user_capabilities_group["31"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -98,7 +98,7 @@
                 </span>
               <% end %>
             </td>
-            <td class="border border-primary"><h5>C</h5>
+            <td class="border border-primary bg-primary"><h5>C</h5>
               <% @evaluation_user_capabilities_group["32"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -108,7 +108,7 @@
                 </span>
               <% end %>
             </td>
-            <td class="border border-primary"><h5>B</h5>
+            <td class="border border-primary bg-info"><h5>B</h5>
               <% @evaluation_user_capabilities_group["33"]&.take(9)&.each do |euc| %>
                 <span class="btn btn-light rounded-pill m-1">
                   <%= euc.user.chinese_name -%>
@@ -121,7 +121,7 @@
           </tr>
           <tr>
             <td colspan="3" class="text-end">
-              <%= t("evaluation.work_quality_pct") %>
+              <%= t("evaluation.professional_management_capability") -%>
             </td>
           </tr>
         </tbody>
