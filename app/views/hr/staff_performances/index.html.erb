@@ -36,8 +36,8 @@
           <tr>
             <td rowspan="4" class="text-end"><%= t("evaluation.work_load_pct") %></td>
             <td class="position-relative border border-primary bg-primary">
+              <h5>B</h5>
               <div class="min-width-td">
-                <h5>B</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -48,8 +48,8 @@
               <% end %>
             </td>
             <td class="position-relative border border-primary bg-info">
+              <h5>A</h5>
               <div class="min-width-td">
-                <h5>A</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -60,8 +60,8 @@
               <% end %>
             </td>
             <td class="position-relative border border-primary bg-info">
+              <h5>A+</h5>
               <div class="min-width-td">
-                <h5>A+</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -74,8 +74,8 @@
           </tr>
           <tr>
             <td class="position-relative border border-primary bg-warning">
+              <h5>C</h5>
               <div class="min-width-td">
-                <h5>C</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -88,8 +88,8 @@
             <td class="position-relative border border-primary bg-primary"
               data-controller="toggle-people-performance"
               data-toggle-people-performance-url-value="<%= more_people_hr_staff_performance_path(id: "22", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>">
+              <h5>B</h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <h5>B</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -100,8 +100,8 @@
               <% end %>
             </td>
             <td class="position-relative border border-primary bg-info">
+              <h5>A</h5>
               <div class="min-width-td">
-                <h5>A</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -114,8 +114,8 @@
           </tr>
           <tr>
             <td class="position-relative border border-primary bg-warning">
+              <h5>D</h5>
               <div class="min-width-td">
-                <h5>D</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -126,8 +126,8 @@
               <% end %>
             </td>
             <td class="position-relative border border-primary bg-warning">
+              <h5>C</h5>
               <div class="min-width-td">
-                <h5>C</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -138,8 +138,8 @@
               <% end %>
             </td>
             <td class="position-relative border border-primary bg-primary">
+              <h5>B</h5>
               <div class="min-width-td">
-                <h5>B</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
