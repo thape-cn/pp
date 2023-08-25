@@ -34,117 +34,117 @@
         <tbody>
           <tr>
             <td rowspan="4" class="text-end"><%= t("evaluation.performance") -%></td>
-            <td class="border border-primary bg-warning">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-warning">
+              <div class="min-width-td">
                 <h5>B</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
-            <td class="border border-primary bg-primary">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-primary">
+              <div class="min-width-td">
                 <h5>A</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
-            <td class="border border-primary bg-info">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-info">
+              <div class="min-width-td">
                 <h5>A+</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
           </tr>
           <tr>
-            <td class="border border-primary bg-warning">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-warning">
+              <div class="min-width-td">
                 <h5>C</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
-            <td class="border border-primary bg-primary">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-primary">
+              <div class="min-width-td">
                 <h5>B</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
-            <td class="border border-primary bg-info">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-info">
+              <div class="min-width-td">
                 <h5>A</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
           </tr>
           <tr>
-            <td class="border border-primary bg-warning">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-warning">
+              <div class="min-width-td">
                 <h5>D</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
-            <td class="border border-primary bg-primary">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-primary">
+              <div class="min-width-td">
                 <h5>C</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
-            <td class="border border-primary bg-info">
-              <div class="position-relative min-width-td">
+            <td class="position-relative border border-primary bg-info">
+              <div class="min-width-td">
                 <h5>B</h5>
                 <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
-                <% if eucs.length >= 9 %>
-                  <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
-                    <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
-                  </div>
-                <% end %>
               </div>
+              <% if eucs.length >= 9 %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal]) -%>
+                </div>
+              <% end %>
             </td>
           </tr>
           <tr>
