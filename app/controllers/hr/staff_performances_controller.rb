@@ -22,7 +22,7 @@ module HR
 
     def more_people
       @department = params[:department].presence
-      company_evaluation = CompanyEvaluation.find_by!(id: params[:company_evaluation_id])
+      company_evaluation = CompanyEvaluation.find_by(id: params[:company_evaluation_id]) || CompanyEvaluation.last
       company_template_ids = CompanyEvaluationTemplate.where(group_level: "staff")
         .where(company_evaluation_id: company_evaluation.id).pluck(:id)
       evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
