@@ -121,6 +121,10 @@
   transform: rotate(180deg);
 }
 
+.flip_horizontal {
+  transform: scaleX(-1);
+}
+
 .mt-button {
   margin-top: 1.4rem !important;
 }
