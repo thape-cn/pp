@@ -40,5 +40,9 @@ namespace :hr do
       get :more_people
     end
   end
-  resources :manager_performances, only: %i[index]
+  resources :manager_performances, only: %i[index] do
+    member do
+      get :more_people
+    end
+  end
 end
