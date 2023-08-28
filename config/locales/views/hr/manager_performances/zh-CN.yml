@@ -4,3 +4,5 @@ zh-CN:
     manager_performances:
       index:
         title: "经理绩效"
+      show:
+        title: "%{chinese_name}的绩效"

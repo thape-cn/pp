@@ -1,6 +1,7 @@
 module HR
   class StaffPerformancesController < BaseController
     include StaffManagerGroup
+    after_action :verify_authorized, only: :show
 
     def index
       @company_evaluation_id = params[:company_evaluation_id].presence
@@ -18,6 +19,11 @@ module HR
       evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department) if @department.present?
       evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: @user_id) if @user_id.present?
       @evaluation_user_capabilities_group = staff_group(evaluation_user_capabilities)
+    end
+
+    def show
+      @evaluation_user_capability = authorize policy_scope(EvaluationUserCapability).find(params[:id])
+      render layout: false
     end
 
     def more_people

@@ -35,12 +35,12 @@ namespace :hr do
       get :history_expender
     end
   end
-  resources :staff_performances, only: %i[index] do
+  resources :staff_performances, only: %i[index show] do
     member do
       get :more_people
     end
   end
-  resources :manager_performances, only: %i[index] do
+  resources :manager_performances, only: %i[index show] do
     member do
       get :more_people
     end
