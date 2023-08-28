@@ -1,0 +1,46 @@
+<div class="row mb-2">
+  <% Capability.performance_column_names.each do |column_name| %>
+    <% next if evaluation_user_capability.attributes[column_name].blank? %>
+    <div class="col-4">
+      <div class="card">
+        <h5 class="card-header"><%= t("evaluation.#{column_name}_pct") %></h5>
+        <div class="card-body">
+          <p class="card-text"><%= evaluation_user_capability.attributes[column_name] -%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% Capability.profession_column_label_and_names.each do |cp| %>
+    <% next if evaluation_user_capability.attributes[cp.second].blank? %>
+    <div class="col-4">
+      <div class="card">
+        <h5 class="card-header"><%= cp.first %></h5>
+        <div class="card-body">
+          <p class="card-text"><%= evaluation_user_capability.attributes[cp.second] -%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% Capability.management_column_label_and_names.each do |cp| %>
+    <% next if evaluation_user_capability.attributes[cp.second].blank? %>
+    <div class="col-4">
+      <div class="card">
+        <h5 class="card-header"><%= cp.first %></h5>
+        <div class="card-body">
+          <p class="card-text"><%= evaluation_user_capability.attributes[cp.second] -%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% Capability.calibration_column_names.each do |column_name| %>
+    <% next if evaluation_user_capability.attributes[column_name].blank? %>
+    <div class="col-4">
+      <div class="card">
+        <h5 class="card-header"><%= t("calibration.#{column_name}") %></h5>
+        <div class="card-body">
+          <p class="card-text"><%= evaluation_user_capability.attributes[column_name] -%></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
