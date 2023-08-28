@@ -1,7 +1,15 @@
 <div class="row mb-2">
+  <div class="col-3">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.evaluation_status') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= EvaluationUserCapability.form_status_options.invert[evaluation_user_capability.form_status] -%></p>
+      </div>
+    </div>
+  </div>
   <% Capability.performance_column_names.each do |column_name| %>
     <% next if evaluation_user_capability.attributes[column_name].blank? %>
-    <div class="col-4">
+    <div class="col-3">
       <div class="card">
         <h5 class="card-header"><%= t("evaluation.#{column_name}_pct") %></h5>
         <div class="card-body">
@@ -12,7 +20,7 @@
   <% end %>
   <% Capability.profession_column_label_and_names.each do |cp| %>
     <% next if evaluation_user_capability.attributes[cp.second].blank? %>
-    <div class="col-4">
+    <div class="col-3">
       <div class="card">
         <h5 class="card-header"><%= cp.first %></h5>
         <div class="card-body">
@@ -23,7 +31,7 @@
   <% end %>
   <% Capability.management_column_label_and_names.each do |cp| %>
     <% next if evaluation_user_capability.attributes[cp.second].blank? %>
-    <div class="col-4">
+    <div class="col-3">
       <div class="card">
         <h5 class="card-header"><%= cp.first %></h5>
         <div class="card-body">
@@ -34,7 +42,7 @@
   <% end %>
   <% Capability.calibration_column_names.each do |column_name| %>
     <% next if evaluation_user_capability.attributes[column_name].blank? %>
-    <div class="col-4">
+    <div class="col-3">
       <div class="card">
         <h5 class="card-header"><%= t("calibration.#{column_name}") %></h5>
         <div class="card-body">
@@ -43,4 +51,53 @@
       </div>
     </div>
   <% end %>
+  <hr />
+  <div class="col-4">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.self_overall_output') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= markdown(evaluation_user_capability.self_overall_output) -%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.self_overall_improvement') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= markdown(evaluation_user_capability.self_overall_improvement) -%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.self_overall_plan') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= markdown(evaluation_user_capability.self_overall_plan) -%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.manager_overall_output') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= markdown(evaluation_user_capability.manager_overall_output) -%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.manager_overall_improvement') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= markdown(evaluation_user_capability.manager_overall_improvement) -%></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card">
+      <h5 class="card-header"><%= t('evaluation.manager_overall_plan') %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= markdown(evaluation_user_capability.manager_overall_plan) -%></p>
+      </div>
+    </div>
+  </div>
 </div>
