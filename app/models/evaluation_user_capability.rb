@@ -1,4 +1,5 @@
 class EvaluationUserCapability < ApplicationRecord
+  MINIMAL_DISPLAY_PEOPLE_NUM = 9
   belongs_to :company_evaluation_template
   belongs_to :user
   belongs_to :job_role

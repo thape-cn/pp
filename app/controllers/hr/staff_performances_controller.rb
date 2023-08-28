@@ -33,7 +33,7 @@ module HR
       evaluation_user_capabilities = evaluation_user_capabilities.where(company: @company)
       evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department) if @department.present?
       @evaluation_user_capabilities = if @expanded
-        staff_group(evaluation_user_capabilities).fetch(params[:id], []).take(9)
+        staff_group(evaluation_user_capabilities).fetch(params[:id], []).take(EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM)
       else
         staff_group(evaluation_user_capabilities).fetch(params[:id], [])
       end
