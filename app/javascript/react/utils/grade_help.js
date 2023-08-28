@@ -108,8 +108,8 @@ export function calibrateClass(group_level, row, column, grade, is_over) {
 
 export function personBadgeBgClass(group_level, work_attitude) {
   if (group_level == "staff" && work_attitude <= 1)
-    return "badge ms-1 rounded-pill bg-warning";
+    return "badge link-light ms-1 rounded-pill bg-warning";
   else {
-    return "badge ms-1 rounded-pill bg-info";
+    return "badge link-light ms-1 rounded-pill bg-info";
   }
 }
