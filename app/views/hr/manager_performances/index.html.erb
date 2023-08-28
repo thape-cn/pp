@@ -23,8 +23,8 @@
             <%= select_tag :department, options_for_select(@departments, @department), {include_blank: true, class: 'form-control'} -%>
           </div>
           <div class="col-2" data-controller="selectize-user-ids">
-            <label><%= t("user.chinese_name") -%></label>
-            <%= select_tag :user_id, options_from_collection_for_select(User.where(id: @user_id), "id", "name_with_clerk_code", @user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
+            <label><%= t("user.manager_user") -%></label>
+            <%= select_tag :manager_user_id, options_from_collection_for_select(User.where(id: @manager_user_id), "id", "name_with_clerk_code", @manager_user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
           </div>
           <div class="col">
             <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
