@@ -40,9 +40,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "11", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>B</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -56,9 +56,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "12", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>A</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -72,9 +72,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "13", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>A+</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
+              <h5>A+ <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -90,9 +90,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "21", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>C</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -106,9 +106,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "22", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>B</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -122,9 +122,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "23", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>A</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -140,9 +140,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "31", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>D</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
+              <h5>D <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -156,9 +156,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "32", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>C</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
@@ -172,9 +172,9 @@
               data-toggle-people-performance-url-value="<%= more_people_hr_manager_performance_path(id: "33", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
-              <h5>B</h5>
+              <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
-                <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
               <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>

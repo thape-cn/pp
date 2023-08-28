@@ -5,3 +5,4 @@ zh-CN:
     presentation: "绩效展示"
     staff_performances: "员工绩效"
     manager_performances: "经理绩效"
+    panel_total: "共 %{people_number} 人"
