@@ -21,6 +21,7 @@ module HR
     end
 
     def more_people
+      @expanded = params[:expanded] == "true"
       @department = params[:department].presence
       company_evaluation = CompanyEvaluation.find_by(id: params[:company_evaluation_id]) || CompanyEvaluation.last
       company_template_ids = CompanyEvaluationTemplate.where(group_level: "staff")
@@ -31,7 +32,11 @@ module HR
       @company = params[:company].presence || @companies.first
       evaluation_user_capabilities = evaluation_user_capabilities.where(company: @company)
       evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department) if @department.present?
-      @evaluation_user_capabilities = staff_group(evaluation_user_capabilities).fetch(params[:id], [])
+      @evaluation_user_capabilities = if @expanded
+        staff_group(evaluation_user_capabilities).fetch(params[:id], []).take(9)
+      else
+        staff_group(evaluation_user_capabilities).fetch(params[:id], [])
+      end
       render layout: false
     end
   end
