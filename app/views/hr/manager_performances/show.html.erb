@@ -7,7 +7,9 @@
     <div class="modal-body">
       <div class="container-fluid">
         <%= render partial: 'ui/performances/people_in_card',
-          locals: {evaluation_user_capability: @evaluation_user_capability, job_role_performances: @job_role_performances} %>
+          locals: {evaluation_user_capability: @evaluation_user_capability,
+            job_role_performances: @job_role_performances,
+            group_level: @evaluation_user_capability.company_evaluation_template.group_level} %>
       </div>
     </div>
     <div class="modal-footer">
