@@ -24,6 +24,7 @@ module HR
 
     def show
       @evaluation_user_capability = authorize policy_scope(EvaluationUserCapability).find(params[:id])
+      @job_role_performances = JobRoleEvaluationPerformance.performance_from_evaluation_user_capability(@evaluation_user_capability)
       render layout: false
     end
 

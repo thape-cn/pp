@@ -40,13 +40,12 @@
       </div>
     </div>
   <% end %>
-  <% Capability.calibration_column_names.each do |column_name| %>
-    <% next if evaluation_user_capability.attributes[column_name].blank? %>
+  <% job_role_performances.each do |jrep| %>
     <div class="col-3">
       <div class="card">
-        <h5 class="card-header"><%= t("calibration.#{column_name}") %></h5>
+        <h5 class="card-header"><%= jrep.obj_name -%></h5>
         <div class="card-body">
-          <p class="card-text"><%= evaluation_user_capability.attributes[column_name] -%></p>
+          <p class="card-text"><%= jrep.obj_result -%></p>
         </div>
       </div>
     </div>
