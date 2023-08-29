@@ -41,7 +41,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
-              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -57,7 +57,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
-              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -73,7 +73,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
-              <h5>A+ <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>A+ <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -91,7 +91,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
-              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -107,7 +107,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
-              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -123,7 +123,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
-              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -141,7 +141,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
-              <h5>D <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>D <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -157,7 +157,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
-              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>
@@ -173,7 +173,7 @@
               data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
               data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
               <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
-              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length) -%></span></h5>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
               <div class="min-width-td" data-toggle-people-performance-target="peopleList">
                 <%= display_evaluation_user_capabilities(eucs) -%>
               </div>

@@ -19,6 +19,7 @@ module HR
       evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department) if @department.present?
       evaluation_user_capabilities = evaluation_user_capabilities.where(manager_user_id: @manager_user_id) if @manager_user_id.present?
       @evaluation_user_capabilities_group = manager_group(evaluation_user_capabilities)
+      @total_people_num = @evaluation_user_capabilities_group.values.reduce(0) { |sum, array| sum + array.length }
     end
 
     def show

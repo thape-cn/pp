@@ -5,4 +5,4 @@ zh-CN:
     presentation: "Performance presentation"
     staff_performances: "Staff performances"
     manager_performances: "Manager performances"
-    panel_total: "Total people: %{people_number}"
+    panel_total: "Total people: %{people_number}，%{people_percent} %%"
