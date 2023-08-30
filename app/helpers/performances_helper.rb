@@ -5,9 +5,9 @@ module PerformancesHelper
     evaluation_user_capabilities.take(9).each do |euc|
       link_url = case euc.company_evaluation_template.group_level
       when "manager"
-        hr_manager_performance_path(id: euc.id)
+        current_user.admin? ? admin_manager_performance_path(id: euc.id) : hr_manager_performance_path(id: euc.id)
       else
-        hr_staff_performance_path(id: euc.id)
+        current_user.admin? ? admin_staff_performance_path(id: euc.id) : hr_staff_performance_path(id: euc.id)
       end
       concat(content_tag(:span, class: "btn btn-light rounded-pill m-1") do
         concat(euc.user.chinese_name)

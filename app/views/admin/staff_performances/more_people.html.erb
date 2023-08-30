@@ -1,0 +1,6 @@
+<% @evaluation_user_capabilities.each do |euc| %>
+  <span class="btn btn-light rounded-pill m-1">
+    <%= euc.user.chinese_name -%>
+    <%= link_to euc.total_evaluation_score, hr_staff_performance_path(id: euc.id), class: "text-decoration-none link-light badge ms-1 rounded-pill bg-info", data: {controller: "modal", action: "modal#click", "modal-page-reload-value": false} %>
+  </span>
+<% end %>

@@ -1,0 +1,8 @@
+---
+en:
+  admin:
+    staff_performances:
+      index:
+        title: "Staff performance result"
+      show:
+        title: "Performance of %{chinese_name}"

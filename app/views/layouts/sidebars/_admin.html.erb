@@ -69,6 +69,10 @@
       </ul>
     </li>
 
+    <li class="nav-title"><%= t('performance.presentation') -%></li>
+    <%= nav_item(t('performance.staff_performances'), admin_staff_performances_path, 'free.svg#cil-speedometer') -%>
+    <%= nav_item(t('performance.manager_performances'), admin_manager_performances_path, 'free.svg#cil-usb', nav_class: 'rotate_180') -%>
+
     <li class="nav-title"><%= t('user.account') -%></li>
     <%= nav_item(t('user.users'), admin_users_path, 'free.svg#cil-user') -%>
     <%= nav_item(t('user.duplicate_users'), admin_duplicate_users_path, 'free.svg#cil-user-x') -%>

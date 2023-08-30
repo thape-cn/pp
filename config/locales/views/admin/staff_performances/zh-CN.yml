@@ -1,0 +1,8 @@
+---
+zh-CN:
+  admin:
+    staff_performances:
+      index:
+        title: "员工绩效"
+      show:
+        title: "%{chinese_name}的绩效"

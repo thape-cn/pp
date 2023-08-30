@@ -101,6 +101,16 @@ namespace :admin do
       get :expender
     end
   end
+  resources :staff_performances, only: %i[index show] do
+    member do
+      get :more_people
+    end
+  end
+  resources :manager_performances, only: %i[index show] do
+    member do
+      get :more_people
+    end
+  end
   resources :users, only: %i[index edit update new create] do
     member do
       get :impersonation
