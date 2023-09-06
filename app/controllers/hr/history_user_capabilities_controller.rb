@@ -11,7 +11,11 @@ module HR
       @user_id = params[:user_id]
       @manager_user_id = params[:manager_user_id]
       @form_status = params[:form_status]
-      add_to_breadcrumbs title, admin_company_evaluation_history_user_capabilities_path(company_evaluation_id: @company_evaluation.id)
+      @company = params[:company]
+      @department = params[:department]
+      @form_status = params[:form_status]
+      @sort_on_final_total_evaluation_score = params[:sort_on_final_total_evaluation_score] == "true"
+      add_to_breadcrumbs title, hr_company_evaluation_history_user_capabilities_path(company_evaluation_id: @company_evaluation.id)
       set_meta_tags(title: title)
       evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
         .joins(:company_evaluation_template)
@@ -38,6 +42,7 @@ module HR
         evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department)
       end
       evaluation_user_capabilities = evaluation_user_capabilities.where(form_status: @form_status) if @form_status.present?
+      evaluation_user_capabilities = evaluation_user_capabilities.order(final_total_evaluation_score: :asc) if @sort_on_final_total_evaluation_score.present?
       @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
     end
 
