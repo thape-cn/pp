@@ -35,5 +35,6 @@ zh-CN:
     sent_self_assessment_remind: "发送开始自评邮件提醒"
     sent_hr_review_completed_remind: "发送确认绩效等级提醒"
     remove_leaving_employee_eucs: "删除未确认表单"
+    to_end_evaluation: "结束此次公司考评"
     row_number: "#"
     status_time: "发生时间"

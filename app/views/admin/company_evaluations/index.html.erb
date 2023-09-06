@@ -31,11 +31,18 @@
               <td><%= company_evaluation.start_date -%></td>
               <td><%= company_evaluation.end_date -%></td>
               <td>
-                <%= link_to edit_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.edit"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                  <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
-                <% end %>
-                <%= link_to confirm_remove_leaving_employee_eucs_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.remove_leaving_employee_eucs"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                  <%= svg_icon('free.svg#cil-recycle', %w[icon icon-lg]) -%>
+                <% unless company_evaluation.evaluation_ended %>
+                  <%= link_to edit_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.edit"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                    <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
+                  <% end %>
+                  <%= link_to confirm_remove_leaving_employee_eucs_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.remove_leaving_employee_eucs"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                    <%= svg_icon('free.svg#cil-recycle', %w[icon icon-lg]) -%>
+                  <% end %>
+                  <% if company_evaluation.end_date < Date.current %>
+                    <%= link_to confirm_to_end_evaluation_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.to_end_evaluation"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
+                      <%= svg_icon('free.svg#cil-power-standby', %w[icon icon-lg]) -%>
+                    <% end %>
+                  <% end %>
                 <% end %>
               </td>
             </tr>

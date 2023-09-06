@@ -3,7 +3,9 @@ module Admin
     include Pagy::Backend
     after_action :verify_authorized, except: :index
     after_action :verify_policy_scoped, only: :index
-    before_action :set_company_evaluation, only: %i[edit update confirm_remove_leaving_employee_eucs remove_leaving_employee_eucs]
+    before_action :set_company_evaluation, only: %i[edit update
+      confirm_to_end_evaluation to_end_evaluation
+      confirm_remove_leaving_employee_eucs remove_leaving_employee_eucs]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 
     def index
@@ -34,6 +36,14 @@ module Admin
 
     def remove_leaving_employee_eucs
       @company_evaluation.remove_leaving_employee_eucs
+    end
+
+    def confirm_to_end_evaluation
+      render layout: false
+    end
+
+    def to_end_evaluation
+      @company_evaluation.end_evaluation
     end
 
     private

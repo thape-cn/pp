@@ -37,6 +37,14 @@ class CompanyEvaluationPolicy < ApplicationPolicy
     confirm_remove_leaving_employee_eucs?
   end
 
+  def confirm_to_end_evaluation?
+    user.admin?
+  end
+
+  def to_end_evaluation?
+    confirm_to_end_evaluation?
+  end
+
   def confirm_destroy?
     user.admin?
   end

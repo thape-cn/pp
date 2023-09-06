@@ -19,4 +19,8 @@ class CompanyEvaluation < ApplicationRecord
       euc.destroy!
     end
   end
+
+  def end_evaluation
+    update(evaluation_ended: true)
+  end
 end

@@ -49,6 +49,8 @@ namespace :admin do
     member do
       get :confirm_remove_leaving_employee_eucs
       put :remove_leaving_employee_eucs
+      get :confirm_to_end_evaluation
+      put :to_end_evaluation
     end
   end # of company_evaluations
 

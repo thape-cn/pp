@@ -13,3 +13,6 @@ en:
         title: "Edit company evaluation"
       confirm_remove_leaving_employee_eucs:
         title: "Delete the unconfirmed form of the resigned employee?"
+      confirm_to_end_evaluation:
+        title: "Do you want to end this company evaluation?"
+        confirm_explain_text: "After the company evaluation is closed, it cannot be opened. After the company evaluation is closed, the final performance level will be officially written into the database and uploaded to the corresponding system."

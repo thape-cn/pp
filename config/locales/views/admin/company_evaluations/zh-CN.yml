@@ -13,3 +13,6 @@ zh-CN:
         title: "编辑公司考评"
       confirm_remove_leaving_employee_eucs:
         title: "删除这次公司考评的已离职人员的未确认表单？"
+      confirm_to_end_evaluation:
+        title: "是否结束本次公司考评？"
+        confirm_explain_text: "关闭公司考评后将不能开启，关闭公司考评的后会正式写入最终绩效等级到数据库，并上传至相应系统。"
