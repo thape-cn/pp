@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_06_051523) do
+ActiveRecord::Schema[7.1].define(version: 2023_09_06_055926) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -314,6 +314,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_06_051523) do
     t.decimal "graphic_interior_aico", precision: 5, scale: 2
     t.decimal "presentation_interior_aico", precision: 5, scale: 2
     t.decimal "implementation_interior_aico", precision: 5, scale: 2
+    t.string "final_total_evaluation_grade"
     t.index ["job_role_id"], name: "index_evaluation_user_capabilities_on_job_role_id"
     t.index ["manager_user_id"], name: "index_evaluation_user_capabilities_on_manager_user_id"
     t.index ["user_id"], name: "index_evaluation_user_capabilities_on_user_id"

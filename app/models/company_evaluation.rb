@@ -1,4 +1,5 @@
 class CompanyEvaluation < ApplicationRecord
+  include MatricHelper
   has_many :company_evaluation_templates
   has_many :import_excel_files
   validates :title, :start_date, :end_date, presence: true
@@ -21,6 +22,11 @@ class CompanyEvaluation < ApplicationRecord
   end
 
   def end_evaluation
+    to_end_company_evaluation_template_ids = CompanyEvaluationTemplate.where(company_evaluation_id: id).pluck(:id)
+    EvaluationUserCapability.where(form_status: "data_locked", company_evaluation_template_id: to_end_company_evaluation_template_ids).find_each do |euc|
+      final_total_evaluation_grade = public_send(euc.company_evaluation_template.total_reverse_matric, euc.total_evaluation_score)
+      euc.update(final_total_evaluation_grade: final_total_evaluation_grade)
+    end
     update(evaluation_ended: true)
   end
 end
