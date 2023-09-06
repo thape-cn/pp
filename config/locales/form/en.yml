@@ -34,5 +34,6 @@ en:
     archived_excel_report: "Archived record excel report"
     sent_self_assessment_remind: "Sent self assessment started remind"
     sent_hr_review_completed_remind: "Sent HR review completed remind"
+    remove_leaving_employee_eucs: "Remove leaving employee forms"
     row_number: "#"
     status_time: "Status time"
