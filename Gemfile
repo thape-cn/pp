@@ -47,6 +47,8 @@ gem "csv"
 gem "roo"
 # To export excel
 gem "caxlsx"
+# To save printed form as PDF.
+gem "ferrum"
 
 gem "local_time"
 
