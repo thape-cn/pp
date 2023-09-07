@@ -1,11 +1,11 @@
 module Staff
   class PrintingController < BaseController
-    skip_before_action :authenticate_user!, if: -> { request.ip == "::1" }
-    skip_before_action :require_user!, if: -> { request.ip == "::1" }
+    skip_before_action :authenticate_user!, if: -> { request.ip == "::1" || request.ip == "172.17.1.38" }
+    skip_before_action :require_user!, if: -> { request.ip == "::1" || request.ip == "172.17.1.38" }
     after_action :verify_authorized
 
     def show
-      if request.ip == "::1"
+      if request.ip == "::1" || request.ip == "172.17.1.38"
         sign_in User.where(email: CoreUIsettings.admin.emails).first
       end
       @evaluation_user_capability = authorize(EvaluationUserCapability.find(params[:id]), :print?)
