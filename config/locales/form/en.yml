@@ -13,6 +13,7 @@ en:
     reset: "Reset"
     close: "Close"
     print: "Print"
+    pdf_file: "PDF file"
     merge: "Merge"
     save: "Save"
     save_comment: "Save comment"

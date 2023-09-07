@@ -13,6 +13,7 @@ zh-CN:
     reset: "重置"
     close: "关闭"
     print: "打印"
+    pdf_file: "PDF 文件"
     merge: "合并"
     save: "保存"
     save_comment: "保存评论"

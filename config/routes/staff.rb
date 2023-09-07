@@ -10,7 +10,11 @@ namespace :staff do
     resources :history_user_capabilities, only: %i[index]
   end
   resource :evaluation_progress, only: %i[show]
-  resources :printing, only: %i[show] # 员工用于打印的表单
+  resources :printing, only: %i[show] do     # 员工用于打印的表单
+    member do
+      get :pdf
+    end
+  end
   resources :signing, only: %i[show update]  # 员工签名表单
   resources :in_evaluation, only: %i[show]   # 在途评价表单
   resources :evaluations, only: %i[show update] do # 员工自评表单

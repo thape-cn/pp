@@ -9,6 +9,11 @@
         <%= t("form.print") %> <%= svg_icon('free.svg#cil-print', %w[icon]) -%>
       <% end %>
     </li>
+    <li class="action_bar-item">
+      <%= link_to pdf_staff_printing_path(id: @evaluation_user_capability.id, format: :pdf), class: "btn btn-outline-primary", target: "_pdf" do %>
+        <%= t("form.pdf_file") %> <%= svg_icon('free.svg#cil-file', %w[icon]) -%>
+      <% end %>
+    </li>
   </ol>
 <% end %>
 

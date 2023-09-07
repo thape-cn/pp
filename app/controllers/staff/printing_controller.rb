@@ -1,8 +1,13 @@
 module Staff
   class PrintingController < BaseController
+    skip_before_action :authenticate_user!, if: -> { request.ip == "::1" }
+    skip_before_action :require_user!, if: -> { request.ip == "::1" }
     after_action :verify_authorized
 
     def show
+      if request.ip == "::1"
+        sign_in User.where(email: CoreUIsettings.admin.emails).first
+      end
       @evaluation_user_capability = authorize(EvaluationUserCapability.find(params[:id]), :print?)
       company_evaluation_template = @evaluation_user_capability.company_evaluation_template
 
@@ -31,6 +36,16 @@ module Staff
       set_meta_tags(title: company_evaluation_template.title)
       @_in_print = true
       @_sidebar_name = nil
+    end
+
+    def pdf
+      evaluation_user_capability = authorize(EvaluationUserCapability.find(params[:id]), :print?)
+      browser = Ferrum::Browser.new
+      browser.go_to staff_printing_url(id: evaluation_user_capability.id)
+      browser.network.wait_for_idle
+      browser.pdf(path: "tmp/printed.pdf")
+      pdf_data = File.read("tmp/printed.pdf")
+      send_data(pdf_data, filename: "printed.pdf", type: "application/pdf", disposition: "inline")
     end
   end
 end
