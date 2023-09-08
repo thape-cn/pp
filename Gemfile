@@ -55,6 +55,9 @@ gem "local_time"
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
 gem "wechat", git: "https://github.com/Eric-Guo/wechat", branch: :main
 
+# bundle config local.edoc2-api /Users/guochunzhong/git/sso/edoc2-api/
+gem "edoc2-api", git: "https://git.thape.com.cn/rails/edoc2-api.git", branch: :main
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 

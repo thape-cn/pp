@@ -11,6 +11,14 @@ GIT
       warden (~> 1.2.3)
 
 GIT
+  remote: https://git.thape.com.cn/rails/edoc2-api.git
+  revision: aeb9e5f3931660abe4a2c8d4793c61e7c0ed3ee8
+  branch: main
+  specs:
+    edoc2-api (0.0.1)
+      http (>= 2.0.3, < 6)
+
+GIT
   remote: https://git.thape.com.cn/rails/rails.git
   revision: 7acc47e6515807e78b5cd73be79925cb9d54efe1
   branch: eric_read
@@ -516,6 +524,7 @@ DEPENDENCIES
   devise!
   devise-i18n
   ed25519
+  edoc2-api!
   ferrum
   jbuilder
   local_time
