@@ -43,9 +43,15 @@ module Staff
       browser = Ferrum::Browser.new
       browser.go_to staff_printing_url(id: evaluation_user_capability.id)
       browser.network.wait_for_idle
-      browser.pdf(path: "tmp/printed.pdf")
-      pdf_data = File.read("tmp/printed.pdf")
+
+      temp_file = Tempfile.new(["printed", ".pdf"])
+      browser.pdf(path: temp_file.path)
+
+      pdf_data = File.read(temp_file.path)
       send_data(pdf_data, filename: "printed.pdf", type: "application/pdf", disposition: "inline")
+
+      temp_file.close
+      temp_file.unlink
     end
   end
 end
