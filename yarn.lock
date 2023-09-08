@@ -215,10 +215,20 @@
   resolved "https://registry.npmmirror.com/@babel/helper-string-parser/-/helper-string-parser-7.22.5.tgz#533f36457a25814cf1df6488523ad547d784a99f"
   integrity sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==
 
+"@babel/helper-string-parser@^8.0.0-alpha.2":
+  version "8.0.0-alpha.2"
+  resolved "https://registry.npmmirror.com/@babel/helper-string-parser/-/helper-string-parser-8.0.0-alpha.2.tgz#eba62765ec6e7fb0adfb5f135b908e1139e06da4"
+  integrity sha512-zdLAD8CTSuAARYmEwYzeQe42vhPXbzONxDjoR+MKPQ1wLCUJpd9HQC+VJb0wbeDdVZKThZXtyYgO+SPCEXtxtA==
+
 "@babel/helper-validator-identifier@^7.22.15", "@babel/helper-validator-identifier@^7.22.5":
   version "7.22.15"
   resolved "https://registry.npmmirror.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.22.15.tgz#601fa28e4cc06786c18912dca138cec73b882044"
   integrity sha512-4E/F9IIEi8WR94324mbDUMo074YTheJmd7eZF5vITTeYchqAi6sYXRLHUVsmkdmY4QjfKTcB2jB7dVP3NaBElQ==
+
+"@babel/helper-validator-identifier@^8.0.0-alpha.2":
+  version "8.0.0-alpha.2"
+  resolved "https://registry.npmmirror.com/@babel/helper-validator-identifier/-/helper-validator-identifier-8.0.0-alpha.2.tgz#18df01415baab3c66ea8f19460bf37ed48f2e411"
+  integrity sha512-us66RLKkCzBzNJ1TVAHe2euihYrYaXxbuQ7yJogKdBKBZ0R7gHEpB+e0ylaMGsmLzqlpPUyWWcz3OPTCsq1FDw==
 
 "@babel/helper-validator-option@^7.22.15":
   version "7.22.15"
@@ -252,7 +262,7 @@
     chalk "^2.4.2"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.22.15":
+"@babel/parser@^7.22.15", "@babel/parser@^7.22.16":
   version "7.22.16"
   resolved "https://registry.npmmirror.com/@babel/parser/-/parser-7.22.16.tgz#180aead7f247305cce6551bea2720934e2fa2c95"
   integrity sha512-+gPfKv8UWeKKeJTUxe59+OobVcrYHETCsORl61EmSkmgymguYk/X5bp7GuUIXaFsc6y++v8ZxPsLSSuujqDphA==
@@ -974,9 +984,9 @@
     "@babel/types" "^7.22.15"
 
 "@babel/traverse@^7.22.15":
-  version "7.22.15"
-  resolved "https://registry.npmmirror.com/@babel/traverse/-/traverse-7.22.15.tgz#75be4d2d6e216e880e93017f4e2389aeb77ef2d9"
-  integrity sha512-DdHPwvJY0sEeN4xJU5uRLmZjgMMDIvMPniLuYzUVXj/GGzysPl0/fwt44JBkyUIzGJPV8QgHMcQdQ34XFuKTYQ==
+  version "7.22.17"
+  resolved "https://registry.npmmirror.com/@babel/traverse/-/traverse-7.22.17.tgz#b23c203ab3707e3be816043081b4a994fcacec44"
+  integrity sha512-xK4Uwm0JnAMvxYZxOVecss85WxTEIbTa7bnGyf/+EgCL5Zt3U7htUpEOWv9detPlamGKuRzCqw74xVglDWpPdg==
   dependencies:
     "@babel/code-frame" "^7.22.13"
     "@babel/generator" "^7.22.15"
@@ -984,8 +994,8 @@
     "@babel/helper-function-name" "^7.22.5"
     "@babel/helper-hoist-variables" "^7.22.5"
     "@babel/helper-split-export-declaration" "^7.22.6"
-    "@babel/parser" "^7.22.15"
-    "@babel/types" "^7.22.15"
+    "@babel/parser" "^7.22.16"
+    "@babel/types" "^7.22.17"
     debug "^4.1.0"
     globals "^11.1.0"
 
@@ -997,6 +1007,15 @@
     "@babel/helper-string-parser" "^7.22.5"
     "@babel/helper-validator-identifier" "^7.22.15"
     to-fast-properties "^2.0.0"
+
+"@babel/types@^7.22.17":
+  version "8.0.0-alpha.2"
+  resolved "https://registry.npmmirror.com/@babel/types/-/types-8.0.0-alpha.2.tgz#c14e90f7cd99fb4f7103d846e71a0cb9b13fdc33"
+  integrity sha512-qc/+6ALxviKBu4nmgZ20ZkNpnzyQAVexvBtojqFOhOaIACGTFLGJyd/o04OtQFBdrhPnhzpz3GSDvFH4RGo1Zw==
+  dependencies:
+    "@babel/helper-string-parser" "^8.0.0-alpha.2"
+    "@babel/helper-validator-identifier" "^8.0.0-alpha.2"
+    to-fast-properties "^3.0.0"
 
 "@coreui/chartjs@^3.1.1":
   version "3.1.2"
@@ -1758,9 +1777,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001517:
-  version "1.0.30001528"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001528.tgz#479972fc705b996f1114336c0032418a215fd0aa"
-  integrity sha512-0Db4yyjR9QMNlsxh+kKWzQtkyflkG/snYheSzkjmvdEtEXB1+jt7A2HmSEiO6XIJPIbo92lHNGNySvE5pZcs5Q==
+  version "1.0.30001529"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001529.tgz#c1f2a411e85fdaace4b1560e1bad078b00ac3181"
+  integrity sha512-n2pUQYGAkrLG4QYj2desAh+NqsJpHbNmVZz87imptDdxLAtjxary7Df/psdfyDGmskJK/9Dt9cPnx5RZ3CU4Og==
 
 chalk@^2.4.2:
   version "2.4.2"
@@ -4208,6 +4227,11 @@ to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmmirror.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==
+
+to-fast-properties@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.npmmirror.com/to-fast-properties/-/to-fast-properties-3.0.1.tgz#c7d507fdccc306c1e6782069db6b0e6fcc1a93f5"
+  integrity sha512-/wtNi1tW1F3nf0OL6AqVxGw9Tr1ET70InMhJuVxPwFdGqparF0nQ4UWGLf2DsoI2bFDtthlBnALncZpUzOnsUw==
 
 to-regex-range@^5.0.1:
   version "5.0.1"
