@@ -12,7 +12,7 @@ GIT
 
 GIT
   remote: https://git.thape.com.cn/rails/edoc2-api.git
-  revision: 8ed15bf9ffa4bd7c52967e91d8a42cff2ec960e1
+  revision: 67f23a200abf3559d31cb491ff887a27d62bf826
   branch: main
   specs:
     edoc2-api (0.0.1)
