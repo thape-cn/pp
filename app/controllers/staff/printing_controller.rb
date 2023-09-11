@@ -48,7 +48,7 @@ module Staff
       browser.pdf(path: temp_file.path)
 
       pdf_data = File.read(temp_file.path)
-      send_data(pdf_data, filename: "printed.pdf", type: "application/pdf", disposition: "inline")
+      send_data(pdf_data, filename: "#{params[:id]}_printed.pdf", type: "application/pdf", disposition: "inline")
 
       temp_file.close
       temp_file.unlink

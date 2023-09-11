@@ -135,6 +135,18 @@ class EvaluationUserCapability < ApplicationRecord
     end
   end
 
+  def generate_pdf_file
+    return if edoc_guid.present?
+
+    browser = Ferrum::Browser.new
+    browser.go_to Rails.application.routes.url_helpers.staff_printing_url(id: id)
+    browser.network.wait_for_idle
+    guid = SecureRandom.uuid
+    pdf_path = Rails.root.join("edoc_guid_pdf/#{guid}.pdf")
+    browser.pdf(path: pdf_path)
+    update(edoc_guid: guid)
+  end
+
   def self.form_status_options
     {
       I18n.t("evaluation.form_status.initial") => "initial",

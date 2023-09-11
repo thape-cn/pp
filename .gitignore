@@ -44,3 +44,6 @@ yarn-debug.log*
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+
+# Do not store PDF files.
+/edoc_guid_pdf/*.pdf
