@@ -42,7 +42,7 @@ module Edoc2Upload
           carrier: "电子",
           objtype: "",
           entitynum: "",
-          writtendate: Time.zone.now.strftime("%Y-%m-%d"),
+          writtendate: sign_date&.strftime("%Y-%m-%d") || "",
           duration: "永久",
           secert: "普通商密",
           ifInbound: "0",
@@ -59,7 +59,7 @@ module Edoc2Upload
           contractValidity: "",
           interviewDate: "",
           assessmentClassification: "",
-          evaluationDate: sign_date&.strftime("%Y-%m-%d") || "",
+          evaluationDate: "",
           pnCode: user.clerk_code,
           fileList: [{
             fileId: edoc_file_id.to_i,
