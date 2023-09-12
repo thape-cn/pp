@@ -5,7 +5,10 @@ namespace :edoc2 do
     user_id = args[:user_id]
 
     company_evaluation_template_ids = CompanyEvaluation.find(company_evaluation_id).company_evaluation_templates.pluck(:id)
-    eucs = EvaluationUserCapability.where(form_status: %w[hr_review_completed data_locked], company_evaluation_template_id: company_evaluation_template_ids)
+    eucs = EvaluationUserCapability
+      .where(form_status: %w[hr_review_completed data_locked], company_evaluation_template_id: company_evaluation_template_ids)
+      .where.not(company: "测试公司")
+      .where.not(id: 833)
     eucs = eucs.where(user_id: user_id) if user_id.present?
     eucs.each do |euc|
       puts "Upload euc id: #{euc.id}"
