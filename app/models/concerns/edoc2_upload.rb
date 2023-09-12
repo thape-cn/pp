@@ -42,7 +42,7 @@ module Edoc2Upload
           carrier: "电子",
           objtype: "",
           entitynum: "",
-          writtendate: sign_date&.strftime("%Y-%m-%d") || "",
+          writtendate: "2023-07-01",
           duration: "永久",
           secert: "普通商密",
           ifInbound: "0",
