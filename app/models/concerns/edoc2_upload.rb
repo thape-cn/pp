@@ -19,7 +19,7 @@ module Edoc2Upload
       return if edoc_file_id.present?
 
       pdf_path = Rails.root.join("edoc_guid_pdf/#{edoc_guid}.pdf")
-      res = Edoc2.collect_archives_enclosure_file(pdf_path, "#{user.chinese_name}#{user.clerk_code}_#{company_evaluation_template.title}_#{id}.pdf", edoc_guid)
+      res = Edoc2.collect_archives_enclosure_file(pdf_path, "#{user.clerk_code}#{user.chinese_name}#{company_evaluation_template.title}_#{id}.pdf", edoc_guid)
       update(edoc_file_id: res[0]["fileId"])
     end
 
@@ -36,7 +36,7 @@ module Edoc2Upload
           Id: edoc_guid,
           entrystate: "1", # 档案库
           archtypeid: arch_type_id,
-          name: "#{user.chinese_name}#{user.clerk_code} #{company_evaluation_template.title}_#{id}",
+          name: "#{user.clerk_code}#{user.chinese_name}#{company_evaluation_template.title}_#{id}",
           pnName: user.chinese_name,
           number: "",
           carrier: "电子",
