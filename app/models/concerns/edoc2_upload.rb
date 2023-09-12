@@ -19,7 +19,7 @@ module Edoc2Upload
       return if edoc_file_id.present?
 
       pdf_path = Rails.root.join("edoc_guid_pdf/#{edoc_guid}.pdf")
-      res = Edoc2.collect_archives_enclosure_file(pdf_path, edoc_guid)
+      res = Edoc2.collect_archives_enclosure_file(pdf_path, "#{user.chinese_name}_#{company_evaluation_template.title}_#{id}.pdf", edoc_guid)
       update(edoc_file_id: res[0]["fileId"])
     end
 
