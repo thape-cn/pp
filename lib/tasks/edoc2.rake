@@ -8,7 +8,10 @@ namespace :edoc2 do
     eucs = EvaluationUserCapability.where(form_status: %w[hr_review_completed data_locked], company_evaluation_template_id: company_evaluation_template_ids)
     eucs = eucs.where(user_id: user_id) if user_id.present?
     eucs.each do |euc|
+      puts "Upload euc id: #{euc.id}"
       euc.generate_pdf_file
+      euc.upload_pdf_to_edoc
+      euc.upload_meta_arch
     end
   end
 end
