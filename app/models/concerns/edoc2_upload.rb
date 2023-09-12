@@ -12,6 +12,7 @@ module Edoc2Upload
       pdf_path = Rails.root.join("edoc_guid_pdf/#{guid}.pdf")
       browser.pdf(path: pdf_path)
       update(edoc_guid: guid)
+      browser.reset
     end
 
     def upload_pdf_to_edoc
