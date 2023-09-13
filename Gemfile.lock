@@ -19,9 +19,20 @@ GIT
       http (>= 2.0.3, < 6)
 
 GIT
-  remote: https://git.thape.com.cn/rails/rails.git
-  revision: cddbca1087b1d9600b07fb7debfb656287a77842
-  branch: eric_read
+  remote: https://github.com/Eric-Guo/wechat
+  revision: 559d7fe36e7cf1de95b0ca4a35787073d7c8c042
+  branch: main
+  specs:
+    wechat (0.17.1)
+      activesupport (>= 6.0)
+      http (>= 1.0.4, < 6)
+      nokogiri (>= 1.6.0)
+      rexml
+      thor
+      zeitwerk (~> 2.4)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (7.1.0.beta1)
       actionpack (= 7.1.0.beta1)
@@ -96,45 +107,6 @@ GIT
       minitest (>= 5.1)
       mutex_m
       tzinfo (~> 2.0)
-    rails (7.1.0.beta1)
-      actioncable (= 7.1.0.beta1)
-      actionmailbox (= 7.1.0.beta1)
-      actionmailer (= 7.1.0.beta1)
-      actionpack (= 7.1.0.beta1)
-      actiontext (= 7.1.0.beta1)
-      actionview (= 7.1.0.beta1)
-      activejob (= 7.1.0.beta1)
-      activemodel (= 7.1.0.beta1)
-      activerecord (= 7.1.0.beta1)
-      activestorage (= 7.1.0.beta1)
-      activesupport (= 7.1.0.beta1)
-      bundler (>= 1.15.0)
-      railties (= 7.1.0.beta1)
-    railties (7.1.0.beta1)
-      actionpack (= 7.1.0.beta1)
-      activesupport (= 7.1.0.beta1)
-      irb
-      rackup (>= 1.0.0)
-      rake (>= 12.2)
-      thor (~> 1.0, >= 1.2.2)
-      zeitwerk (~> 2.6)
-
-GIT
-  remote: https://github.com/Eric-Guo/wechat
-  revision: 559d7fe36e7cf1de95b0ca4a35787073d7c8c042
-  branch: main
-  specs:
-    wechat (0.17.1)
-      activesupport (>= 6.0)
-      http (>= 1.0.4, < 6)
-      nokogiri (>= 1.6.0)
-      rexml
-      thor
-      zeitwerk (~> 2.4)
-
-GEM
-  remote: https://rubygems.org/
-  specs:
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     aes_key_wrap (1.1.0)
@@ -386,6 +358,20 @@ GEM
     rackup (2.1.0)
       rack (>= 3)
       webrick (~> 1.8)
+    rails (7.1.0.beta1)
+      actioncable (= 7.1.0.beta1)
+      actionmailbox (= 7.1.0.beta1)
+      actionmailer (= 7.1.0.beta1)
+      actionpack (= 7.1.0.beta1)
+      actiontext (= 7.1.0.beta1)
+      actionview (= 7.1.0.beta1)
+      activejob (= 7.1.0.beta1)
+      activemodel (= 7.1.0.beta1)
+      activerecord (= 7.1.0.beta1)
+      activestorage (= 7.1.0.beta1)
+      activesupport (= 7.1.0.beta1)
+      bundler (>= 1.15.0)
+      railties (= 7.1.0.beta1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -393,6 +379,14 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
+    railties (7.1.0.beta1)
+      actionpack (= 7.1.0.beta1)
+      activesupport (= 7.1.0.beta1)
+      irb
+      rackup (>= 1.0.0)
+      rake (>= 12.2)
+      thor (~> 1.0, >= 1.2.2)
+      zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.0.6)
     rdoc (6.5.0)
@@ -537,7 +531,7 @@ DEPENDENCIES
   propshaft
   puma
   pundit
-  rails!
+  rails (~> 7.1.0.beta1)
   redcarpet
   roo
   selenium-webdriver (>= 4.11.0)
