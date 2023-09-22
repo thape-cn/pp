@@ -7,6 +7,14 @@
       </div>
     </div>
   </div>
+  <div class="col-3">
+    <div class="card">
+      <h5 class="card-header"><%= t("user.manager_user") %></h5>
+      <div class="card-body">
+        <p class="card-text"><%= evaluation_user_capability.manager_user&.chinese_name -%></p>
+      </div>
+    </div>
+  </div>
   <% Capability.performance_column_names.each do |column_name| %>
     <% next if evaluation_user_capability.attributes[column_name].blank? %>
     <div class="col-3">
