@@ -13,7 +13,7 @@ gem "mail", "= 2.8.1"
 gem "jbuilder"
 gem "propshaft"
 
-gem "mysql2"
+gem "sqlite3"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"

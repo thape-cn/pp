@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,13 +33,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "active_storage_variant_records", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "archived_evaluation_user_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "archived_evaluation_user_capabilities", force: :cascade do |t|
     t.bigint "company_evaluation_template_id", null: false
     t.bigint "user_id", null: false
     t.bigint "job_role_id", null: false
@@ -117,36 +117,36 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "deleted_reason"
-    t.bigint "deleted_user_id", null: false
+    t.integer "deleted_user_id", null: false
     t.index ["deleted_user_id"], name: "index_archived_evaluation_user_capabilities_on_deleted_user_id"
   end
 
-  create_table "calibration_session_judges", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "calibration_session_id", null: false
-    t.bigint "judge_id", null: false
+  create_table "calibration_session_judges", force: :cascade do |t|
+    t.integer "calibration_session_id", null: false
+    t.integer "judge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["calibration_session_id"], name: "index_calibration_session_judges_on_calibration_session_id"
     t.index ["judge_id"], name: "index_calibration_session_judges_on_judge_id"
   end
 
-  create_table "calibration_session_users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "calibration_session_id", null: false
-    t.bigint "user_id", null: false
+  create_table "calibration_session_users", force: :cascade do |t|
+    t.integer "calibration_session_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "evaluation_user_capability_id", null: false
-    t.bigint "new_calibration_session_id"
+    t.integer "evaluation_user_capability_id", null: false
+    t.integer "new_calibration_session_id"
     t.index ["calibration_session_id"], name: "index_calibration_session_users_on_calibration_session_id"
     t.index ["evaluation_user_capability_id"], name: "idx_on_evaluation_user_capability_id_08738755c2"
     t.index ["new_calibration_session_id"], name: "index_calibration_session_users_on_new_calibration_session_id"
     t.index ["user_id"], name: "index_calibration_session_users_on_user_id"
   end
 
-  create_table "calibration_sessions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "calibration_sessions", force: :cascade do |t|
     t.string "session_name"
-    t.bigint "calibration_template_id", null: false
-    t.bigint "owner_id", null: false
+    t.integer "calibration_template_id", null: false
+    t.integer "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "session_status", default: "waiting_manager_score", null: false
@@ -154,8 +154,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["owner_id"], name: "index_calibration_sessions_on_owner_id"
   end
 
-  create_table "calibration_templates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "company_evaluation_template_id", null: false
+  create_table "calibration_templates", force: :cascade do |t|
+    t.integer "company_evaluation_template_id", null: false
     t.boolean "enforce_distribute", default: false, null: false
     t.integer "apa_grade_rate", default: 30, null: false
     t.integer "b_grade_rate", default: 40, null: false
@@ -169,7 +169,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["company_evaluation_template_id"], name: "index_calibration_templates_on_company_evaluation_template_id"
   end
 
-  create_table "capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "capabilities", force: :cascade do |t|
     t.string "en_name"
     t.string "name"
     t.string "description"
@@ -178,9 +178,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "company_evaluation_templates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_evaluation_templates", force: :cascade do |t|
     t.string "title", null: false
-    t.bigint "company_evaluation_id", null: false
+    t.integer "company_evaluation_id", null: false
     t.integer "work_quality_pct", default: 35, null: false
     t.integer "work_load_pct", default: 50, null: false
     t.integer "work_attitude_pct", default: 15, null: false
@@ -202,7 +202,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["company_evaluation_id"], name: "index_company_evaluation_templates_on_company_evaluation_id"
   end
 
-  create_table "company_evaluations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "company_evaluations", force: :cascade do |t|
     t.string "title"
     t.date "start_date"
     t.date "end_date"
@@ -211,37 +211,37 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.boolean "evaluation_ended", default: false
   end
 
-  create_table "euc_form_status_histories", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "evaluation_user_capability_id", null: false
+  create_table "euc_form_status_histories", force: :cascade do |t|
+    t.integer "evaluation_user_capability_id", null: false
     t.string "previous_form_status"
     t.string "form_status"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["evaluation_user_capability_id"], name: "idx_on_evaluation_user_capability_id_a9dc1f363d"
     t.index ["user_id"], name: "index_euc_form_status_histories_on_user_id"
   end
 
-  create_table "evaluation_role_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "evaluation_role_id", null: false
-    t.bigint "capability_id", null: false
+  create_table "evaluation_role_capabilities", force: :cascade do |t|
+    t.integer "evaluation_role_id", null: false
+    t.integer "capability_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["capability_id"], name: "index_evaluation_role_capabilities_on_capability_id"
     t.index ["evaluation_role_id"], name: "index_evaluation_role_capabilities_on_evaluation_role_id"
   end
 
-  create_table "evaluation_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "evaluation_roles", force: :cascade do |t|
     t.string "role_name"
     t.string "auxiliary"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "evaluation_user_capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "company_evaluation_template_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "job_role_id", null: false
+  create_table "evaluation_user_capabilities", force: :cascade do |t|
+    t.integer "company_evaluation_template_id", null: false
+    t.integer "user_id", null: false
+    t.integer "job_role_id", null: false
     t.decimal "work_quality", precision: 5, scale: 2
     t.decimal "annual_output", precision: 5, scale: 2
     t.decimal "work_load", precision: 5, scale: 2
@@ -250,7 +250,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.decimal "concept", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "manager_user_id"
+    t.integer "manager_user_id"
     t.string "company", null: false
     t.string "department", null: false
     t.string "dept_code", null: false
@@ -322,10 +322,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["user_id"], name: "index_evaluation_user_capabilities_on_user_id"
   end
 
-  create_table "evaluation_user_capability_descriptions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "company_evaluation_template_id", null: false
-    t.bigint "user_id", null: false
-    t.bigint "capability_id", null: false
+  create_table "evaluation_user_capability_descriptions", force: :cascade do |t|
+    t.integer "company_evaluation_template_id", null: false
+    t.integer "user_id", null: false
+    t.integer "capability_id", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -334,16 +334,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["user_id"], name: "index_evaluation_user_capability_descriptions_on_user_id"
   end
 
-  create_table "hr_user_managed_companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "hr_user_managed_companies", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "managed_company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_hr_user_managed_companies_on_user_id"
   end
 
-  create_table "hrbp_user_managed_departments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
+  create_table "hrbp_user_managed_departments", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.string "managed_dept_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -352,20 +352,20 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["user_id"], name: "index_hrbp_user_managed_departments_on_user_id"
   end
 
-  create_table "import_excel_files", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+  create_table "import_excel_files", force: :cascade do |t|
     t.string "import_type", null: false
     t.string "title"
-    t.bigint "user_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "company_evaluation_id", null: false
+    t.integer "company_evaluation_id", null: false
     t.index ["company_evaluation_id"], name: "index_import_excel_files_on_company_evaluation_id"
     t.index ["user_id"], name: "index_import_excel_files_on_user_id"
   end
 
-  create_table "job_role_evaluation_performances", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "company_evaluation_id", null: false
+  create_table "job_role_evaluation_performances", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "company_evaluation_id", null: false
     t.string "import_guid", null: false
     t.string "dept_code", null: false
     t.string "st_code", null: false
@@ -377,33 +377,33 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.datetime "updated_at", null: false
     t.string "en_name"
     t.boolean "obj_result_fixed", default: true
-    t.bigint "evaluation_user_capability_id"
+    t.integer "evaluation_user_capability_id"
     t.index ["company_evaluation_id"], name: "idx_on_company_evaluation_id_0c1a9c1fa4"
     t.index ["evaluation_user_capability_id"], name: "idx_on_evaluation_user_capability_id_e9250cbc67"
     t.index ["user_id"], name: "index_job_role_evaluation_performances_on_user_id"
   end
 
-  create_table "job_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "job_roles", force: :cascade do |t|
     t.string "st_code"
     t.integer "job_level"
     t.string "job_code"
     t.string "job_family"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "evaluation_role_id"
+    t.integer "evaluation_role_id"
     t.index ["evaluation_role_id"], name: "index_job_roles_on_evaluation_role_id"
   end
 
-  create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "roles", force: :cascade do |t|
     t.string "role_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_job_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "job_role_id", null: false
-    t.bigint "manager_user_id"
+  create_table "user_job_roles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "job_role_id", null: false
+    t.integer "manager_user_id"
     t.string "company"
     t.string "department"
     t.string "dept_code"
@@ -417,16 +417,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.index ["user_id"], name: "index_user_job_roles_on_user_id"
   end
 
-  create_table "user_roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "role_id", null: false
+  create_table "user_roles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["role_id"], name: "index_user_roles_on_role_id"
     t.index ["user_id"], name: "index_user_roles_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

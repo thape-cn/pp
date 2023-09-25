@@ -280,7 +280,6 @@ GEM
     mini_mime (1.1.5)
     minitest (5.20.0)
     mutex_m (0.1.2)
-    mysql2 (0.5.5)
     net-imap (0.3.7)
       date
       net-protocol
@@ -439,6 +438,9 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.14.0)
+    sqlite3 (1.6.6-arm64-darwin)
+    sqlite3 (1.6.6-x86_64-darwin)
+    sqlite3 (1.6.6-x86_64-linux)
     sshkit (1.21.5)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -525,7 +527,6 @@ DEPENDENCIES
   local_time
   mail (= 2.8.1)
   meta-tags
-  mysql2
   omniauth_openid_connect
   pagy
   propshaft
@@ -537,6 +538,7 @@ DEPENDENCIES
   selenium-webdriver (>= 4.11.0)
   shakapacker
   sidekiq
+  sqlite3
   standard
   tzinfo-data
   web-console
