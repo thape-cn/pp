@@ -1,4 +1,6 @@
-# README
+# a People Performance system
+
+[![Build Status](https://github.com/thape-cn/pp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/thape-cn/pp/actions)
 
 ## Development notes
 
