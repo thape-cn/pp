@@ -80,14 +80,14 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {host: "performance.thape.com.cn", port: 443}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.smtp_settings_address!,
-    port: Rails.application.credentials.smtp_settings_port!,
+    address: Rails.application.credentials.smtp_settings_address,
+    port: Rails.application.credentials.smtp_settings_port,
     domain: "thape.com.cn",
-    user_name: Rails.application.credentials.smtp_settings_user_name!,
-    password: Rails.application.credentials.smtp_settings_password!,
-    authentication: Rails.application.credentials.smtp_settings_authentication!,
+    user_name: Rails.application.credentials.smtp_settings_user_name,
+    password: Rails.application.credentials.smtp_settings_password,
+    authentication: Rails.application.credentials.smtp_settings_authentication,
     enable_starttls: true,
-    openssl_verify_mode: Rails.application.credentials.smtp_settings_openssl_verify_mode!,
+    openssl_verify_mode: Rails.application.credentials.smtp_settings_openssl_verify_mode,
     open_timeout: 5,
     read_timeout: 5
   }
