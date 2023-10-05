@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.0"
 
-gem "rails", "~> 7.1.0.rc2"
+gem "rails", "~> 7.1.0"
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
 # fix STARTTLS handling until https://github.com/mikel/mail/pull/1536 is
@@ -31,7 +31,8 @@ gem "omniauth_openid_connect"
 gem "devise-i18n"
 gem "pundit"
 
-gem "meta-tags"
+# bundle config local.meta-tags /Users/guochunzhong/git/oss/meta-tags/
+gem "meta-tags", git: "https://git.thape.com.cn/rails/meta-tags", branch: "main"
 gem "browser"
 
 gem "config"

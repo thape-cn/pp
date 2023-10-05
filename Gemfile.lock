@@ -19,6 +19,14 @@ GIT
       http (>= 2.0.3, < 6)
 
 GIT
+  remote: https://git.thape.com.cn/rails/meta-tags
+  revision: 32472dfb1267fed77bf4c54f2c9787cd4ccbb167
+  branch: main
+  specs:
+    meta-tags (2.18.0)
+      actionpack (>= 3.2.0, < 7.2)
+
+GIT
   remote: https://github.com/Eric-Guo/wechat
   revision: 48841c0e40cf103a606f8bb8b7fdbc0400298f52
   branch: main
@@ -34,70 +42,70 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    actioncable (7.1.0)
+      actionpack (= 7.1.0)
+      activesupport (= 7.1.0)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
       zeitwerk (~> 2.6)
-    actionmailbox (7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      activejob (= 7.1.0.rc2)
-      activerecord (= 7.1.0.rc2)
-      activestorage (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    actionmailbox (7.1.0)
+      actionpack (= 7.1.0)
+      activejob (= 7.1.0)
+      activerecord (= 7.1.0)
+      activestorage (= 7.1.0)
+      activesupport (= 7.1.0)
       mail (>= 2.7.1)
       net-imap
       net-pop
       net-smtp
-    actionmailer (7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      actionview (= 7.1.0.rc2)
-      activejob (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    actionmailer (7.1.0)
+      actionpack (= 7.1.0)
+      actionview (= 7.1.0)
+      activejob (= 7.1.0)
+      activesupport (= 7.1.0)
       mail (~> 2.5, >= 2.5.4)
       net-imap
       net-pop
       net-smtp
       rails-dom-testing (~> 2.2)
-    actionpack (7.1.0.rc2)
-      actionview (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    actionpack (7.1.0)
+      actionview (= 7.1.0)
+      activesupport (= 7.1.0)
       nokogiri (>= 1.8.5)
       rack (>= 2.2.4)
       rack-session (>= 1.0.1)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    actiontext (7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      activerecord (= 7.1.0.rc2)
-      activestorage (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    actiontext (7.1.0)
+      actionpack (= 7.1.0)
+      activerecord (= 7.1.0)
+      activestorage (= 7.1.0)
+      activesupport (= 7.1.0)
       globalid (>= 0.6.0)
       nokogiri (>= 1.8.5)
-    actionview (7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    actionview (7.1.0)
+      activesupport (= 7.1.0)
       builder (~> 3.1)
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    activejob (7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    activejob (7.1.0)
+      activesupport (= 7.1.0)
       globalid (>= 0.3.6)
-    activemodel (7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
-    activerecord (7.1.0.rc2)
-      activemodel (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    activemodel (7.1.0)
+      activesupport (= 7.1.0)
+    activerecord (7.1.0)
+      activemodel (= 7.1.0)
+      activesupport (= 7.1.0)
       timeout (>= 0.4.0)
-    activestorage (7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      activejob (= 7.1.0.rc2)
-      activerecord (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    activestorage (7.1.0)
+      actionpack (= 7.1.0)
+      activejob (= 7.1.0)
+      activerecord (= 7.1.0)
+      activesupport (= 7.1.0)
       marcel (~> 1.0)
-    activesupport (7.1.0.rc2)
+    activesupport (7.1.0)
       base64
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
@@ -275,8 +283,6 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
-    meta-tags (2.18.0)
-      actionpack (>= 3.2.0, < 7.1)
     mini_mime (1.1.5)
     minitest (5.20.0)
     mutex_m (0.1.2)
@@ -357,20 +363,20 @@ GEM
     rackup (2.1.0)
       rack (>= 3)
       webrick (~> 1.8)
-    rails (7.1.0.rc2)
-      actioncable (= 7.1.0.rc2)
-      actionmailbox (= 7.1.0.rc2)
-      actionmailer (= 7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      actiontext (= 7.1.0.rc2)
-      actionview (= 7.1.0.rc2)
-      activejob (= 7.1.0.rc2)
-      activemodel (= 7.1.0.rc2)
-      activerecord (= 7.1.0.rc2)
-      activestorage (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    rails (7.1.0)
+      actioncable (= 7.1.0)
+      actionmailbox (= 7.1.0)
+      actionmailer (= 7.1.0)
+      actionpack (= 7.1.0)
+      actiontext (= 7.1.0)
+      actionview (= 7.1.0)
+      activejob (= 7.1.0)
+      activemodel (= 7.1.0)
+      activerecord (= 7.1.0)
+      activestorage (= 7.1.0)
+      activesupport (= 7.1.0)
       bundler (>= 1.15.0)
-      railties (= 7.1.0.rc2)
+      railties (= 7.1.0)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -378,9 +384,9 @@ GEM
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
-    railties (7.1.0.rc2)
-      actionpack (= 7.1.0.rc2)
-      activesupport (= 7.1.0.rc2)
+    railties (7.1.0)
+      actionpack (= 7.1.0)
+      activesupport (= 7.1.0)
       irb
       rackup (>= 1.0.0)
       rake (>= 12.2)
@@ -526,13 +532,13 @@ DEPENDENCIES
   jbuilder
   local_time
   mail (= 2.8.1)
-  meta-tags
+  meta-tags!
   omniauth_openid_connect
   pagy
   propshaft
   puma
   pundit
-  rails (~> 7.1.0.rc2)
+  rails (~> 7.1.0)
   redcarpet
   roo
   selenium-webdriver (>= 4.11.0)
