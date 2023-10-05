@@ -31,8 +31,7 @@ gem "omniauth_openid_connect"
 gem "devise-i18n"
 gem "pundit"
 
-# bundle config local.meta-tags /Users/guochunzhong/git/oss/meta-tags/
-gem "meta-tags", git: "https://git.thape.com.cn/rails/meta-tags", branch: "main"
+gem "meta-tags"
 gem "browser"
 
 gem "config"

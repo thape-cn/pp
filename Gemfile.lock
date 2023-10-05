@@ -19,14 +19,6 @@ GIT
       http (>= 2.0.3, < 6)
 
 GIT
-  remote: https://git.thape.com.cn/rails/meta-tags
-  revision: 32472dfb1267fed77bf4c54f2c9787cd4ccbb167
-  branch: main
-  specs:
-    meta-tags (2.18.0)
-      actionpack (>= 3.2.0, < 7.2)
-
-GIT
   remote: https://github.com/Eric-Guo/wechat
   revision: 48841c0e40cf103a606f8bb8b7fdbc0400298f52
   branch: main
@@ -283,6 +275,8 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meta-tags (2.19.0)
+      actionpack (>= 3.2.0, < 7.2)
     mini_mime (1.1.5)
     minitest (5.20.0)
     mutex_m (0.1.2)
@@ -532,7 +526,7 @@ DEPENDENCIES
   jbuilder
   local_time
   mail (= 2.8.1)
-  meta-tags!
+  meta-tags
   omniauth_openid_connect
   pagy
   propshaft
