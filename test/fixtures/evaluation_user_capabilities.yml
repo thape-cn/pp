@@ -163,7 +163,4 @@ euc_pp0:
   department: "测试组织"
   dept_code: "pp2023"
   title: "所长（施工图）"
-  self_overall_output: "12345678901234567890"
-  self_overall_improvement: "12345678901234567890"
-  self_overall_plan: "12345678901234567890"
-  form_status: "self_assessment_done"
+  form_status: "initial"

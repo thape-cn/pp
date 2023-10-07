@@ -10,3 +10,57 @@ euc_one_form_status_two:
   previous_form_status: initial
   form_status: self_assessment_done
   user: user_fangzixue
+
+euc_pp4_form_status_1:
+  evaluation_user_capability: euc_pp4
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest4
+
+euc_pp5_form_status_1:
+  evaluation_user_capability: euc_pp5
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest5
+
+euc_pp6_form_status_1:
+  evaluation_user_capability: euc_pp6
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest6
+
+euc_pp7_form_status_1:
+  evaluation_user_capability: euc_pp7
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest7
+
+euc_pp8_form_status_1:
+  evaluation_user_capability: euc_pp8
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest8
+
+euc_pp9_form_status_1:
+  evaluation_user_capability: euc_pp9
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest9
+
+euc_pp1_form_status_1:
+  evaluation_user_capability: euc_pp1
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest1
+
+euc_pp2_form_status_1:
+  evaluation_user_capability: euc_pp2
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest2
+
+euc_pp3_form_status_1:
+  evaluation_user_capability: euc_pp3
+  previous_form_status: initial
+  form_status: self_assessment_done
+  user: user_pptest3
