@@ -25,3 +25,93 @@ ujr_three:
   department: "测试组织"
   dept_code: "0001010013"
   title: MyString
+
+ujr_3641:
+  user: user_pptest0
+  job_role: job_10
+  manager_user: user_fangzixue
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "所长（施工图）"
+
+ujr_3642:
+  user: user_pptest1
+  job_role: job_64
+  manager_user: user_pptest0
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "设总"
+
+ujr_3643:
+  user: user_pptest2
+  job_role: job_64
+  manager_user: user_pptest0
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "设总"
+
+ujr_3644:
+  user: user_pptest3
+  job_role: job_64
+  manager_user: user_pptest0
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "设总"
+
+ujr_3645:
+  user: user_pptest4
+  job_role: job_429
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "D级建筑师"
+
+ujr_3646:
+  user: user_pptest5
+  job_role: job_429
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "D级建筑师"
+
+ujr_3647:
+  user: user_pptest6
+  job_role: job_429
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "D级建筑师"
+
+ujr_3648:
+  user: user_pptest7
+  job_role: job_429
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "D级建筑师"
+
+ujr_3649:
+  user: user_pptest8
+  job_role: job_429
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "D级建筑师"
+
+ujr_3650:
+  user: user_pptest9
+  job_role: job_429
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "pp2023"
+  title: "D级建筑师"
