@@ -439,7 +439,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "on_dark", default: false, null: false
     t.string "preferred_language"
     t.integer "preferred_page_length", default: 10, null: false
     t.string "chinese_name", null: false
