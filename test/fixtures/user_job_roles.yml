@@ -3,8 +3,8 @@ ujr_one:
   user: user_guochunzhong
   job_role: job_one
   manager_user: user_fangzixue
-  company: "My Company 1"
-  department: MyString
+  company: "测试公司"
+  department: "测试组织"
   dept_code: "0001010013"
   title: MyString
 
@@ -12,8 +12,8 @@ ujr_two:
   user: user_guochunzhong
   job_role: job_two
   manager_user: user_fangzixue
-  company: "My Company 2"
-  department: MyString
+  company: "测试公司"
+  department: "测试组织"
   dept_code: "0001010013"
   title: MyString
 
@@ -21,7 +21,7 @@ ujr_three:
   user: user_fangzixue
   job_role: job_one
   manager_user:
-  company: "My Company 1"
-  department: MyString
+  company: "测试公司"
+  department: "测试组织"
   dept_code: "0001010013"
   title: MyString

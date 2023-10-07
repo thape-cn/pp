@@ -1,12 +1,30 @@
 ---
 job_one:
-  st_code: 307020900
+  st_code: "307020900"
   job_level: 8
-  job_code: 一级结构工程师
-  job_family: 子公司结构
+  job_code: "一级结构工程师"
+  job_family: "子公司结构"
 
 job_two:
-  st_code: 307020301
+  st_code: "307020301"
   job_level: 19
-  job_code: 董事长
-  job_family: 子公司经营管理
+  job_code: "董事长"
+  job_family: "子公司经营管理"
+
+job_10:
+  st_code: "0305090000"
+  job_level: 14
+  job_code: "所长（施工图）"
+  job_family: "子公司施工图"
+
+job_64:
+  st_code: "0305090300"
+  job_level: 10
+  job_code: "设总"
+  job_family: "子公司施工图"
+
+job_429:
+  st_code: "0305090900"
+  job_level: 5
+  job_code: "D级建筑师"
+  job_family: "子公司施工图"
