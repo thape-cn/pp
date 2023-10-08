@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_08_073826) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -190,15 +190,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_09_11_035445) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "brief"
-    t.string "professional_management_matric", default: "grading_3_matric"
-    t.string "performance_matric", default: "grading_3_matric"
-    t.string "total_reverse_matric", default: "grading_5_matric"
+    t.string "professional_management_matric", default: "grading_5_matric"
+    t.string "performance_matric", default: "grading_5_matric"
+    t.string "total_reverse_matric", default: "reverse_5_matric"
     t.integer "pct_proportion", default: 100
     t.integer "rate_proportion", default: 0
     t.string "group_level", default: "staff"
-    t.string "work_quality_matric", default: "grading_3_matric"
-    t.string "work_load_matric", default: "grading_3_matric"
-    t.string "work_attitude_matric", default: "grading_3_matric"
+    t.string "work_quality_matric", default: "grading_5_matric"
+    t.string "work_load_matric", default: "grading_5_matric"
+    t.string "work_attitude_matric", default: "grading_5_matric"
     t.index ["company_evaluation_id"], name: "index_company_evaluation_templates_on_company_evaluation_id"
   end
 
