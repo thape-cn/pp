@@ -1,6 +1,7 @@
 set :application, "pp_vendor"
-set :repo_url, "https://git.thape.com.cn/rails/performance.git"
+set :repo_url, "https://git.thape.com.cn/rails/pp.git"
 set :nginx_use_ssl, true
+set :branch, :thape_deploy
 set :rails_env, "production"
 set :puma_service_unit_name, :puma_pp_vendor
 set :puma_systemctl_user, :system
