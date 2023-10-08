@@ -1,0 +1,165 @@
+---
+erc_1:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_coaching
+
+erc_2:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_goal_achieved
+
+erc_3:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_customer_needs
+
+erc_4:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_planning_interior
+
+erc_5:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_space_creativity
+
+erc_6:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_shape_interior
+
+erc_7:
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_graphic_interior
+
+erc_8:
+  evaluation_role: er_employee_layer_general
+  capability: capable_work_load
+
+erc_9:
+  evaluation_role: er_employee_layer_general
+  capability: capable_work_quality
+
+erc_10:
+  evaluation_role: er_employee_layer_general
+  capability: capable_work_attitude
+
+erc_11:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_coaching
+
+erc_12:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_goal_achieved
+
+erc_13:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_customer_needs
+
+erc_14:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_graphic_interior
+
+erc_15:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_presentation
+
+erc_16:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_shape
+
+erc_17:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_concept
+
+erc_18:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_craftsmanship
+
+erc_19:
+  evaluation_role: er_interior_solution_supervisor
+  capability: capable_implementation
+
+erc_20:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_coaching
+
+erc_21:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_goal_achieved
+
+erc_22:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_customer_needs
+
+erc_23:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_graphic_quality
+
+erc_24:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_presentation
+
+erc_25:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_onsite
+
+erc_26:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_realization
+
+erc_27:
+  evaluation_role: er_interior_construction_supervisor
+  capability: capable_craftsmanship
+
+erc_28:
+  evaluation_role: er_technical_director
+  capability: capable_graphic_quality
+
+erc_29:
+  evaluation_role: er_technical_director
+  capability: capable_realization
+
+erc_30:
+  evaluation_role: er_technical_director
+  capability: capable_onsite_landscape
+
+erc_31:
+  evaluation_role: er_technical_director
+  capability: capable_norms_landscape
+
+erc_32:
+  evaluation_role: er_technical_director
+  capability: capable_customer_needs
+
+erc_33:
+  evaluation_role: er_technical_director
+  capability: capable_coaching
+
+erc_34:
+  evaluation_role: er_technical_director
+  capability: capable_goal_achieved
+
+erc_35:
+  evaluation_role: er_technical_director
+  capability: capable_presentation
+
+erc_36:
+  evaluation_role: er_solution_supervisor
+  capability: capable_technical
+
+erc_37:
+  evaluation_role: er_solution_supervisor
+  capability: capable_innovation
+
+erc_38:
+  evaluation_role: er_solution_supervisor
+  capability: capable_presentation_arch
+
+erc_39:
+  evaluation_role: er_solution_supervisor
+  capability: capable_customer_needs
+
+erc_40:
+  evaluation_role: er_solution_supervisor
+  capability: capable_coaching
+
+erc_41:
+  evaluation_role: er_solution_supervisor
+  capability: capable_goal_achieved
+
