@@ -2,17 +2,275 @@
 capable_coaching:
   en_name: "coaching"
   name: "辅导与发展"
-  description: "<p>了解并根据下属特点；定期反馈和赋能；帮助下属发展。</p>"
+  description: "了解并根据下属特点带好团队；定期反馈和赋能；帮助下属进步。"
   category_name: "管理能力"
 
 capable_goal_achieved:
-  en_name: "goal achieved"
+  en_name: "goal_achieved"
   name: "达成项目结果"
-  description: "<p>根据目标制定工作计划；通过有效协调资源；确保目标实现。</p>"
+  description: "根据目标制定工作计划；通过有效协调资源；确保目标实现。"
   category_name: "管理能力"
+
+capable_customer_needs:
+  en_name: "customer_needs"
+  name: "理解客户需求"
+  description: "理解客户需求；提供能够让客户满意的服务。"
+  category_name: "管理能力"
+
+capable_high_efficiency:
+  en_name: "high_efficiency"
+  name: "高效率工作"
+  description: "对工作进行规划；高效完成工作。"
+  category_name: "管理能力"
+
+capable_high_quality:
+  en_name: "high_quality"
+  name: "高质量交付"
+  description: "确保工作高品质完成。"
+  category_name: "管理能力"
+
+capable_graphic_interior:
+  en_name: "graphic_interior"
+  name: "图面表达"
+  description: "通过方案图纸准确传达设计理念和作品，条理清晰、主次分明、图面美观。"
+  category_name: "专业能力"
+
+capable_presentation:
+  en_name: "presentation"
+  name: "汇报表达"
+  description: "通过语言清晰传达方案/施工图设计思路，精准表达设计要点和难点，并能感染听众。"
+  category_name: "专业能力"
+
+capable_shape:
+  en_name: "shape"
+  name: "造型能力"
+  description: "根据项目特点和要求，按一定的逻辑生成建筑形体，并借助工具表达呈现。"
+  category_name: "专业能力"
+
+capable_implementation:
+  en_name: "implementation"
+  name: "技术落地"
+  description: "对方案实施难点能提出技术解决策略，保障项目施工落地和效果呈现。"
+  category_name: "专业能力"
+
+capable_norms:
+  en_name: "norms"
+  name: "规范的理解与运用"
+  description: "理解和掌握施工图设计规范，并能在设计中有效应用。"
+  category_name: "专业能力"
+
+capable_graphic_quality:
+  en_name: "graphic_quality"
+  name: "图纸质量"
+  description: "理解设计任务，绘制符合标准和规范、满足深度和成本要求的图纸。"
+  category_name: "专业能力"
+
+capable_onsite:
+  en_name: "onsite"
+  name: "现场处理"
+  description: "运用专业知识发现问题、分析问题、以及协调各方资源解决现场施工配合问题。"
+  category_name: "专业能力"
+
+capable_realization:
+  en_name: "realization"
+  name: "方案实现"
+  description: "理解方案设计思路，运用专业知识及技能实现方案落地。"
+  category_name: "专业能力"
+
+capable_professional_level:
+  en_name: "professional_level"
+  name: "专业水平"
+  description: "在专业领域具有较多学习实践及积累，能够以超出平均水平的方式开展专业工作。"
+  category_name: "专业能力"
+
+capable_cooperation:
+  en_name: "cooperation"
+  name: "合作意识"
+  description: "积极配合团队工作，在完成本职工作前提下，提出合理化建议"
+  category_name: "专业能力"
+
+capable_planning:
+  en_name: "planning"
+  name: "规划能力"
+  description: "根据场地条件和项目特点，形成策划和设计理念、合理规划。"
+  category_name: "专业能力"
+
+capable_graphic_planning:
+  en_name: "graphic_planning"
+  name: "图纸表达"
+  description: "通过方案图纸准确传达设计理念和作品，条理清晰、主次分明、图面美观。"
+  category_name: "专业能力"
+
+capable_concept:
+  en_name: "concept"
+  name: "概念表达"
+  description: "根据项目情况提出创意性概念，并以有效的方式进行表达。"
+  category_name: "专业能力"
+
+capable_craftsmanship:
+  en_name: "craftsmanship"
+  name: "专业工艺"
+  description: "结合项目定位和客群定位，落位严谨而合理的专业工艺（如医养等）。"
+  category_name: "专业能力"
+
+capable_customer_needs_non:
+  en_name: "customer_needs_non"
+  name: "理解客户需求（非设计/技术）"
+  description: "理解客户需求；提供能够满足客户需求的服务。（客户：如上级领导、集团其他部门、政府机构等）"
+  category_name: "管理能力"
+
+capable_customer_insight:
+  en_name: "customer_insight"
+  name: "洞察客户需求（非设计/技术）"
+  description: "通过对客户需求的理解分析；诊断客户需求本质。（客户：如上级领导、集团其他部门、政府机构等）"
+  category_name: "管理能力"
+
+capable_results:
+  en_name: "results"
+  name: "追求运营结果（非设计/技术）"
+  description: "分析制定解决业务问题的最佳方案；推动执行转化为实际产出。"
+  category_name: "管理能力"
+
+capable_organizational_capabilities:
+  en_name: "organizational_capabilities"
+  name: "打造组织能力"
+  description: "理解并传递公司目标，确立组织发展方向；建立人才梯队，营造团队氛围；实现组织目标。"
+  category_name: "管理能力"
+
+capable_presentation_planning:
+  en_name: "presentation_planning"
+  name: "汇报表达"
+  description: "通过语言清晰传达策划设计思路，精准表达方案要点，并能感染听众。"
+  category_name: "专业能力"
+
+capable_learning:
+  en_name: "learning"
+  name: "学习能力"
+  description: "有自主学习接纳新事物及突破的能力，对跨界联动有自主意识。"
+  category_name: "专业能力"
+
+capable_logic:
+  en_name: "logic"
+  name: "逻辑能力"
+  description: "通过提出有意义的创意和想法，提炼策划和设计思路，形成方案，解决实际问题。"
+  category_name: "专业能力"
 
 capable_technical:
   en_name: "technical"
   name: "技术能力"
   description: ""
   category_name: "专业能力"
+
+capable_innovation:
+  en_name: "innovation"
+  name: "设计创新"
+  description: ""
+  category_name: "专业能力"
+
+capable_presentation_arch:
+  en_name: "presentation_arch"
+  name: "表达与汇报"
+  description: ""
+  category_name: "专业能力"
+
+capable_graphic_landscape:
+  en_name: "graphic_landscape"
+  name: "图纸表达"
+  description: "通过方案图纸准确传达设计理念和作品，条理清晰、主次分明、图面美观。"
+  category_name: "专业能力"
+
+capable_logic_landscape:
+  en_name: "logic_landscape"
+  name: "逻辑能力"
+  description: "通过提出有意义的创意和想法，提炼设计思路，形成设计方案，解决实际问题。"
+  category_name: "专业能力"
+
+capable_graphic_quality_landscape:
+  en_name: "graphic_quality_landscape"
+  name: "图纸质量"
+  description: "理解设计任务，绘制符合标准和规范、满足深度和成本要求的图纸。"
+  category_name: "专业能力"
+
+capable_norms_landscape:
+  en_name: "norms_landscape"
+  name: "对规范的理解与运用"
+  description: "理解和掌握施工图设计规范，并能在设计中有效应用。"
+  category_name: "专业能力"
+
+capable_planning_landscape:
+  en_name: "planning_landscape"
+  name: "规划能力"
+  description: "根据场地条件和项目特点，形成设计理念、合理配置总图。"
+  category_name: "专业能力"
+
+capable_presentation_landscape:
+  en_name: "presentation_landscape"
+  name: "汇报表达"
+  description: "通过语言清晰传达方案/施工图设计思路，精准表达设计要点和难点，并能感染听众。"
+  category_name: "专业能力"
+
+capable_product_design_landscape:
+  en_name: "product_design_landscape"
+  name: "产品设计"
+  description: "基于场地规划和设计理念，合理布局功能空间，通过造型表达设计艺术。"
+  category_name: "专业能力"
+
+capable_implementation_landscape:
+  en_name: "implementation_landscape"
+  name: "技术落地"
+  description: "对方案实施难点能提出技术解决策略，保障项目施工落地和效果呈现。"
+  category_name: "专业能力"
+
+capable_realization_landscape:
+  en_name: "realization_landscape"
+  name: "方案实现"
+  description: "理解方案设计思路，运用专业知识及技能实现方案落地。"
+  category_name: "专业能力"
+
+capable_onsite_landscape:
+  en_name: "onsite_landscape"
+  name: "现场处理"
+  description: "运用专业知识发现问题、分析问题、以及协调各方资源解决现场施工配合问题。"
+  category_name: "专业能力"
+
+capable_annual_output:
+  en_name: "annual_output"
+  name: "年度工作产出"
+  description: ""
+  category_name: "业绩产出（固定）"
+
+capable_work_load:
+  en_name: "work_load"
+  name: "工作量"
+  description: "员工对于项目的贡献\n基于员工参与项目的工时数、任务难度、参与角色等的综合评价\n\n以所内同岗位人员的工作量为标准"
+  category_name: "业绩产出（固定）"
+
+capable_work_quality:
+  en_name: "work_quality"
+  name: "工作质量"
+  description: "工作任务完成情况（包含图纸、文本、汇报文件等）\n\n※超出标准：理解工作内容准确，独立完成工作，有时可提前完成工作；通过创新与持续迭代，力求工作超预期完成\n※符合标准：无需上级详细指导，能按时完成工作；工作基本无差错\n※低于标准：需要上级详细指导方可开展工作；无法按时完成工作任务；出现设计事故；图纸经常不按照规范/标准绘制"
+  category_name: "业绩产出（固定）"
+
+capable_work_attitude:
+  en_name: "work_attitude"
+  name: "工作态度"
+  description: "对待工作的方式及态度\n\n※超出标准：主动承担新的挑战性工作；充满工作热情；愿意主动担责，能扛事；善于和不同类型的同事合作，积极正面的影响团队\n※符合标准：自觉完成职责范围内的工作；对于职责范围内的事，敢于担当；工作中能与同事相互协作，具有良好的职业操守\n※低于标准：在上级反复督促下履行工作职责；经常不接受上级的工作安排，工作较为随性；不能积极响应同事的工作请求或者协作较差，影响部门工作开展"
+  category_name: "业绩产出（固定）"
+
+capable_planning_interior:
+  en_name: "planning_interior"
+  name: "平面规划能力"
+  description: ""
+  category_name: "专业能力"
+
+capable_space_creativity:
+  en_name: "space_creativity"
+  name: "空间创意"
+  description: ""
+  category_name: "专业能力"
+
+capable_shape_interior:
+  en_name: "shape_interior"
+  name: "造型能力"
+  description: ""
+  category_name:
