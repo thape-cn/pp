@@ -163,3 +163,102 @@ erc_41:
   evaluation_role: er_solution_supervisor
   capability: capable_goal_achieved
 
+erc_42:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_coaching
+
+erc_43:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_goal_achieved
+
+erc_44:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_customer_needs
+
+erc_45:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_graphic_quality
+
+erc_46:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_norms_landscape
+
+erc_47:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_presentation
+
+erc_48:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_realization
+
+erc_49:
+  evaluation_role: er_landscape_technical_director
+  capability: capable_onsite
+
+erc_50:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_coaching
+
+erc_51:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_goal_achieved
+
+erc_52:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_customer_needs
+
+erc_53:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_graphic_planning
+
+erc_54:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_planning_landscape
+
+erc_55:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_presentation
+
+erc_56:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_product_design_landscape
+
+erc_57:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_implementation_landscape
+
+erc_58:
+  evaluation_role: er_landscape_solution_supervisor
+  capability: capable_logic_landscape
+
+erc_59:
+  evaluation_role: er_functional_supervisor
+  capability: capable_coaching
+
+erc_60:
+  evaluation_role: er_functional_supervisor
+  capability: capable_goal_achieved
+
+erc_61:
+  evaluation_role: er_functional_supervisor
+  capability: capable_customer_needs_non
+
+erc_62:
+  evaluation_role: er_functional_supervisor
+  capability: capable_annual_output
+
+erc_63:
+  evaluation_role: er_functional_supervisor
+  capability: capable_professional_level
+
+erc_64:
+  evaluation_role: er_functional_employee
+  capability: capable_annual_output
+
+erc_65:
+  evaluation_role: er_functional_employee
+  capability: capable_high_efficiency
+
+erc_66:
+  evaluation_role: er_functional_employee
+  capability: capable_high_quality
