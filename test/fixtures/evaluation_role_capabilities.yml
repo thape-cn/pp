@@ -262,3 +262,59 @@ erc_65:
 erc_66:
   evaluation_role: er_functional_employee
   capability: capable_high_quality
+
+erc_67:
+  evaluation_role: er_functional_operation
+  capability: capable_customer_insight
+
+erc_68:
+  evaluation_role: er_functional_operation
+  capability: capable_results
+
+erc_69:
+  evaluation_role: er_functional_operation
+  capability: capable_organizational_capabilities
+
+erc_70:
+  evaluation_role: er_functional_operation
+  capability: capable_annual_output
+
+erc_71:
+  evaluation_role: er_functional_operation
+  capability: capable_professional_level
+
+erc_72:
+  evaluation_role: er_planning_supervisor
+  capability: capable_coaching
+
+erc_73:
+  evaluation_role: er_planning_supervisor
+  capability: capable_goal_achieved
+
+erc_74:
+  evaluation_role: er_planning_supervisor
+  capability: capable_customer_needs
+
+erc_75:
+  evaluation_role: er_planning_supervisor
+  capability: capable_cooperation
+
+erc_76:
+  evaluation_role: er_planning_supervisor
+  capability: capable_planning
+
+erc_77:
+  evaluation_role: er_planning_supervisor
+  capability: capable_graphic_planning
+
+erc_78:
+  evaluation_role: er_planning_supervisor
+  capability: capable_presentation_planning
+
+erc_79:
+  evaluation_role: er_planning_supervisor
+  capability: capable_learning
+
+erc_80:
+  evaluation_role: er_planning_supervisor
+  capability: capable_logic
