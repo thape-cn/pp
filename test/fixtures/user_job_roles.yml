@@ -7,6 +7,7 @@ ujr_one:
   department: "测试组织"
   dept_code: "0001010013"
   title: MyString
+  is_active: true
 
 ujr_two:
   user: user_guochunzhong
@@ -16,6 +17,7 @@ ujr_two:
   department: "测试组织"
   dept_code: "0001010013"
   title: MyString
+  is_active: true
 
 ujr_three:
   user: user_fangzixue
@@ -25,6 +27,7 @@ ujr_three:
   department: "测试组织"
   dept_code: "0001010013"
   title: MyString
+  is_active: true
 
 ujr_3641:
   user: user_pptest0
@@ -34,6 +37,7 @@ ujr_3641:
   department: "测试组织"
   dept_code: "pp2023"
   title: "所长（施工图）"
+  is_active: true
 
 ujr_3642:
   user: user_pptest1
@@ -43,6 +47,7 @@ ujr_3642:
   department: "测试组织"
   dept_code: "pp2023"
   title: "设总"
+  is_active: true
 
 ujr_3643:
   user: user_pptest2
@@ -52,6 +57,7 @@ ujr_3643:
   department: "测试组织"
   dept_code: "pp2023"
   title: "设总"
+  is_active: true
 
 ujr_3644:
   user: user_pptest3
@@ -61,6 +67,7 @@ ujr_3644:
   department: "测试组织"
   dept_code: "pp2023"
   title: "设总"
+  is_active: true
 
 ujr_3645:
   user: user_pptest4
@@ -70,6 +77,7 @@ ujr_3645:
   department: "测试组织"
   dept_code: "pp2023"
   title: "D级建筑师"
+  is_active: true
 
 ujr_3646:
   user: user_pptest5
@@ -79,6 +87,7 @@ ujr_3646:
   department: "测试组织"
   dept_code: "pp2023"
   title: "D级建筑师"
+  is_active: true
 
 ujr_3647:
   user: user_pptest6
@@ -88,6 +97,7 @@ ujr_3647:
   department: "测试组织"
   dept_code: "pp2023"
   title: "D级建筑师"
+  is_active: true
 
 ujr_3648:
   user: user_pptest7
@@ -97,6 +107,7 @@ ujr_3648:
   department: "测试组织"
   dept_code: "pp2023"
   title: "D级建筑师"
+  is_active: true
 
 ujr_3649:
   user: user_pptest8
@@ -106,6 +117,7 @@ ujr_3649:
   department: "测试组织"
   dept_code: "pp2023"
   title: "D级建筑师"
+  is_active: true
 
 ujr_3650:
   user: user_pptest9
@@ -115,3 +127,4 @@ ujr_3650:
   department: "测试组织"
   dept_code: "pp2023"
   title: "D级建筑师"
+  is_active: true
