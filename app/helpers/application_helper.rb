@@ -22,7 +22,7 @@ module ApplicationHelper
   def footer
     content_tag :footer, nil, class: "footer d-print-none" do
       left_part = content_tag :div, nil do
-        concat "天华绩效评估 © 2023 TIANHUA"
+        concat "绩效评估 © 2023 TIANHUA"
       end
       right_part = content_tag :div, nil, class: "ms-auto" do
         concat "Powered by CoreUI PRO UI Components"

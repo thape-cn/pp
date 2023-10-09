@@ -25,7 +25,7 @@ zh-CN:
     password: "密码"
     password_confirmation: "确认密码"
     sign_in: "登录"
-    welcome_text_in_login: "欢迎使用天华绩效评估系统"
+    welcome_text_in_login: "欢迎使用绩效评估系统"
     sign_in_via_openid: "通过 SSO 登录"
     click_to_sign_in: "点击登陆"
     sign_up: "注册"
