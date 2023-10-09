@@ -1,6 +1,6 @@
 ---
 hrbp_user_managed_department_one:
-  managed_dept_code: "00010201010"
+  managed_dept_code: "pp2023"
   user: user_guochunzhong
 
 hrbp_user_managed_department_two:

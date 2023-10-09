@@ -4,9 +4,9 @@ ujr_one:
   job_role: job_one
   manager_user: user_fangzixue
   company: "测试公司"
-  department: "测试组织"
+  department: "流程信息化部"
   dept_code: "0001010013"
-  title: MyString
+  title: "Rails开发"
   is_active: true
 
 ujr_two:
@@ -14,9 +14,9 @@ ujr_two:
   job_role: job_two
   manager_user: user_fangzixue
   company: "测试公司"
-  department: "测试组织"
+  department: "流程信息化部"
   dept_code: "0001010013"
-  title: MyString
+  title: "开发经理"
   is_active: true
 
 ujr_three:
@@ -24,9 +24,9 @@ ujr_three:
   job_role: job_one
   manager_user:
   company: "测试公司"
-  department: "测试组织"
+  department: "流程信息化部"
   dept_code: "0001010013"
-  title: MyString
+  title: "部门副经理"
   is_active: true
 
 ujr_3641:
