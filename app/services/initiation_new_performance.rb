@@ -18,7 +18,8 @@ class InitiationNewPerformance
       obj_upload: "OBJECTIVE_upload"
     ) do |h|
       user = User.find_by(clerk_code: h[:user_clerk_code])
-      next if h[:action] == "操作" || h[:import_guid] == "指标ID"
+      next if h[:action] == "操作" && h[:import_guid] == "指标ID"
+      next if h[:action] == "ACTION" && h[:import_guid] == "GUID"
 
       if user.blank?
         import_excel_file.import_excel_file_messages.create(message: "User not found by clerk_code: #{h[:user_clerk_code]}")
