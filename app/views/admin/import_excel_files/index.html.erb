@@ -12,7 +12,7 @@
             <th><%= t('user.clerk_code') -%></th>
             <th><%= t('import_exports.import_type_title') -%></th>
             <th><%= t('import_exports.file_status_title') -%></th>
-            <th><%= t('import_exports.title') -%></th>
+            <th><%= t('import_exports.filename') -%></th>
             <th><%= t('form.status_time') -%></th>
           </tr>
         </thead>
@@ -23,7 +23,10 @@
               <td><%= ief.user.clerk_code -%></td>
               <td><%= ImportExcelFile.import_type_options.invert[ief.import_type] -%></td>
               <td><%= ImportExcelFile.file_status_options.invert[ief.file_status] -%></td>
-              <td><%= link_to ief.title, rails_blob_path(ief.excel_file, disposition: "attachment") -%></td>
+              <td>
+                <%= link_to ief.excel_file.filename, rails_blob_path(ief.excel_file, disposition: "attachment"), data: { "coreui-title" => ief.title, "coreui-toggle" => "tooltip", "coreui-placement" => "top" } -%>
+
+              </td>
               <td><%= local_time(ief.created_at) -%></td>
             </tr>
           <% end %>

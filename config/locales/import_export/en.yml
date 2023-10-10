@@ -1,7 +1,6 @@
 ---
 en:
   import_exports:
-    title: "Title"
     import_type_title: "Import type"
     import_type:
       new_evaluation: "New evaluation"
@@ -14,3 +13,4 @@ en:
       validated: "Validated"
       do_importing: "Do importing"
       imported: "Imported"
+    filename: "Filename"

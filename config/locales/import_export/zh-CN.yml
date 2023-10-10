@@ -1,7 +1,6 @@
 ---
 zh-CN:
   import_exports:
-    title: "标题"
     import_type_title: "导入类型"
     import_type:
       new_evaluation: "新考评"
@@ -14,3 +13,4 @@ zh-CN:
       validated: "校验完成"
       do_importing: "导入中"
       imported: "导入完成"
+    filename: "文件名"
