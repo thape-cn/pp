@@ -1,6 +1,7 @@
 class ImportExcelFile < ApplicationRecord
   belongs_to :user
   belongs_to :company_evaluation
+  has_many :import_excel_file_messages
   has_one_attached :excel_file
 
   def self.import_type_options

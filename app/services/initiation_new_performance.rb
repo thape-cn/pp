@@ -1,6 +1,8 @@
 class InitiationNewPerformance
-  def self.do_import(company_evaluation, excel_file)
-    xlsx = Roo::Excelx.new(StringIO.new(excel_file.download))
+  def self.do_validate_jrep(import_excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
+
+    import_excel_file.import_excel_file_messages.delete_all
 
     xlsx.each(
       action: "ACTION",
@@ -17,14 +19,42 @@ class InitiationNewPerformance
     ) do |h|
       user = User.find_by(clerk_code: h[:user_clerk_code])
       next if h[:action] == "操作" || h[:import_guid] == "指标ID"
+
       if user.blank?
-        puts "User not found by clerk_code: #{h[:user_clerk_code]}"
+        import_excel_file.import_excel_file_messages.create(message: "User not found by clerk_code: #{h[:user_clerk_code]}")
         next
       end
+    end
+
+    if import_excel_file.import_excel_file_messages.present?
+      import_excel_file.update(file_status: "validate_failed")
+    else
+      import_excel_file.update(file_status: "validated")
+    end
+  end
+
+  def self.do_import_jrep(import_excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
+
+    xlsx.each(
+      action: "ACTION",
+      import_guid: "GUID",
+      user_clerk_code: "USER",
+      dept_code: "DEPTCODE",
+      st_code: "st_code",
+      p_tablename: "p_tablename",
+      obj_name: "OBJECTIVE_name",
+      obj_metric: "OBJECTIVE_metric",
+      obj_weight_pct: "OBJECTIVE_weight",
+      obj_result: "OBJECTIVE_result",
+      obj_upload: "OBJECTIVE_upload"
+    ) do |h|
+      user = User.find_by(clerk_code: h[:user_clerk_code])
+      next if h[:action] == "操作" || h[:import_guid] == "指标ID"
 
       jrep = JobRoleEvaluationPerformance.find_or_initialize_by(import_guid: h[:import_guid])
       jrep.user_id = user.id
-      jrep.company_evaluation_id = company_evaluation.id
+      jrep.company_evaluation_id = import_excel_file.company_evaluation.id
       jrep.dept_code = h[:dept_code]
       jrep.en_name = h[:p_tablename]
       jrep.st_code = h[:st_code]

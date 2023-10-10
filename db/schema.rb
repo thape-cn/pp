@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_10_023403) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_10_053830) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -352,6 +352,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_10_023403) do
     t.index ["user_id"], name: "index_hrbp_user_managed_departments_on_user_id"
   end
 
+  create_table "import_excel_file_messages", force: :cascade do |t|
+    t.string "message"
+    t.integer "import_excel_file_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["import_excel_file_id"], name: "index_import_excel_file_messages_on_import_excel_file_id"
+  end
+
   create_table "import_excel_files", force: :cascade do |t|
     t.string "import_type", null: false
     t.string "title"
@@ -465,6 +473,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_10_023403) do
   add_foreign_key "evaluation_role_capabilities", "evaluation_roles"
   add_foreign_key "evaluation_user_capabilities", "job_roles"
   add_foreign_key "evaluation_user_capabilities", "users"
+  add_foreign_key "import_excel_file_messages", "import_excel_files"
   add_foreign_key "job_role_evaluation_performances", "company_evaluations"
   add_foreign_key "job_role_evaluation_performances", "evaluation_user_capabilities"
   add_foreign_key "job_role_evaluation_performances", "users"
