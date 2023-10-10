@@ -5,7 +5,9 @@ module Admin
     before_action :set_company_evaluation, only: %i[index]
 
     def index
-      import_excel_files = policy_scope(ImportExcelFile).where(company_evaluation_id: @company_evaluation.id)
+      import_excel_files = policy_scope(ImportExcelFile)
+        .where(company_evaluation_id: @company_evaluation.id)
+        .order(id: :desc)
       @pagy, @import_excel_files = pagy(import_excel_files, items: current_user.preferred_page_length)
     end
 

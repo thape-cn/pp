@@ -8,21 +8,21 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th>No.</th>
             <th><%= t('user.chinese_name') -%></th>
             <th><%= t('user.clerk_code') -%></th>
             <th><%= t('import_exports.import_type_title') -%></th>
+            <th><%= t('import_exports.file_status_title') -%></th>
             <th><%= t('import_exports.title') -%></th>
             <th><%= t('form.status_time') -%></th>
           </tr>
         </thead>
         <tbody>
-          <% @import_excel_files.each_with_index do |ief, index| %>
+          <% @import_excel_files.each do |ief| %>
             <tr>
-              <td><%= index -%></td>
               <td><%= ief.user.chinese_name -%></td>
               <td><%= ief.user.clerk_code -%></td>
               <td><%= ImportExcelFile.import_type_options.invert[ief.import_type] -%></td>
+              <td><%= ImportExcelFile.file_status_options.invert[ief.file_status] -%></td>
               <td><%= link_to ief.title, rails_blob_path(ief.excel_file, disposition: "attachment") -%></td>
               <td><%= local_time(ief.created_at) -%></td>
             </tr>

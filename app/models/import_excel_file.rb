@@ -10,4 +10,14 @@ class ImportExcelFile < ApplicationRecord
       I18n.t("import_exports.import_type.new_performance") => "new_performance"
     }
   end
+
+  def self.file_status_options
+    {
+      I18n.t("import_exports.file_status.do_validating") => "do_validating",
+      I18n.t("import_exports.file_status.validate_failed") => "validate_failed",
+      I18n.t("import_exports.file_status.validated") => "validated",
+      I18n.t("import_exports.file_status.do_importing") => "do_importing",
+      I18n.t("import_exports.file_status.imported") => "imported"
+    }
+  end
 end

@@ -7,3 +7,10 @@ en:
       new_evaluation: "New evaluation"
       new_calibration_session: "New calibration session"
       new_performance: "New performance"
+    file_status_title: "File status"
+    file_status:
+      do_validating: "In validating"
+      validate_failed: "Wrong file data uploaded"
+      validated: "Validated"
+      do_importing: "Do importing"
+      imported: "Imported"

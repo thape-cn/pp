@@ -7,3 +7,10 @@ zh-CN:
       new_evaluation: "新考评"
       new_calibration_session: "新校准会话"
       new_performance: "新人员业绩"
+    file_status_title: "导入状态"
+    file_status:
+      do_validating: "校验中"
+      validate_failed: "上传文件数据错"
+      validated: "校验完成"
+      do_importing: "导入中"
+      imported: "导入完成"
