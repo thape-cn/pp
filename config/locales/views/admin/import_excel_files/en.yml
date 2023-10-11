@@ -6,3 +6,5 @@ en:
         title: "Imported Excel file list"
       show:
         title: "Imported Excel file execution details"
+      destroy_confirm:
+        title: "Delete this imported Excel file?"

@@ -14,6 +14,7 @@
             <th><%= t('import_exports.file_status_title') -%></th>
             <th><%= t('import_exports.filename') -%></th>
             <th><%= t('form.status_time') -%></th>
+            <th><%= t('form.action') -%></th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +34,13 @@
 
               </td>
               <td><%= local_time(ief.created_at) -%></td>
+              <td>
+                <% if policy(ief).destroy_confirm? %>
+                  <%= link_to destroy_confirm_admin_company_evaluation_import_excel_file_path(id: ief.id), class: "ms-1", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.destroy") } do -%>
+                    <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg]) -%>
+                  <% end %>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

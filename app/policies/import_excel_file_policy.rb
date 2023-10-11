@@ -12,4 +12,12 @@ class ImportExcelFilePolicy < ApplicationPolicy
   def show?
     user.admin?
   end
+
+  def destroy?
+    user.admin?
+  end
+
+  def destroy_confirm?
+    destroy?
+  end
 end

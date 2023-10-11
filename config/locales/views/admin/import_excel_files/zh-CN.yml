@@ -6,3 +6,5 @@ zh-CN:
         title: "导入的Excel文件列表"
       show:
         title: "导入的Excel文件执行明细"
+      destroy_confirm:
+        title: "删除此导入的Excel文件？"
