@@ -1,6 +1,6 @@
 class InitiationNewEvaluation
-  def self.do_import(company_evaluation, excel_file)
-    xlsx = Roo::Excelx.new(StringIO.new(excel_file.download))
+  def self.do_import_euc(import_excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
     xlsx.default_sheet = "启动表单"
 
     xlsx.each(
@@ -27,7 +27,7 @@ class InitiationNewEvaluation
         puts "Job_role not found by st_code: #{st_code}"
         next
       end
-      company_evaluation_template = company_evaluation.company_evaluation_templates.find_by(title: template_title)
+      company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
       if company_evaluation_template.blank?
         puts "Company evaluation template not found by title: #{template_title}"
         next
