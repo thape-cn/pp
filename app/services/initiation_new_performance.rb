@@ -4,7 +4,7 @@ class InitiationNewPerformance
 
     import_excel_file.import_excel_file_messages.delete_all
 
-    row_number = 1
+    row_number = 2 # header having 2 row
     xlsx.each(
       action: "ACTION",
       import_guid: "GUID",
