@@ -45,7 +45,7 @@ namespace :admin do
         get :excel_report
       end
     end
-    resources :import_excel_files, only: %i[index]
+    resources :import_excel_files, only: %i[index show]
     member do
       get :confirm_remove_leaving_employee_eucs
       put :remove_leaving_employee_eucs

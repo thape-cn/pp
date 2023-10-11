@@ -8,4 +8,8 @@ class ImportExcelFilePolicy < ApplicationPolicy
       end
     end
   end
+
+  def show?
+    user.admin?
+  end
 end

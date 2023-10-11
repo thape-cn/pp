@@ -3,4 +3,6 @@ en:
   admin:
     import_excel_files:
       index:
-        title: "导入的Excel文件列表"
+        title: "Imported Excel file list"
+      show:
+        title: "Imported Excel file execution details"

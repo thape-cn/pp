@@ -22,7 +22,12 @@
               <td><%= ief.user.chinese_name -%></td>
               <td><%= ief.user.clerk_code -%></td>
               <td><%= ImportExcelFile.import_type_options.invert[ief.import_type] -%></td>
-              <td><%= ImportExcelFile.file_status_options.invert[ief.file_status] -%></td>
+              <td>
+                <%= ImportExcelFile.file_status_options.invert[ief.file_status] -%>
+                <%= link_to admin_company_evaluation_import_excel_file_path(id: ief.id, company_evaluation_id: @company_evaluation.id), class: 'ps-1 align-middle', data: {controller: "modal", action: "modal#click"} do %>
+                  <%= svg_icon('free.svg#cil-info', %w[icon icon-lg]) %>
+                <% end %>
+              </td>
               <td>
                 <%= link_to ief.excel_file.filename, rails_blob_path(ief.excel_file, disposition: "attachment"), data: { "coreui-title" => ief.title, "coreui-toggle" => "tooltip", "coreui-placement" => "top" } -%>
 
