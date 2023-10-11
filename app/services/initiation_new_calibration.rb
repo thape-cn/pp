@@ -1,6 +1,6 @@
 class InitiationNewCalibration
-  def self.do_import(company_evaluation, excel_file)
-    xlsx = Roo::Excelx.new(StringIO.new(excel_file.download))
+  def self.do_import_calibration_session(import_excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
     xlsx.default_sheet = "校准"
 
     xlsx.each(
@@ -22,7 +22,7 @@ class InitiationNewCalibration
 
       user = User.find_by(clerk_code: clerk_code)
       job_role = JobRole.find_by(st_code: st_code)
-      company_evaluation_template = company_evaluation.company_evaluation_templates.find_by(title: template_title)
+      company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
       evaluation_user_capability = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
       calibration_owner = User.find_by(clerk_code: h[:calibration_owner].to_s)
 
