@@ -8,3 +8,5 @@ zh-CN:
         title: "导入的Excel文件执行明细"
       destroy_confirm:
         title: "删除此导入的Excel文件？"
+      do_import_confirm:
+        title: "正式导入这个Excel文件内容？"

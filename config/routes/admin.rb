@@ -48,6 +48,8 @@ namespace :admin do
     resources :import_excel_files, only: %i[index show destroy] do
       member do
         get :destroy_confirm
+        get :do_import_confirm
+        put :do_import
       end
     end
     member do

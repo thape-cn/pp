@@ -25,7 +25,7 @@
               <td><%= ImportExcelFile.import_type_options.invert[ief.import_type] -%></td>
               <td>
                 <%= ImportExcelFile.file_status_options.invert[ief.file_status] -%>
-                <%= link_to admin_company_evaluation_import_excel_file_path(id: ief.id, company_evaluation_id: @company_evaluation.id), class: 'ps-1 align-middle', data: {controller: "modal", action: "modal#click"} do %>
+                <%= link_to admin_company_evaluation_import_excel_file_path(id: ief.id, company_evaluation_id: @company_evaluation.id), class: 'ms-1 align-middle', data: {controller: "modal", action: "modal#click"} do %>
                   <%= svg_icon('free.svg#cil-info', %w[icon icon-lg]) %>
                 <% end %>
               </td>
@@ -36,8 +36,13 @@
               <td><%= local_time(ief.created_at) -%></td>
               <td>
                 <% if policy(ief).destroy_confirm? %>
-                  <%= link_to destroy_confirm_admin_company_evaluation_import_excel_file_path(id: ief.id), class: "ms-1", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.destroy") } do -%>
+                  <%= link_to destroy_confirm_admin_company_evaluation_import_excel_file_path(id: ief.id), class: "ms-1 align-middle", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.destroy") } do -%>
                     <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg]) -%>
+                  <% end %>
+                <% end %>
+                <% if policy(ief).do_import_confirm? %>
+                  <%= link_to do_import_confirm_admin_company_evaluation_import_excel_file_path(id: ief.id), class: "ms-1 align-middle", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.import") } do -%>
+                    <%= svg_icon('free.svg#cil-media-play', %w[icon icon-lg]) -%>
                   <% end %>
                 <% end %>
               </td>

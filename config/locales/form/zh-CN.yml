@@ -28,6 +28,7 @@ zh-CN:
     excerpt: "查看明细"
     form_status_history: "查看状态历史"
     destroy: "删除"
+    import: "导入"
     deleted_time: "删除时间"
     export: "导出"
     excel_report: "导出 Excel 报表"

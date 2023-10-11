@@ -8,3 +8,5 @@ en:
         title: "Imported Excel file execution details"
       destroy_confirm:
         title: "Delete this imported Excel file?"
+      do_import_confirm:
+        title: "Acturally import the contents of this Excel file?"

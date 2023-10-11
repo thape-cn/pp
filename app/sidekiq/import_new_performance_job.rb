@@ -5,9 +5,6 @@ class ImportNewPerformanceJob
     import_excel_file = ImportExcelFile.find(import_excel_file_id)
     Rails.logger.info "Start importing new performance job, import_excel_file_id: #{import_excel_file_id}"
     InitiationNewPerformance.do_validate_jrep(import_excel_file)
-    if import_excel_file.file_status == "validated"
-      InitiationNewPerformance.do_import_jrep(import_excel_file)
-    end
     Rails.logger.info "End importing new performance job, import_excel_file_id: #{import_excel_file_id}"
   end
 end

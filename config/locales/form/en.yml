@@ -28,6 +28,7 @@ en:
     excerpt: "Excerpt"
     form_status_history: "View status history"
     destroy: "Destroy"
+    import: "Import"
     deleted_time: "Deleted time"
     export: "Export"
     excel_report: "Export Excel report"

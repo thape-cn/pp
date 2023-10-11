@@ -37,7 +37,10 @@ class InitiationNewPerformance
   end
 
   def self.do_import_jrep(import_excel_file)
+    import_excel_file.update(file_status: "do_importing")
     xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
+
+    import_excel_file.import_excel_file_messages.delete_all
 
     xlsx.each(
       action: "ACTION",
@@ -53,7 +56,8 @@ class InitiationNewPerformance
       obj_upload: "OBJECTIVE_upload"
     ) do |h|
       user = User.find_by(clerk_code: h[:user_clerk_code])
-      next if h[:action] == "操作" || h[:import_guid] == "指标ID"
+      next if h[:action] == "操作" && h[:import_guid] == "指标ID"
+      next if h[:action] == "ACTION" && h[:import_guid] == "GUID"
 
       jrep = JobRoleEvaluationPerformance.find_or_initialize_by(import_guid: h[:import_guid])
       jrep.user_id = user.id
@@ -74,5 +78,6 @@ class InitiationNewPerformance
       success = jrep.save
       puts "job role evaluation performance: #{h[:import_guid]} failed #{jrep.errors.full_messages.to_sentence}" unless success
     end
+    import_excel_file.update(file_status: "imported")
   end
 end
