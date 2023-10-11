@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <table class="table">
+    <thead>
+      <tr>
+        <th><%= t("form.row_number") -%></th>
+        <th><%= t("form.message") -%></th>
+        <th><%= t("form.status_time") -%></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% import_excel_file_messages.each do |iefm| %>
+        <tr>
+          <td><%= iefm.row_number -%></td>
+          <td><%= iefm.message -%></td>
+          <td><%= local_time(iefm.created_at) -%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

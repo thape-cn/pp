@@ -5,6 +5,7 @@
       <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
     </div>
     <div class="modal-body">
+      <%= render partial: 'ui/import_excel_files/detail_message', locals: {import_excel_file_messages: @import_excel_file.import_excel_file_messages} %>
     </div>
     <div class="modal-footer">
       <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
