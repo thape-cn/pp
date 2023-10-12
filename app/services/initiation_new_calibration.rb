@@ -1,4 +1,76 @@
 class InitiationNewCalibration
+  def self.do_validate_calibration_session(import_excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
+    xlsx.default_sheet = "校准"
+
+    import_excel_file.import_excel_file_messages.delete_all
+
+    row_number = 1 # header having 1 row
+
+    xlsx.each(
+      clerk_code: "USERNAME",
+      dept_code: "CUSTOM01",
+      st_code: "STCODE",
+      template_title: "Template",
+      calibration_template_name: "Calibration Template",
+      calibration_session_name: "Calibration Session",
+      calibration_owner: "Calibration Owner",
+      calibration_participants: "Calibration Participants"
+    ) do |h|
+      clerk_code = h[:clerk_code].to_s
+      next if clerk_code == "USERNAME"
+      next if clerk_code.blank?
+      row_number += 1
+
+      st_code = h[:st_code].to_s
+      template_title = h[:template_title].to_s
+
+      user = User.find_by(clerk_code: clerk_code)
+      if user.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "User not found by clerk_code: #{clerk_code}")
+        next
+      end
+
+      job_role = JobRole.find_by(st_code: st_code)
+      if job_role.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Job_role not found by st_code: #{st_code}")
+        next
+      end
+
+      company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
+      if company_evaluation_template.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Company evaluation template not found by title: #{template_title}")
+        next
+      end
+
+      evaluation_user_capability = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
+      if evaluation_user_capability.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "EvaluationUserCapability not found: #{template_title}, JobRole: #{st_code}")
+        next
+      end
+
+      calibration_owner = User.find_by(clerk_code: h[:calibration_owner].to_s)
+      if calibration_owner.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Calibration owner not found by clerk_code: #{h[:calibration_owner]}")
+        next
+      end
+
+      h[:calibration_participants].to_s.split(";").each do |participant|
+        judge = User.find_by(clerk_code: participant)
+        if judge.blank?
+          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Calibration participants not found by clerk_code: #{participant}")
+          next
+        end
+      end
+    end
+
+    if import_excel_file.import_excel_file_messages.present?
+      import_excel_file.update(file_status: "validate_failed")
+    else
+      import_excel_file.update(file_status: "validated")
+    end
+  end
+
   def self.do_import_calibration_session(import_excel_file)
     xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
     xlsx.default_sheet = "校准"
