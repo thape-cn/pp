@@ -30,6 +30,8 @@ module Admin
 
     def do_import
       case import_type
+      when "new_calibration_session"
+        InitiationNewCalibration.do_import_calibration_session(@import_excel_file)
       when "new_evaluation"
         InitiationNewEvaluation.do_import_euc(@import_excel_file)
       when "new_performance"
