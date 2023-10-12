@@ -1,4 +1,53 @@
 class InitiationNewEvaluation
+  def self.do_validate_euc(import_excel_file)
+    xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
+    xlsx.default_sheet = "启动表单"
+
+    import_excel_file.import_excel_file_messages.delete_all
+
+    row_number = 1 # header having 1 row
+
+    xlsx.each(
+      clerk_code: "USERNAME",
+      dept_code: "CUSTOM01",
+      st_code: "STCODE",
+      template_title: "Template"
+    ) do |h|
+      clerk_code = h[:clerk_code].to_s
+      next if clerk_code == "USERNAME"
+      next if clerk_code.blank?
+      row_number += 1
+
+      dept_code = h[:dept_code].to_s
+      st_code = h[:st_code].to_s
+      template_title = h[:template_title].to_s
+
+      user = User.find_by(clerk_code: clerk_code)
+      if user.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "User not found by clerk_code: #{clerk_code}")
+        next
+      end
+
+      job_role = JobRole.find_by(st_code: st_code)
+      if job_role.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Job_role not found by st_code: #{st_code}")
+        next
+      end
+
+      company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
+      if company_evaluation_template.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Company evaluation template not found by title: #{template_title}")
+        next
+      end
+
+      ujr = UserJobRole.find_by(user_id: user.id, job_role_id: job_role.id, dept_code: dept_code)
+      if ujr.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "UserJobRole not found by dept_code: #{dept_code}")
+        next
+      end
+    end
+  end
+
   def self.do_import_euc(import_excel_file)
     xlsx = Roo::Excelx.new(StringIO.new(import_excel_file.excel_file.download))
     xlsx.default_sheet = "启动表单"
