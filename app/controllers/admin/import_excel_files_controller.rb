@@ -29,7 +29,12 @@ module Admin
     end
 
     def do_import
-      InitiationNewPerformance.do_import_jrep(@import_excel_file)
+      case import_type
+      when "new_evaluation"
+        InitiationNewEvaluation.do_import_euc(@import_excel_file)
+      when "new_performance"
+        InitiationNewPerformance.do_import_jrep(@import_excel_file)
+      end
     end
 
     def expender
