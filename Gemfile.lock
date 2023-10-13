@@ -1,16 +1,4 @@
 GIT
-  remote: https://git.thape.com.cn/rails/devise.git
-  revision: 73333cc4efe6a9245614b10ca97368e5f0d6da86
-  branch: main
-  specs:
-    devise (4.9.2)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
-
-GIT
   remote: https://git.thape.com.cn/rails/edoc2-api.git
   revision: efe4adc9a72657ee6cd6a5bb8021fb5c132698a3
   branch: main
@@ -175,6 +163,12 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     deep_merge (1.2.2)
+    devise (4.9.3)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
     domain_name (0.5.20190701)
@@ -518,7 +512,7 @@ DEPENDENCIES
   config
   csv
   debug (~> 1.8.0)
-  devise!
+  devise
   devise-i18n
   ed25519
   edoc2-api!
