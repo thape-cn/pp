@@ -67,7 +67,7 @@ class InitiationNewPerformance
       jrep.st_code = h[:st_code]
       jrep.obj_name = h[:obj_name]
       jrep.obj_metric = h[:obj_metric]
-      jrep.obj_weight_pct = h[:obj_weight_pct]
+      jrep.obj_weight_pct = h[:obj_weight_pct] * 100
       if h[:obj_upload] == "N"
         jrep.obj_result = 0
         jrep.obj_result_fixed = false
