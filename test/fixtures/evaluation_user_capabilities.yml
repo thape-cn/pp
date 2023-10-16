@@ -143,6 +143,14 @@ euc_pp1:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  norms_landscape: 0
+  presentation: 0
+  realization: 0
+  customer_needs: 0
+  graphic_quality: 0
+  coaching: 0
+  goal_achieved: 0
+  onsite_landscape: 0
 
 euc_pp2:
   company_evaluation_template: ect_two
@@ -157,6 +165,14 @@ euc_pp2:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  norms_landscape: 0
+  presentation: 0
+  realization: 0
+  customer_needs: 0
+  graphic_quality: 0
+  coaching: 0
+  goal_achieved: 0
+  onsite_landscape: 0
 
 euc_pp3:
   company_evaluation_template: ect_two
@@ -171,6 +187,14 @@ euc_pp3:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  norms_landscape: 0
+  presentation: 0
+  realization: 0
+  customer_needs: 0
+  graphic_quality: 0
+  coaching: 0
+  goal_achieved: 0
+  onsite_landscape: 0
 
 euc_pp0:
   company_evaluation_template: ect_two
