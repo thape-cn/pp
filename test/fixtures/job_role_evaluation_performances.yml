@@ -7,7 +7,9 @@ jrep_one:
   st_code: "0310011615"
   obj_name: "离职率评分"
   obj_metric: "定义：所带团队的离职率=团队累计离职人数÷（团队期初人数+累计入职+累计流入）"
-  obj_weight_pct: 100
+  obj_weight_pct: 50
+  en_name: "p_customer"
+  obj_result_fixed: false
 
 jrep_two:
   user: user_fangzixue
@@ -17,4 +19,6 @@ jrep_two:
   st_code: "0305040015"
   obj_name: "客户满意度评分"
   obj_metric: "定义：所带项目的客户综合评价，根据客户对项目的反馈进行综合评价 "
-  obj_weight_pct: 25
+  obj_weight_pct: 50
+  en_name: "p_dimission"
+  obj_result_fixed: true
