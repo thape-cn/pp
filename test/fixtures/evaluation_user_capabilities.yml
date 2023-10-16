@@ -41,6 +41,9 @@ euc_pp4:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp5:
   company_evaluation_template: ect_one
@@ -55,6 +58,9 @@ euc_pp5:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp6:
   company_evaluation_template: ect_one
@@ -69,6 +75,9 @@ euc_pp6:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp7:
   company_evaluation_template: ect_one
@@ -83,6 +92,9 @@ euc_pp7:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp8:
   company_evaluation_template: ect_one
@@ -97,6 +109,9 @@ euc_pp8:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp9:
   company_evaluation_template: ect_one
@@ -111,6 +126,9 @@ euc_pp9:
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
   form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp1:
   company_evaluation_template: ect_two
