@@ -45,6 +45,12 @@ class InitiationNewEvaluation
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "UserJobRole not found by dept_code: #{dept_code}")
         next
       end
+
+      existing_euc = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
+      if existing_euc.present?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "EvaluationUserCapability already exists for user clerk code: #{clerk_code}, job_role st_code: #{st_code}, company_evaluation_template_id: #{template_title}")
+        next
+      end
     end
 
     if import_excel_file.import_excel_file_messages.present?
