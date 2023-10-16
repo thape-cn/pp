@@ -29,7 +29,7 @@ module Admin
     end
 
     def do_import
-      case import_type
+      case @import_excel_file.import_type
       when "new_calibration_session"
         InitiationNewCalibration.do_import_calibration_session(@import_excel_file)
       when "new_evaluation"
