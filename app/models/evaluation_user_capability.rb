@@ -158,7 +158,7 @@ class EvaluationUserCapability < ApplicationRecord
 
   def archive_record
     ArchivedEvaluationUserCapability.create(
-      attributes.except("final_total_evaluation_grade").merge({deleted_time: Time.current, deleted_user_id: deleted_user_id, deleted_reason: deleted_reason})
+      attributes.except("final_total_evaluation_grade", "edoc_guid", "edoc_file_id").merge({deleted_time: Time.current, deleted_user_id: deleted_user_id, deleted_reason: deleted_reason})
     )
   end
 end
