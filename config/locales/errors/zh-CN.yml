@@ -1,4 +1,5 @@
 ---
 zh-CN:
   errors:
-    not_found_by_clerk_code: "根据工号clerk_code: %{clerk_code}没有找到用户"
+    user_not_found: "根据工号 clerk code: %{clerk_code}没有找到用户"
+    job_role_not_found: "根据 ST code: %{st_code}没有找到工作角色 job role"

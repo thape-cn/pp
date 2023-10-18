@@ -1,4 +1,5 @@
 ---
 en:
   errors:
-    not_found_by_clerk_code: "User not found by clerk_code: %{clerk_code}"
+    user_not_found: "User not found by clerk_code: %{clerk_code}"
+    job_role_not_found: "Job_role not found by st_code: %{st_code}"

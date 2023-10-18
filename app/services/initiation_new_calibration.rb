@@ -27,12 +27,12 @@ class InitiationNewCalibration
 
       user = User.find_by(clerk_code: clerk_code)
       if user.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.not_found_by_clerk_code", clerk_code: clerk_code))
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.user_not_found", clerk_code: clerk_code))
       end
 
       job_role = JobRole.find_by(st_code: st_code)
       if job_role.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Job_role not found by st_code: #{st_code}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.job_role_not_found", st_code: st_code))
       end
 
       company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
