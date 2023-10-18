@@ -204,15 +204,25 @@ function MarkScores({group_level}) {
     rows,
     prepareRow,
     visibleColumns,
+    state: { sortBy }, // Destructure sortBy from state
   } = useTable(
     {
       columns, data, defaultColumn, updateRawData, setFirstSaved, renderRowSubComponent,
       company_evaluation_templates, not_rated_text:  reviewLabels().not_rated,
       autoResetExpanded: false, // This prevents the expanded state from resetting when data changes
+      autoResetSortBy: false,   // This prevents the sorting state from resetting when data changes
       expanded
     },
     useSortBy, useExpanded
   );
+
+  // Create a new state for sorted columns
+  const [sortedColumns, setSortedColumns] = React.useState(sortBy);
+
+  // Update sortedColumns state when sortBy changes
+  React.useEffect(() => {
+    setSortedColumns(sortBy);
+  }, [sortBy]);
 
   function submitDataEucsIds() {
     return data.map(function (obj) {
