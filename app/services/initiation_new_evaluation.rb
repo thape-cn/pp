@@ -34,17 +34,17 @@ class InitiationNewEvaluation
 
       company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
       if company_evaluation_template.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Company evaluation template not found by title: #{template_title}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.company_evaluation_template_not_found", template_title: template_title))
       end
 
       ujr = UserJobRole.find_by(user_id: user.id, job_role_id: job_role.id, dept_code: dept_code)
       if ujr.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "UserJobRole not found by dept_code: #{dept_code}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.user_job_role_not_found", dept_code: dept_code))
       end
 
       existing_euc = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
       if existing_euc.present?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "EvaluationUserCapability already exists for user clerk code: #{clerk_code}, job_role st_code: #{st_code}, company_evaluation_template_id: #{template_title}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_exists", clerk_code: clerk_code, st_code: st_code, template_title: template_title))
       end
     end
 
@@ -91,7 +91,7 @@ class InitiationNewEvaluation
         evaluation_user_capability.initial_capability_score_filling
       end
       unless success
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "evaluation_user_capability: #{dept_code} #{clerk_code} #{template_title} failed #{evaluation_user_capability.errors.full_messages.to_sentence}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_failed", dept_code: dept_code, clerk_code: clerk_code, template_title: template_title, error_messages: evaluation_user_capability.errors.full_messages.to_sentence))
       end
     end
     import_excel_file.update(file_status: "imported")
