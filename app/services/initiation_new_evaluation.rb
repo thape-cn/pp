@@ -25,31 +25,26 @@ class InitiationNewEvaluation
       user = User.find_by(clerk_code: clerk_code)
       if user.blank?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "User not found by clerk_code: #{clerk_code}")
-        next
       end
 
       job_role = JobRole.find_by(st_code: st_code)
       if job_role.blank?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Job_role not found by st_code: #{st_code}")
-        next
       end
 
       company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
       if company_evaluation_template.blank?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Company evaluation template not found by title: #{template_title}")
-        next
       end
 
       ujr = UserJobRole.find_by(user_id: user.id, job_role_id: job_role.id, dept_code: dept_code)
       if ujr.blank?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "UserJobRole not found by dept_code: #{dept_code}")
-        next
       end
 
       existing_euc = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
       if existing_euc.present?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "EvaluationUserCapability already exists for user clerk code: #{clerk_code}, job_role st_code: #{st_code}, company_evaluation_template_id: #{template_title}")
-        next
       end
     end
 
