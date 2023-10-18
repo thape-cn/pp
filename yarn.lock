@@ -1259,16 +1259,16 @@
   integrity sha512-U3PUjAudAdJBeC2pgN8uTIKgxrb4nlDF3SF0++EldXQvQBGkpFZMSnwQiIoDU77tv45VgNkl/L4ouD+rEomujw==
 
 "@types/lodash-es@^4.17.6":
-  version "4.17.9"
-  resolved "https://registry.npmmirror.com/@types/lodash-es/-/lodash-es-4.17.9.tgz#49dbe5112e23c54f2b387d860b7d03028ce170c2"
-  integrity sha512-ZTcmhiI3NNU7dEvWLZJkzG6ao49zOIjEgIE0RgV7wbPxU0f2xT3VSAHw2gmst8swH6V0YkLRGp4qPlX/6I90MQ==
+  version "4.17.10"
+  resolved "https://registry.npmmirror.com/@types/lodash-es/-/lodash-es-4.17.10.tgz#1b36a76ca9eda20c0263e19bbe1a3adb1b317707"
+  integrity sha512-YJP+w/2khSBwbUSFdGsSqmDvmnN3cCKoPOL7Zjle6s30ZtemkkqhjVfFqGwPN7ASil5VyjE2GtyU/yqYY6mC0A==
   dependencies:
     "@types/lodash" "*"
 
 "@types/lodash@*":
-  version "4.14.199"
-  resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.199.tgz#c3edb5650149d847a277a8961a7ad360c474e9bf"
-  integrity sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==
+  version "4.14.200"
+  resolved "https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.200.tgz#435b6035c7eba9cdf1e039af8212c9e9281e7149"
+  integrity sha512-YI/M/4HRImtNf3pJgbF+W6FrXovqj+T+/HpENLTooK9PnkacBsDpeP3IpHab40CClUfhNmdM2WTNP2sa2dni5Q==
 
 "@types/mime@*":
   version "3.0.2"
