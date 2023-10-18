@@ -37,7 +37,7 @@ class InitiationNewCalibration
 
       company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by(title: template_title)
       if company_evaluation_template.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Company evaluation template not found by title: #{template_title}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.company_evaluation_template_not_found", template_title: template_title))
       end
 
       evaluation_user_capability = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
