@@ -7,3 +7,6 @@ zh-CN:
     user_job_role_not_found: "未能通过部门代码找到用户职位角色: %{dept_code}"
     evaluation_user_capability_exists: "用户职位角色已存在，用户职位代码: %{clerk_code}, 职位角色代码: %{st_code}, 公司评估模板 title: %{template_title}"
     evaluation_user_capability_failed: "用户职位角色能力评估失败: %{dept_code} %{clerk_code} %{template_title} 失败 %{error_messages}"
+    evaluation_user_capability_not_found: "未找到评估用户能力: %{template_title}, 工作角色: %{st_code}"
+    calibration_owner_not_found: "根据工号未找到校准所有者: %{clerk_code}"
+    calibration_participant_not_found: "根据工号未找到校准参与者: %{clerk_code}"

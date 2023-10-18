@@ -42,18 +42,18 @@ class InitiationNewCalibration
 
       evaluation_user_capability = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
       if evaluation_user_capability.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "EvaluationUserCapability not found: #{template_title}, JobRole: #{st_code}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_not_found", template_title: template_title, st_code: st_code))
       end
 
       calibration_owner = User.find_by(clerk_code: h[:calibration_owner].to_s)
       if calibration_owner.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Calibration owner not found by clerk_code: #{h[:calibration_owner]}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.calibration_owner_not_found", clerk_code: h[:calibration_owner]))
       end
 
       h[:calibration_participants].to_s.split(";").each do |participant|
         judge = User.find_by(clerk_code: participant)
         if judge.blank?
-          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "Calibration participants not found by clerk_code: #{participant}")
+          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.calibration_participant_not_found", clerk_code: participant))
         end
       end
     end
