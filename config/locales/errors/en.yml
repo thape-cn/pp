@@ -1,0 +1,4 @@
+---
+en:
+  errors:
+    not_found_by_clerk_code: "User not found by clerk_code: %{clerk_code}"

@@ -1,0 +1,4 @@
+---
+zh-CN:
+  errors:
+    not_found_by_clerk_code: "根据工号clerk_code: %{clerk_code}没有找到用户"

@@ -24,7 +24,7 @@ class InitiationNewPerformance
       row_number += 1
 
       if user.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: "User not found by clerk_code: #{h[:user_clerk_code]}")
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.not_found_by_clerk_code", clerk_code: h[:user_clerk_code]))
       end
     end
 
