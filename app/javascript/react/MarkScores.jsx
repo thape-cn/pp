@@ -11,7 +11,7 @@ import {OverallReview} from "./table/OverallReview";
 import {MarkScoreConfirmDialog} from "./modal_dialog/MarkScoreConfirmDialog";
 
 // Custom hook for fetching data
-function useFetchData(group_level) {
+function useFetchData(group_level, setUpdatedData) {
   const [company_evaluation_templates, setCompanyEvaluationTemplates] = React.useState({});
   const [raw_data, setData] = React.useState([]);
   const [expanded, setExpanded] = React.useState([]);
@@ -23,6 +23,7 @@ function useFetchData(group_level) {
         result_json.then(result => {
           setCompanyEvaluationTemplates(result.company_evaluation_templates);
           setData(result.need_review_evaluations);
+          setUpdatedData(result.need_review_evaluations);
           const initialExpandedState = Array(result.need_review_evaluations.length).fill(false);
           setExpanded(initialExpandedState);
         });
@@ -34,14 +35,14 @@ function useFetchData(group_level) {
 }
 
 // Custom hook for handling save and save & confirm
-function useSave(group_level, data, setData) {
+function useSave(group_level, updatedData, setData, setUpdatedData) {
   const [firstSaved, setFirstSaved] = React.useState(false);
   const [successSaveMessage, setSuccessSaveMessage] = React.useState("");
   const [confirmMessage, setConfirmMessage] = React.useState({accepted: false, message: ""});
 
   const handleSave = (event, confirm = false) => {
     event.preventDefault();
-    const submit_data = prepareTableSubmitData(data);
+    const submit_data = prepareTableSubmitData(updatedData);
     put(currentPageJsonPath(group_level), {body: {confirm, mark_score: submit_data}}).then((response) => {
       if (response.ok) {
         const result_json = response.json;
@@ -54,7 +55,8 @@ function useSave(group_level, data, setData) {
             setFirstSaved(true);
             setSuccessSaveMessage(result.message);
           }
-          setData(result.need_review_evaluations);
+          setData(result.need_review_evaluations);          
+          setUpdatedData(result.need_review_evaluations);
         });
       }
     });
@@ -70,8 +72,9 @@ function useSave(group_level, data, setData) {
 }
 
 function MarkScores({group_level}) {
-  const { company_evaluation_templates, raw_data, expanded, setData, setExpanded } = useFetchData(group_level);
-  const { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose } = useSave(group_level, raw_data, setData);
+  const [updatedData, setUpdatedData] = React.useState([]);
+  const { company_evaluation_templates, raw_data, expanded, setData, setExpanded } = useFetchData(group_level, setUpdatedData);
+  const { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose } = useSave(group_level, updatedData, setData, setUpdatedData);
 
   const data = React.useMemo(
     () => raw_data,
@@ -150,7 +153,7 @@ function MarkScores({group_level}) {
   );
 
   const updateRawData = (rowIndex, columnId, value) => {
-    setData(old =>
+    setUpdatedData(old =>
       old.map((row, index) => {
         if (index === rowIndex) {
           return {
@@ -169,7 +172,7 @@ function MarkScores({group_level}) {
   }
 
   const handleManagerOverallChange = (rowIndex, columnName, value) => {
-    setData(old =>
+    setUpdatedData(old =>
       old.map((row, index) => {
         if (index === rowIndex) {
           return {
