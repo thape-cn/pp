@@ -3,7 +3,23 @@ export function markScoresTableHeader(group_level) {
   const dataHeader = app.getAttribute('data-header')
   const parsedDataHeader = JSON.parse(dataHeader)
 
-  return parsedDataHeader;
+  const parsedDataHeaderWithSortType = parsedDataHeader.map(column => {
+    return {
+      ...column,
+      sortType: (rowA, rowB, columnId) => {
+        const a = parseFloat(rowA.values[columnId]);
+        const b = parseFloat(rowB.values[columnId]);
+
+        if (isNaN(a) || isNaN(b)) {
+          return String(rowA.values[columnId]).localeCompare(String(rowB.values[columnId]));
+        }
+
+        return a - b;
+      }
+    };
+  });
+
+  return parsedDataHeaderWithSortType;
 }
 
 export function calibrationTableHeader() {
