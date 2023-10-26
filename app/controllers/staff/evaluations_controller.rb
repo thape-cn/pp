@@ -39,6 +39,9 @@ module Staff
           redirect_to staff_evaluation_path(id: @evaluation_user_capability.id), notice: t(".update_success", id: @evaluation_user_capability.id)
         when I18n.t("form.submit")
           @evaluation_user_capability.update_form_status_to("self_assessment_done", current_user)
+          if ManagerScoringReminder.need_sending_wechat_message?(@evaluation_user_capability)
+            ManagerScoringReminder.send_wechat_message(@evaluation_user_capability.manager_user)
+          end
           redirect_to staff_root_path, alert: I18n.t("evaluation.form_submitted")
         end
       else
