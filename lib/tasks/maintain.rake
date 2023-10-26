@@ -43,6 +43,6 @@ namespace :maintain do
   desc "Sent pending confirm reminder via wechat"
   task sent_pending_confirm_reminder_via_wechat: :environment do
     open_company_evaluation_ids = CompanyEvaluation.open_for_user.collect(&:id)
-    PendingConfirmReminder.sent_wechat_message(open_company_evaluation_ids)
+    PendingStaffConfirmReminder.sent_wechat_message(open_company_evaluation_ids)
   end
 end

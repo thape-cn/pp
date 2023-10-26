@@ -1,4 +1,4 @@
-class PendingConfirmReminder
+class PendingStaffConfirmReminder
   def self.sent_wechat_message(open_company_evaluation_ids)
     company_evaluation_template_ids = CompanyEvaluationTemplate
       .where(company_evaluation_id: open_company_evaluation_ids)
