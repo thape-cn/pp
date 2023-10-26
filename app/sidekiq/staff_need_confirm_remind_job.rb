@@ -1,4 +1,4 @@
-class WechatNeedConfirmMessageJob
+class StaffNeedConfirmRemindJob
   include Sidekiq::Job
 
   def perform(wechat_user_id, evaluation_user_capability_id)

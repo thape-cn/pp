@@ -5,7 +5,7 @@ class PendingConfirmReminder
       .pluck(:id)
     EvaluationUserCapability.where(form_status: "hr_review_completed", company_evaluation_template_id: company_evaluation_template_ids).each do |euc|
       wechat_user_id = euc.user.wecom_id.present? ? euc.user.wecom_id : euc.user.email.split("@")[0]
-      WechatNeedConfirmMessageJob.perform_async(wechat_user_id, euc.id)
+      StaffNeedConfirmRemindJob.perform_async(wechat_user_id, euc.id)
     end
   end
 end
