@@ -4,7 +4,7 @@ class ManagerNeedScoringRemindJob
   def perform(wecom_id)
     sent_message = <<~HELLO
       【绩效评价通知】
-      您的所有下属已经全部完成了自评，请尽快登录绩效系统为下属评分。
+      您的下属均已完成自评，请尽快登录绩效系统进行上级评价。
       登录链接：https://performance.thape.com.cn/
     HELLO
 
