@@ -7,6 +7,8 @@ class InitiationNewEvaluation
 
     row_number = 1 # header having 1 row
 
+    seen_rows = {} # Hash to keep track of seen rows
+
     xlsx.each(
       clerk_code: "USERNAME",
       dept_code: "CUSTOM01",
@@ -21,6 +23,15 @@ class InitiationNewEvaluation
       dept_code = h[:dept_code].to_s
       st_code = h[:st_code].to_s
       template_title = h[:template_title].to_s
+
+      # Check for duplicate row
+      row_key = [clerk_code, dept_code, st_code].join('-')
+      if seen_rows[row_key]
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.duplicate_row", clerk_code: clerk_code, dept_code: dept_code, st_code: st_code))
+        next
+      else
+        seen_rows[row_key] = true
+      end
 
       user = User.find_by(clerk_code: clerk_code)
       if user.blank?

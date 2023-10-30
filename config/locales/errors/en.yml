@@ -1,6 +1,7 @@
 ---
 en:
   errors:
+    duplicate_row: "There is multiple rows having the same clerk_code: %{clerk_code}, dept_code: %{dept_code} and st_code: %{st_code}"
     user_not_found: "User not found by clerk_code: %{clerk_code}"
     job_role_not_found: "Job_role not found by st_code: %{st_code}"
     company_evaluation_template_not_found: "Company evaluation template not found by title: %{template_title}"

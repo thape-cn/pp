@@ -1,6 +1,7 @@
 ---
 zh-CN:
   errors:
+    duplicate_row: "有多行具有相同的 clerk_code: %{clerk_code}、dept_code: %{dept_code} 和 st_code: %{st_code}"
     user_not_found: "根据工号 clerk code: %{clerk_code}没有找到用户"
     job_role_not_found: "根据 ST code: %{st_code}没有找到工作角色 job role"
     company_evaluation_template_not_found: "未能通过标题找到公司评估模板: %{template_title}"
