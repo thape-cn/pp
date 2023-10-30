@@ -25,7 +25,7 @@ class InitiationNewEvaluation
       template_title = h[:template_title].to_s
 
       # Check for duplicate row
-      row_key = [clerk_code, dept_code, st_code].join('-')
+      row_key = [clerk_code, dept_code, st_code].join("-")
       if seen_rows[row_key]
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.duplicate_row", clerk_code: clerk_code, dept_code: dept_code, st_code: st_code))
         next
