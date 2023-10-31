@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :hr_user_managed_companies
   has_many :hrbp_user_managed_departments
   has_many :euc_form_status_histories
+  has_many :owned_calibration_sessions, class_name: "CalibrationSession", foreign_key: "owner_id"
   has_many :calibration_session_users
   has_many :import_excel_files
 
