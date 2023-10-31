@@ -115,13 +115,16 @@ module Staff
         euc.calibration_session_user.calibration_session_id
       end.reject(&:blank?)
 
+      owner_calibrating_reminder = OwnerCalibratingReminder.new
       CalibrationSession.where(id: original_calibration_session_ids).each do |session|
         if session.can_start_calibration?
+          owner_calibrating_reminder.collect_need_sending_calibrating_remind(session)
           session.update(session_status: "calibrating")
         else
           session.update(session_status: "waiting_manager_score")
         end
       end
+      owner_calibrating_reminder.send_calibrating_remind_messages
 
       CalibrationSession.where(id: new_calibration_session_ids).each do |session|
         if session.can_start_calibration?
