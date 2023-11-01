@@ -103,7 +103,7 @@ class CalibrationSession < ApplicationRecord
   def can_sending_calibrating_remind?
     all_evaluation_user_capabilities = calibration_session_users.collect(&:evaluation_user_capability)
     no_any_new_calibration_session = !calibration_session_users.any? { |csu| csu.new_calibration_session_id.present? }
-    eucs_all_in_manager_scored = all_evaluation_user_capabilities.all? { |euc| euc.form_status == "manager_scored" }
+    eucs_all_in_manager_scored = all_evaluation_user_capabilities.all? { |euc| %w[manager_scored department_calibrated hr_review_completed].include?(euc.form_status) }
     no_any_new_calibration_session && eucs_all_in_manager_scored
   end
 end
