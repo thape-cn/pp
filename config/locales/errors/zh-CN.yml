@@ -11,3 +11,4 @@ zh-CN:
     evaluation_user_capability_not_found: "未找到评估用户能力: %{template_title}, 工作角色: %{st_code}"
     calibration_owner_not_found: "根据工号未找到校准所有者: %{clerk_code}"
     calibration_participant_not_found: "根据工号未找到校准参与者: %{clerk_code}"
+    inconsistent_calibration_session_data: "校准会话名称：%{calibration_session_name} 在 Excel 中有多行有不一致的数据。"

@@ -7,6 +7,8 @@ class InitiationNewCalibration
 
     row_number = 1 # header having 1 row
 
+    calibration_sessions_store = {}
+
     xlsx.each(
       clerk_code: "USERNAME",
       dept_code: "CUSTOM01",
@@ -24,6 +26,8 @@ class InitiationNewCalibration
 
       st_code = h[:st_code].to_s
       template_title = h[:template_title].to_s
+      calibration_template_name = h[:calibration_template_name].to_s
+      calibration_session_name = h[:calibration_session_name].to_s
       calibration_owner_clerk_code = h[:calibration_owner].to_s
       calibration_participants_clerk_codes = h[:calibration_participants].to_s
 
@@ -57,6 +61,14 @@ class InitiationNewCalibration
         if judge.blank?
           import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.calibration_participant_not_found", clerk_code: participant))
         end
+      end
+
+      if calibration_sessions_store[calibration_session_name]
+        if calibration_sessions_store[calibration_session_name] != [calibration_owner_clerk_code, calibration_participants_clerk_codes, calibration_template_name]
+          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.inconsistent_calibration_session_data", calibration_session_name: calibration_session_name))
+        end
+      else
+        calibration_sessions_store[calibration_session_name] = [calibration_owner_clerk_code, calibration_participants_clerk_codes, calibration_template_name]
       end
     end
 
