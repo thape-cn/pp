@@ -118,15 +118,13 @@ namespace :import do
 
     xlsx = Roo::Excelx.new(excel_file_path)
     xlsx.each(
-      role_name: "考评角色",
-      auxiliary: "辅助列"
+      role_name: "考评角色"
     ) do |h|
       role_name = h[:role_name].to_s
       next if role_name.start_with?("1") || role_name == "考评角色"
       next if role_name.blank?
 
       er = EvaluationRole.find_or_initialize_by(role_name: role_name)
-      er.auxiliary = h[:auxiliary]
       success = er.save
       puts "evaluation_role: #{role_name} failed #{er.errors.full_messages.to_sentence}" unless success
     end

@@ -7,7 +7,6 @@ class EvaluationRoleDatatable < ApplicationDatatable
   def view_columns
     @view_columns ||= {
       role_name: {source: "EvaluationRole.role_name", cond: :eq},
-      auxiliary: {source: "EvaluationRole.auxiliary", searchable: true, cond: :like},
       capabilities: {source: nil, searchable: false, orderable: false},
       actions: {source: nil, searchable: false, orderable: false}
     }
@@ -17,7 +16,6 @@ class EvaluationRoleDatatable < ApplicationDatatable
     records.map do |r|
       {
         role_name: r.role_name,
-        auxiliary: r.auxiliary,
         capabilities: render(partial: "datatable/evaluation_role_capabilities", locals: {evaluation_role: r}, formats: :html),
         actions: render(partial: "datatable/evaluation_role_action", locals: {evaluation_role: r}, formats: :html),
         DT_RowId: r.id # This will automagically set the id attribute on the corresponding <tr> in the datatable

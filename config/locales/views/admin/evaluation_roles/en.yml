@@ -5,6 +5,5 @@ en:
       index:
         title: "Evaluation roles"
         role_name: "Role name"
-        auxiliary: "Auxiliary"
       edit:
         title: "Edit evaluation role: %{role_name}"

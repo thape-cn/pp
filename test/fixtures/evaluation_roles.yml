@@ -1,52 +1,39 @@
 ---
 er_functional_operation:
   role_name: "职能运营"
-  auxiliary: "职能"
 
 er_technical_director:
   role_name: "技术主管"
-  auxiliary: "暖通"
 
 er_employee_layer_general:
   role_name: "员工层通用"
-  auxiliary: "其他"
 
 er_functional_supervisor:
   role_name: "职能主管"
-  auxiliary: "职能"
 
 er_functional_employee:
   role_name: "职能员工"
-  auxiliary: "职能"
 
 er_solution_supervisor:
   role_name: "方案主管"
-  auxiliary: "建筑方案"
 
 er_planning_supervisor:
   role_name: "规划主管"
-  auxiliary: "规划"
 
 er_landscape_technical_director:
   role_name: "景观技术主管"
-  auxiliary: "景观"
 
 er_interior_solution_supervisor:
   role_name: "室内方案主管"
-  auxiliary: "室内"
 
 er_landscape_solution_supervisor:
   role_name: "景观方案主管"
-  auxiliary: "景观"
 
 er_technical_employee:
   role_name: "技术员工"
-  auxiliary: "暖通"
 
 er_interior_construction_supervisor:
   role_name: "室内施工图主管"
-  auxiliary: "室内"
 
 er_aico_interior_supervisor:
   role_name: "AICO室内主管"
-  auxiliary: "室内"
