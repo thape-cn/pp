@@ -32,6 +32,25 @@
             </div>
           </div>
         </div>
+        <% having_erc_description_ercs = @capability.evaluation_role_capabilities.where.not(erc_description: nil) %>
+        <% if having_erc_description_ercs.present? %>
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th><%= t('capability.evaluation_roles') -%></th>
+                <th><%= t('capability.description') %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% having_erc_description_ercs.each do |erc| %>
+                <tr>
+                  <td><%= erc.evaluation_role.role_name -%></td>
+                  <td><%= erc.erc_description -%></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
       </div>
       <div class="modal-footer">
         <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
