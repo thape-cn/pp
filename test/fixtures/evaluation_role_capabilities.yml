@@ -246,6 +246,7 @@ erc_61:
 erc_62:
   evaluation_role: er_functional_supervisor
   capability: capable_annual_output
+  erc_description: "业绩产出（职能主管）"
 
 erc_63:
   evaluation_role: er_functional_supervisor
@@ -254,6 +255,7 @@ erc_63:
 erc_64:
   evaluation_role: er_functional_employee
   capability: capable_annual_output
+  erc_description: "业绩产出（职能员工）"
 
 erc_65:
   evaluation_role: er_functional_employee
