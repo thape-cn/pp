@@ -2,9 +2,19 @@
 
 [![Build Status](https://github.com/thape-cn/pp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/thape-cn/pp/actions)
 
-## Development notes
+## How to Start (or Restart) Development?
 
-### How to import the DB
+Traditionally, you would run `bin/setup`, but the following steps will get you started more quickly.
+
+```bash
+bin/rails db:migrate
+RAILS_ENV=development bin/rails db:fixtures:load
+bin/rails server # login as guochunzhong@thape.com.cn / pp_rocks
+```
+
+## Development Notes
+
+### How to Import the Database
 
 ```bash
 mysql -u root
@@ -14,7 +24,7 @@ CREATE DATABASE thape_pp_dev character set UTF8mb4 collate utf8mb4_0900_ai_ci;
 gunzip < mysql_pp_db.sql.gz | mysql -u root thape_pp_dev
 ```
 
-### When you want to debug the SCSS
+### Debugging SCSS
 
 Set `shakapacker.yml` hmr to true.
 
@@ -23,15 +33,15 @@ Set `shakapacker.yml` hmr to true.
 hmr: true
 ```
 
-### Why should always include "stimulus"
+### Why should always include "stimulus"?
 
-Because using webpack 5, the loading sequence do matter.
+With webpack 5, the loading sequence is important.
 
 ### How to debug in VSCode?
 
 Install `Ruby LSP` by Shopify and `VSCode rdbg Ruby Debugger` by KoichiSasada.
 
-Make sure debug only having one version install as default gems, otherwise uninstall first:
+Ensure that only one version of the debug gem is installed as a default gem. If not, uninstall it first:
 
 ```bash
 gem uninstall -i /opt/homebrew/Cellar/ruby/3.2.2/lib/ruby/gems/3.2.0 debug
