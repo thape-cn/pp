@@ -21,7 +21,11 @@ Stimulus.register("datatables", class extends Controller {
       },
       "pageLength": this.pageLengthValue,
       "pagingType": "full_numbers",
-      "columns": columns
+      "columns": columns,
+      "drawCallback": function(settings) {
+        const tooltipTriggerList = document.querySelectorAll('[data-coreui-toggle="tooltip"]');
+        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new coreui.Tooltip(tooltipTriggerEl));
+      }
     });
 
     $(document).on('keydown', (event) => {

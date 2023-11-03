@@ -1,10 +1,12 @@
 <% capability.evaluation_role_capabilities.each do |erc| %>
   <% if erc.erc_description.present? %>
-    <span class="badge bg-primary mt-1">
+    <span class="badge bg-primary mt-1"
+      data-coreui-toggle="tooltip" data-coreui-placement="top"
+      data-coreui-title="<%= erc.erc_description -%>">
       <span><%= erc.evaluation_role.role_name -%></span>
       <%= svg_icon('free.svg#cil-align-left', %w[icon]) -%>
     </span>
   <% else %>
-    <span class="badge bg-primary"><%= erc.evaluation_role.role_name -%></span>
+    <span class="badge bg-primary mt-1"><%= erc.evaluation_role.role_name -%></span>
   <% end %>
 <% end %>
