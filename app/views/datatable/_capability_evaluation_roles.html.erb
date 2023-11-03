@@ -1,3 +1,10 @@
-<% capability.evaluation_roles.each do |er| %>
-  <span class="badge bg-primary"><%= er.role_name -%></span>
+<% capability.evaluation_role_capabilities.each do |erc| %>
+  <% if erc.erc_description.present? %>
+    <span class="badge bg-primary mt-1">
+      <span><%= erc.evaluation_role.role_name -%></span>
+      <%= svg_icon('free.svg#cil-align-left', %w[icon]) -%>
+    </span>
+  <% else %>
+    <span class="badge bg-primary"><%= erc.evaluation_role.role_name -%></span>
+  <% end %>
 <% end %>
