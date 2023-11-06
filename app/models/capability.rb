@@ -8,6 +8,12 @@ class Capability < ApplicationRecord
     "#{name} - #{en_name}"
   end
 
+  def job_role_description(job_role)
+    evaluation_role_id = job_role.evaluation_role.id
+    erc = evaluation_role_capabilities.find_by(evaluation_role_id: evaluation_role_id)
+    erc&.erc_description || description
+  end
+
   def self.category_options
     @_category_options ||= select(:category_name)
       .distinct

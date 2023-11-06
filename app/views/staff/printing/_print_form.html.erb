@@ -48,7 +48,7 @@
           <% if eucd.present? %>
             <%= markdown(eucd.description) -%>
           <% else %>
-            <%= markdown(capability.description) -%>
+            <%= markdown(capability.job_role_description(evaluation_user_capability.job_role)) -%>
           <% end %>
 
             <p class="fs-6 fw-semibold mb-0">
@@ -94,7 +94,7 @@
           <hr />
           <% professional_capabilities.each do |capability| %>
             <h5><%= capability.name -%></h5>
-            <%= markdown(capability.description) -%>
+            <%= markdown(capability.job_role_description(evaluation_user_capability.job_role)) -%>
             <p class="fs-6 fw-semibold mb-0">
               <%= t("evaluation.manager_given_score") -%>
               <span class="fw-bold float-end">
@@ -114,7 +114,7 @@
           <hr />
           <% management_capabilities.each do |capability| %>
             <h5><%= capability.name -%></h5>
-            <%= markdown(capability.description) -%>
+            <%= markdown(capability.job_role_description(evaluation_user_capability.job_role)) -%>
             <p class="fs-6 fw-semibold mb-0">
               <%= t("evaluation.manager_given_score") -%>
               <span class="fw-bold float-end">

@@ -62,7 +62,7 @@
               <hr />
               <% @performance_capabilities.each do |capability| %>
                 <h5><%= capability.name -%></h5>
-                <%= markdown(capability.description) -%>
+                <%= markdown(capability.job_role_description(@evaluation_user_capability.job_role)) -%>
                 <hr />
               <% end %>
               <% @job_role_performances.each do |jrep| %>
@@ -80,7 +80,7 @@
               <hr />
               <% @professional_capabilities.each do |capability| %>
                 <h5><%= capability.name -%></h5>
-                <%= markdown(capability.description) -%>
+                <%= markdown(capability.job_role_description(@evaluation_user_capability.job_role)) -%>
                 <hr />
               <% end %>
             </div>
@@ -93,7 +93,7 @@
               <hr />
               <% @management_capabilities.each do |capability| %>
                 <h5><%= capability.name -%></h5>
-                <%= markdown(capability.description) -%>
+                <%= markdown(capability.job_role_description(@evaluation_user_capability.job_role)) -%>
                 <hr />
               <% end %>
             </div>

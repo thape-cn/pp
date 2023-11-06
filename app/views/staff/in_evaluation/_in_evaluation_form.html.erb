@@ -46,7 +46,7 @@
           <% if eucd.present? %>
             <%= markdown(eucd.description) -%>
           <% else %>
-            <%= markdown(capability.description) -%>
+            <%= markdown(capability.job_role_description(evaluation_user_capability.job_role)) -%>
           <% end %>
           <% if evaluation_user_capability.manager_user_id == current_user.id %>
             <%= render partial: 'ui/evaluation_forms/fix_capability_scores', locals: {evaluation_user_capability: evaluation_user_capability, capability: capability} %>
@@ -71,7 +71,7 @@
         <hr />
         <% professional_capabilities.each do |capability| %>
           <h5><%= capability.name -%></h5>
-          <%= markdown(capability.description) -%>
+          <%= markdown(capability.job_role_description(evaluation_user_capability.job_role)) -%>
           <% if evaluation_user_capability.manager_user_id == current_user.id %>
             <%= render partial: 'ui/evaluation_forms/professional_capability_scores', locals: {evaluation_user_capability: evaluation_user_capability, capability: capability} %>
           <% end %>
@@ -87,7 +87,7 @@
         <hr />
         <% management_capabilities.each do |capability| %>
           <h5><%= capability.name -%></h5>
-          <%= markdown(capability.description) -%>
+          <%= markdown(capability.job_role_description(evaluation_user_capability.job_role)) -%>
           <% if evaluation_user_capability.manager_user_id == current_user.id %>
             <%= render partial: 'ui/evaluation_forms/management_capability_scores', locals: {evaluation_user_capability: evaluation_user_capability, capability: capability} %>
           <% end %>
