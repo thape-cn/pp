@@ -88,3 +88,32 @@ user_pptest9:
   chinese_name: "PP Test 9"
   hire_date: "2023-06-29"
   clerk_code: "pptest9"
+
+user_pptest10:
+  email: pptest10@thape.com.cn
+  encrypted_password: "$2a$12$HFXp8ywMpi9605zBgxtGgOK6tQlp7vgP/92t450H5Vf2HTwjOpxq6"
+  chinese_name: "PP Test 10"
+  hire_date: "2023-11-10"
+  clerk_code: "pptest10"
+
+user_pptest11:
+  email: pptest11@thape.com.cn
+  encrypted_password: "$2a$12$HFXp8ywMpi9605zBgxtGgOK6tQlp7vgP/92t450H5Vf2HTwjOpxq6"
+  chinese_name: "PP Test 11"
+  hire_date: "2023-11-11"
+  clerk_code: "pptest11"
+
+user_pptest12:
+  email: pptest12@thape.com.cn
+  encrypted_password: "$2a$12$HFXp8ywMpi9605zBgxtGgOK6tQlp7vgP/92t450H5Vf2HTwjOpxq6"
+  chinese_name: "PP Test 12"
+  hire_date: "2023-11-12"
+  clerk_code: "pptest12"
+
+user_pptest13:
+  email: pptest13@thape.com.cn
+  encrypted_password: "$2a$12$HFXp8ywMpi9605zBgxtGgOK6tQlp7vgP/92t450H5Vf2HTwjOpxq6"
+  chinese_name: "PP Test 13"
+  hire_date: "2023-11-13"
+  clerk_code: "pptest13"
+

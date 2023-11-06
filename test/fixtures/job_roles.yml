@@ -31,3 +31,31 @@ job_429:
   job_code: "D级建筑师"
   job_family: "子公司施工图"
   evaluation_role: er_employee_layer_general
+
+job_76:
+  st_code: "0408010010"
+  job_level: 15
+  job_code: "人力资源总监"
+  job_family: "集团人力资源"
+  evaluation_role: er_functional_operation
+
+job_82:
+  st_code: "0608010900"
+  job_level: 12
+  job_code: "招聘经理"
+  job_family: "集团人力资源"
+  evaluation_role: er_functional_supervisor
+
+job_311:
+  st_code: "0607010400"
+  job_level: 12
+  job_code: "学习发展经理"
+  job_family: "集团教育培训"
+  evaluation_role: er_functional_supervisor
+
+job_176:
+  st_code: "0608014300"
+  job_level: 12
+  job_code: "人力资源数据管理及分析经理"
+  job_family: "集团人力资源"
+  evaluation_role: er_functional_supervisor

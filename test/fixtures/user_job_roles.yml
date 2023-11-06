@@ -128,3 +128,43 @@ ujr_3650:
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
+
+ujr_125:
+  user: user_pptest10
+  job_role: job_76
+  manager_user: user_pptest0
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000101203"
+  title: "人力资源总监"
+  is_active: true
+
+ujr_419:
+  user: user_pptest11
+  job_role: job_176
+  manager_user: user_pptest10
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000101203"
+  title: "人力资源数据管理及分析经理"
+  is_active: true
+
+ujr_1151:
+  user: user_pptest12
+  job_role: job_82
+  manager_user: user_pptest10
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "0001010005"
+  title: "学习发展经理"
+  is_active: true
+
+ujr_1579:
+  user: user_pptest13
+  job_role: job_311
+  manager_user: user_pptest10
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000101203"
+  title: "招聘经理"
+  is_active: true
