@@ -220,8 +220,11 @@ euc_pp11:
   self_overall_improvement: "人力资源数据管理及分析经理 self_overall_improvement 1234567890"
   self_overall_plan: "人力资源数据管理及分析经理 self_overall_plan 1234567890"
   form_status: "self_assessment_done"
+  annual_output: 0
   work_attitude: 0
+  high_quality: 0
   work_load: 0
+  high_efficiency: 0
   work_quality: 0
 
 euc_pp12:
@@ -237,9 +240,11 @@ euc_pp12:
   self_overall_improvement: "学习发展经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "学习发展经理 self_overall_plan 12345678901234567890"
   form_status: "self_assessment_done"
-  work_attitude: 0
-  work_load: 0
-  work_quality: 0
+  goal_achieved: 0
+  professional_level: 0
+  coaching: 0
+  annual_output: 0
+  customer_needs_non: 0
 
 euc_pp13:
   company_evaluation_template: ect_one
@@ -254,6 +259,8 @@ euc_pp13:
   self_overall_improvement: "招聘经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "招聘经理 self_overall_plan 12345678901234567890"
   form_status: "self_assessment_done"
-  work_attitude: 0
-  work_load: 0
-  work_quality: 0
+  goal_achieved: 0
+  professional_level: 0
+  coaching: 0
+  annual_output: 0
+  customer_needs_non: 0
