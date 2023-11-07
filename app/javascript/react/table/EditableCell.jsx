@@ -83,13 +83,13 @@ export const EditableCell = ({
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
-      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={work_quality_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_quality_matric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_load' || id == "calibration_work_load") {
-      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={work_load_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_load_matric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
-      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={work_attitude_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_attitude_matric} not_rated_text={not_rated_text} />;
     } else {
-      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={professional_management_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={professional_management_matric} not_rated_text={not_rated_text} />;
     }
   }
 }
