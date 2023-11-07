@@ -10,6 +10,7 @@ jrep_one:
   obj_weight_pct: 50
   en_name: "p_customer"
   obj_result_fixed: false
+  obj_result: 3
 
 jrep_two:
   user: user_fangzixue
@@ -22,3 +23,17 @@ jrep_two:
   obj_weight_pct: 50
   en_name: "p_dimission"
   obj_result_fixed: true
+  obj_result: 3
+
+jrep_three:
+  user: user_pptest11
+  company_evaluation: ce_one
+  import_guid: "1002022116002"
+  dept_code: "000101203"
+  st_code: "0608014300"
+  obj_name: "客户满意度评分"
+  obj_metric: "定义：人力资源数据管理及分析经理的满意度分析"
+  obj_weight_pct: 100
+  en_name: "p_dimission"
+  obj_result_fixed: false
+  obj_result: 0
