@@ -206,3 +206,54 @@ euc_pp0:
   dept_code: "pp2023"
   title: "所长（施工图）"
   form_status: "initial"
+
+euc_pp11:
+  company_evaluation_template: ect_one
+  user: user_pptest11
+  job_role: job_176
+  manager_user: user_pptest10
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000101203"
+  title: "人力资源数据管理及分析经理"
+  self_overall_output: "人力资源数据管理及分析经理 self_overall_output 1234567890"
+  self_overall_improvement: "人力资源数据管理及分析经理 self_overall_improvement 1234567890"
+  self_overall_plan: "人力资源数据管理及分析经理 self_overall_plan 1234567890"
+  form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
+
+euc_pp12:
+  company_evaluation_template: ect_one
+  user: user_pptest12
+  job_role: job_82
+  manager_user: user_pptest10
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "0001010005"
+  title: "学习发展经理"
+  self_overall_output: "学习发展经理 self_overall_output 12345678901234567890"
+  self_overall_improvement: "学习发展经理 self_overall_improvement 12345678901234567890"
+  self_overall_plan: "学习发展经理 self_overall_plan 12345678901234567890"
+  form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
+
+euc_pp13:
+  company_evaluation_template: ect_one
+  user: user_pptest13
+  job_role: job_311
+  manager_user: user_pptest10
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000101203"
+  title: "招聘经理"
+  self_overall_output: "招聘经理 self_overall_output 12345678901234567890"
+  self_overall_improvement: "招聘经理 self_overall_improvement 12345678901234567890"
+  self_overall_plan: "招聘经理 self_overall_plan 12345678901234567890"
+  form_status: "self_assessment_done"
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
