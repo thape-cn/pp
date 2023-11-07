@@ -246,7 +246,6 @@ erc_61:
 erc_62:
   evaluation_role: er_functional_supervisor
   capability: capable_annual_output
-  erc_description: "业绩产出（职能主管）"
 
 erc_63:
   evaluation_role: er_functional_supervisor
@@ -255,7 +254,6 @@ erc_63:
 erc_64:
   evaluation_role: er_functional_employee
   capability: capable_annual_output
-  erc_description: "业绩产出（职能员工）"
 
 erc_65:
   evaluation_role: er_functional_employee
@@ -320,3 +318,18 @@ erc_79:
 erc_80:
   evaluation_role: er_planning_supervisor
   capability: capable_logic
+
+erc_81:
+  evaluation_role: er_functional_employee
+  capability: capable_work_load
+  erc_description: "职能员工工作量的描述"
+
+erc_82:
+  evaluation_role: er_functional_employee
+  capability: capable_work_quality
+  erc_description: "职能员工工作质量的描述"
+
+erc_83:
+  evaluation_role: er_functional_employee
+  capability: capable_work_attitude
+  erc_description: "职能员工工作态度的描述"
