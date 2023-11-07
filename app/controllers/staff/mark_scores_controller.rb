@@ -171,12 +171,17 @@ module Staff
           accessor: jrep.en_name
         }
       end.uniq
-      table_headers_of_capability = table_need_capabilities(need_review_evaluations).collect do |cap|
-        {
+      need_capabilities, job_role_ids = table_need_capabilities(need_review_evaluations)
+      table_headers_of_capability = need_capabilities.collect do |cap|
+        header = {
           Header: cap.name,
-          accessor: cap.en_name, # accessor is the "key" in the react table data
-          description: cap.description
+          accessor: cap.en_name # accessor is the "key" in the react table data
         }
+        evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
+        if cap.evaluation_role_capabilities.where(evaluation_role_id: evaluation_role_ids).where(erc_description: nil).exists?
+          header[:description] = cap.description
+        end
+        header
       end
       table_headers_of_capability(table_headers_of_capability, table_headers_of_performance)
     end
@@ -185,7 +190,7 @@ module Staff
       job_role_ids = evaluation_user_capabilities.collect(&:job_role_id).uniq
       evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
       capability_ids = EvaluationRoleCapability.where(evaluation_role_id: evaluation_role_ids).collect(&:capability_id).uniq
-      Capability.where(id: capability_ids).order(:category_name)
+      [Capability.where(id: capability_ids).order(:category_name), job_role_ids]
     end
 
     def table_headers_of_capability(headers_of_capability, headers_of_performance)
