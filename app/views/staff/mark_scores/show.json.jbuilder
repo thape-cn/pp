@@ -36,5 +36,9 @@ json.company_evaluation_templates do
   end
 end
 json.need_review_evaluations do
-  json.partial! "need_review_evaluations", locals: {need_review_evaluations: @need_review_evaluations, table_headers_of_performance: @table_headers_of_performance, job_role_evaluation_performances: @job_role_evaluation_performances}
+  json.partial! "need_review_evaluations",
+    locals: {need_review_evaluations: @need_review_evaluations,
+             ercs_with_descriptions: @ercs_with_descriptions,
+             table_headers_of_performance: @table_headers_of_performance,
+             job_role_evaluation_performances: @job_role_evaluation_performances}
 end

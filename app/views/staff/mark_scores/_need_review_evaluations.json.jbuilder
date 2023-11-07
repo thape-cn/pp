@@ -7,12 +7,21 @@ json.array! need_review_evaluations.includes(:job_role, :user) do |euc|
 
   Capability.performance_column_names.each do |performance_column_name|
     json.set! performance_column_name, euc.attributes[performance_column_name]&.to_f&.round(1) || "none"
+    if (erc = ercs_with_descriptions.find { |erc| erc.capability.en_name == performance_column_name })
+      json.set! "#{performance_column_name}_ercd", erc.erc_description
+    end
   end
   Capability.management_column_names.each do |management_column_name|
     json.set! management_column_name, euc.attributes[management_column_name]&.to_f&.round(1) || "none"
+    if (erc = ercs_with_descriptions.find { |erc| erc.capability.en_name == management_column_name })
+      json.set! "#{performance_column_name}_ercd", erc.erc_description
+    end
   end
   Capability.profession_column_names.each do |profession_column_name|
     json.set! profession_column_name, euc.attributes[profession_column_name]&.to_f&.round(1) || "none"
+    if (erc = ercs_with_descriptions.find { |erc| erc.capability.en_name == profession_column_name })
+      json.set! "#{performance_column_name}_ercd", erc.erc_description
+    end
   end
   json.id_cet euc.company_evaluation_template_id
   table_headers_of_performance.each do |h|

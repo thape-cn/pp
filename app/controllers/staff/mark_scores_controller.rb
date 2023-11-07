@@ -43,6 +43,9 @@ module Staff
           group_level = params[:group_level]
           @need_review_evaluations = current_open_evaluations
             .where(company_evaluation_template: {group_level: group_level})
+          job_role_ids = @need_review_evaluations.collect(&:job_role_id).uniq
+          evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
+          @ercs_with_descriptions = EvaluationRoleCapability.includes(:capability).where(evaluation_role_id: evaluation_role_ids).where.not(erc_description: nil)
           @job_role_evaluation_performances = JobRoleEvaluationPerformance.need_review_job_role_evaluation_performance(@need_review_evaluations)
           @table_headers_of_performance = prepare_table_headers_of_performance(@job_role_evaluation_performances)
           @company_evaluation_templates = CompanyEvaluationTemplate.where(id: @need_review_evaluations.collect(&:company_evaluation_template_id).uniq)
