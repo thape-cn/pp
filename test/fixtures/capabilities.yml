@@ -236,7 +236,7 @@ capable_onsite_landscape:
 capable_annual_output:
   en_name: "annual_output"
   name: "年度工作产出"
-  description: ""
+  description: "年度工作产出的描述"
   category_name: "业绩产出（固定）"
 
 capable_work_load:
