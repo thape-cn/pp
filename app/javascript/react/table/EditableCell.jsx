@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {reverseScoreInMatric} from "../utils/reverseScoreInMatric";
 import {JobPerformanceInfo} from "./JobPerformanceInfo";
+import {CapabilitySelect} from "./CapabilitySelect";
 
 export const EditableCell = ({
   value: initialValue,
@@ -82,33 +83,13 @@ export const EditableCell = ({
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
-      return <select value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
-        <option value='0'>{not_rated_text}</option>
-        {work_quality_matric.map(option => (
-            <option key={option.value} value={option.value}>{option.label}</option>
-        ))}
-      </select>
+      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={work_quality_matric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_load' || id == "calibration_work_load") {
-      return <select value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
-        <option value='0'>{not_rated_text}</option>
-        {work_load_matric.map(option => (
-          <option key={option.value} value={option.value}>{option.label}</option>
-        ))}
-      </select>
+      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={work_load_matric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
-      return <select value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
-        <option value='0'>{not_rated_text}</option>
-        {work_attitude_matric.map(option => (
-          <option key={option.value} value={option.value}>{option.label}</option>
-        ))}
-      </select>
+      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={work_attitude_matric} not_rated_text={not_rated_text} />;
     } else {
-      return <select value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
-        <option value='0'>{not_rated_text}</option>
-        {professional_management_matric.map(option => (
-          <option key={option.value} value={option.value}>{option.label}</option>
-        ))}
-      </select>
+      return <CapabilitySelect value={value} onChange={onChange} onBlur={onBlur} matric={professional_management_matric} not_rated_text={not_rated_text} />;
     }
   }
 }
