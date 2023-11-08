@@ -175,14 +175,20 @@ module Staff
         }
       end.uniq
       need_capabilities, job_role_ids = table_need_capabilities(need_review_evaluations)
+      need_capability_ids = need_capabilities.collect(&:id)
+      evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
+      ercs_with_descriptions = EvaluationRoleCapability.where(capability_id: need_capability_ids, evaluation_role_id: evaluation_role_ids).where.not(erc_description: nil)
+
       table_headers_of_capability = need_capabilities.collect do |cap|
         header = {
           Header: cap.name,
           accessor: cap.en_name # accessor is the "key" in the react table data
         }
-        evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
-        if cap.evaluation_role_capabilities.where(evaluation_role_id: evaluation_role_ids).where(erc_description: nil).exists?
+        caps_with_description = ercs_with_descriptions.find_all { |erc| erc.capability_id == cap.id }
+        if caps_with_description.size == 0
           header[:description] = cap.description
+        elsif caps_with_description.size == 1
+          header[:description] = caps_with_description.first.erc_description
         end
         header
       end
