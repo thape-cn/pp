@@ -141,7 +141,9 @@ namespace :admin do
     end
   end
   resources :evaluation_roles, only: %i[index edit update]
-  resources :capabilities, only: %i[index edit update]
+  resources :capabilities, only: %i[index edit update] do
+    resources :evaluation_role_capabilities, only: %i[update]
+  end
   resource :background_jobs, only: %i[show]
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => "/sidekiq"

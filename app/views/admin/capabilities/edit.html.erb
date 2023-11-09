@@ -1,6 +1,6 @@
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
-    <%= form_with model: @capability, url: admin_capability_path(id: @capability.id), method: :put do |f| %>
+    <%= form_with model: @capability, url: admin_capability_path(id: @capability.id), method: :put, id: dom_id(@capability, :form) do |f| %>
       <div class="modal-header">
         <h5 class="modal-title"><%= t(".title", category_name: @capability.category_name) -%></h5>
         <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
@@ -32,30 +32,39 @@
             </div>
           </div>
         </div>
-        <% having_erc_description_ercs = @capability.evaluation_role_capabilities.where.not(erc_description: nil) %>
-        <% if having_erc_description_ercs.present? %>
-          <table class="table table-responsive">
-            <thead>
-              <tr>
-                <th><%= t('capability.evaluation_roles') -%></th>
-                <th><%= t('capability.description') %></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% having_erc_description_ercs.each do |erc| %>
-                <tr>
-                  <td><%= erc.evaluation_role.role_name -%></td>
-                  <td><%= erc.erc_description -%></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        <% end %>
-      </div>
-      <div class="modal-footer">
-        <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
-        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
       </div>
     <% end %>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <% having_erc_description_ercs = @capability.evaluation_role_capabilities.where.not(erc_description: nil) %>
+          <% if having_erc_description_ercs.present? %>
+            <table class="table table-responsive">
+              <thead>
+                <tr>
+                  <th><%= t('capability.evaluation_roles') -%></th>
+                  <th><%= t('capability.description') %></th>
+                  <th><%= t('form.action') -%></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% having_erc_description_ercs.each do |erc| %>
+                  <tr>
+                    <%= form_with model: [erc.capability, erc], url: admin_capability_evaluation_role_capability_path(erc.capability, erc), method: :put, local: true do |f| %>
+                      <td><%= erc.evaluation_role.role_name -%></td>
+                      <td><%= f.text_area :erc_description, class: "form-control", rows: 3 %></td>
+                      <td><%= f.submit t('form.update'), class: 'btn btn-primary' %></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
+      <div class="modal-footer" data-controller="submit-button"
+        data-submit-button-form-id-value="<%= dom_id(@capability, :form) -%>">
+        <%= submit_tag t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal, action: "click->submit-button#click"} %>
+        <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
+      </div>
   </div>
 </div>
