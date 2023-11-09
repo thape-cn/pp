@@ -322,14 +322,21 @@ erc_80:
 erc_81:
   evaluation_role: er_functional_employee
   capability: capable_work_load
-  erc_description: "职能员工工作量的描述"
+  erc_description: |
+    日常工作及上级布置的其他工作任务
+    基于员工的有效工作产出、工作任务难度等的综合评价
+    以部门内同岗位人员的工作量为标准
 
 erc_82:
   evaluation_role: er_functional_employee
   capability: capable_work_quality
-  erc_description: "职能员工工作质量的描述"
+  erc_description: |
+    日常工作及工作任务完成情况
+
+    •超出标准：主动改善日常工作问题，对该项工作有促进作用，得到相关人员表扬；对安排的工作都能积极主动、用心完成，超出需求者的预期
+    •符合标准：按标准/要求、无差错、及时完成工作，无有效抱怨或投诉
+    •低于标准：多次未按标准/要求完成工作，处理不及时，引起有效抱怨/投诉，工作出现重大差错，无合理原因拒绝接受工作
 
 erc_83:
   evaluation_role: er_functional_employee
   capability: capable_work_attitude
-  erc_description: "职能员工工作态度的描述"
