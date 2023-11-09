@@ -36,29 +36,27 @@
     <% end %>
       <div class="modal-body">
         <div class="container-fluid">
-          <% having_erc_description_ercs = @capability.evaluation_role_capabilities.where.not(erc_description: nil) %>
-          <% if having_erc_description_ercs.present? %>
-            <table class="table table-responsive">
-              <thead>
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th><%= t('capability.evaluation_roles') -%></th>
+                <th><%= t('capability.description') %></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @capability.evaluation_role_capabilities.each do |erc| %>
                 <tr>
-                  <th><%= t('capability.evaluation_roles') -%></th>
-                  <th><%= t('capability.description') %></th>
-                  <th><%= t('form.action') -%></th>
-                </tr>
-              </thead>
-              <tbody>
-                <% having_erc_description_ercs.each do |erc| %>
-                  <tr>
+                  <td><%= erc.evaluation_role.role_name -%></td>
+                  <td>
                     <%= form_with model: [erc.capability, erc], url: admin_capability_evaluation_role_capability_path(erc.capability, erc), method: :put, local: true do |f| %>
-                      <td><%= erc.evaluation_role.role_name -%></td>
-                      <td><%= f.text_area :erc_description, class: "form-control", rows: 3 %></td>
-                      <td><%= f.submit t('form.update'), class: 'btn btn-primary' %></td>
+                      <%= f.text_area :erc_description, class: "form-control", rows: 2 %>
+                      <%= f.submit t('form.save'), class: 'btn btn-primary btn-sm mt-1' %>
                     <% end %>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
         </div>
       </div>
       <div class="modal-footer" data-controller="submit-button"
