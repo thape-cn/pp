@@ -237,11 +237,11 @@ euc_pp12:
   self_overall_improvement: "学习发展经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "学习发展经理 self_overall_plan 12345678901234567890"
   form_status: "self_assessment_done"
+  annual_output: 0
+  coaching: 0
+  customer_needs_non: 0
   goal_achieved: 0
   professional_level: 0
-  coaching: 0
-  annual_output: 0
-  customer_needs_non: 0
 
 euc_pp13:
   company_evaluation_template: ect_two
@@ -256,8 +256,8 @@ euc_pp13:
   self_overall_improvement: "招聘经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "招聘经理 self_overall_plan 12345678901234567890"
   form_status: "self_assessment_done"
+  annual_output: 0
+  coaching: 0
+  customer_needs_non: 0
   goal_achieved: 0
   professional_level: 0
-  coaching: 0
-  annual_output: 0
-  customer_needs_non: 0
