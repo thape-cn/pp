@@ -220,15 +220,12 @@ euc_pp11:
   self_overall_improvement: "人力资源数据管理及分析经理 self_overall_improvement 1234567890"
   self_overall_plan: "人力资源数据管理及分析经理 self_overall_plan 1234567890"
   form_status: "self_assessment_done"
-  annual_output: 0
   work_attitude: 0
-  high_quality: 0
   work_load: 0
-  high_efficiency: 0
   work_quality: 0
 
 euc_pp12:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_two
   user: user_pptest12
   job_role: job_82
   manager_user: user_pptest10
@@ -247,7 +244,7 @@ euc_pp12:
   customer_needs_non: 0
 
 euc_pp13:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_two
   user: user_pptest13
   job_role: job_311
   manager_user: user_pptest10

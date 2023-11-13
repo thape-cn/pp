@@ -251,18 +251,6 @@ erc_63:
   evaluation_role: er_functional_supervisor
   capability: capable_professional_level
 
-erc_64:
-  evaluation_role: er_functional_employee
-  capability: capable_annual_output
-
-erc_65:
-  evaluation_role: er_functional_employee
-  capability: capable_high_efficiency
-
-erc_66:
-  evaluation_role: er_functional_employee
-  capability: capable_high_quality
-
 erc_67:
   evaluation_role: er_functional_operation
   capability: capable_customer_insight
