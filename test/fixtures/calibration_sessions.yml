@@ -1,10 +1,12 @@
 ---
-cs_one:
-  calibration_template: ct_one_1
-  owner: user_guochunzhong
-  session_name: MyString
+cs_one_staff:
+  calibration_template: ct_one_staff_enforce
+  owner: user_pptest10
+  session_name: 2023年年中人力部门员工层强制
+  session_status: "waiting_manager_score"
 
-cs_two:
-  calibration_template: ct_one_1
-  owner: user_guochunzhong
-  session_name: MyString
+cs_two_manager:
+  calibration_template: ct_two_manager_enforce
+  owner: user_pptest10
+  session_name: 2023年年中人力部门主管层强制
+  session_status: "waiting_manager_score"
