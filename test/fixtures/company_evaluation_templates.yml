@@ -15,6 +15,8 @@ ect_one:
   performance_subtotal_rate: 50
   performance_matric: "grading_3_matric"
   total_reverse_matric: "reverse_5_matric"
+  pct_proportion: 100
+  rate_proportion: 0
 
 ect_two:
   company_evaluation: ce_one
@@ -26,3 +28,5 @@ ect_two:
   management_subtotal_rate: 20
   profession_subtotal_rate: 30
   performance_subtotal_rate: 50
+  pct_proportion: 0
+  rate_proportion: 100
