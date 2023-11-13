@@ -21,6 +21,8 @@ module Staff
       @horizontal_position = case company_evaluation_template.group_level
       when "staff"
         @evaluation_user_capability.group_of_staff_work_quality_and_work_attitude
+      when "auxiliary"
+        @evaluation_user_capability.group_of_manager_capability
       when "manager"
         @evaluation_user_capability.group_of_manager_capability
       end
@@ -28,6 +30,8 @@ module Staff
       @vertical_position = case company_evaluation_template.group_level
       when "staff"
         @evaluation_user_capability.group_of_staff_work_load
+      when "auxiliary"
+        @evaluation_user_capability.group_of_manager_performance
       when "manager"
         @evaluation_user_capability.group_of_manager_performance
       end

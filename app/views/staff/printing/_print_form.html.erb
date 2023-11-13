@@ -63,6 +63,9 @@
                 <% elsif %w[work_attitude].include?(capability.en_name) %>
                   <% score = evaluation_user_capability.calibration_work_attitude || evaluation_user_capability.work_attitude -%>
                   <%= public_send(evaluation_user_capability.company_evaluation_template.work_attitude_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <% elsif %w[annual_output].include?(capability.en_name) %>
+                  <% score = evaluation_user_capability.calibration_performance_score || evaluation_user_capability.annual_output -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.performance_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
                 <% else %>
                   <% score = evaluation_user_capability.attributes[capability.en_name] -%>
                   <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
