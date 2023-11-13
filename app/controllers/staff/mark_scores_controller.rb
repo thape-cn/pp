@@ -84,6 +84,9 @@ module Staff
       @need_review_evaluations = current_open_evaluations
         .where(company_evaluation_template: {group_level: group_level})
         .where(form_status: %w[self_assessment_done])
+      job_role_ids = @need_review_evaluations.collect(&:job_role_id).uniq
+      evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
+      @ercs_with_descriptions = EvaluationRoleCapability.includes(:capability).where(evaluation_role_id: evaluation_role_ids).where.not(erc_description: nil)
       @job_role_evaluation_performances = JobRoleEvaluationPerformance.need_review_job_role_evaluation_performance(@need_review_evaluations)
       if params[:confirm]
         @mark_score_confirm_reject_message = check_mark_score_completion(@need_review_evaluations, @job_role_evaluation_performances)
