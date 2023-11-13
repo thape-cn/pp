@@ -123,6 +123,8 @@ module Staff
       end
       if group_level == "staff"
         staff_table_headers_of_capability_for_calibration(table_headers_of_capability, table_headers_of_performance)
+      elsif group_level == "auxiliary"
+        staff_table_headers_of_capability_for_calibration(table_headers_of_capability, table_headers_of_performance)
       elsif group_level == "manager"
         manager_table_headers_of_capability_for_calibration(table_headers_of_capability, table_headers_of_performance)
       end

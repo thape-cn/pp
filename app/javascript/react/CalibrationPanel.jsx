@@ -90,6 +90,8 @@ function CalibrationPanel() {
 
     if (group_level == "staff" && Array.isArray(calibrationEucs[`${row}${column}`])) {
       return calibrationEucsByStaff(row, column, calibrationEucs);
+    } else if (group_level == "auxiliary" && Array.isArray(calibrationEucs[`${row}${column}`])) {
+      return calibrationEucsByStaff(row, column, calibrationEucs);
     } else if (group_level == "manager" && Array.isArray(calibrationEucs[`${row}${column}`])) {
       return calibrationEucsByManager(row, column, calibrationEucs);
     } else {

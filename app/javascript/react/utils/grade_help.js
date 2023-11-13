@@ -16,6 +16,8 @@ export function calibrateGradeQuota(row, column, {group_level, apa_grade, b_grad
 
   if (group_level == "staff") {
     grade_quota = calibrateStaffRate(row, column, apa_grade, b_grade, cd_grade);
+  } else if (group_level == "auxiliary") {
+    grade_quota = calibrateStaffRate(row, column, apa_grade, b_grade, cd_grade);
   } else if (group_level == "manager") {
     grade_quota = calibrateManagerRate(row, column, below_standard, standards_compliant, beyond_standard);
   }
@@ -100,6 +102,8 @@ function calibrateManagerClass(row, column, is_over) {
 
 export function calibrateClass(group_level, row, column, grade, is_over) {
   if (group_level == "staff") {
+    return calibrateStaffClass(grade, is_over);
+  } else if (group_level == "auxiliary") {
     return calibrateStaffClass(grade, is_over);
   } else {
     return calibrateManagerClass(row, column, is_over);

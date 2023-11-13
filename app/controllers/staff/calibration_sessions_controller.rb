@@ -80,6 +80,8 @@ module Staff
       case @group_level
       when "staff"
         update_staff_group(params[:calibration])
+      when "auxiliary"
+        update_staff_group(params[:calibration])
       when "manager"
         update_manager_group(params[:calibration])
       end
@@ -87,6 +89,8 @@ module Staff
       if params[:finalize] && @calibration_session.calibration_template.enforce_distribute?
         @enforce_distribute_reject_message = case @group_level
         when "staff"
+          check_enforce_distribute_for_staff_group(params[:calibration])
+        when "auxiliary"
           check_enforce_distribute_for_staff_group(params[:calibration])
         when "manager"
           check_enforce_distribute_for_manager_group(params[:calibration])
@@ -138,6 +142,8 @@ module Staff
         .reject(&:blank?) # user must having evaluation_user_capability, even it's only having performance.
       case group_level
       when "staff"
+        staff_group(need_calibration_evaluation_user_capabilities)
+      when "auxiliary"
         staff_group(need_calibration_evaluation_user_capabilities)
       when "manager"
         manager_group(need_calibration_evaluation_user_capabilities)
