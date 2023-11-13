@@ -18,10 +18,23 @@ ect_one:
   pct_proportion: 100
   rate_proportion: 0
 
-ect_two:
+ect_manager:
   company_evaluation: ce_one
   group_level: "manager"
   title: "2023年年中绩效评价沟通表（主管层）"
+  work_quality_pct: 35
+  work_load_pct: 50
+  work_attitude_pct: 15
+  management_subtotal_rate: 20
+  profession_subtotal_rate: 30
+  performance_subtotal_rate: 50
+  pct_proportion: 0
+  rate_proportion: 100
+
+ect_auxiliary:
+  company_evaluation: ce_one
+  group_level: "auxiliary"
+  title: "2023年年中绩效评价沟通表（辅助层）"
   work_quality_pct: 35
   work_load_pct: 50
   work_attitude_pct: 15

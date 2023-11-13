@@ -131,7 +131,7 @@ euc_pp9:
   work_quality: 0
 
 euc_pp1:
-  company_evaluation_template: ect_two
+  company_evaluation_template: ect_manager
   user: user_pptest1
   job_role: job_64
   manager_user: user_pptest0
@@ -153,7 +153,7 @@ euc_pp1:
   onsite_landscape: 0
 
 euc_pp2:
-  company_evaluation_template: ect_two
+  company_evaluation_template: ect_manager
   user: user_pptest2
   job_role: job_64
   manager_user: user_pptest0
@@ -175,7 +175,7 @@ euc_pp2:
   onsite_landscape: 0
 
 euc_pp3:
-  company_evaluation_template: ect_two
+  company_evaluation_template: ect_manager
   user: user_pptest3
   job_role: job_64
   manager_user: user_pptest0
@@ -197,7 +197,7 @@ euc_pp3:
   onsite_landscape: 0
 
 euc_pp0:
-  company_evaluation_template: ect_two
+  company_evaluation_template: ect_manager
   user: user_pptest0
   job_role: job_10
   manager_user: user_fangzixue
@@ -225,7 +225,7 @@ euc_pp11:
   work_quality: 0
 
 euc_pp12:
-  company_evaluation_template: ect_two
+  company_evaluation_template: ect_manager
   user: user_pptest12
   job_role: job_82
   manager_user: user_pptest10
@@ -244,7 +244,7 @@ euc_pp12:
   professional_level: 0
 
 euc_pp13:
-  company_evaluation_template: ect_two
+  company_evaluation_template: ect_manager
   user: user_pptest13
   job_role: job_311
   manager_user: user_pptest10

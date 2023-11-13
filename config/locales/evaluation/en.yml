@@ -8,6 +8,7 @@ en:
     brief: "Brief"
     staff_level: "Staff level"
     manager_level: "Manage level"
+    auxiliary_level: "Auxiliary level"
     employee_info: "Employee information"
     performance: "Performance"
     fixed_output: "Performance output"

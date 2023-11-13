@@ -5,11 +5,11 @@ cs_one_staff_u1:
   evaluation_user_capability: euc_pp11
 
 cs_one_staff_u2:
-  calibration_session: cs_two_manager
+  calibration_session: cs_two_auxiliary
   user: user_pptest12
   evaluation_user_capability: euc_pp12
 
 cs_one_staff_u3:
-  calibration_session: cs_two_manager
+  calibration_session: cs_two_auxiliary
   user: user_pptest13
   evaluation_user_capability: euc_pp13
