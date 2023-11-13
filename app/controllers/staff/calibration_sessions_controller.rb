@@ -81,7 +81,7 @@ module Staff
       when "staff"
         update_staff_group(params[:calibration])
       when "auxiliary"
-        update_staff_group(params[:calibration])
+        update_manager_group(params[:calibration])
       when "manager"
         update_manager_group(params[:calibration])
       end
@@ -91,7 +91,7 @@ module Staff
         when "staff"
           check_enforce_distribute_for_staff_group(params[:calibration])
         when "auxiliary"
-          check_enforce_distribute_for_staff_group(params[:calibration])
+          check_enforce_distribute_for_manager_group(params[:calibration])
         when "manager"
           check_enforce_distribute_for_manager_group(params[:calibration])
         end
@@ -144,7 +144,7 @@ module Staff
       when "staff"
         staff_group(need_calibration_evaluation_user_capabilities)
       when "auxiliary"
-        staff_group(need_calibration_evaluation_user_capabilities)
+        manager_group(need_calibration_evaluation_user_capabilities)
       when "manager"
         manager_group(need_calibration_evaluation_user_capabilities)
       end
