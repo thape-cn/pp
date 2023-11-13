@@ -1,16 +1,32 @@
 ---
 ct_one_1:
   company_evaluation_template: ect_one
+  template_name: "2023年年中绩效评价员工层强制"
+  apa_grade_rate: 25
+  b_grade_rate: 55
+  cd_grade_rate: 20
   enforce_distribute: true
 
 ct_one_2:
   company_evaluation_template: ect_one
+  template_name: "2023年年中绩效评价员工层非强制"
+  apa_grade_rate: 25
+  b_grade_rate: 55
+  cd_grade_rate: 20
   enforce_distribute: false
 
 ct_two_1:
   company_evaluation_template: ect_two
+  template_name: "2023年年中绩效评价主管层强制"
+  below_standard_rate: 31
+  standards_compliant_rate: 41
+  beyond_standard_rate: 28
   enforce_distribute: true
 
 ct_two_2:
   company_evaluation_template: ect_two
+  template_name: "2023年年中绩效评价主管层非强制"
+  below_standard_rate: 31
+  standards_compliant_rate: 41
+  beyond_standard_rate: 28
   enforce_distribute: false
