@@ -2,6 +2,7 @@ module Staff
   class CalibrationSessionsController < BaseController
     include Pagy::Backend
     include StaffManagerGroup
+    include UpdateSessionGroup
     before_action :check_brower, only: %i[show], if: -> { request.format.html? }
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
@@ -150,18 +151,6 @@ module Staff
       end
     end
 
-    def update_staff_group(calibration)
-      update_person_by_square(calibration["11"]) { |euc| euc.update(calibration_work_load: 5, calibration_work_quality: 1, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["12"]) { |euc| euc.update(calibration_work_load: 5, calibration_work_quality: 3, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["13"]) { |euc| euc.update(calibration_work_load: 5, calibration_work_quality: 5, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["21"]) { |euc| euc.update(calibration_work_load: 3, calibration_work_quality: 1, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["22"]) { |euc| euc.update(calibration_work_load: 3, calibration_work_quality: 3, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["23"]) { |euc| euc.update(calibration_work_load: 3, calibration_work_quality: 5, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["31"]) { |euc| euc.update(calibration_work_load: 1, calibration_work_quality: 1, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["32"]) { |euc| euc.update(calibration_work_load: 1, calibration_work_quality: 3, calibration_work_attitude: euc.work_attitude) }
-      update_person_by_square(calibration["33"]) { |euc| euc.update(calibration_work_load: 1, calibration_work_quality: 5, calibration_work_attitude: euc.work_attitude) }
-    end
-
     def check_enforce_distribute_for_staff_group(calibration)
       lower_quotas_staff = @calibration_session.lower_quotas_staff
       ct = @calibration_session.calibration_template
@@ -191,26 +180,6 @@ module Staff
       else
         I18n.t("calibration.enforce_distribute_for_manager_failure", below_standard_rate: ct.below_standard_rate,
           standards_compliant_rate: ct.standards_compliant_rate, beyond_standard_rate: ct.beyond_standard_rate)
-      end
-    end
-
-    def update_manager_group(calibration)
-      update_person_by_square(calibration["11"]) { |euc| euc.update(calibration_management_profession_score: 1, calibration_performance_score: 5) }
-      update_person_by_square(calibration["12"]) { |euc| euc.update(calibration_management_profession_score: 3, calibration_performance_score: 5) }
-      update_person_by_square(calibration["13"]) { |euc| euc.update(calibration_management_profession_score: 5, calibration_performance_score: 5) }
-      update_person_by_square(calibration["21"]) { |euc| euc.update(calibration_management_profession_score: 1, calibration_performance_score: 3) }
-      update_person_by_square(calibration["22"]) { |euc| euc.update(calibration_management_profession_score: 3, calibration_performance_score: 3) }
-      update_person_by_square(calibration["23"]) { |euc| euc.update(calibration_management_profession_score: 5, calibration_performance_score: 3) }
-      update_person_by_square(calibration["31"]) { |euc| euc.update(calibration_management_profession_score: 1, calibration_performance_score: 1) }
-      update_person_by_square(calibration["32"]) { |euc| euc.update(calibration_management_profession_score: 3, calibration_performance_score: 1) }
-      update_person_by_square(calibration["33"]) { |euc| euc.update(calibration_management_profession_score: 5, calibration_performance_score: 1) }
-    end
-
-    def update_person_by_square(calibration_square)
-      return if calibration_square.nil?
-      calibration_square.each do |item|
-        euc = EvaluationUserCapability.find item["id"]
-        yield euc
       end
     end
 
