@@ -1,6 +1,6 @@
 ---
 euc_one:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_guochunzhong
   job_role: job_one
   company: "My company"
@@ -16,7 +16,7 @@ euc_one:
   self_overall_plan: "12345678901234567890"
 
 euc_two:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_guochunzhong
   job_role: job_one
   company: "My company two"
@@ -29,7 +29,7 @@ euc_two:
   form_status: "initial"
 
 euc_pp4:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest4
   job_role: job_429
   manager_user: user_pptest3
@@ -46,7 +46,7 @@ euc_pp4:
   work_quality: 0
 
 euc_pp5:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest5
   job_role: job_429
   manager_user: user_pptest3
@@ -63,7 +63,7 @@ euc_pp5:
   work_quality: 0
 
 euc_pp6:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest6
   job_role: job_429
   manager_user: user_pptest3
@@ -80,7 +80,7 @@ euc_pp6:
   work_quality: 0
 
 euc_pp7:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest7
   job_role: job_429
   manager_user: user_pptest3
@@ -97,7 +97,7 @@ euc_pp7:
   work_quality: 0
 
 euc_pp8:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest8
   job_role: job_429
   manager_user: user_pptest3
@@ -114,7 +114,7 @@ euc_pp8:
   work_quality: 0
 
 euc_pp9:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest9
   job_role: job_429
   manager_user: user_pptest3
@@ -208,7 +208,7 @@ euc_pp0:
   form_status: "initial"
 
 euc_pp11:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   user: user_pptest11
   job_role: job_176
   manager_user: user_pptest10

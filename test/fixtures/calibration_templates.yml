@@ -1,6 +1,6 @@
 ---
 ct_one_staff_enforce:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   template_name: "2023年年中绩效评价员工层强制"
   apa_grade_rate: 25
   b_grade_rate: 55
@@ -8,7 +8,7 @@ ct_one_staff_enforce:
   enforce_distribute: true
 
 ct_one_staff_nonenforce:
-  company_evaluation_template: ect_one
+  company_evaluation_template: ect_staff
   template_name: "2023年年中绩效评价员工层非强制"
   apa_grade_rate: 25
   b_grade_rate: 55
