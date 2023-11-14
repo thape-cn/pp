@@ -9,4 +9,4 @@ zh-CN:
       edit:
         title: "编辑用户角色业绩：%{obj_name}"
       new:
-        title: "上传CSV文件新增用户业绩"
+        title: "上传Excel文件新增用户业绩"
