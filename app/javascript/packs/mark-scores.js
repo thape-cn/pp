@@ -18,3 +18,11 @@ if (manager_node) {
     manager_root.render(<MarkScores group_level='manager' />);
   });
 }
+
+const auxiliary_node = document.getElementById('auxiliary-mark');
+if (auxiliary_node) {
+  const auxiliary_root = createRoot(auxiliary_node);
+  document.addEventListener('DOMContentLoaded', () => {
+    auxiliary_root.render(<MarkScores group_level='auxiliary' />);
+  });
+}

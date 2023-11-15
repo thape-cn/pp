@@ -14,6 +14,7 @@ module Staff
         format.html do
           @staff_table_headers = table_headers(current_open_evaluations, "staff")
           @manager_table_headers = table_headers(current_open_evaluations, "manager")
+          @auxiliary_table_headers = table_headers(current_open_evaluations, "auxiliary")
           @review_labels = {
             self_overall_output: I18n.t("evaluation.self_overall_output"),
             self_overall_improvement: I18n.t("evaluation.self_overall_improvement"),
