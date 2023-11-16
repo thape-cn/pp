@@ -6,6 +6,7 @@ en:
         title: "Calibration sessions"
       show:
         title: "Calibration performance"
+        waiting_score: "This performance calibration is still awaiting scoring from manager."
         finalized: "This performance calibration has been finalized."
         can_not_start: "This performance calibration session is not active."
       fixed:

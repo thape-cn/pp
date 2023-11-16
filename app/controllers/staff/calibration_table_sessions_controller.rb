@@ -4,6 +4,7 @@ module Staff
     after_action :verify_authorized
 
     def show
+      return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.waiting_score") if @calibration_session.session_status == "waiting_manager_score"
       return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.finalized") unless @calibration_session.session_status == "calibrating"
       return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.can_not_start") unless @calibration_session.can_start_calibration?
 
