@@ -88,6 +88,8 @@ export const EditableCell = ({
       return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_load_matric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
       return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_attitude_matric} not_rated_text={not_rated_text} />;
+    } else if ( id == 'annual_output' || id == "calibration_performance_score") {
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={performance_matric} not_rated_text={not_rated_text} />;
     } else {
       return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={professional_management_matric} not_rated_text={not_rated_text} />;
     }
