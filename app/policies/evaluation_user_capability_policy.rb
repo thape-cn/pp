@@ -10,8 +10,10 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
           .or(scope.where(user_id: user.id))
           .or(scope.where(manager_user_id: user.id))
       else
+        session_user_ids = user.owned_calibration_sessions.collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
         scope.where(user_id: user.id)
           .or(scope.where(manager_user_id: user.id))
+          .or(scope.where(user_id: session_user_ids))
       end
     end
   end
