@@ -64,7 +64,7 @@
               </td>
             </tr>
             <% template.calibration_templates.each do |ct| %>
-              <% if template.group_level == 'staff' %>
+              <% if %w[staff auxiliary].include?(template.group_level) %>
                 <tr>
                   <td colspan="2" class="text-end"><%= ct.template_name -%></td>
                   <td><%= t('calibration.apa_grade') -%>: <%= ct.apa_grade_rate -%>%</td>
