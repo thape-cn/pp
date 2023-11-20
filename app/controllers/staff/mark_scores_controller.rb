@@ -181,18 +181,20 @@ module Staff
       need_capabilities, job_role_ids = table_need_capabilities(need_review_evaluations)
       need_capability_ids = need_capabilities.collect(&:id)
       evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
-      ercs_with_descriptions = EvaluationRoleCapability.where(capability_id: need_capability_ids, evaluation_role_id: evaluation_role_ids).where.not(erc_description: nil)
-
+      ercs = EvaluationRoleCapability.where(capability_id: need_capability_ids, evaluation_role_id: evaluation_role_ids)
       table_headers_of_capability = need_capabilities.collect do |cap|
         header = {
           Header: cap.name,
           accessor: cap.en_name # accessor is the "key" in the react table data
         }
-        caps_with_description = ercs_with_descriptions.find_all { |erc| erc.capability_id == cap.id }
+        caps_with_description = ercs.find_all { |erc| erc.capability_id == cap.id && erc.erc_description.present? }
+        caps_without_description = ercs.find_all { |erc| erc.capability_id == cap.id && erc.erc_description.blank? }
         if caps_with_description.size == 0
           header[:description] = cap.description
-        elsif caps_with_description.size == 1
+        elsif caps_with_description.size == 1 && caps_without_description.size == 0
           header[:description] = caps_with_description.first.erc_description
+        elsif caps_without_description.size == 1
+          header[:description] = cap.description
         end
         header
       end
