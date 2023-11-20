@@ -208,7 +208,7 @@ euc_pp0:
   form_status: "initial"
 
 euc_pp10:
-  company_evaluation_template: ect_staff
+  company_evaluation_template: ect_manager
   user: user_pptest10
   job_role: job_76
   manager_user: user_pptest3
