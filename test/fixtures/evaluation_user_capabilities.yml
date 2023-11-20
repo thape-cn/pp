@@ -207,11 +207,30 @@ euc_pp0:
   title: "所长（施工图）"
   form_status: "initial"
 
+euc_pp10:
+  company_evaluation_template: ect_staff
+  user: user_pptest10
+  job_role: job_76
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000101203"
+  title: "商务经理"
+  self_overall_output: "商务经理 self_overall_output 12345678901234567890"
+  self_overall_improvement: "商务经理 self_overall_improvement 12345678901234567890"
+  self_overall_plan: "商务经理 self_overall_plan 12345678901234567890"
+  form_status: "self_assessment_done"
+  annual_output: 0
+  coaching: 0
+  customer_needs_non: 0
+  goal_achieved: 0
+  professional_level: 0
+
 euc_pp11:
   company_evaluation_template: ect_staff
   user: user_pptest11
   job_role: job_176
-  manager_user: user_pptest10
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "000101203"
@@ -228,7 +247,7 @@ euc_pp12:
   company_evaluation_template: ect_auxiliary
   user: user_pptest12
   job_role: job_82
-  manager_user: user_pptest10
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "0001010005"
@@ -247,7 +266,7 @@ euc_pp13:
   company_evaluation_template: ect_auxiliary
   user: user_pptest13
   job_role: job_311
-  manager_user: user_pptest10
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "000101203"

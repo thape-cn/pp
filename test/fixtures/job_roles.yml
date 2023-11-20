@@ -33,9 +33,9 @@ job_429:
   evaluation_role: er_employee_layer_general
 
 job_76:
-  st_code: "0408010010"
-  job_level: 15
-  job_code: "人力资源总监"
+  st_code: "0609020600"
+  job_level: 11
+  job_code: "商务经理"
   job_family: "集团人力资源"
   evaluation_role: er_functional_operation
 
@@ -54,8 +54,8 @@ job_311:
   evaluation_role: er_functional_supervisor
 
 job_176:
-  st_code: "0608014300"
-  job_level: 12
-  job_code: "人力资源数据管理及分析经理"
-  job_family: "集团人力资源"
+  st_code: "0605020300"
+  job_level: 13
+  job_code: "行政部经理"
+  job_family: "子公司行政"
   evaluation_role: er_functional_employee

@@ -132,27 +132,27 @@ ujr_3650:
 ujr_125:
   user: user_pptest10
   job_role: job_76
-  manager_user: user_pptest0
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "000101203"
-  title: "人力资源总监"
+  title: "商务经理"
   is_active: true
 
 ujr_419:
   user: user_pptest11
   job_role: job_176
-  manager_user: user_pptest10
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "000101203"
-  title: "人力资源数据管理及分析经理"
+  title: "行政部经理"
   is_active: true
 
 ujr_1151:
   user: user_pptest12
   job_role: job_82
-  manager_user: user_pptest10
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "0001010005"
@@ -162,7 +162,7 @@ ujr_1151:
 ujr_1579:
   user: user_pptest13
   job_role: job_311
-  manager_user: user_pptest10
+  manager_user: user_pptest3
   company: "测试公司"
   department: "测试组织"
   dept_code: "000101203"
