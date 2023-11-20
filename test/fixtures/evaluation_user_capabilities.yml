@@ -234,10 +234,10 @@ euc_pp11:
   company: "测试公司"
   department: "测试组织"
   dept_code: "000101203"
-  title: "人力资源数据管理及分析经理"
-  self_overall_output: "人力资源数据管理及分析经理 self_overall_output 1234567890"
-  self_overall_improvement: "人力资源数据管理及分析经理 self_overall_improvement 1234567890"
-  self_overall_plan: "人力资源数据管理及分析经理 self_overall_plan 1234567890"
+  title: "行政部经理"
+  self_overall_output: "行政部经理 self_overall_output 1234567890"
+  self_overall_improvement: "行政部经理 self_overall_improvement 1234567890"
+  self_overall_plan: "行政部经理 self_overall_plan 1234567890"
   form_status: "self_assessment_done"
   work_attitude: 0
   work_load: 0

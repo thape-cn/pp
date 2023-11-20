@@ -37,7 +37,7 @@ job_76:
   job_level: 11
   job_code: "商务经理"
   job_family: "集团人力资源"
-  evaluation_role: er_functional_operation
+  evaluation_role: er_functional_employee
 
 job_82:
   st_code: "0608010900"
