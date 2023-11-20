@@ -208,7 +208,7 @@ euc_pp0:
   form_status: "initial"
 
 euc_pp10:
-  company_evaluation_template: ect_manager
+  company_evaluation_template: ect_staff
   user: user_pptest10
   job_role: job_76
   manager_user: user_pptest3
@@ -220,11 +220,9 @@ euc_pp10:
   self_overall_improvement: "商务经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "商务经理 self_overall_plan 12345678901234567890"
   form_status: "self_assessment_done"
-  results: 0
-  annual_output: 0
-  customer_insight: 0
-  professional_level: 0
-  organizational_capabilities: 0
+  work_attitude: 0
+  work_load: 0
+  work_quality: 0
 
 euc_pp11:
   company_evaluation_template: ect_staff
