@@ -14,6 +14,8 @@ zh-CN:
     below_standard_rate: "低于标准的分布比例"
     standards_compliant_rate: "符合标准的分布比例"
     beyond_standard_rate: "超出标准的分布比例"
+    calibration_people_count: "校准人数"
+    try_calculate: "计算"
     encourage: "建议"
     enforce: "建议"
     enforce_distribute: "强制校准"

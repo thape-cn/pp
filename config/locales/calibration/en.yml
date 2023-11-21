@@ -14,6 +14,8 @@ en:
     below_standard_rate: "Below standard grade rate"
     standards_compliant_rate: "Standards compliant grade rate"
     beyond_standard_rate: "Beyond the standard grade rate"
+    calibration_people_count: "Calibration people"
+    try_calculate: "Calculate"
     encourage: "Encourage"
     enforce: "Encourage"
     enforce_distribute: "Enforce distribute"

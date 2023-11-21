@@ -45,9 +45,18 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-8">
+      <div class="row">
+        <%= f.label :calibration_people_count, t("calibration.calibration_people_count"), class: 'col-4  col-form-label' %>
+        <div class="col-4">
+          <%= text_field_tag :calibration_people_count, nil, class: "form-control" %>
+        </div>
+        <div class="col-4">
+          <%= button_tag t("calibration.try_calculate"), type: 'button', class: "btn btn-secondary" %>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-4">
       <div class="form-group mt-2">
         <div class="form-check form-switch form-switch-xl">
           <%= f.check_box :enforce_distribute, class: "form-check-input" %>
