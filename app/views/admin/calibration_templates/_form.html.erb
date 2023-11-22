@@ -67,7 +67,7 @@
       <div class="row">
         <%= f.label :calibration_people_count, t("calibration.calibration_people_count"), class: 'col-4  col-form-label' %>
         <div class="col-4">
-          <%= text_field_tag :calibration_people_count, nil, class: "form-control" %>
+          <%= text_field_tag :calibration_people_count, nil, class: "form-control", data: {'try-calculate-target': 'peopleCount'} %>
         </div>
         <div class="col-4">
           <%= button_tag t("calibration.try_calculate"), type: 'button', class: "btn btn-secondary", data: {action: "click->try-calculate#click"} -%>
