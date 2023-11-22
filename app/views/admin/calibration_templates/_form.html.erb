@@ -5,7 +5,7 @@
       <%= f.text_field :template_name, class: "form-control" %>
     </div>
   </div>
-  <% if %w[staff].include?(calibration_template.company_evaluation_template.group_level) %>
+  <% if %w[staff auxiliary].include?(calibration_template.company_evaluation_template.group_level) %>
     <div class="row mb-3">
       <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
@@ -24,7 +24,7 @@
         <%= f.number_field :cd_grade_rate, class: "form-control" %>
       </div>
     </div>
-  <% elsif %w[auxiliary manager].include?(calibration_template.company_evaluation_template.group_level) %>
+  <% elsif %w[manager].include?(calibration_template.company_evaluation_template.group_level) %>
     <div class="row mb-3">
       <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">

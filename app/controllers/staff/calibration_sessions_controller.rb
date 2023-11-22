@@ -94,7 +94,7 @@ module Staff
         when "staff"
           check_enforce_distribute_for_staff_group(params[:calibration])
         when "auxiliary"
-          check_enforce_distribute_for_auxiliary_group(params[:calibration])
+          check_enforce_distribute_for_staff_group(params[:calibration])
         when "manager"
           check_enforce_distribute_for_manager_group(params[:calibration])
         end
