@@ -17,6 +17,7 @@ module GroupStaffOrManager
           * (company_evaluation_template.work_attitude_pct / total_percentage.to_f)
 
         work_quality_and_work_attitude = work_quality_part + work_attitude_part
+        Rails.logger.info "work_quality_and_work_attitude: #{work_quality_and_work_attitude} euc_id: #{id}"
         horizontal_score_to_row_square(work_quality_and_work_attitude)
       end
     end
@@ -37,6 +38,7 @@ module GroupStaffOrManager
 
         management_profession_score = calibration_management_profession_score.present? ? calibration_management_profession_score : management_part + profession_part
 
+        Rails.logger.info "management_profession_score: #{management_profession_score} euc_id: #{id}"
         horizontal_score_to_row_square(management_profession_score)
       end
     end
