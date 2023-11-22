@@ -9,7 +9,7 @@
     <div class="row mb-3">
       <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :apa_grade_rate, class: "form-control" %>
+        <%= f.number_field :apa_grade_rate, class: "form-control", data: {'try-calculate-target': 'apaRate'} -%>
       </div>
       <div class="col-3">
         <p class="form-control border-0" data-try-calculate-target="apa"><%= t(".apa_grade_people", num: 0) -%></p>
@@ -18,7 +18,7 @@
     <div class="row mb-3">
       <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :b_grade_rate, class: "form-control" %>
+        <%= f.number_field :b_grade_rate, class: "form-control", data: {'try-calculate-target': 'bRate'} -%>
       </div>
       <div class="col-3">
         <p class="form-control border-0" data-try-calculate-target="b"><%= t(".b_grade_people", num: 0) -%></p>
@@ -27,7 +27,7 @@
     <div class="row mb-3">
       <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :cd_grade_rate, class: "form-control" %>
+        <%= f.number_field :cd_grade_rate, class: "form-control", data: {'try-calculate-target': 'cdRate'} -%>
       </div>
       <div class="col-3">
         <p class="form-control border-0" data-try-calculate-target="cd"><%= t(".cd_grade_people", num: 0) -%></p>
@@ -37,7 +37,7 @@
     <div class="row mb-3">
       <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :beyond_standard_rate, class: "form-control" %>
+        <%= f.number_field :beyond_standard_rate, class: "form-control", data: {'try-calculate-target': 'beyondRate'} -%>
       </div>
       <div class="col-3">
         <p class="form-control border-0" data-try-calculate-target="beyond"><%= t(".beyond_standard_people", num: 0) -%></p>
@@ -46,7 +46,7 @@
     <div class="row mb-3">
       <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :standards_compliant_rate, class: "form-control" %>
+        <%= f.number_field :standards_compliant_rate, class: "form-control", data: {'try-calculate-target': 'standardRate'} -%>
       </div>
       <div class="col-3">
         <p class="form-control border-0" data-try-calculate-target="standard"><%= t(".standards_compliant_people", num: 0) -%></p>
@@ -55,7 +55,7 @@
     <div class="row mb-3">
       <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :below_standard_rate, class: "form-control" %>
+        <%= f.number_field :below_standard_rate, class: "form-control", data: {'try-calculate-target': 'belowRate'} -%>
       </div>
       <div class="col-3">
         <p class="form-control border-0" data-try-calculate-target="below"><%= t(".below_standard_people", num: 0) -%></p>
