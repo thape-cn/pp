@@ -11,17 +11,26 @@
       <div class="col-4">
         <%= f.number_field :apa_grade_rate, class: "form-control" %>
       </div>
+      <div class="col-3">
+        <p class="form-control border-0"><%= t(".apa_grade_people", num: 0) -%></p>
+      </div>
     </div>
     <div class="row mb-3">
       <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :b_grade_rate, class: "form-control" %>
       </div>
+      <div class="col-3">
+        <p class="form-control border-0"><%= t(".b_grade_people", num: 0) -%></p>
+      </div>
     </div>
     <div class="row mb-3">
       <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :cd_grade_rate, class: "form-control" %>
+      </div>
+      <div class="col-3">
+        <p class="form-control border-0"><%= t(".cd_grade_people", num: 0) -%></p>
       </div>
     </div>
   <% elsif %w[manager].include?(calibration_template.company_evaluation_template.group_level) %>
@@ -30,17 +39,26 @@
       <div class="col-4">
         <%= f.number_field :below_standard_rate, class: "form-control" %>
       </div>
+      <div class="col-3">
+        <p class="form-control border-0"><%= t(".below_standard_people", num: 0) -%></p>
+      </div>
     </div>
     <div class="row mb-3">
       <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :standards_compliant_rate, class: "form-control" %>
       </div>
+      <div class="col-3">
+        <p class="form-control border-0"><%= t(".standards_compliant_people", num: 0) -%></p>
+      </div>
     </div>
     <div class="row mb-3">
       <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :beyond_standard_rate, class: "form-control" %>
+      </div>
+      <div class="col-3">
+        <p class="form-control border-0"><%= t(".beyond_standard_people", num: 0) -%></p>
       </div>
     </div>
   <% end %>

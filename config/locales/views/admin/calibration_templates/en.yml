@@ -8,3 +8,10 @@ en:
         title: "Edit calibration templates"
       confirm_destroy:
         title: "Confirm to delete calibration template?"
+      form:
+        apa_grade_people: "%{num} people"
+        b_grade_people: "%{num} people"
+        cd_grade_people: "%{num} people"
+        below_standard_people: "%{num} people"
+        standards_compliant_people: "%{num} people"
+        beyond_standard_people: "%{num} people"
