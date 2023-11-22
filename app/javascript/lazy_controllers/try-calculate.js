@@ -16,7 +16,15 @@ Stimulus.register("try-calculate", class extends Controller {
       if (response.ok) {
         const result_json = response.json;
         result_json.then(result => {
-          console.log(result);
+          if (['staff', 'auxiliary'].includes(result.group_level)) {
+            this.apaTarget.innerHTML = result.apa_grade_rate;
+            this.bTarget.innerHTML = result.b_grade_rate;
+            this.cdTarget.innerHTML = result.cd_grade_rate;
+          } else {
+            this.beyondTarget.innerHTML = result.beyond_standard_rate;
+            this.standardTarget.innerHTML = result.standards_compliant_rate;
+            this.belowTarget.innerHTML = result.below_standard_rate;
+          }
         });
       }
     });

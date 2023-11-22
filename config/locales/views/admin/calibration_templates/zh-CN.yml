@@ -9,9 +9,9 @@ zh-CN:
       confirm_destroy:
         title: "确认删除校准模版？"
       form:
-        apa_grade_people: "%{num} 人"
-        b_grade_people: "%{num} 人"
-        cd_grade_people: "%{num} 人"
-        below_standard_people: "%{num} 人"
-        standards_compliant_people: "%{num} 人"
-        beyond_standard_people: "%{num} 人"
+        apa_grade_people: "人"
+        b_grade_people: "人"
+        cd_grade_people: "人"
+        below_standard_people: "人"
+        standards_compliant_people: "人"
+        beyond_standard_people: "人"

@@ -12,7 +12,10 @@
         <%= f.number_field :apa_grade_rate, class: "form-control", data: {'try-calculate-target': 'apaRate'} -%>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="apa"><%= t(".apa_grade_people", num: 0) -%></p>
+        <p class="form-control border-0">
+          <span data-try-calculate-target="apa">0</span>
+          <%= t(".apa_grade_people") -%>
+        </p>
       </div>
     </div>
     <div class="row mb-3">
@@ -21,7 +24,10 @@
         <%= f.number_field :b_grade_rate, class: "form-control", data: {'try-calculate-target': 'bRate'} -%>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="b"><%= t(".b_grade_people", num: 0) -%></p>
+        <p class="form-control border-0">
+          <span data-try-calculate-target="b">0</span>
+          <%= t(".b_grade_people") -%>
+        </p>
       </div>
     </div>
     <div class="row mb-3">
@@ -30,7 +36,10 @@
         <%= f.number_field :cd_grade_rate, class: "form-control", data: {'try-calculate-target': 'cdRate'} -%>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="cd"><%= t(".cd_grade_people", num: 0) -%></p>
+        <p class="form-control border-0">
+          <span data-try-calculate-target="cd">0</span>
+          <%= t(".cd_grade_people") -%>
+        </p>
       </div>
     </div>
   <% elsif %w[manager].include?(calibration_template.company_evaluation_template.group_level) %>
@@ -40,7 +49,10 @@
         <%= f.number_field :beyond_standard_rate, class: "form-control", data: {'try-calculate-target': 'beyondRate'} -%>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="beyond"><%= t(".beyond_standard_people", num: 0) -%></p>
+        <p class="form-control border-0">
+          <span data-try-calculate-target="beyond">0</span>
+          <%= t(".beyond_standard_people") -%>
+        </p>
       </div>
     </div>
     <div class="row mb-3">
@@ -49,7 +61,10 @@
         <%= f.number_field :standards_compliant_rate, class: "form-control", data: {'try-calculate-target': 'standardRate'} -%>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="standard"><%= t(".standards_compliant_people", num: 0) -%></p>
+        <p class="form-control border-0">
+          <span data-try-calculate-target="standard">0</span>
+          <%= t(".standards_compliant_people") -%>
+        </p>
       </div>
     </div>
     <div class="row mb-3">
@@ -58,7 +73,10 @@
         <%= f.number_field :below_standard_rate, class: "form-control", data: {'try-calculate-target': 'belowRate'} -%>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="below"><%= t(".below_standard_people", num: 0) -%></p>
+        <p class="form-control border-0">
+          <span data-try-calculate-target="below">0</span>
+          <%= t(".below_standard_people") -%>
+        </p>
       </div>
     </div>
   <% end %>
