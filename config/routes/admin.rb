@@ -101,6 +101,7 @@ namespace :admin do
     end
     collection do
       get :expender
+      get :calculate
       post :reconcile_session_status
     end
   end
