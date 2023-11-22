@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" data-controller="try-calculate">
   <div class="row mb-3">
     <%= f.label :template_name, t("calibration.template_name"), class: 'col-3 col-form-label' %>
     <div class="col-9">
@@ -70,7 +70,7 @@
           <%= text_field_tag :calibration_people_count, nil, class: "form-control" %>
         </div>
         <div class="col-4">
-          <%= button_tag t("calibration.try_calculate"), type: 'button', class: "btn btn-secondary" %>
+          <%= button_tag t("calibration.try_calculate"), type: 'button', class: "btn btn-secondary", data: {controller: "try-calculate", action: "try-calculate#click"} -%>
         </div>
       </div>
     </div>
