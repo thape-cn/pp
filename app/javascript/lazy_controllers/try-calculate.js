@@ -11,9 +11,9 @@ Stimulus.register("try-calculate", class extends Controller {
       console.log(this.bTarget);
       console.log(this.cdTarget);
     } else {
-      console.log(this.belowTarget);
-      console.log(this.standardTarget);
       console.log(this.beyondTarget);
+      console.log(this.standardTarget);
+      console.log(this.belowTarget);
     }
   }
 });

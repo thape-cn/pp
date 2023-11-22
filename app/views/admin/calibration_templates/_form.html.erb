@@ -35,12 +35,12 @@
     </div>
   <% elsif %w[manager].include?(calibration_template.company_evaluation_template.group_level) %>
     <div class="row mb-3">
-      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :below_standard_rate, class: "form-control" %>
+        <%= f.number_field :beyond_standard_rate, class: "form-control" %>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="below"><%= t(".below_standard_people", num: 0) -%></p>
+        <p class="form-control border-0" data-try-calculate-target="beyond"><%= t(".beyond_standard_people", num: 0) -%></p>
       </div>
     </div>
     <div class="row mb-3">
@@ -53,12 +53,12 @@
       </div>
     </div>
     <div class="row mb-3">
-      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-5 col-form-label' %>
       <div class="col-4">
-        <%= f.number_field :beyond_standard_rate, class: "form-control" %>
+        <%= f.number_field :below_standard_rate, class: "form-control" %>
       </div>
       <div class="col-3">
-        <p class="form-control border-0" data-try-calculate-target="beyond"><%= t(".beyond_standard_people", num: 0) -%></p>
+        <p class="form-control border-0" data-try-calculate-target="below"><%= t(".below_standard_people", num: 0) -%></p>
       </div>
     </div>
   <% end %>

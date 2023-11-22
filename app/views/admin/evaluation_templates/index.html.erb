@@ -86,9 +86,9 @@
               <% else %>
                 <tr>
                   <td colspan="2" class="text-end"><%= ct.template_name -%></td>
-                  <td><%= t('calibration.below_standard_rate') -%>: <%= ct.below_standard_rate -%>%</td>
-                  <td><%= t('calibration.standards_compliant_rate') -%>: <%= ct.standards_compliant_rate -%>%</td>
                   <td><%= t('calibration.beyond_standard_rate') -%>: <%= ct.beyond_standard_rate -%>%</td>
+                  <td><%= t('calibration.standards_compliant_rate') -%>: <%= ct.standards_compliant_rate -%>%</td>
+                  <td><%= t('calibration.below_standard_rate') -%>: <%= ct.below_standard_rate -%>%</td>
                   <td><%= t('calibration.enforce') -%>: <%= svg_icon('free.svg#cil-sad', %w[icon]) if ct.enforce_distribute-%></td>
                   <td>
                     <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
