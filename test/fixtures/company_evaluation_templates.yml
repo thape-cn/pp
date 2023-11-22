@@ -3,11 +3,11 @@ ect_staff:
   company_evaluation: ce_one
   title: "2023年年中绩效评价沟通表（员工层）"
   group_level: "staff"
-  work_quality_pct: 35
+  work_quality_pct: 50
   work_quality_matric: "grading_3_matric"
   work_load_pct: 50
   work_load_matric: "grading_3_matric"
-  work_attitude_pct: 15
+  work_attitude_pct: 0
   work_attitude_matric: "grading_3_matric"
   management_subtotal_rate: 15
   profession_subtotal_rate: 35
