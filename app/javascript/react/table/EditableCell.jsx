@@ -60,6 +60,9 @@ export const EditableCell = ({
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
       const item = work_attitude_matric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
+    } else if ( id == 'annual_output' || id == "calibration_performance_score") {
+      const item = performance_matric.find(item => item.value === value);
+      return <p className="m-1 text-end">{item ? item.label : null}</p>;
     } else {
       const item = professional_management_matric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
