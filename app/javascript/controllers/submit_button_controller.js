@@ -5,8 +5,8 @@ export default class extends Controller {
     formId: String
   }
 
-  click(event) {
-    event.preventDefault();
+  click(e) {
+    e.preventDefault();
     document.getElementById(this.formIdValue).submit();
   }
 }

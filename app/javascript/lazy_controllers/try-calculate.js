@@ -6,8 +6,8 @@ Stimulus.register("try-calculate", class extends Controller {
    "apaRate", "bRate", "cdRate", "belowRate", "standardRate", "beyondRate"]
   static values = { groupLevel: String }
 
-  click() {
-    event.preventDefault();
+  click(e) {
+    e.preventDefault();
     const url = ['staff', 'auxiliary'].includes(this.groupLevelValue) ?
       `/admin/calibration_sessions/calculate.json?group_level=${this.groupLevelValue}&people=${this.peopleCountTarget.value}&apa=${this.apaRateTarget.value}&b=${this.bRateTarget.value}&cd=${this.cdRateTarget.value}` :
       `/admin/calibration_sessions/calculate.json?group_level=${this.groupLevelValue}&people=${this.peopleCountTarget.value}&beyond=${this.beyondRateTarget.value}&standard=${this.standardRateTarget.value}&below=${this.belowRateTarget.value}`;
