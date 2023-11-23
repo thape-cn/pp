@@ -4,36 +4,36 @@
     evaluation_user_capability.calibration_work_quality.present?, evaluation_user_capability.calibration_work_load.present?, evaluation_user_capability.calibration_work_attitude.present?].any? %>
     <table class="table">
       <thead>
-      <tr>
-        <th class="w-75"><%= t("evaluation.fixed_output") -%></th>
-        <th><%= t("evaluation.capability_result") -%></th>
-      </tr>
+        <tr>
+          <th class="w-75"><%= t("evaluation.fixed_output") -%></th>
+          <th><%= t("evaluation.capability_result") -%></th>
+        </tr>
       </thead>
       <tbody>
-      <tr>
-        <td><%= t('calibration.pre_work_quality') -%></td>
-        <td><%= public_send(company_evaluation_template.work_quality_matric).invert[to_matrics_value(evaluation_user_capability.work_quality)] || evaluation_user_capability.work_quality -%></td>
-      </tr>
-      <tr>
-        <td><%= t('calibration.pre_work_load') -%></td>
-        <td><%= public_send(company_evaluation_template.work_load_matric).invert[to_matrics_value(evaluation_user_capability.work_load)] || evaluation_user_capability.work_load -%></td>
-      </tr>
-      <tr>
-        <td><%= t('calibration.pre_work_attitude') -%></td>
-        <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[to_matrics_value(evaluation_user_capability.work_attitude)] || evaluation_user_capability.work_attitude -%></td>
-      </tr>
-      <tr>
-        <td><%= t('evaluation.work_quality_pct') -%></td>
-        <td><%= public_send(company_evaluation_template.work_quality_matric).invert[evaluation_user_capability.calibration_work_quality] || evaluation_user_capability.calibration_work_quality -%></td>
-      </tr>
-      <tr>
-        <td><%= t('evaluation.work_load_pct') -%></td>
-        <td><%= public_send(company_evaluation_template.work_load_matric).invert[evaluation_user_capability.calibration_work_load] || evaluation_user_capability.calibration_work_load -%></td>
-      </tr>
-      <tr>
-        <td><%= t('evaluation.work_attitude_pct') -%></td>
-        <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[evaluation_user_capability.calibration_work_attitude] || evaluation_user_capability.calibration_work_attitude -%></td>
-      </tr>
+        <tr>
+          <td><%= t('calibration.pre_work_quality') -%></td>
+          <td><%= public_send(company_evaluation_template.work_quality_matric).invert[to_matrics_value(evaluation_user_capability.work_quality)] || evaluation_user_capability.work_quality -%></td>
+        </tr>
+        <tr>
+          <td><%= t('calibration.pre_work_load') -%></td>
+          <td><%= public_send(company_evaluation_template.work_load_matric).invert[to_matrics_value(evaluation_user_capability.work_load)] || evaluation_user_capability.work_load -%></td>
+        </tr>
+        <tr>
+          <td><%= t('calibration.pre_work_attitude') -%></td>
+          <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[to_matrics_value(evaluation_user_capability.work_attitude)] || evaluation_user_capability.work_attitude -%></td>
+        </tr>
+        <tr>
+          <td><%= t('evaluation.work_quality_pct') -%></td>
+          <td><%= public_send(company_evaluation_template.work_quality_matric).invert[evaluation_user_capability.calibration_work_quality] || evaluation_user_capability.calibration_work_quality -%></td>
+        </tr>
+        <tr>
+          <td><%= t('evaluation.work_load_pct') -%></td>
+          <td><%= public_send(company_evaluation_template.work_load_matric).invert[evaluation_user_capability.calibration_work_load] || evaluation_user_capability.calibration_work_load -%></td>
+        </tr>
+        <tr>
+          <td><%= t('evaluation.work_attitude_pct') -%></td>
+          <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[evaluation_user_capability.calibration_work_attitude] || evaluation_user_capability.calibration_work_attitude -%></td>
+        </tr>
       </tbody>
     </table>
   <% end %>
