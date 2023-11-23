@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <% company_evaluation_template = evaluation_user_capability.company_evaluation_template %>
-  <% if [evaluation_user_capability.work_quality.present?, evaluation_user_capability.work_load.present?, evaluation_user_capability.work_attitude.present?,
+  <% if [evaluation_user_capability.annual_output.present?, evaluation_user_capability.work_quality.present?, evaluation_user_capability.work_load.present?, evaluation_user_capability.work_attitude.present?,
     evaluation_user_capability.calibration_work_quality.present?, evaluation_user_capability.calibration_work_load.present?, evaluation_user_capability.calibration_work_attitude.present?].any? %>
     <table class="table">
       <thead>
@@ -10,6 +10,12 @@
         </tr>
       </thead>
       <tbody>
+        <% if evaluation_user_capability.annual_output.present? %>
+          <tr>
+            <td><%= t('calibration.annual_output') -%></td>
+            <td><%= public_send(company_evaluation_template.performance_matric).invert[to_matrics_value(evaluation_user_capability.annual_output)] || evaluation_user_capability.annual_output -%></td>
+          </tr>
+        <% end %>
         <tr>
           <td><%= t('calibration.pre_work_quality') -%></td>
           <td><%= public_send(company_evaluation_template.work_quality_matric).invert[to_matrics_value(evaluation_user_capability.work_quality)] || evaluation_user_capability.work_quality -%></td>
