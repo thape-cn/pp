@@ -21,11 +21,11 @@ module HR
       end
 
       undo_user = @calibration_session_user.user
-      previous_evaluation_user_capability = @calibration_session_user.evaluation_user_capability
+      evaluation_user_capability = @calibration_session_user.evaluation_user_capability
       previous_calibration_session = @calibration_session_user.calibration_session
       undo_calibration_template = CalibrationTemplate.find_by(id: calibration_session_user_params[:undo_calibration_template_id])
       undo_calibration_count = undo_user.calibration_session_users
-        .where(evaluation_user_capability_id: previous_evaluation_user_capability.id).count
+        .where(evaluation_user_capability_id: evaluation_user_capability.id).count
       if result == true
         new_calibration_session = undo_calibration_template
           .calibration_sessions.find_or_create_by(session_name: "#{undo_calibration_template.template_name}-#{undo_user.chinese_name}-#{undo_calibration_count}", owner_id: previous_calibration_session.owner_id)
@@ -39,7 +39,7 @@ module HR
             new_calibration_session.update(session_status: "waiting_manager_score")
           end
         end
-        new_calibration_session.calibration_session_users.find_or_create_by(user_id: @calibration_session_user.user.id, evaluation_user_capability_id: previous_evaluation_user_capability.id)
+        new_calibration_session.calibration_session_users.find_or_create_by(user_id: @calibration_session_user.user.id, evaluation_user_capability_id: evaluation_user_capability.id)
         previous_calibration_session.calibration_session_judges.each do |previous_judge|
           new_calibration_session.calibration_session_judges.find_or_create_by(judge_id: previous_judge.judge_id)
         end
