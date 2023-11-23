@@ -89,6 +89,27 @@ export function EucModalDialog({euc_id, onClose}) {
           <button className="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
         </div>
         <div className="modal-body">
+          {evaluationUserCapability.fixed_output && <FixedOutputDetail fixed_output={evaluationUserCapability.fixed_output}
+          callbackfn={([key, value]) => {
+            let item = undefined;
+
+            if (key == "work_quality") {
+              item = companyEvaluationTemplate.work_quality_matric.find(item => item.value === value);
+            } else if (key == "work_load") {
+              item = companyEvaluationTemplate.work_load_matric.find(item => item.value === value);
+            } else if (key == "work_attitude") {
+              item = companyEvaluationTemplate.work_attitude_matric.find(item => item.value === value);
+            } else {
+              item = companyEvaluationTemplate.professional_management_matric.find(item => item.value === value);
+            }
+
+            return (
+              <tr key={key}>
+                <td>{calibrationLabels()[`${key}_pct`]}</td>
+                <td>{item ? item.label : null}</td>
+              </tr>
+            );
+          }}/>}
           {evaluationUserCapability.job_role_performances && <PerformanceDetail job_role_performances={evaluationUserCapability.job_role_performances}
           callbackfn={([key, value]) => {
             const item = companyEvaluationTemplate.performance_matric.find(item => item.value === value);
@@ -118,27 +139,6 @@ export function EucModalDialog({euc_id, onClose}) {
             return (
               <tr key={key}>
                 <td>{key}</td>
-                <td>{item ? item.label : null}</td>
-              </tr>
-            );
-          }}/>}
-          {evaluationUserCapability.fixed_output && <FixedOutputDetail fixed_output={evaluationUserCapability.fixed_output}
-          callbackfn={([key, value]) => {
-            let item = undefined;
-
-            if (key == "work_quality") {
-              item = companyEvaluationTemplate.work_quality_matric.find(item => item.value === value);
-            } else if (key == "work_load") {
-              item = companyEvaluationTemplate.work_load_matric.find(item => item.value === value);
-            } else if (key == "work_attitude") {
-              item = companyEvaluationTemplate.work_attitude_matric.find(item => item.value === value);
-            } else {
-              item = companyEvaluationTemplate.professional_management_matric.find(item => item.value === value);
-            }
-
-            return (
-              <tr key={key}>
-                <td>{calibrationLabels()[`${key}_pct`]}</td>
                 <td>{item ? item.label : null}</td>
               </tr>
             );
