@@ -3,8 +3,6 @@ class UserJobRole < ApplicationRecord
   belongs_to :job_role
   belongs_to :manager_user, optional: true, class_name: :User
 
-  validates_uniqueness_of :user_id, scope: :job_role_id
-  
   def self.all_company_names
     select(:company).distinct.pluck(:company)
   end

@@ -16,10 +16,6 @@ class EvaluationUserCapability < ApplicationRecord
   include Edoc2Upload
   include GroupStaffOrManager
 
-  def user_job_role
-    UserJobRole.find_by(user_id: user_id, job_role_id: job_role_id)
-  end
-
   def not_nil_capability_column_names
     ((attributes.keys.reject { |key| self[key].nil? }) & Capability.all_capability_column_names) - Capability.calibration_column_names
   end
