@@ -5,4 +5,4 @@ zh-CN:
       show:
         title: "签字确认考评结果"
       update:
-        update_success: "考评结果签字确认成功。"
+        update_success: "考评结果确认成功。"

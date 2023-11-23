@@ -5,4 +5,4 @@ en:
       show:
         title: "Signature to confirm the assessment result"
       update:
-        update_success: "The evaluation are signed to confirm now."
+        update_success: "The evaluation now confirmed."
