@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_03_022044) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_24_055737) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -166,6 +166,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_03_022044) do
     t.integer "below_standard_rate", default: 30, null: false
     t.integer "standards_compliant_rate", default: 40, null: false
     t.integer "beyond_standard_rate", default: 30, null: false
+    t.boolean "enforce_highest_only", default: false, null: false
     t.index ["company_evaluation_template_id"], name: "index_calibration_templates_on_company_evaluation_template_id"
   end
 

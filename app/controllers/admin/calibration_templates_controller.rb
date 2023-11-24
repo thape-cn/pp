@@ -36,7 +36,8 @@ module Admin
     def calibration_template_params
       params.require(:calibration_template)
         .permit(:template_name, :apa_grade_rate, :b_grade_rate, :cd_grade_rate,
-          :below_standard_rate, :standards_compliant_rate, :beyond_standard_rate, :enforce_distribute)
+          :below_standard_rate, :standards_compliant_rate, :beyond_standard_rate,
+          :enforce_distribute, :enforce_highest_only)
     end
 
     def set_company_evaluation

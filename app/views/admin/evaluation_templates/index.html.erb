@@ -71,7 +71,15 @@
                   <td><%= t('calibration.apa_grade') -%>: <%= ct.apa_grade_rate -%>%</td>
                   <td><%= t('calibration.b_grade') -%>: <%= ct.b_grade_rate -%>%</td>
                   <td><%= t('calibration.cd_grade') -%>: <%= ct.cd_grade_rate -%>%</td>
-                  <td><%= t('calibration.enforce') -%>: <%= svg_icon('free.svg#cil-sad', %w[icon]) if ct.enforce_distribute-%></td>
+                  <td><%= t('calibration.enforce') -%>:
+                    <% if ct.enforce_distribute? %>
+                      <% if ct.enforce_highest_only? %>
+                        <%= svg_icon('free.svg#cil-mood-bad', %w[icon]) -%>
+                      <% else %>
+                        <%= svg_icon('free.svg#cil-mood-very-bad', %w[icon]) -%>
+                      <% end %>
+                    <% end %>
+                  </td>
                   <td>
                     <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                       <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
@@ -89,7 +97,15 @@
                   <td><%= t('calibration.beyond_standard_rate') -%>: <%= ct.beyond_standard_rate -%>%</td>
                   <td><%= t('calibration.standards_compliant_rate') -%>: <%= ct.standards_compliant_rate -%>%</td>
                   <td><%= t('calibration.below_standard_rate') -%>: <%= ct.below_standard_rate -%>%</td>
-                  <td><%= t('calibration.enforce') -%>: <%= svg_icon('free.svg#cil-sad', %w[icon]) if ct.enforce_distribute-%></td>
+                  <td><%= t('calibration.enforce') -%>:
+                    <% if ct.enforce_distribute? %>
+                      <% if ct.enforce_highest_only? %>
+                        <%= svg_icon('free.svg#cil-mood-bad', %w[icon]) -%>
+                      <% else %>
+                        <%= svg_icon('free.svg#cil-mood-very-bad', %w[icon]) -%>
+                      <% end %>
+                    <% end %>
+                  </td>
                   <td>
                     <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                       <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
