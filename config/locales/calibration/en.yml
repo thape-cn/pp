@@ -19,6 +19,7 @@ en:
     encourage: "Encourage"
     enforce: "Encourage"
     enforce_distribute: "Enforce distribute"
+    enforce_highest_only: "Enforce highest only"
     session_name: "Calibration session name"
     session_name_and_template: "Calibration session name / template"
     owner_judge: "Owner / Judge"

@@ -1,17 +1,17 @@
 <div class="container-fluid" data-controller="try-calculate" data-try-calculate-group-level-value="<%= calibration_template.company_evaluation_template.group_level -%>">
   <div class="row mb-3">
-    <%= f.label :template_name, t("calibration.template_name"), class: 'col-3 col-form-label' %>
-    <div class="col-9">
+    <%= f.label :template_name, t("calibration.template_name"), class: 'col-4 col-form-label' %>
+    <div class="col-8">
       <%= f.text_field :template_name, class: "form-control" %>
     </div>
   </div>
   <% if %w[staff auxiliary].include?(calibration_template.company_evaluation_template.group_level) %>
     <div class="row mb-3">
-      <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :apa_grade_rate, class: "form-control", data: {'try-calculate-target': 'apaRate'} -%>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p class="form-control border-0">
           <span data-try-calculate-target="apa">0</span>
           <%= t(".apa_grade_people") -%>
@@ -19,11 +19,11 @@
       </div>
     </div>
     <div class="row mb-3">
-      <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :b_grade_rate, class: "form-control", data: {'try-calculate-target': 'bRate'} -%>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p class="form-control border-0">
           <span data-try-calculate-target="b">0</span>
           <%= t(".b_grade_people") -%>
@@ -31,11 +31,11 @@
       </div>
     </div>
     <div class="row mb-3">
-      <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :cd_grade_rate, class: "form-control", data: {'try-calculate-target': 'cdRate'} -%>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p class="form-control border-0">
           <span data-try-calculate-target="cd">0</span>
           <%= t(".cd_grade_people") -%>
@@ -44,11 +44,11 @@
     </div>
   <% elsif %w[manager].include?(calibration_template.company_evaluation_template.group_level) %>
     <div class="row mb-3">
-      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :beyond_standard_rate, class: "form-control", data: {'try-calculate-target': 'beyondRate'} -%>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p class="form-control border-0">
           <span data-try-calculate-target="beyond">0</span>
           <%= t(".beyond_standard_people") -%>
@@ -56,11 +56,11 @@
       </div>
     </div>
     <div class="row mb-3">
-      <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :standards_compliant_rate, class: "form-control", data: {'try-calculate-target': 'standardRate'} -%>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p class="form-control border-0">
           <span data-try-calculate-target="standard">0</span>
           <%= t(".standards_compliant_people") -%>
@@ -68,11 +68,11 @@
       </div>
     </div>
     <div class="row mb-3">
-      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-5 col-form-label' %>
+      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
         <%= f.number_field :below_standard_rate, class: "form-control", data: {'try-calculate-target': 'belowRate'} -%>
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <p class="form-control border-0">
           <span data-try-calculate-target="below">0</span>
           <%= t(".below_standard_people") -%>
@@ -81,7 +81,7 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col-8">
+    <div class="col-6">
       <div class="row">
         <%= f.label :calibration_people_count, t("calibration.calibration_people_count"), class: 'col-4  col-form-label' %>
         <div class="col-4">
@@ -92,11 +92,17 @@
         </div>
       </div>
     </div>
-    <div class="col-4">
-      <div class="form-group mt-2">
+    <div class="col-6">
+      <div class="form-group">
         <div class="form-check form-switch form-switch-xl">
           <%= f.check_box :enforce_distribute, class: "form-check-input" %>
           <%= f.label :enforce_distribute, t("calibration.enforce_distribute"), class: "form-check-label" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check form-switch form-switch-xl">
+          <%= f.check_box :enforce_distribute, class: "form-check-input" %>
+          <%= f.label :enforce_distribute, t("calibration.enforce_highest_only"), class: "form-check-label" %>
         </div>
       </div>
     </div>

@@ -19,6 +19,7 @@ zh-CN:
     encourage: "建议"
     enforce: "建议"
     enforce_distribute: "强制校准"
+    enforce_highest_only: "仅强制分布最高挡"
     session_name: "校准会话名称"
     session_name_and_template: "校准会话名称 / 模版"
     owner_judge: "所有者 / 参与者"
