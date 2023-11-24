@@ -92,11 +92,11 @@ module Staff
       if params[:finalize] && @calibration_session.calibration_template.enforce_distribute?
         @enforce_distribute_reject_message = case @group_level
         when "staff"
-          check_enforce_distribute_for_staff_group(params[:calibration])
+          check_enforce_distribute_for_staff_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         when "auxiliary"
-          check_enforce_distribute_for_staff_group(params[:calibration])
+          check_enforce_distribute_for_staff_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         when "manager"
-          check_enforce_distribute_for_manager_group(params[:calibration])
+          check_enforce_distribute_for_manager_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         end
         if @enforce_distribute_reject_message.nil?
           @accept_finalize_confirm_message = I18n.t("calibration.accept_finalize_confirm_message")
