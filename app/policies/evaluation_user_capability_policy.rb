@@ -33,8 +33,8 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
 
     record.user_id == user.id ||
       record.manager_user&.id == user.id ||
-      record.calibration_session_user.calibration_session.owner_id == user.id ||
-      record.calibration_session_user.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id }
+      record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
+      record.calibration_session_users.any? { |csv| csu.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id } }
   end
 
   def print?
@@ -45,8 +45,8 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
 
     record.user_id == user.id ||
       record.manager_user&.id == user.id ||
-      record.calibration_session_user.calibration_session.owner_id == user.id ||
-      record.calibration_session_user.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id }
+      record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
+      record.calibration_session_users.any? { |csv| csu.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id } }
   end
 
   def update?
@@ -76,15 +76,11 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   end
 
   def overall_text?
-    calibration_session = record.calibration_session_user&.calibration_session
-
     if user.admin? || user.hr_staff? || user.id == record.manager_user_id
       true
-    elsif calibration_session.present?
-      calibration_session.owner_id == user.id ||
-        calibration_session.calibration_session_judges.any? do |csj|
-          csj.judge_id == user.id
-        end
+    elsif record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
+        record.calibration_session_users.any? { |csv| csu.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id } }
+      true
     end
   end
 end

@@ -112,15 +112,26 @@ module Staff
       end
 
       new_calibration_session_ids = evaluation_user_capabilities.collect do |euc|
-        next if euc.calibration_session_user.blank?
-        euc.calibration_session_user.new_calibration_session_id
-      end.reject(&:blank?)
+        next if euc.calibration_session_users.blank?
+
+        new_cs_ids = []
+        euc.calibration_session_users.each do |csu|
+          next if csu.calibration_session.session_status == "proofreading_completed"
+          new_cs_ids << csu.new_calibration_session_id
+        end
+        new_cs_ids
+      end.reject(&:blank?).flatten
 
       original_calibration_session_ids = evaluation_user_capabilities.collect do |euc|
-        next if euc.calibration_session_user.blank?
-        next if euc.calibration_session_user.new_calibration_session_id.present?
-        euc.calibration_session_user.calibration_session_id
-      end.reject(&:blank?)
+        next if euc.calibration_session_users.blank?
+
+        cs_ids = []
+        euc.calibration_session_users.each do |csu|
+          next if csu.new_calibration_session_id.present?
+          cs_ids << csu.calibration_session_id
+        end
+        cs_ids
+      end.reject(&:blank?).flatten
 
       owner_calibrating_reminder = OwnerCalibratingReminder.new
       CalibrationSession.where(id: original_calibration_session_ids).each do |session|
