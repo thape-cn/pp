@@ -34,7 +34,7 @@ euc_pp4:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   self_overall_output: "12345678901234567890"
@@ -51,7 +51,7 @@ euc_pp5:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   self_overall_output: "12345678901234567890"
@@ -68,7 +68,7 @@ euc_pp6:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   self_overall_output: "12345678901234567890"
@@ -85,7 +85,7 @@ euc_pp7:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   self_overall_output: "12345678901234567890"
@@ -102,7 +102,7 @@ euc_pp8:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   self_overall_output: "12345678901234567890"
@@ -119,7 +119,7 @@ euc_pp9:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   self_overall_output: "12345678901234567890"
@@ -136,7 +136,7 @@ euc_pp1:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "设总"
   self_overall_output: "12345678901234567890"
@@ -158,7 +158,7 @@ euc_pp2:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "设总"
   self_overall_output: "12345678901234567890"
@@ -180,7 +180,7 @@ euc_pp3:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "设总"
   self_overall_output: "12345678901234567890"
@@ -202,7 +202,7 @@ euc_pp0:
   job_role: job_10
   manager_user: user_fangzixue
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "所长（施工图）"
   form_status: "initial"
@@ -213,7 +213,7 @@ euc_pp10:
   job_role: job_76
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "000101203"
   title: "商务经理"
   self_overall_output: "商务经理 self_overall_output 12345678901234567890"
@@ -230,7 +230,7 @@ euc_pp11:
   job_role: job_176
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "000101203"
   title: "行政部经理"
   self_overall_output: "行政部经理 self_overall_output 1234567890"
@@ -250,7 +250,7 @@ euc_pp12:
   job_role: job_82
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "0001010005"
   title: "学习发展经理"
   self_overall_output: "学习发展经理 self_overall_output 12345678901234567890"
@@ -272,7 +272,7 @@ euc_pp13:
   job_role: job_311
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "000101203"
   title: "招聘经理"
   self_overall_output: "招聘经理 self_overall_output 12345678901234567890"

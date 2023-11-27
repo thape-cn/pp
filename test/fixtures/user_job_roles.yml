@@ -34,7 +34,7 @@ ujr_3641:
   job_role: job_10
   manager_user: user_fangzixue
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "所长（施工图）"
   is_active: true
@@ -44,7 +44,7 @@ ujr_3642:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "设总"
   is_active: true
@@ -54,7 +54,7 @@ ujr_3643:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "设总"
   is_active: true
@@ -64,7 +64,7 @@ ujr_3644:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "设总"
   is_active: true
@@ -74,7 +74,7 @@ ujr_3645:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
@@ -84,7 +84,7 @@ ujr_3646:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
@@ -94,7 +94,7 @@ ujr_3647:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
@@ -104,7 +104,7 @@ ujr_3648:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
@@ -114,7 +114,7 @@ ujr_3649:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
@@ -124,7 +124,7 @@ ujr_3650:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "pp2023"
   title: "D级建筑师"
   is_active: true
@@ -134,7 +134,7 @@ ujr_125:
   job_role: job_76
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "000101203"
   title: "商务经理"
   is_active: true
@@ -144,7 +144,7 @@ ujr_419:
   job_role: job_176
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "000101203"
   title: "行政部经理"
   is_active: true
@@ -154,7 +154,7 @@ ujr_1151:
   job_role: job_82
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "0001010005"
   title: "学习发展经理"
   is_active: true
@@ -164,7 +164,7 @@ ujr_1579:
   job_role: job_311
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试组织"
+  department: "测试部门"
   dept_code: "000101203"
   title: "招聘经理"
   is_active: true
