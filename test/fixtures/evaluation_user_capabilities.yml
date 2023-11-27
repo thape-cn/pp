@@ -236,6 +236,9 @@ euc_pp11:
   self_overall_output: "行政部经理 self_overall_output 1234567890"
   self_overall_improvement: "行政部经理 self_overall_improvement 1234567890"
   self_overall_plan: "行政部经理 self_overall_plan 1234567890"
+  manager_overall_output: "行政部经理 manager_overall_output 1234567890"
+  manager_overall_improvement: "行政部经理 manager_overall_improvement 1234567890"
+  manager_overall_plan: "行政部经理 manager_overall_plan 1234567890"
   form_status: "self_assessment_done"
   work_attitude: 0
   work_load: 0
@@ -253,6 +256,9 @@ euc_pp12:
   self_overall_output: "学习发展经理 self_overall_output 12345678901234567890"
   self_overall_improvement: "学习发展经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "学习发展经理 self_overall_plan 12345678901234567890"
+  manager_overall_output: "学习发展经理 manager_overall_output 1234567890"
+  manager_overall_improvement: "学习发展经理 manager_overall_improvement 1234567890"
+  manager_overall_plan: "学习发展经理 manager_overall_plan 1234567890"
   form_status: "self_assessment_done"
   annual_output: 0
   coaching: 0
@@ -272,6 +278,9 @@ euc_pp13:
   self_overall_output: "招聘经理 self_overall_output 12345678901234567890"
   self_overall_improvement: "招聘经理 self_overall_improvement 12345678901234567890"
   self_overall_plan: "招聘经理 self_overall_plan 12345678901234567890"
+  manager_overall_output: "招聘经理 manager_overall_output 1234567890"
+  manager_overall_improvement: "招聘经理 manager_overall_improvement 1234567890"
+  manager_overall_plan: "招聘经理 manager_overall_plan 1234567890"
   form_status: "self_assessment_done"
   annual_output: 0
   coaching: 0
