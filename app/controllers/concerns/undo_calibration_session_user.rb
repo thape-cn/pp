@@ -33,6 +33,16 @@ module UndoCalibrationSessionUser
         new_calibration_session.calibration_session_judges.find_or_create_by(judge_id: previous_judge.judge_id)
       end
       @calibration_session_user.update(new_calibration_session_id: new_calibration_session.id)
+      auto_mark_calibration_session_complete_if_all_is_new
+    end
+  end
+
+  private
+
+  def auto_mark_calibration_session_complete_if_all_is_new
+    calibration_session = @calibration_session_user.calibration_session
+    if calibration_session.calibration_session_users.all? { |csu| csu.new_calibration_session_id.present? }
+      calibration_session.update(session_status: "proofreading_completed")
     end
   end
 end
