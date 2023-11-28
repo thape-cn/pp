@@ -47,7 +47,6 @@ module Staff
             work_load_pct: I18n.t("evaluation.work_load_pct"),
             work_quality_pct: I18n.t("evaluation.work_quality_pct"),
             work_attitude_pct: I18n.t("evaluation.work_attitude_pct"),
-            annual_output_pct: I18n.t("evaluation.annual_output_pct"),
             below_standard: I18n.t("evaluation.below_standard"),
             standards_compliant: I18n.t("evaluation.standards_compliant"),
             beyond_standard: I18n.t("evaluation.beyond_standard"),
