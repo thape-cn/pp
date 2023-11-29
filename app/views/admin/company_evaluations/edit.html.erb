@@ -14,13 +14,19 @@
             </div>
           </div>
           <div class="row mb-3">
-            <%= f.label :start_date, t("admin.company_evaluations.index.start_date"), class: 'col-4 col-form-label' %>
+            <%= f.label :bonus_period, t("evaluation.bonus_period"), class: 'col-4 col-form-label' %>
+            <div class="col-8">
+              <%= f.text_field :bonus_period, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <%= f.label :start_date, t("evaluation.start_date"), class: 'col-4 col-form-label' %>
             <div class="col-8">
               <%= f.text_field :start_date, class: 'form-control' -%>
             </div>
           </div>
           <div class="row mb-3">
-            <%= f.label :end_date, t("admin.company_evaluations.index.end_date"), class: 'col-4 col-form-label' %>
+            <%= f.label :end_date, t("evaluation.end_date"), class: 'col-4 col-form-label' %>
             <div class="col-8">
               <%= f.text_field :end_date, class: 'form-control' -%>
             </div>

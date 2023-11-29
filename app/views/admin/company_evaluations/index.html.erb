@@ -18,9 +18,10 @@
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
-            <th><%= t('.company_evaluation_title') -%></th>
-            <th><%= t('.start_date') -%></th>
-            <th><%= t('.end_date') -%></th>
+            <th><%= t('evaluation.company_evaluation_title') -%></th>
+            <th><%= t('evaluation.bonus_period') -%></th>
+            <th><%= t('evaluation.start_date') -%></th>
+            <th><%= t('evaluation.end_date') -%></th>
             <th><%= t('form.action') -%></th>
           </tr>
         </thead>
@@ -28,6 +29,7 @@
           <% @company_evaluations.each do |company_evaluation| %>
             <tr>
               <td><%= company_evaluation.title -%></td>
+              <td><%= company_evaluation.bonus_period -%></td>
               <td><%= company_evaluation.start_date -%></td>
               <td><%= company_evaluation.end_date -%></td>
               <td>

@@ -9,7 +9,7 @@ class UploadPpResultJob
       json: {
         secret: Rails.application.credentials.pm_upload_secret_key!,
         clerk_code: euc.user.clerk_code,
-        bonus_period: "2023-06",
+        bonus_period: euc.company_evaluation_template.company_evaluation.bonus_period,
         performance_rating: euc.total_evaluation_score
       })
 

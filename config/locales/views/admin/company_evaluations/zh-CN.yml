@@ -4,9 +4,6 @@ zh-CN:
     company_evaluations:
       index:
         title: "公司考评"
-        company_evaluation_title: "考评标题"
-        start_date: "开始时间"
-        end_date: "结束时间"
       new:
         title: "创建公司考评"
       edit:

@@ -3,6 +3,10 @@ zh-CN:
   evaluation:
     evaluation: "评价"
     capabilities: "能力"
+    company_evaluation_title: "考评标题"
+    bonus_period: "奖金区间"
+    start_date: "开始时间"
+    end_date: "结束时间"
     template_title: "考评表单标题"
     initiate_evaluation: "发起新考评表单"
     brief: "简介"

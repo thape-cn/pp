@@ -49,7 +49,7 @@ module Admin
     private
 
     def company_evaluation_params
-      params.require(:company_evaluation).permit(:title, :start_date, :end_date)
+      params.require(:company_evaluation).permit(:title, :bonus_period, :start_date, :end_date)
     end
 
     def set_company_evaluation

@@ -3,6 +3,10 @@ en:
   evaluation:
     evaluation: "Evaluation"
     capabilities: "Capabilities"
+    company_evaluation_title: "Company evaluation title"
+    bonus_period: "Bonus period"
+    start_date: "Start date"
+    end_date: "End date"
     template_title: "Assessment form title"
     initiate_evaluation: "Initiate evaluation"
     brief: "Brief"
