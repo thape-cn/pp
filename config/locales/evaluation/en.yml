@@ -32,6 +32,7 @@ en:
     work_load_pct: "Work load"
     work_quality_pct: "Work quality"
     work_attitude_pct: "Work attitude"
+    annual_output_pct: "Annual output"
     below_standard: "Below standard"
     standards_compliant: "Standards compliant"
     beyond_standard: "Beyond the standard"

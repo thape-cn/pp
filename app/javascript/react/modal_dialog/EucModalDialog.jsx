@@ -144,27 +144,27 @@ export function EucModalDialog({euc_id, onClose}) {
             );
           }}/>}
           <div className="col-12">
-            <div className="m-2">{calibrationLabels().self_overall_output}</div>
+            <div className="m-2"><strong>{calibrationLabels().self_overall_output}</strong></div>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: evaluationUserCapability.self_overall_output}}></div>
           </div>
           <div className="col-12">
-            <div className="m-2">{calibrationLabels().self_overall_improvement}</div>
+            <div className="m-2"><strong>{calibrationLabels().self_overall_improvement}</strong></div>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: evaluationUserCapability.self_overall_improvement}}></div>
           </div>
           <div className="col-12">
-            <div className="m-2">{calibrationLabels().self_overall_plan}</div>
+            <div className="m-2"><strong>{calibrationLabels().self_overall_plan}</strong></div>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: evaluationUserCapability.self_overall_plan}}></div>
           </div>
           <div className="col-12">
-            <div className="m-2">{calibrationLabels().manager_overall_output}</div>
+            <div className="m-2"><strong>{calibrationLabels().manager_overall_output}</strong></div>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: evaluationUserCapability.manager_overall_output}}></div>
           </div>
           <div className="col-12">
-            <div className="m-2">{calibrationLabels().manager_overall_improvement}</div>
+            <div className="m-2"><strong>{calibrationLabels().manager_overall_improvement}</strong></div>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: evaluationUserCapability.manager_overall_improvement}}></div>
           </div>
           <div className="col-12">
-            <div className="m-2">{calibrationLabels().manager_overall_plan}</div>
+            <div className="m-2"><strong>{calibrationLabels().manager_overall_plan}</strong></div>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: evaluationUserCapability.manager_overall_plan}}></div>
           </div>
         </div>

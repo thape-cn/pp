@@ -32,6 +32,7 @@ zh-CN:
     work_load_pct: "工作量"
     work_quality_pct: "工作质量"
     work_attitude_pct: "工作态度"
+    annual_output_pct: "年度工作产出"
     below_standard: "低于标准"
     standards_compliant: "符合标准"
     beyond_standard: "超出标准"
