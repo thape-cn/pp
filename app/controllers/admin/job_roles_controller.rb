@@ -1,7 +1,7 @@
 module Admin
   class JobRolesController < BaseController
-    after_action :verify_authorized, except: :index
-    after_action :verify_policy_scoped, only: :index
+    after_action :verify_authorized, except: %i[index excel_report]
+    after_action :verify_policy_scoped, only: %i[index excel_report]
     before_action :set_job_role, only: %i[edit update]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 
@@ -13,6 +13,47 @@ module Admin
         end
         format.json do
           render json: JobRoleDatatable.new(params, job_roles: job_roles, view_context: view_context)
+        end
+      end
+    end
+
+    def excel_report
+      job_roles = policy_scope(JobRole).all
+      respond_to do |format|
+        format.xlsx do
+          p = Axlsx::Package.new
+          wb = p.workbook
+
+          wb.add_worksheet(name: "job_roles") do |sheet|
+            sheet.add_row ["ID",
+              I18n.t("user.st_code"),
+              I18n.t("user.job_level"),
+              I18n.t("user.job_code"),
+              I18n.t("user.job_family"),
+
+              I18n.t("form.created_at"),
+              I18n.t("form.updated_at"),
+              I18n.t("capability.evaluation_roles")]
+            job_roles.find_each do |jr|
+              values = []
+              values << jr.id
+              values << jr.st_code
+              values << jr.job_level
+              values << jr.job_code
+              values << jr.job_family
+
+              values << jr.created_at.to_fs(:db_short)
+              values << jr.updated_at.to_fs(:db_short)
+              values << jr.evaluation_role&.role_name
+              row = sheet.add_row values
+              row.cells[1].type = :string
+              row.cells[1].value = jr.st_code
+            end
+          end
+
+          temp_file = Tempfile.new("admin_excel_report")
+          p.serialize temp_file
+          send_file temp_file, filename: "all_job_roles.xlsx"
         end
       end
     end

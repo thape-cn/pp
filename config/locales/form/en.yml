@@ -40,3 +40,5 @@ en:
     to_end_evaluation: "End this company evaluation"
     row_number: "#"
     status_time: "Status time"
+    created_at: "Created at"
+    updated_at: "Updated at"

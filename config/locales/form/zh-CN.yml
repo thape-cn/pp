@@ -40,3 +40,5 @@ zh-CN:
     to_end_evaluation: "结束此次公司考评"
     row_number: "#"
     status_time: "发生时间"
+    created_at: "创建时间"
+    updated_at: "更新时间"
