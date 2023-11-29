@@ -43,6 +43,10 @@ module UndoCalibrationSessionUser
     calibration_session = @calibration_session_user.calibration_session
     if calibration_session.calibration_session_users.all? { |csu| csu.new_calibration_session_id.present? }
       calibration_session.update(session_status: "proofreading_completed")
+      calibration_session.calibration_session_users.each do |csu|
+        next if csu.new_calibration_session_id.present?
+        UploadPpResultJob.perform_async(csu.evaluation_user_capability.id)
+      end
     end
   end
 end
