@@ -44,7 +44,7 @@ gem "redcarpet"
 gem "csv"
 # To import the excel
 gem "roo"
-# To export excel
+# To export excel using Axlsx::Package
 gem "caxlsx"
 # To save printed form as PDF.
 gem "ferrum"
