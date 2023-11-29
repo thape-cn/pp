@@ -3,7 +3,7 @@
 	[
 		{
       "path": ".",
-      "folder_exclude_patterns": [".bundle",".ruby-lsp",".vscode",".idea",".capistrano","edoc_guid_pdf","log","tmp",
+      "folder_exclude_patterns": [".bundle",".ruby-lsp",".vscode",".idea",".capistrano","edoc_guid_pdf", "log", "storage", "tmp",
                                   "node_modules", "public/packs", "public/packs-test", "public/assets"],
       "file_exclude_patterns": ["*.sublime-workspace",".DS_Store","config/master.key",
                                 "config/credentials.yml.enc"]
