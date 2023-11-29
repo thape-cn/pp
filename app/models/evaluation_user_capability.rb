@@ -33,7 +33,12 @@ class EvaluationUserCapability < ApplicationRecord
   end
 
   def performance_weight_result
-    raw_result = performance_weight_raw_result
+    raw_result = if company_evaluation_template.group_level == "auxiliary"
+      annual_output # TODO: should general to performance_column_names and add rate to evaluation_role_capabilities
+    else
+      performance_weight_upload_result
+    end
+
     if raw_result < 2
       1
     elsif raw_result < 4
@@ -45,7 +50,7 @@ class EvaluationUserCapability < ApplicationRecord
     end
   end
 
-  def performance_weight_raw_result
+  def performance_weight_upload_result
     JobRoleEvaluationPerformance.need_review_job_role_evaluation_performance([self])
       .sum("obj_weight_pct / 100.0 * obj_result")
   end
