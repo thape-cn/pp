@@ -10,6 +10,7 @@
 			"**/.idea": true,
 			"**/log": true,
 			"**/node_modules": true,
+			"**/storage": true,
 			"**/tmp": true
 		}
 	}
