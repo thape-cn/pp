@@ -1,3 +1,8 @@
-<% company_evaluations.each do |company_evaluation| %>
+<% open_company_evaluations.each do |company_evaluation| %>
   <%= nav_item(company_evaluation.title, admin_company_evaluation_templates_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-wifi-signal-2') %>
+<% end %>
+<% closed_company_evaluations.each do |company_evaluation| %>
+  <%= nav_item(company_evaluation.title, admin_company_evaluation_templates_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-wifi-signal-2') do %>
+    <span class="badge bg-primary ms-auto"><%=  t("form.close") -%></span>
+  <% end %>
 <% end %>

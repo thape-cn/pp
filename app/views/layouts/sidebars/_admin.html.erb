@@ -105,7 +105,7 @@
       </a>
       <ul class="nav-group-items" data-expender-target="htc">
         <% if %w[evaluation_templates company_evaluation_templates].include?(controller_name) %>
-          <%= render partial: 'admin/company_evaluation_templates/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+          <%= render partial: 'admin/company_evaluation_templates/expender', locals: {open_company_evaluations: policy_scope(CompanyEvaluation).open_for_user, closed_company_evaluations: policy_scope(CompanyEvaluation).closed_for_user} -%>
         <% end %>
       </ul>
     </li>

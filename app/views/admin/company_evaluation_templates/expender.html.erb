@@ -1,1 +1,1 @@
-<%= render partial: 'expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+<%= render partial: 'expender', locals: {open_company_evaluations: policy_scope(CompanyEvaluation).open_for_user, closed_company_evaluations: policy_scope(CompanyEvaluation).closed_for_user} -%>
