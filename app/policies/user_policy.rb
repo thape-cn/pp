@@ -2,7 +2,7 @@ class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin?
-        scope.all
+        scope.includes(:user_job_roles)
       elsif user.hr_staff?
         scope.includes(:user_job_roles).where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
           .or(scope.where(id: user.id))
