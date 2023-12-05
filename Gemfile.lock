@@ -246,7 +246,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.7.0)
+    json (2.7.1)
     json-jwt (1.16.3)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -382,7 +382,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.1.0)
-    rdoc (6.6.0)
+    rdoc (6.6.1)
       psych (>= 4.0.0)
     redcarpet (3.6.0)
     redis-client (0.18.0)
