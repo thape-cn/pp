@@ -11,7 +11,11 @@
 			"**/log": true,
 			"**/node_modules": true,
 			"**/storage": true,
-			"**/tmp": true
+			"**/tmp": true,
+			"pp.sublime-workspace": true,
+			"public/packs-test": true,
+			"public/packs/css": true,
+			"public/packs/js": true
 		}
 	}
 }
