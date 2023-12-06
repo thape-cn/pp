@@ -102,4 +102,8 @@ class User < ApplicationRecord
   def self.system_admin
     find_by!(email: "admin@thape.com.cn")
   end
+
+  def self.pptest_users
+    where("email like 'pptest%@thape.com.cn'")
+  end
 end

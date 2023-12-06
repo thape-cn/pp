@@ -6,7 +6,8 @@ namespace :import do
   task :user, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    User.all.update_all(is_active: false)
+    pptest_user_ids = User.pptest_users.pluck(:id)
+    User.where.not(id: pptest_user_ids).update_all(is_active: false)
     CSV.foreach(csv_file_path, headers: true) do |row|
       email = correct_email(row["EMAIL"])
       chinese_name = row["LASTNAME"].split("_").first
@@ -46,7 +47,8 @@ namespace :import do
   task :link_user_job_role, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    UserJobRole.all.update_all(is_active: false)
+    pptest_user_ids = User.pptest_users.pluck(:id)
+    UserJobRole.where.not(user_id: pptest_user_ids).update_all(is_active: false)
     CSV.foreach(csv_file_path, headers: true) do |row|
       email = correct_email(row["EMAIL"])
       st_code = row["STCODE"]
