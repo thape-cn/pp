@@ -6,6 +6,8 @@ module PerformancesHelper
       link_url = case euc.company_evaluation_template.group_level
       when "manager"
         current_user.admin? ? admin_manager_performance_path(id: euc.id) : hr_manager_performance_path(id: euc.id)
+      when "auxiliary"
+        current_user.admin? ? admin_auxiliary_performance_path(id: euc.id) : hr_auxiliary_performance_path(id: euc.id)
       else
         current_user.admin? ? admin_staff_performance_path(id: euc.id) : hr_staff_performance_path(id: euc.id)
       end
