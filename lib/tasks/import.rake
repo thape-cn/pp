@@ -169,8 +169,8 @@ namespace :import do
       description: "description.zh_CN",
       category_name: "category_name"
     ) do |h|
-      en_name = h[:en_name].to_s
-      next if en_name == "英语标识" || en_name == "name.en_US"
+      en_name = h[:en_name].to_s.downcase
+      next if en_name == "英语标识" || en_name == "name.en_us"
       next if en_name.blank?
 
       capability = Capability.find_or_initialize_by(en_name: en_name)
