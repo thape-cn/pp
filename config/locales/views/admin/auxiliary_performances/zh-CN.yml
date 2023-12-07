@@ -1,0 +1,8 @@
+---
+zh-CN:
+  admin:
+    auxiliary_performances:
+      index:
+        title: "非设计技术类主管层绩效"
+      show:
+        title: "%{chinese_name}的绩效"

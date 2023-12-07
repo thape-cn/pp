@@ -1,0 +1,8 @@
+---
+en:
+  admin:
+    auxiliary_performances:
+      index:
+        title: "Auxiliary performance result"
+      show:
+        title: "Performance of %{chinese_name}"
