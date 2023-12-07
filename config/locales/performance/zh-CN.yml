@@ -4,6 +4,6 @@ zh-CN:
     company_evaluation: "公司考评"
     presentation: "绩效展示"
     staff_performances: "员工层绩效"
-    auxiliary_performances: "非设计技术类主管层绩效"
+    auxiliary_performances: "职能主管层及以上绩效"
     manager_performances: "主管层绩效"
     panel_total: "共 %{people_number} 人，%{people_percent} %%"
