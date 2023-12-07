@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_07_053704) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_07_132308) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -118,6 +118,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_053704) do
     t.datetime "updated_at", null: false
     t.string "deleted_reason"
     t.integer "deleted_user_id", null: false
+    t.decimal "identify_business_pain", precision: 5, scale: 2
+    t.decimal "best_plan", precision: 5, scale: 2
+    t.decimal "mission_consensus", precision: 5, scale: 2
+    t.decimal "collaboration", precision: 5, scale: 2
+    t.decimal "set_vision_goals", precision: 5, scale: 2
+    t.decimal "build_team", precision: 5, scale: 2
+    t.decimal "team_atmosphere", precision: 5, scale: 2
     t.index ["deleted_user_id"], name: "index_archived_evaluation_user_capabilities_on_deleted_user_id"
   end
 
