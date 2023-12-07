@@ -4,5 +4,6 @@ zh-CN:
     company_evaluation: "Company evaluation"
     presentation: "Performance presentation"
     staff_performances: "Staff performances"
+    auxiliary_performances: "Auxiliary performances"
     manager_performances: "Manager performances"
     panel_total: "Total people: %{people_number}，%{people_percent} %%"
