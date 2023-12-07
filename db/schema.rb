@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_29_071821) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_07_053704) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -319,6 +319,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_071821) do
     t.string "final_total_evaluation_grade"
     t.string "edoc_guid"
     t.string "edoc_file_id"
+    t.decimal "identify_business_pain", precision: 5, scale: 2
+    t.decimal "best_plan", precision: 5, scale: 2
+    t.decimal "mission_consensus", precision: 5, scale: 2
+    t.decimal "collaboration", precision: 5, scale: 2
+    t.decimal "set_vision_goals", precision: 5, scale: 2
+    t.decimal "build_team", precision: 5, scale: 2
+    t.decimal "team_atmosphere", precision: 5, scale: 2
     t.index ["job_role_id"], name: "index_evaluation_user_capabilities_on_job_role_id"
     t.index ["manager_user_id"], name: "index_evaluation_user_capabilities_on_manager_user_id"
     t.index ["user_id"], name: "index_evaluation_user_capabilities_on_user_id"
