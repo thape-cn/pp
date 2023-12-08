@@ -11,10 +11,15 @@ class Capability < ApplicationRecord
     "#{name} - #{en_name}"
   end
 
-  def job_role_description(job_role)
+  def job_role_description(job_role, company_evaluation_id)
     evaluation_role_id = job_role.evaluation_role.id
-    erc = evaluation_role_capabilities.find_by(evaluation_role_id: evaluation_role_id)
-    erc&.erc_description.presence || description
+    cerc = ended_company_evaluation_role_capabilities.find_by(evaluation_role_id: evaluation_role_id, company_evaluation_id: company_evaluation_id)
+    if cerc.present?
+      cerc.cerc_description
+    else
+      erc = evaluation_role_capabilities.find_by(evaluation_role_id: evaluation_role_id)
+      erc&.erc_description.presence || description
+    end
   end
 
   def self.category_options
