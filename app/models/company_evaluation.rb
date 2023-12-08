@@ -30,5 +30,6 @@ class CompanyEvaluation < ApplicationRecord
     end
     update(evaluation_ended: true)
     ClosingAllCalibratingCalibrationSessionJob.perform_async(id)
+    ArchiveCompanyEvaluationRoleCapabilityJob.perform_async(id)
   end
 end
