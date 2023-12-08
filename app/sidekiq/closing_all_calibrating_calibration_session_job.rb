@@ -7,5 +7,7 @@ class ClosingAllCalibratingCalibrationSessionJob
       .pluck(:calibration_session_id)
     to_close_calibration_sessions = CalibrationSession.where(id: to_close_calibration_session_ids, session_status: "proofreading")
     to_close_calibration_sessions.update_all(session_status: "reconciliation_needed")
+    missing_calibration_session_users = CalibrationSession.where.missing(:calibration_session_users)
+    missing_calibration_session_users.update_all(session_status: "proofreading_completed")
   end
 end
