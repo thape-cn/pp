@@ -2,6 +2,7 @@ class EvaluationRole < ApplicationRecord
   has_many :job_roles
   has_many :evaluation_role_capabilities, dependent: :destroy
   has_many :capabilities, through: :evaluation_role_capabilities
+  has_many :ended_company_evaluation_role_capabilities
 
   def capability_ids
     @_capability_ids ||= evaluation_role_capabilities.collect(&:capability_id)

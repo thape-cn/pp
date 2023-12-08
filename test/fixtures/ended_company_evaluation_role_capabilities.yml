@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cerc_one:
+  company_evaluation: ce_two
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_coaching
+  cerc_description: "了解并根据下属特点带好团队；定期反馈和赋能；帮助下属进步。"
+
+cerc_two:
+  company_evaluation: ce_two
+  evaluation_role: er_aico_interior_supervisor
+  capability: capable_goal_achieved
+  cerc_description: "根据目标制定工作计划；通过有效协调资源；确保目标实现。"

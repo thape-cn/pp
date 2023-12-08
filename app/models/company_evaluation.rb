@@ -2,6 +2,7 @@ class CompanyEvaluation < ApplicationRecord
   include MatricHelper
   has_many :company_evaluation_templates
   has_many :import_excel_files
+  has_many :ended_company_evaluation_role_capabilities
   validates :title, :start_date, :end_date, presence: true
 
   scope :open_for_user, -> { where("start_date <= ?", Time.zone.now).where("end_date >= ?", Time.zone.now) }

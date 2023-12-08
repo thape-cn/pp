@@ -1,6 +1,8 @@
 class Capability < ApplicationRecord
   has_many :evaluation_role_capabilities, dependent: :destroy
   has_many :evaluation_roles, through: :evaluation_role_capabilities
+  has_many :ended_company_evaluation_role_capabilities
+
   validates :category_name, presence: true
   validates :en_name, presence: true, uniqueness: true,
     format: {with: /\A[a-z_]+\z/, message: "only allows low case alphabet and '_'"}

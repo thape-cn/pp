@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_07_132308) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_08_071357) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -218,6 +218,18 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_07_132308) do
     t.datetime "updated_at", null: false
     t.boolean "evaluation_ended", default: false
     t.string "bonus_period"
+  end
+
+  create_table "ended_company_evaluation_role_capabilities", force: :cascade do |t|
+    t.integer "company_evaluation_id", null: false
+    t.integer "evaluation_role_id", null: false
+    t.integer "capability_id", null: false
+    t.string "cerc_description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["capability_id"], name: "idx_on_capability_id_d6bf371b11"
+    t.index ["company_evaluation_id"], name: "idx_on_company_evaluation_id_2f24666afc"
+    t.index ["evaluation_role_id"], name: "idx_on_evaluation_role_id_68bb1a78bc"
   end
 
   create_table "euc_form_status_histories", force: :cascade do |t|
