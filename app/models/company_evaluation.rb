@@ -28,5 +28,6 @@ class CompanyEvaluation < ApplicationRecord
       euc.update(final_total_evaluation_grade: final_total_evaluation_grade)
     end
     update(evaluation_ended: true)
+    ClosingAllCalibratingCalibrationSessionJob.perform_async(id)
   end
 end
