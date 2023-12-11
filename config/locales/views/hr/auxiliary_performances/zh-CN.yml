@@ -3,6 +3,6 @@ zh-CN:
   hr:
     auxiliary_performances:
       index:
-        title: "职能主管层及以上绩效"
+        title: "非设计主管层及以上绩效"
       show:
         title: "%{chinese_name}的绩效"
