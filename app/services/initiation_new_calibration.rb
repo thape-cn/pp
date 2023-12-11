@@ -46,9 +46,11 @@ class InitiationNewCalibration
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.company_evaluation_template_not_found", template_title: template_title))
       end
 
-      evaluation_user_capability = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
-      if evaluation_user_capability.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_not_found", template_title: template_title, st_code: st_code))
+      if user.present? && job_role.present? && company_evaluation_template.present?
+        evaluation_user_capability = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
+        if evaluation_user_capability.blank?
+          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_not_found", template_title: template_title, st_code: st_code))
+        end
       end
 
       calibration_owner = User.find_by(clerk_code: calibration_owner_clerk_code)

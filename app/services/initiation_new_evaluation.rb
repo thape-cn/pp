@@ -48,9 +48,11 @@ class InitiationNewEvaluation
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.company_evaluation_template_not_found", template_title: template_title))
       end
 
-      ujr = UserJobRole.find_by(user_id: user.id, job_role_id: job_role.id, dept_code: dept_code)
-      if ujr.blank?
-        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.user_job_role_not_found", dept_code: dept_code))
+      if user.present? && job_role.present?
+        ujr = UserJobRole.find_by(user_id: user.id, job_role_id: job_role.id, dept_code: dept_code)
+        if ujr.blank?
+          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.user_job_role_not_found", dept_code: dept_code))
+        end
       end
 
       existing_euc = EvaluationUserCapability.find_by(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
