@@ -9,5 +9,7 @@ class OwnerNeedCalibratingRemindJob
     HELLO
 
     Wechat.api.custom_message_send Wechat::Message.to(wecom_id).text(sent_message)
+  rescue Wechat::ResponseError => e
+    Rails.logger.error("Failed to send owner need calibrating remind message to wecom_id: #{wecom_id}. Error: #{e.message}")
   end
 end
