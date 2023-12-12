@@ -1,6 +1,6 @@
 # a People Performance system
 
-[![Build Status](https://github.com/thape-cn/pp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/thape-cn/pp/actions)
+[![build status](https://github.com/thape-cn/pp/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/thape-cn/pp/actions) [![pipeline status](https://git.thape.com.cn/rails/pp/badges/main/pipeline.svg)](https://git.thape.com.cn/rails/pp/-/commits/main)
 
 ## How to Start (or Restart) Development?
 
