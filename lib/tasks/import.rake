@@ -75,9 +75,7 @@ namespace :import do
           .where(user_id: user.id, job_role_id: job_role.id, dept_code: dept_code)
           .update_all(manager_user_id: manager_user.id)
       end
-      if manager_user.present?
-        user_job_role.manager_user_id = manager_user.id
-      end
+      user_job_role.manager_user_id = manager_user&.id
       user_job_role.company = company
       user_job_role.department = department
       user_job_role.title = title
