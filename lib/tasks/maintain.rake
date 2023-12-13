@@ -45,4 +45,41 @@ namespace :maintain do
     open_company_evaluation_ids = CompanyEvaluation.open_for_user.collect(&:id)
     PendingStaffConfirmReminder.sent_wechat_message(open_company_evaluation_ids)
   end
+
+  desc "Remove imported calibration session"
+  task :remove_imported_calibration_session, [:company_evaluation_id, :excel_file] => [:environment] do |task, args|
+    company_evaluation_id = args[:company_evaluation_id]
+    company_evaluation = CompanyEvaluation.find(company_evaluation_id)
+    excel_file_path = args[:excel_file]
+
+    return unless excel_file_path.present?
+
+    xlsx = Roo::Excelx.new(excel_file_path)
+    xlsx.default_sheet = "校准"
+    xlsx.each(
+      clerk_code: "USERNAME",
+      dept_code: "CUSTOM01",
+      st_code: "STCODE",
+      template_title: "Template",
+      calibration_template_name: "Calibration Template",
+      calibration_session_name: "Calibration Session",
+      calibration_owner: "Calibration Owner",
+      calibration_participants: "Calibration Participants"
+    ) do |h|
+      clerk_code = h[:clerk_code].to_s
+      next if clerk_code == "USERNAME"
+      next if clerk_code.blank?
+
+      st_code = h[:st_code].to_s
+      template_title = h[:template_title].to_s
+
+      user = User.find_by!(clerk_code: clerk_code)
+      job_role = JobRole.find_by!(st_code: st_code)
+      company_evaluation_template = company_evaluation.company_evaluation_templates.find_by!(title: template_title)
+      evaluation_user_capability = EvaluationUserCapability.find_by!(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
+      CalibrationSessionUser.where(user_id: user.id, evaluation_user_capability_id: evaluation_user_capability.id).delete_all
+    end
+    missing_calibration_session_users = CalibrationSession.where.missing(:calibration_session_users)
+    missing_calibration_session_users.update_all(session_status: "reconciliation_needed")
+  end
 end
