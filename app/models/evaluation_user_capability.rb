@@ -38,6 +38,7 @@ class EvaluationUserCapability < ApplicationRecord
     else
       performance_weight_upload_result
     end
+    return 0 if raw_result.nil?
 
     if raw_result < 2
       1
