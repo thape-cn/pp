@@ -190,6 +190,6 @@ namespace :import do
   end
 
   def user_ids_need_to_skip
-    User.where("email like 'pptest%@thape.com.cn'").pluck(:id)
+    @user_ids_need_to_skip ||= User.where("email like 'pptest%@thape.com.cn'").pluck(:id)
   end
 end
