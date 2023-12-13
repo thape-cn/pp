@@ -6,7 +6,7 @@ namespace :import do
   task :user, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    User.where.not(id: user_need_to_skip.pluck(:id)).update_all(is_active: false)
+    User.where.not(id: user_ids_need_to_skip).update_all(is_active: false)
     CSV.foreach(csv_file_path, headers: true) do |row|
       email = correct_email(row["EMAIL"])
       chinese_name = row["LASTNAME"].split("_").first
@@ -14,6 +14,8 @@ namespace :import do
       sf_user_name = row["USERNAME"]
 
       user = User.find_or_initialize_by(email: email)
+      next if user_ids_need_to_skip.include?(user.id)
+
       user.chinese_name = chinese_name
       user.hire_date = hire_date
       user.clerk_code = sf_user_name.split("_").first
@@ -46,7 +48,7 @@ namespace :import do
   task :link_user_job_role, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    UserJobRole.where.not(user_id: user_need_to_skip.pluck(:id)).update_all(is_active: false)
+    UserJobRole.where.not(user_id: user_ids_need_to_skip).update_all(is_active: false)
     CSV.foreach(csv_file_path, headers: true) do |row|
       email = correct_email(row["EMAIL"])
       st_code = row["STCODE"]
@@ -59,6 +61,7 @@ namespace :import do
       title = row["TITLE"]
 
       user = User.find_by email: email
+      next if user_ids_need_to_skip.include?(user.id)
       puts "user email not found: #{email}" unless user.present?
       job_role = JobRole.find_by st_code: st_code
       puts "job_role st_code not found: #{st_code}" unless job_role.present?
@@ -186,7 +189,7 @@ namespace :import do
     "#{first_email_part}@thape.com.cn"
   end
 
-  def user_need_to_skip
-    User.where("email like 'pptest%@thape.com.cn'")
+  def user_ids_need_to_skip
+    User.where("email like 'pptest%@thape.com.cn'").pluck(:id)
   end
 end
