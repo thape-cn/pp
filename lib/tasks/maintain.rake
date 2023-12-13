@@ -49,7 +49,7 @@ namespace :maintain do
   desc "Remove imported calibration session"
   task :remove_imported_calibration_session, [:company_evaluation_id, :excel_file] => [:environment] do |task, args|
     company_evaluation_id = args[:company_evaluation_id]
-    company_evaluation = CompanyEvaluation.find(company_evaluation_id)
+    company_evaluation = CompanyEvaluation.find(company_evaluation_id.to_i)
     excel_file_path = args[:excel_file]
 
     return unless excel_file_path.present?
