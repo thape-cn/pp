@@ -4,11 +4,13 @@ class UploadPpResultJob
   def perform(evaluation_user_capability_id)
     euc = EvaluationUserCapability.find_by(id: evaluation_user_capability_id)
     return unless euc.present?
+    clerk_code = euc.user&.clerk_code
+    return unless clerk_code.present?
 
     response = HTTP.post(Rails.application.credentials.pm_upload_service_url!,
       json: {
         secret: Rails.application.credentials.pm_upload_secret_key!,
-        clerk_code: euc.user.clerk_code,
+        clerk_code: clerk_code,
         bonus_period: euc.company_evaluation_template.company_evaluation.bonus_period,
         performance_rating: euc.total_evaluation_score
       })
