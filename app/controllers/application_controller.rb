@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
     [
       browser.bot?, # support rails test
       browser.chrome?(">= 86"),
-      browser.safari?(">= 12"),
+      browser.safari?(">= 15"),
       browser.firefox?(">= 86"),
       browser.edge?(">= 86"),
       browser.opera?(">= 75"),
