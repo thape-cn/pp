@@ -31,6 +31,7 @@ module HR
         .distinct
       @evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
         .includes(:company_evaluation_template, :user, :manager_user)
+        .where(company_evaluation_template: {company_evaluation_id: @company_evaluation_ids})
 
       respond_to do |format|
         format.html { render }
