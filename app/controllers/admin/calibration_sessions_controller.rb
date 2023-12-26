@@ -131,7 +131,7 @@ module Admin
     private
 
     def calibration_session_params
-      params.require(:calibration_session).permit(:session_name, :calibration_template_id, :session_status)
+      params.require(:calibration_session).permit(:session_name, :calibration_template_id, :owner_id, :session_status)
     end
 
     def set_calibration_session
