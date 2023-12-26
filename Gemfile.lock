@@ -534,7 +534,7 @@ DEPENDENCIES
   propshaft
   puma
   pundit
-  rails (~> 7.1.1)
+  rails (~> 7.1.2)
   redcarpet
   roo
   selenium-webdriver (>= 4.11.0)
