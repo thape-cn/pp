@@ -57,3 +57,5 @@ deploy_staging:
   environment:
     name: staging
     url: https://starter.redwoodjs.cn
+  only:
+    - main
