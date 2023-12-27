@@ -459,7 +459,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.20.1)
     stringio (3.1.0)
-    swd (2.0.2)
+    swd (2.0.3)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
       faraday (~> 2.0)
