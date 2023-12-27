@@ -482,7 +482,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webfinger (2.1.2)
+    webfinger (2.1.3)
       activesupport
       faraday (~> 2.0)
       faraday-follow_redirects
