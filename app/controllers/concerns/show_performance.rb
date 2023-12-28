@@ -15,6 +15,7 @@ module ShowPerformance
       .where(company_evaluation_id: company_evaluation.id).pluck(:id)
     evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
       .where(company_evaluation_template_id: company_template_ids)
+      .where(form_status: %w[hr_review_completed data_locked])
     @companies = evaluation_user_capabilities.select(:company).distinct.pluck(:company)
     @company = params[:company].presence || @companies.first
     evaluation_user_capabilities = evaluation_user_capabilities.where(company: @company)
