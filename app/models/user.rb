@@ -34,6 +34,10 @@ class User < ApplicationRecord
     hrbp_user_managed_departments.present?
   end
 
+  def auto_hr_bp?
+    hrbp_user_managed_departments.where(auto_generated: true).present?
+  end
+
   def role_ids
     @_role_ids ||= user_roles.collect(&:role_id)
   end
