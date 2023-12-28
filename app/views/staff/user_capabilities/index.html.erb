@@ -61,7 +61,9 @@
             <th><%= t("user.company_department") -%></th>
             <th><%= t("admin.evaluation_templates.index.template_title") -%></th>
             <th><%= t('user.manager_user') -%></th>
-            <th><%= t('evaluation.final_total_evaluation_score') -%></th>
+            <% if current_user.hr_bp? %>
+              <th><%= t('evaluation.final_total_evaluation_score') -%></th>
+            <% end %>
           </tr>
         </thead>
         <tbody>
@@ -81,9 +83,11 @@
                   <%= euc.manager_user.chinese_name -%>
                 <% end %>
               </td>
-              <td>
-                <%= public_send(euc.company_evaluation_template.total_reverse_matric, euc.final_total_evaluation_score) -%>
-              </td>
+              <% if current_user.hr_bp? %>
+                <td>
+                  <%= public_send(euc.company_evaluation_template.total_reverse_matric, euc.final_total_evaluation_score) -%>
+                </td>
+              <% end %>
             </tr>
           <% end %>
         </tbody>
