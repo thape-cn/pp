@@ -13,6 +13,8 @@ zh-CN:
       sent_hr_review_completed_confirm:
         title: "确认给所有等待确认的用户发送通知？"
       sent_self_assessment_confirm:
-        title: "请上传启动表单后，发送邮件的Excel"
+        title: "请上传启动表单后，发送邮件/企业微信的Excel"
+        send_email: "发送邮件"
+        send_wecom_message: "发送企业微信消息"
       custom_description_dialog:
         title: "自定义用户表单能力项描述"

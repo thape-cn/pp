@@ -14,6 +14,24 @@
               <%= file_field_tag :file, class: 'form-control' -%>
             </div>
           </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <div class="form-check form-switch form-switch-xl">
+                  <%= check_box_tag :send_email, class: "form-check-input" %>
+                  <%= label_tag :send_email, t(".send_email"), class: "form-check-label" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <div class="form-check form-switch form-switch-xl">
+                  <%= check_box_tag :send_wecom_message, class: "form-check-input" %>
+                  <%= label_tag :send_wecom_message, t(".send_wecom_message"), class: "form-check-label" %>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">

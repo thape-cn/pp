@@ -14,5 +14,7 @@ en:
         title: "Confirm to send notification to all users waiting for confirmation?"
       sent_self_assessment_confirm:
         title: "Please upload Excel after starting the form and send email"
+        send_email: "Send email"
+        send_wecom_message: "Send wecom message"
       custom_description_dialog:
         title: "Custom evaluation user capability description"
