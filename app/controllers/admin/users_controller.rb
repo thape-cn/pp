@@ -62,7 +62,8 @@ module Admin
           wb = p.workbook
 
           wb.add_worksheet(name: "evaluation_progress") do |sheet|
-            sheet.add_row [I18n.t("user.email"),
+            sheet.add_row [I18n.t("user.user_id"),
+              I18n.t("user.email"),
               I18n.t("user.chinese_name"),
               I18n.t("user.clerk_code"),
               I18n.t("user.hire_date"),
@@ -82,6 +83,7 @@ module Admin
               I18n.t("user.hrbp_name")]
             user_job_roles.find_each do |ujr|
               values = []
+              values << ujr.user.id
               values << ujr.user.email
               values << ujr.user.chinese_name
               values << ujr.user.clerk_code
@@ -103,12 +105,12 @@ module Admin
                 hrbp_user_managed_department.user.chinese_name
               end&.join(", ")
               row = sheet.add_row values
-              row.cells[2].type = :string
-              row.cells[2].value = ujr.user.clerk_code # Must overwrite again after setting cell type
-              row.cells[5].type = :string
-              row.cells[5].value = ujr.job_role.st_code
-              row.cells[8].type = :string
-              row.cells[8].value = ujr.dept_code
+              row.cells[3].type = :string
+              row.cells[3].value = ujr.user.clerk_code # Must overwrite again after setting cell type
+              row.cells[6].type = :string
+              row.cells[6].value = ujr.job_role.st_code
+              row.cells[9].type = :string
+              row.cells[9].value = ujr.dept_code
             end
           end
 
