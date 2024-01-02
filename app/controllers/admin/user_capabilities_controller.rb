@@ -239,7 +239,12 @@ module Admin
         clerk_code = h[:clerk_code].to_s
         next if clerk_code == "USERNAME"
         next if clerk_code.blank?
-        SentSelfAssessmentRemindEmailJob.perform_async(@company_evaluation.id, clerk_code)
+        if params[:send_email] == "true"
+          SentSelfAssessmentRemindEmailJob.perform_async(@company_evaluation.id, clerk_code)
+        end
+        if params[:send_wecom_message] == "true"
+          SentSelfAssessmentRemindWecomJob.perform_async(@company_evaluation.id, clerk_code)
+        end
       end
     end
 
