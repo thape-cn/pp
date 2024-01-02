@@ -5,7 +5,6 @@ zh-CN:
       index:
         title: "考评模版"
         template_title: "模版标题"
-        group_level: "考评组别"
         breadcrumb_title: "%{title}的考评模版"
         title_and_total_proportion: "模版的总分比例分配"
         pct_proportion: "工作质量、工作量、工作态度三项占总分比例"

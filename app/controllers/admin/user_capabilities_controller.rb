@@ -20,6 +20,7 @@ module Admin
       @company = params[:company]
       @department = params[:department]
       @form_status = params[:form_status]
+      @group_level = params[:group_level]
       @sort_on_final_total_evaluation_score = params[:sort_on_final_total_evaluation_score] == "true"
       @show_user_inactive_only = params[:show_user_inactive_only] == "true"
       add_to_breadcrumbs title, admin_company_evaluation_user_capabilities_path(company_evaluation_id: @company_evaluation.id)
@@ -49,6 +50,9 @@ module Admin
         evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department)
       end
       evaluation_user_capabilities = evaluation_user_capabilities.where(form_status: @form_status) if @form_status.present?
+      if @group_level.present?
+        evaluation_user_capabilities = evaluation_user_capabilities.where(company_evaluation_template: {group_level: @group_level})
+      end
       evaluation_user_capabilities = evaluation_user_capabilities.order(final_total_evaluation_score: :asc) if @sort_on_final_total_evaluation_score
       evaluation_user_capabilities = evaluation_user_capabilities.where(user: {is_active: false}) if @show_user_inactive_only
       @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)

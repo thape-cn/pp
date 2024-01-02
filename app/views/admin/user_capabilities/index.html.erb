@@ -62,6 +62,10 @@
             <%= select_tag 'form_status', options_for_select(EvaluationUserCapability.form_status_options, @form_status), { include_blank: true, class: 'form-control' } %>
           </div>
           <div class="col-auto">
+            <label><%= t("evaluation.group_level") -%></label>
+            <%= select_tag 'group_level', options_for_select(CompanyEvaluationTemplate.group_level_options, @group_level), { include_blank: true, class: 'form-control' } %>
+          </div>
+          <div class="col-auto">
             <div class="form-group">
               <div class="form-check form-switch form-switch-xl">
                 <%= check_box_tag :sort_on_final_total_evaluation_score, 'true', @sort_on_final_total_evaluation_score, class: "form-check-input" %>

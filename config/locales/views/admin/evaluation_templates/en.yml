@@ -5,7 +5,6 @@ en:
       index:
         title: "Evaluation templates"
         template_title: "Evaluation templates title"
-        group_level: "Group level"
         breadcrumb_title: "%{title}'s evaluation templates"
         title_and_total_proportion: "Template title & total proportion"
         pct_proportion: "The proportion of work quality, workload and work attitude in the total score"
