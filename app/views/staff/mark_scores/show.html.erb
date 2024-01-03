@@ -3,7 +3,7 @@
   <%= append_javascript_pack_tag 'mark-scores' %>
 <% end %>
 
-<p class="mt-2">请对员工的以下维度进行评分，并点开向下箭头完成文字评论；</p>
+<p class="mt-2">请对员工的以下维度进行评分，并点开向下箭头 <%= content_tag(:svg, content_tag(:use, nil, "xlink:href": asset_path('free.svg#cil-arrow-thick-from-top')), class: "nav-icon link-danger", style: "width: 20px; height: 20px;") -%>（表格第2列）完成文字评论；</p>
 <p>点击【保存】，保存修改并重新计算绩效分值；</p>
 <p>点击【确认并提交】，确认评分并进入下一步；</p>
 <p>本阶段待改善点及下阶段工作建议需在<strong class="text-danger">20字</strong>以上；</p>
