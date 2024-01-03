@@ -112,6 +112,10 @@ namespace :import do
         puts "hrbp_user_id: #{hr_job_user_id}/#{first_part_of_user_id}_Group/#{first_part_of_user_id} not found."
       end
     end
+    manual_auto_hrbp_user = User.find_by!(email: "taoyongli@thape.com.cn")
+    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101150")
+    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101126")
+    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101012")
   end
 
   desc "Import Evaluation Role"
@@ -190,6 +194,8 @@ namespace :import do
   end
 
   def user_ids_need_to_skip
-    @user_ids_need_to_skip ||= User.where("email like 'pptest%@thape.com.cn'").pluck(:id)
+    @user_ids_need_to_skip ||= User.where("email like 'pptest%@thape.com.cn'")
+      .or(User.where("email like 'hrbp%@thape.com.cn'"))
+      .pluck(:id)
   end
 end
