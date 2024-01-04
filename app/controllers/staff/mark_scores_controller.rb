@@ -12,9 +12,9 @@ module Staff
         .where(form_status: %w[self_assessment_done])
       respond_to do |format|
         format.html do
-          @staff_table_headers = table_headers(current_open_evaluations, "staff")
-          @manager_table_headers = table_headers(current_open_evaluations, "manager")
-          @auxiliary_table_headers = table_headers(current_open_evaluations, "auxiliary")
+          @staff_table_headers = mark_score_table_headers(current_open_evaluations, "staff")
+          @manager_table_headers = mark_score_table_headers(current_open_evaluations, "manager")
+          @auxiliary_table_headers = mark_score_table_headers(current_open_evaluations, "auxiliary")
           @review_labels = {
             self_overall_output: I18n.t("evaluation.self_overall_output"),
             self_overall_improvement: I18n.t("evaluation.self_overall_improvement"),
@@ -180,7 +180,7 @@ module Staff
         company_evaluation_ids: [])
     end
 
-    def table_headers(current_open_evaluations, group_level)
+    def mark_score_table_headers(current_open_evaluations, group_level)
       need_review_evaluations = current_open_evaluations.where(company_evaluation_template: {group_level: group_level})
       job_role_evaluation_performances = JobRoleEvaluationPerformance.need_review_job_role_evaluation_performance(need_review_evaluations)
       table_headers_of_performance = job_role_evaluation_performances.collect do |jrep|
