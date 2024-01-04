@@ -34,7 +34,7 @@ module Staff
             row_number: I18n.t("form.row_number"),
             close: I18n.t("form.close")
           }
-          @table_headers = table_headers(@need_calibration_eucs, @group_level)
+          @table_headers = calibration_table_headers(@need_calibration_eucs, @group_level)
         end
         format.json do
           @table_headers_of_performance, @job_role_evaluation_performances = prepare_need_review_evaluations(@need_calibration_eucs)
@@ -108,7 +108,7 @@ module Staff
       [table_headers_of_performance, job_role_evaluation_performances]
     end
 
-    def table_headers(current_open_evaluations, group_level)
+    def calibration_table_headers(current_open_evaluations, group_level)
       job_role_evaluation_performances = JobRoleEvaluationPerformance.need_review_job_role_evaluation_performance(current_open_evaluations)
       table_headers_of_performance = job_role_evaluation_performances.collect do |jrep|
         {
