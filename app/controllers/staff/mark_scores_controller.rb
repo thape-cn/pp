@@ -220,7 +220,12 @@ module Staff
       job_role_ids = evaluation_user_capabilities.collect(&:job_role_id).uniq
       evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
       capability_ids = EvaluationRoleCapability.where(evaluation_role_id: evaluation_role_ids).collect(&:capability_id).uniq
-      [Capability.where(id: capability_ids).order(:category_name), job_role_ids]
+      [
+        Capability.where(id: capability_ids).order(
+          Arel.sql("CASE category_name WHEN '业绩产出（固定）' THEN 1 WHEN '专业能力' THEN 2 WHEN '管理能力' THEN 3 END")
+        ),
+        job_role_ids
+      ]
     end
 
     def build_table_headers_of_capability(headers_of_capability, headers_of_performance, group_level)
