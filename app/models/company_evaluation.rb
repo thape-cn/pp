@@ -12,7 +12,7 @@ class CompanyEvaluation < ApplicationRecord
     open_for_user_company_evaluation_template_ids = CompanyEvaluationTemplate.where(company_evaluation_id: id).pluck(:id)
     EvaluationUserCapability.where(company_evaluation_template_id: open_for_user_company_evaluation_template_ids)
       .where.not(form_status: "data_locked").find_each do |euc|
-      next if euc.user.email.start_with?("pptest")
+      next if User.user_ids_need_to_skip.include?(euc.user.id)
       next if euc.user.is_active
       next if UserJobRole.where(user_id: euc.user_id, job_role_id: euc.job_role_id, is_active: true).exists?
 

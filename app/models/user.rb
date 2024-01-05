@@ -106,4 +106,10 @@ class User < ApplicationRecord
   def self.system_admin
     find_by!(email: "admin@thape.com.cn")
   end
+
+  def self.user_ids_need_to_skip
+    @_user_ids_need_to_skip ||= where("email like 'pptest%@thape.com.cn'")
+      .or(where("email like 'hrbp%@thape.com.cn'"))
+      .pluck(:id)
+  end
 end
