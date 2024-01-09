@@ -82,4 +82,16 @@ namespace :maintain do
     missing_calibration_session_users = CalibrationSession.where.missing(:calibration_session_users)
     missing_calibration_session_users.update_all(session_status: "reconciliation_needed")
   end
+
+  desc "Upload pp result in batch"
+  task :upload_pp_result_in_batch, [:company_evaluation_id] => [:environment] do |task, args|
+    company_evaluation_id = args[:company_evaluation_id]
+
+    company_evaluation_template_ids = CompanyEvaluation.find(company_evaluation_id).company_evaluation_templates.pluck(:id)
+    eucs = EvaluationUserCapability.order(:id)
+      .where(form_status: %w[hr_review_completed data_locked], company_evaluation_template_id: company_evaluation_template_ids)
+    eucs.each do |evaluation_user_capability|
+      UploadPpResultJob.perform_inline(evaluation_user_capability.id)
+    end
+  end
 end

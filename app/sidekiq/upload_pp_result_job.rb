@@ -16,7 +16,7 @@ class UploadPpResultJob
       })
 
     unless response.status == 200
-      Rails.logger.error "UploadPpResultJob failed with status #{response.status} clerk_code: #{clerk_code}: #{response.body}"
+      Rails.logger.error "UploadPpResultJob failed #{evaluation_user_capability_id} with status #{response.status} clerk_code: #{clerk_code}: #{response.body}"
     end
   end
 end
