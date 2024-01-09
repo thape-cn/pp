@@ -172,7 +172,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.12.0)
       devise (>= 4.9.0)
-    domain_name (0.6.20231109)
+    domain_name (0.6.20240107)
     drb (2.2.0)
       ruby2_keywords
     dry-configurable (1.1.0)
@@ -212,13 +212,12 @@ GEM
     email_validator (2.2.4)
       activemodel
     erubi (1.12.0)
-    faraday (2.8.1)
-      base64
-      faraday-net_http (>= 2.0, < 3.1)
-      ruby2_keywords (>= 0.0.4)
+    faraday (2.9.0)
+      faraday-net_http (>= 2.0, < 3.2)
     faraday-follow_redirects (0.3.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.0.2)
+    faraday-net_http (3.1.0)
+      net-http
     ferrum (0.14)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
@@ -243,9 +242,9 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.1)
-    irb (1.11.0)
+    irb (1.11.1)
       rdoc
-      reline (>= 0.3.8)
+      reline (>= 0.4.2)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -278,6 +277,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.20.0)
     mutex_m (0.2.0)
+    net-http (0.4.1)
+      uri
     net-imap (0.4.9.1)
       date
       net-protocol
@@ -476,6 +477,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
+    uri (0.13.0)
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
       public_suffix
