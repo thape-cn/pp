@@ -12,11 +12,15 @@
             <div class="card-subtitle text-disabled mb-4"><%= User.count -%> <%= t('.registered_users') -%></div>
           </div>
           <div class="col-auto ms-auto">
-            <%= form_tag '/auth/openid_connect', method: 'post', remote: false do %>
-              <button type='submit' class="btn btn-primary">
-                <%= svg_icon('free.svg#cil-user-plus', %w[icon me-2]) %>
-                <%= t('user.click_to_sign_in') -%>
-              </button>
+            <% if Rails.env.production? %>
+              <%= form_tag '/auth/openid_connect', method: 'post', remote: false do %>
+                <button type='submit' class="btn btn-primary">
+                  <%= svg_icon('free.svg#cil-user-plus', %w[icon me-2]) %>
+                  <%= t('user.click_to_sign_in') -%>
+                </button>
+              <% end %>
+            <% else %>
+              <%= link_to t('user.click_to_sign_in'), user_session_path, class: "btn btn-primary" -%>
             <% end %>
           </div>
         </div>
