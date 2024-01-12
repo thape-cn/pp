@@ -60,7 +60,7 @@
       </a>
       <ul class="nav-group-items" data-expender-target="htc">
         <% if %w[history_user_capabilities].include?(controller_name) %>
-          <%= render partial: 'staff/evaluation_user_capabilities/history_expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).closed_for_user} -%>
+          <%= render partial: 'staff/evaluation_user_capabilities/history_expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).unscoped.closed_for_user} -%>
         <% end %>
       </ul>
     </li>
