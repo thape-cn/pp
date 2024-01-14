@@ -1,0 +1,49 @@
+[Unit]
+Description=sidekiq for pp_vendor (staging)
+# start us only once the network and logging subsystems are available,
+# consider adding redis-server.service if Redis is local and systemd-managed.
+After=syslog.target network.target
+
+# See these pages for lots of options:
+#
+#   https://www.freedesktop.org/software/systemd/man/systemd.service.html
+#   https://www.freedesktop.org/software/systemd/man/systemd.exec.html
+#
+# THOSE PAGES ARE CRITICAL FOR ANY LINUX DEVOPS WORK; read them multiple
+# times! systemd is a critical tool for all developers to know and understand.
+#
+
+[Service]
+#
+#      !!!!  !!!!  !!!!
+#
+# As of v6.0.6, Sidekiq automatically supports systemd's `Type=notify` and watchdog service
+# monitoring. If you are using an earlier version of Sidekiq, change this to `Type=simple`
+# and remove the `WatchdogSec` line.
+#
+#      !!!!  !!!!  !!!!
+#
+Type=notify
+# If your Sidekiq process locks up, systemd's watchdog will restart it within seconds.
+WatchdogSec=30
+User=starter
+
+WorkingDirectory=/var/www/rails_starter/current
+ExecStart=/home/starter/.rbenv/bin/rbenv exec bundle exec sidekiq -e production
+
+# Use `systemctl kill -s TSTP sidekiq_pp_vendor` to quiet the Sidekiq process
+
+UMask=0002
+
+# if we crash, restart
+RestartSec=10
+Restart=on-failure
+
+# output goes to /var/log/syslog (Ubuntu) or /var/log/messages (CentOS)
+StandardOutput=append:/var/www/rails_starter/shared/log/sidekiq.log
+StandardError=append:/var/www/rails_starter/shared/log/sidekiq.error.log
+
+SyslogIdentifier=sidekiq_pp_vendor
+
+[Install]
+WantedBy=default.target
