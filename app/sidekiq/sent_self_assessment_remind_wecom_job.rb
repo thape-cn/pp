@@ -8,9 +8,10 @@ class SentSelfAssessmentRemindWecomJob
 
     EvaluationUserCapability.where(company_evaluation_template_id: in_self_assessment_evaluation_template_ids,
       user_id: in_self_assessment_user_ids).each do |evaluation_user_capability|
+      next unless evaluation_user_capability.form_status == "initial"
+
       user = evaluation_user_capability.user
       wecom_id = user.wecom_id.present? ? user.wecom_id : user.email.split("@")[0]
-
       next if wecom_id.blank?
 
       sent_message = <<~HELLO
