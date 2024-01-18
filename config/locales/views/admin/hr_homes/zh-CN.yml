@@ -4,3 +4,12 @@ zh-CN:
     hr_homes:
       show:
         title: "HR 主页"
+        evaluation: "员工自评"
+        mark_score: "上级评价"
+        calibration: "绩效校准"
+        need_review_evaluations: "需要打分下属：%{count} 人"
+        need_calibration_session_users: "需要校准绩效：%{count} 人"
+        need_review_calibration_session_users: "需要校验绩效：%{count} 人"
+        evaluation_signing: "员工确认"
+        proofreading_calibration_session: "绩效校验"
+        click_to_start: "点击开始"
