@@ -5,6 +5,7 @@ en:
       admin:
         header: "Home"
         dashboard: "Dashboard"
+        hr_home: "HR Home"
         setup: "Setup"
         evaluation: "Evaluation"
         company_evaluation_templates: "Evaluation template"

@@ -5,6 +5,7 @@ zh-CN:
       admin:
         header: "首页"
         dashboard: "主页"
+        hr_home: "HR 主页"
         setup: "配置"
         evaluation: "考评"
         company_evaluation_templates: "考评模版"

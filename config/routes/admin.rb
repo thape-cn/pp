@@ -2,6 +2,8 @@ require "sidekiq/web"
 
 namespace :admin do
   root to: "home#index"
+  resource :hr_home, only: %i[show]
+
   resources :company_evaluations, only: %i[index new create edit update] do
     resources :templates, controller: "evaluation_templates", only: %i[index new create edit update] do
       resources :calibration_templates, only: %i[new create edit update destroy] do

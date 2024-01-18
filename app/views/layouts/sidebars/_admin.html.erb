@@ -11,7 +11,8 @@
     <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable" data-action="click->sidebar#click"></button>
   </div>
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
-    <%= nav_item(t('.dashboard'), root_path, 'free.svg#cil-speedometer') -%>
+    <%= nav_item(t('.dashboard'), admin_root_path, 'free.svg#cil-speedometer') -%>
+    <%= nav_item(t('.hr_home'), admin_hr_home_path, 'free.svg#cil-speedometer') -%>
 
     <li class="nav-title"><%= t('.evaluation') -%></li>
     <li class="nav-group <%= %w[user_capabilities user_descriptions archived_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
