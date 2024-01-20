@@ -1116,9 +1116,9 @@
   integrity sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==
 
 "@jridgewell/trace-mapping@^0.3.17", "@jridgewell/trace-mapping@^0.3.20", "@jridgewell/trace-mapping@^0.3.9":
-  version "0.3.21"
-  resolved "https://registry.npmmirror.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.21.tgz#5dc1df7b3dc4a6209e503a924e1ca56097a2bb15"
-  integrity sha512-SRfKmRe1KvYnxjEMtxEr+J4HIeMX5YBg/qhRHpxEIGjhX1rshcHlnFUE9K0GazhVKWM7B+nARSkV8LuvJdJ5/g==
+  version "0.3.22"
+  resolved "https://registry.npmmirror.com/@jridgewell/trace-mapping/-/trace-mapping-0.3.22.tgz#72a621e5de59f5f1ef792d0793a82ee20f645e4c"
+  integrity sha512-Wf963MzWtA2sjrNt+g18IAln9lKnlRp+K2eH4jjIoF1wYeq3aMREpG09xhlhdzS0EjwU7qmUJYangWa+151vZw==
   dependencies:
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
@@ -2241,9 +2241,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.601:
-  version "1.4.639"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.639.tgz#c6f9cc685f9efb2980d2cfc95a27f8142c9adf28"
-  integrity sha512-CkKf3ZUVZchr+zDpAlNLEEy2NJJ9T64ULWaDgy3THXXlPVPkLu3VOs9Bac44nebVtdwl2geSj6AxTtGDOxoXhg==
+  version "1.4.640"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.640.tgz#76290a36fa4b5f1f4cadaf1fc582478ebb3ac246"
+  integrity sha512-z/6oZ/Muqk4BaE7P69bXhUhpJbUM9ZJeka43ZwxsDshKtePns4mhBlh8bU5+yrnOnz3fhG82XLzGUXazOmsWnA==
 
 emojis-list@^3.0.0:
   version "3.0.0"
@@ -4005,10 +4005,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.npmmirror.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shakapacker@=7.2.1:
-  version "7.2.1"
-  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-7.2.1.tgz#de9895bbbb6b6ee1016478dbbb8d4c37b25e5a50"
-  integrity sha512-IRPkEdIY2JiPfj7fnQ9sP8SBaUcaArMVBHAn3ctB91FndgyaM/bfXXlSEiveWPT3A3wkoadx44U6pKXo1DdC3w==
+shakapacker@=7.2.2:
+  version "7.2.2"
+  resolved "https://registry.npmmirror.com/shakapacker/-/shakapacker-7.2.2.tgz#58f565ce0a1b3efb91effaed982d0ac5811af57c"
+  integrity sha512-TSHEztaNcfhUqwap2arvAmvIm9YNbqlYjxaS4cYPxtqGH/2UQD98hKjztHBdphceOjTV6ea5Yj235egWh8E15Q==
   dependencies:
     glob "^7.2.0"
     js-yaml "^4.1.0"
