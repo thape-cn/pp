@@ -27,7 +27,7 @@ Type=notify
 # If your Sidekiq process locks up, systemd's watchdog will restart it within seconds.
 WatchdogSec=30
 User=pgac
-WorkingDirectory=/var/www/rails_starter/current
+WorkingDirectory=/var/www/pp_staging/current
 ExecStart=/home/pgac/.rbenv/bin/rbenv exec bundle exec sidekiq -e production
 
 # Use `systemctl kill -s TSTP sidekiq_pp_vendor` to quiet the Sidekiq process
@@ -39,8 +39,8 @@ RestartSec=10
 Restart=on-failure
 
 # output goes to /var/log/syslog (Ubuntu) or /var/log/messages (CentOS)
-StandardOutput=append:/var/www/rails_starter/shared/log/sidekiq.log
-StandardError=append:/var/www/rails_starter/shared/log/sidekiq.error.log
+StandardOutput=append:/var/www/pp_staging/shared/log/sidekiq.log
+StandardError=append:/var/www/pp_staging/shared/log/sidekiq.error.log
 
 SyslogIdentifier=sidekiq_pp_vendor
 

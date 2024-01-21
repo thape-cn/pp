@@ -4,8 +4,8 @@ lock "~> 3.18.0"
 # Default branch is :master
 set :branch, :main
 
-# Default deploy_to directory is /var/www/rails_starter
-# set :deploy_to, "/var/www/rails_starter"
+# Default deploy_to directory is /var/www/pp_staging
+# set :deploy_to, "/var/www/pp_staging"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
