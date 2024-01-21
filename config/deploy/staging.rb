@@ -8,4 +8,4 @@ set :puma_systemctl_user, :system
 set :sidekiq_service_unit_name, "sidekiq_pp_vendor"
 set :sidekiq_service_unit_user, :system
 
-server "bandwagon", user: "starter", roles: %w[app db web]
+server "bandwagon", user: "pgac", roles: %w[app db web]

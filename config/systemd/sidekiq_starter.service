@@ -26,10 +26,9 @@ After=syslog.target network.target
 Type=notify
 # If your Sidekiq process locks up, systemd's watchdog will restart it within seconds.
 WatchdogSec=30
-User=starter
-
+User=pgac
 WorkingDirectory=/var/www/rails_starter/current
-ExecStart=/home/starter/.rbenv/bin/rbenv exec bundle exec sidekiq -e production
+ExecStart=/home/pgac/.rbenv/bin/rbenv exec bundle exec sidekiq -e production
 
 # Use `systemctl kill -s TSTP sidekiq_pp_vendor` to quiet the Sidekiq process
 
