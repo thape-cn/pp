@@ -79,22 +79,22 @@ class User < ApplicationRecord
     end
   end
 
-  def managed_dept_codes
-    @_managed_dept_codes ||= hrbp_user_managed_departments.collect(&:managed_dept_code)
+  def secretary_managed_dept_codes
+    @_secretary_managed_dept_codes ||= secretary_managed_departments.collect(&:managed_dept_code)
   end
 
-  def managed_dept_codes=(values)
+  def secretary_managed_dept_codes=(values)
     select_values = Array(values).reject(&:blank?)
     if new_record?
-      (select_values - managed_dept_codes).each do |new_dept_code|
-        hrbp_user_managed_departments.build(managed_dept_code: new_dept_code, auto_generated: false, can_view_staff_evaluation_detail: false)
+      (select_values - secretary_managed_dept_codes).each do |new_dept_code|
+        secretary_managed_departments.build(managed_dept_code: new_dept_code)
       end
     else
-      (managed_dept_codes - select_values).each do |to_destroy_dept_code|
-        hrbp_user_managed_departments.find_by(managed_dept_code: to_destroy_dept_code).destroy
+      (secretary_managed_dept_codes - select_values).each do |to_destroy_dept_code|
+        secretary_managed_departments.find_by(managed_dept_code: to_destroy_dept_code).destroy
       end
-      (select_values - managed_dept_codes).each do |to_add_dept_code|
-        hrbp_user_managed_departments.create(managed_dept_code: to_add_dept_code, auto_generated: false, can_view_staff_evaluation_detail: false)
+      (select_values - secretary_managed_dept_codes).each do |to_add_dept_code|
+        secretary_managed_departments.create(managed_dept_code: to_add_dept_code)
       end
     end
   end
