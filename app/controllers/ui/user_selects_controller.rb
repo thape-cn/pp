@@ -5,7 +5,7 @@ module UI
       user_scope = policy_scope(User)
       @users = if current_user.admin? || current_user.hr_staff?
         user_scope.or(User.where(is_active: false, user_job_roles: {company: nil}))
-      elsif current_user.auto_hr_bp? || current_user.secretary?
+      elsif current_user.hr_bp? || current_user.secretary?
         user_scope.or(User.where(is_active: false, user_job_roles: {dept_code: nil}))
       else
         user_scope

@@ -9,7 +9,7 @@ class UserPolicy < ApplicationPolicy
       elsif user.secretary?
         scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.secretary_managed_departments.pluck(:managed_dept_code)})
           .or(scope.where(id: user.id))
-      elsif user.auto_hr_bp?
+      elsif user.hr_bp?
         scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
           .or(scope.where(id: user.id))
       else

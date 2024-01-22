@@ -9,7 +9,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         scope.where(dept_code: user.secretary_managed_departments.pluck(:managed_dept_code))
           .or(scope.where(user_id: user.id))
           .or(scope.where(manager_user_id: user.id))
-      elsif user.auto_hr_bp?
+      elsif user.hr_bp?
         scope.where(dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code))
           .or(scope.where(user_id: user.id))
           .or(scope.where(manager_user_id: user.id))

@@ -35,7 +35,7 @@ class User < ApplicationRecord
     secretary_managed_departments.present?
   end
 
-  def auto_hr_bp?
+  def hr_bp?
     hrbp_user_managed_departments.present?
   end
 
