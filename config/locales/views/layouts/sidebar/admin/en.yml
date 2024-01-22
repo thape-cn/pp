@@ -15,6 +15,7 @@ en:
         user_performances: "User’s uploaded performances"
         account: "Account"
         hrbp_managed_departments: "HRBP managed department"
+        secretary_managed_departments: "Secretary managed department"
         job_roles: "Job roles"
         evaluation_roles: "Evaluation roles"
         all_calibration_session: "All calibration session"

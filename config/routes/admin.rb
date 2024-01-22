@@ -141,6 +141,7 @@ namespace :admin do
   end
   resources :duplicate_users, only: %i[index edit update]
   resources :hrbp_managed_departments, only: %i[index]
+  resources :secretary_managed_departments, only: %i[index]
   resources :job_roles, only: %i[index edit update] do
     collection do
       get :excel_report

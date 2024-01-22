@@ -15,6 +15,7 @@ zh-CN:
         user_performances: "员工上传的业绩"
         account: "账号"
         hrbp_managed_departments: "HRBP 管理的部门"
+        secretary_managed_departments: "部门的管理秘书"
         job_roles: "工作角色"
         evaluation_roles: "考评角色"
         all_calibration_session: "所有校验会话"
