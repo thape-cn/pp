@@ -57,8 +57,6 @@ zh-CN:
     job_level: "岗位职级"
     job_code: "基准岗"
     job_family: "岗位序列"
-    permissions: "权限"
     user_is_active: "用户是否在岗"
     show_user_inactive_only: "仅显示不在岗用户"
     user_job_role_is_active: "用户工作角色是否在岗"
-    auto_generated: "系统自动生成"

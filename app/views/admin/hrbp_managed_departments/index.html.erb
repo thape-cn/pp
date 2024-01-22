@@ -10,7 +10,6 @@
           <th><%= t('user.company') -%></th>
           <th><%= t('user.department') -%></th>
           <th><%= t('user.dept_code') -%></th>
-          <th><%= t('user.permissions') -%></th>
           <th><%= t('user.hrbp_name') -%></th>
         </tr>
       </thead>
@@ -20,11 +19,6 @@
             <td><%= UserJobRole.company_by_dept_code[hmdp.managed_dept_code] -%></td>
             <td><%= UserJobRole.department_by_dept_code[hmdp.managed_dept_code] -%></td>
             <td><%= hmdp.managed_dept_code %></td>
-            <td>
-              <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= t('user.auto_generated') -%>">
-                <%= svg_icon('free.svg#cil-airplane-mode', %w[icon]) -%>
-              </span>
-            </td>
             <td>
               <%= hmdp.user.chinese_name -%>
               <%= link_to impersonation_admin_user_path(id: hmdp.user_id), class: 'pe-1', data: {controller: "modal", action: "modal#click"} do %>

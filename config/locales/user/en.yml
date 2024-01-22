@@ -57,8 +57,6 @@ en:
     job_level: "Job level"
     job_code: "Job code"
     job_family: "job family"
-    permissions: "Permissions"
     user_is_active: "Is the user active"
     show_user_inactive_only: "Show user inactive only"
     user_job_role_is_active: "Whether the user's job role is on the job"
-    auto_generated: "Auto generated"
