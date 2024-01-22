@@ -26,11 +26,6 @@
                   <%= svg_icon('free.svg#cil-airplane-mode', %w[icon]) -%>
                 </span>
               <% end %>
-              <% if hmdp.can_view_staff_evaluation_detail? %>
-                <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= t('user.can_view_staff_evaluation_detail') -%>">
-                  <%= svg_icon('free.svg#cil-envelope-open', %w[icon]) -%>
-                </span>
-              <% end %>
             </td>
             <td>
               <%= hmdp.user.chinese_name -%>
