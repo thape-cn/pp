@@ -5,8 +5,12 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         scope.all
       elsif user.hr_staff?
         scope.where(company: user.hr_user_managed_companies.pluck(:managed_company))
-      elsif user.hr_bp?
-        scope.where(dept_code: user.hrbp_user_managed_departments.where(auto_generated: true).pluck(:managed_dept_code))
+      elsif user.secretary?
+        scope.where(dept_code: user.secretary_managed_departments.pluck(:managed_dept_code))
+          .or(scope.where(user_id: user.id))
+          .or(scope.where(manager_user_id: user.id))
+      elsif user.auto_hr_bp?
+        scope.where(dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code))
           .or(scope.where(user_id: user.id))
           .or(scope.where(manager_user_id: user.id))
       else
@@ -28,7 +32,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
     hr_bp_managed_companies = user.hr_user_managed_companies.pluck(:managed_company)
     return true if hr_bp_managed_companies.include?(record.company)
 
-    hrbp_user_managed_departments = user.hrbp_user_managed_departments.where(auto_generated: true).pluck(:managed_dept_code)
+    hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
 
     record.user_id == user.id ||

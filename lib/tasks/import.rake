@@ -90,7 +90,7 @@ namespace :import do
   task :link_hrbp_user_managed_departments, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    HrbpUserManagedDepartment.where(auto_generated: true).delete_all
+    HrbpUserManagedDepartment.delete_all
 
     CSV.foreach(csv_file_path, headers: true) do |row|
       hr_job_user_id = row["HR"]

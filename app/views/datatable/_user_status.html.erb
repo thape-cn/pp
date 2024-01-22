@@ -4,6 +4,9 @@
 <% if user.hr_staff? %>
   <span class="badge bg-warning"><%= I18n.t("user.hr_staff") -%></span>
 <% end %>
-<% if user.hr_bp? %>
+<% if user.auto_hr_bp? %>
   <span class="badge bg-info"><%= I18n.t("user.hr_bp") -%></span>
+<% end %>
+<% if user.secretary? %>
+  <span class="badge bg-info"><%= I18n.t("user.secretary") -%></span>
 <% end %>

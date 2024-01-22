@@ -31,12 +31,12 @@ class User < ApplicationRecord
     hr_user_managed_companies.present?
   end
 
-  def hr_bp?
-    hrbp_user_managed_departments.present?
+  def secretary?
+    secretary_managed_departments.present?
   end
 
   def auto_hr_bp?
-    hrbp_user_managed_departments.where(auto_generated: true).present?
+    hrbp_user_managed_departments.present?
   end
 
   def role_ids

@@ -21,11 +21,9 @@
             <td><%= UserJobRole.department_by_dept_code[hmdp.managed_dept_code] -%></td>
             <td><%= hmdp.managed_dept_code %></td>
             <td>
-              <% if hmdp.auto_generated? %>
-                <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= t('user.auto_generated') -%>">
-                  <%= svg_icon('free.svg#cil-airplane-mode', %w[icon]) -%>
-                </span>
-              <% end %>
+              <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= t('user.auto_generated') -%>">
+                <%= svg_icon('free.svg#cil-airplane-mode', %w[icon]) -%>
+              </span>
             </td>
             <td>
               <%= hmdp.user.chinese_name -%>
