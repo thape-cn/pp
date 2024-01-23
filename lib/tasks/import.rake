@@ -113,10 +113,6 @@ namespace :import do
         puts "hrbp_user_id: #{hr_job_user_id}/#{first_part_of_user_id}_Group/#{first_part_of_user_id} not found."
       end
     end
-    manual_auto_hrbp_user = User.find_by!(email: "taoyongli@thape.com.cn")
-    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101150", auto_managed: true)
-    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101126", auto_managed: true)
-    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101012", auto_managed: true)
   end
 
   desc "Import Evaluation Role"
