@@ -90,7 +90,7 @@ namespace :import do
   task :link_hrbp_user_managed_departments, [:csv_file] => [:environment] do |task, args|
     csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    HrbpUserManagedDepartment.delete_all
+    HrbpUserManagedDepartment.where(auto_managed: true).delete_all
 
     CSV.foreach(csv_file_path, headers: true) do |row|
       hr_job_user_id = row["HR"]
@@ -107,15 +107,16 @@ namespace :import do
       end
       if hrbp_job_role.present?
         hrbp = hrbp_job_role.user
-        hrbp.hrbp_user_managed_departments.find_or_create_by(managed_dept_code: dept_code)
+        hrbp_user_managed_department = hrbp.hrbp_user_managed_departments.find_or_create_by(managed_dept_code: dept_code)
+        hrbp_user_managed_department.update(auto_managed: true)
       else
         puts "hrbp_user_id: #{hr_job_user_id}/#{first_part_of_user_id}_Group/#{first_part_of_user_id} not found."
       end
     end
     manual_auto_hrbp_user = User.find_by!(email: "taoyongli@thape.com.cn")
-    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101150")
-    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101126")
-    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101012")
+    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101150", auto_managed: true)
+    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101126", auto_managed: true)
+    manual_auto_hrbp_user.hrbp_user_managed_departments.create(managed_dept_code: "000101012", auto_managed: true)
   end
 
   desc "Import Evaluation Role"
