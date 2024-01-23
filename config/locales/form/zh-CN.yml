@@ -42,3 +42,4 @@ zh-CN:
     status_time: "发生时间"
     created_at: "创建时间"
     updated_at: "更新时间"
+    manually: "手动"

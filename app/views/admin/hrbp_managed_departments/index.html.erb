@@ -18,7 +18,14 @@
           <tr>
             <td><%= UserJobRole.company_by_dept_code[hmdp.managed_dept_code] -%></td>
             <td><%= UserJobRole.department_by_dept_code[hmdp.managed_dept_code] -%></td>
-            <td><%= hmdp.managed_dept_code %></td>
+            <td>
+              <%= hmdp.managed_dept_code %>
+              <% unless hmdp.auto_managed? %>
+                <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= t('form.manually') -%>">
+                  <%= svg_icon('free.svg#cil-hand-point-up', %w[icon]) -%>
+                </span>
+              <% end %>
+            </td>
             <td>
               <%= hmdp.user.chinese_name -%>
               <%= link_to impersonation_admin_user_path(id: hmdp.user_id), class: 'pe-1', data: {controller: "modal", action: "modal#click"} do %>
