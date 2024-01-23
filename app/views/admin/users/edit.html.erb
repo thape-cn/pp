@@ -20,6 +20,12 @@
             </div>
           </div>
           <div class="row mb-3">
+            <%= f.label :hrbp_user_managed_dept_codes, t("user.hrbp_user_managed_departments"), class: 'col-4 col-form-label' %>
+            <div class="col-8" data-controller="selectizes">
+              <%= f.select :hrbp_user_managed_dept_codes, UserJobRole.all_dept_codes, {}, multiple: true, class: 'form-control', data: { 'selectizes-target': 'select' } -%>
+            </div>
+          </div>
+          <div class="row mb-3">
             <%= f.label :secretary_managed_dept_codes, t("user.secretary_managed_departments"), class: 'col-4 col-form-label' %>
             <div class="col-8" data-controller="selectizes">
               <%= f.select :secretary_managed_dept_codes, UserJobRole.all_dept_codes, {}, multiple: true, class: 'form-control', data: { 'selectizes-target': 'select' } -%>

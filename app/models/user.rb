@@ -79,6 +79,26 @@ class User < ApplicationRecord
     end
   end
 
+  def hrbp_user_managed_dept_codes
+    @_hrbp_user_managed_dept_codes ||= hrbp_user_managed_departments.collect(&:managed_dept_code)
+  end
+
+  def hrbp_user_managed_dept_codes=(values)
+    select_values = Array(values).reject(&:blank?)
+    if new_record?
+      (select_values - hrbp_user_managed_dept_codes).each do |new_dept_code|
+        hrbp_user_managed_departments.build(managed_dept_code: new_dept_code, auto_managed: false)
+      end
+    else
+      (hrbp_user_managed_dept_codes - select_values).each do |to_destroy_dept_code|
+        hrbp_user_managed_departments.find_by(managed_dept_code: to_destroy_dept_code).destroy
+      end
+      (select_values - hrbp_user_managed_dept_codes).each do |to_add_dept_code|
+        hrbp_user_managed_departments.create(managed_dept_code: to_add_dept_code, auto_managed: false)
+      end
+    end
+  end
+
   def secretary_managed_dept_codes
     @_secretary_managed_dept_codes ||= secretary_managed_departments.collect(&:managed_dept_code)
   end
