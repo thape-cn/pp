@@ -82,7 +82,7 @@ export function EucModalDialog({euc_id, onClose}) {
   }, [])
 
   return (
-    <div ref={modalRef} className="modal-dialog">
+    <div ref={modalRef} className="modal-dialog modal-lg">
       <div className="modal-content">
         <div className="modal-header">
           <h5 className="modal-title">{evaluationUserCapability.chinese_name} - {evaluationUserCapability.form_status}</h5>
