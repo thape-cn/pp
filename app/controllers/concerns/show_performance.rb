@@ -15,13 +15,18 @@ module ShowPerformance
       .where(company_evaluation_id: company_evaluation.id).pluck(:id)
     evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
       .where(company_evaluation_template_id: company_template_ids)
-      .where(form_status: %w[hr_review_completed data_locked])
     @companies = evaluation_user_capabilities.select(:company).distinct.pluck(:company)
     @company = params[:company].presence || @companies.first
     evaluation_user_capabilities = evaluation_user_capabilities.where(company: @company)
     @departments = evaluation_user_capabilities.select(:department).distinct.pluck(:department)
     evaluation_user_capabilities = evaluation_user_capabilities.where(department: @department) if @department.present?
     evaluation_user_capabilities = evaluation_user_capabilities.where(manager_user_id: @manager_user_id) if @manager_user_id.present?
+    @form_status = params[:form_status].presence
+    evaluation_user_capabilities = if @form_status.present?
+      evaluation_user_capabilities.where(form_status: @form_status)
+    else
+      evaluation_user_capabilities.where(form_status: %w[hr_review_completed data_locked])
+    end
     @evaluation_user_capabilities_group = group(evaluation_user_capabilities)
     @total_people_num = @evaluation_user_capabilities_group.values.reduce(0) { |sum, array| sum + array.length }
   end

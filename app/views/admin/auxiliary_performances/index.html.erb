@@ -10,7 +10,7 @@
     <div class="container">
       <%= form_tag admin_auxiliary_performances_path, method: :get do -%>
         <div class="row g-3 align-items-center m-2">
-          <div class="col-3">
+          <div class="col-2">
             <label><%= t("performance.company_evaluation") -%></label>
             <%= select_tag :company_evaluation_id, options_from_collection_for_select(CompanyEvaluation.all.order(id: :desc), "id", "title", @company_evaluation_id), {class: 'form-control'} -%>
           </div>
@@ -18,13 +18,17 @@
             <label><%= t("user.company") -%></label>
             <%= select_tag :company, options_for_select(@companies, @company), {class: 'form-control'} -%>
           </div>
-          <div class="col-3">
+          <div class="col-2">
             <label><%= t("user.department") -%></label>
             <%= select_tag :department, options_for_select(@departments, @department), {include_blank: true, class: 'form-control'} -%>
           </div>
           <div class="col-2" data-controller="selectize-user-ids">
             <label><%= t("user.manager_user") -%></label>
             <%= select_tag :manager_user_id, options_from_collection_for_select(User.where(id: @manager_user_id), "id", "name_with_clerk_code", @manager_user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
+          </div>
+          <div class="col">
+            <label class="col-auto"><%= t("evaluation.evaluation_status") -%>：</label>
+            <%= select_tag 'form_status', options_for_select(EvaluationUserCapability.form_status_options, @form_status), { include_blank: true, class: 'form-control' } %>
           </div>
           <div class="col">
             <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
