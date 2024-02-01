@@ -7,6 +7,7 @@ en:
     company_evaluation_template_not_found: "Company evaluation template not found by title: %{template_title}"
     user_job_role_not_found: "UserJobRole not found by dept_code: %{dept_code}"
     evaluation_user_capability_exists: "EvaluationUserCapability already exists for user clerk code: %{clerk_code}, job_role st_code: %{st_code}, company_evaluation_template title: %{template_title}"
+    evaluation_user_capability_job_role_capabilities_blank: "User job role can not find any capabilities configured, clerk code: %{clerk_code}, job_role st_code: %{st_code}, company_evaluation_template title: %{template_title}"
     evaluation_user_capability_failed: "evaluation_user_capability: %{dept_code} %{clerk_code} %{template_title} failed %{error_messages}"
     evaluation_user_capability_not_found: "EvaluationUserCapability not found: %{template_title}, JobRole: %{st_code}"
     calibration_owner_not_found: "Calibration owner not found by clerk_code: %{clerk_code}"

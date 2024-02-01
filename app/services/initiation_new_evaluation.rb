@@ -59,6 +59,11 @@ class InitiationNewEvaluation
       if existing_euc.present?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_exists", clerk_code: clerk_code, st_code: st_code, template_title: template_title))
       end
+
+      columns_to_update_zero = job_role.evaluation_role&.capabilities&.each_with_object({}) { |capability, hash| hash[capability.en_name] = 0 }
+      if columns_to_update_zero.blank?
+        import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.evaluation_user_capability_job_role_capabilities_blank", clerk_code: clerk_code, st_code: st_code, template_title: template_title))
+      end
     end
 
     if import_excel_file.import_excel_file_messages.present?
