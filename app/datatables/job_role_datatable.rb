@@ -9,7 +9,7 @@ class JobRoleDatatable < ApplicationDatatable
       job_role_id: {source: "JobRole.id", cond: :eq},
       st_code: {source: "JobRole.st_code", cond: :like},
       job_level: {source: "JobRole.job_level", searchable: true, cond: :like},
-      job_code: {source: "JobRole.job_code", searchable: true, cond: :eq},
+      job_code: {source: "JobRole.job_code", searchable: true, cond: :like},
       job_family: {source: "JobRole.job_family", searchable: true, cond: :like},
       evaluation_role: {source: nil, searchable: false, orderable: false},
       actions: {source: nil, searchable: false, orderable: false}
