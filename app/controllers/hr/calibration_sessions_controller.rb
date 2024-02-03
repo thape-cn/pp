@@ -62,6 +62,8 @@ module HR
     end
 
     def approve
+      return head :no_content unless @calibration_session.session_status == "proofreading"
+
       @calibration_session.calibration_session_users.each do |csu|
         next if csu.new_calibration_session_id.present?
         csu.evaluation_user_capability.update_form_status_to("hr_review_completed", current_user)
