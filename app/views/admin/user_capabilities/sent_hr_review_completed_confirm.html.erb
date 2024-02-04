@@ -1,6 +1,6 @@
 <div class="modal-dialog">
   <div class="modal-content">
-    <%= form_with model: @company_evaluation, url: sent_hr_review_completed_remind_admin_company_evaluation_user_capabilities_path(company_evaluation_id: @company_evaluation.id), method: :post do |f| %>
+    <%= form_with model: @company_evaluation, url: sent_hr_review_completed_remind_admin_company_evaluation_user_capabilities_path(company_evaluation_id: @company_evaluation.id), multipart: true, method: :post do |f| %>
       <div class="modal-header">
         <h5 class="modal-title"><%= t(".title") -%></h5>
         <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
