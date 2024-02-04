@@ -1,4 +1,4 @@
-class StaffNeedConfirmRemindJob
+class StaffNeedConfirmRemindWecomJob
   include Sidekiq::Job
 
   def perform(wecom_id, evaluation_user_capability_id)
