@@ -228,7 +228,19 @@ module Admin
     end
 
     def sent_hr_review_completed_remind
-      SentHRReviewCompletedRemindJob.perform_async(@company_evaluation.id)
+      xlsx = Roo::Excelx.new(params[:file])
+      xlsx.each(
+        clerk_code: "USERNAME"
+      ) do |h|
+        clerk_code = h[:clerk_code].to_s
+        next if clerk_code == "USERNAME"
+        next if clerk_code.blank?
+        if params[:send_email] == "true"
+        end
+        if params[:send_wecom_message] == "true"
+          StaffNeedConfirmRemindWecomJob.perform_async(@company_evaluation.id, clerk_code)
+        end
+      end
     end
 
     def sent_self_assessment_confirm
