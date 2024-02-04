@@ -16,7 +16,7 @@ class StaffNeedConfirmRemindWecomJob
 
       sent_message = <<~HELLO
         【绩效评价通知】
-        请尽快登录绩效系统，确认并查看绩效评价
+        请尽快登录绩效系统，确认并查看绩效评价结果
         登录链接：https://performance.thape.com.cn/staff/signing/#{evaluation_user_capability.id}
       HELLO
 
