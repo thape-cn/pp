@@ -236,6 +236,7 @@ module Admin
         next if clerk_code == "USERNAME"
         next if clerk_code.blank?
         if params[:send_email] == "true"
+          StaffNeedConfirmRemindEmailJob.perform_async(@company_evaluation.id, clerk_code)
         end
         if params[:send_wecom_message] == "true"
           StaffNeedConfirmRemindWecomJob.perform_async(@company_evaluation.id, clerk_code)
