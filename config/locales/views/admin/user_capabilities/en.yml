@@ -11,10 +11,8 @@ en:
       show:
         title: "Form state history"
       sent_hr_review_completed_confirm:
-        title: "Confirm to send notification to all users waiting for confirmation?"
+        title: "Please upload performance level reminder Excel for sending email / WeChat"
       sent_self_assessment_confirm:
-        title: "Please upload Excel after starting the form and send email"
-        send_email: "Send email"
-        send_wecom_message: "Send wecom message"
+        title: "Please upload Excel after starting the form, email / WeChat will send based on Excel"
       custom_description_dialog:
         title: "Custom evaluation user capability description"

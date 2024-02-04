@@ -5,6 +5,34 @@
         <h5 class="modal-title"><%= t(".title") -%></h5>
         <button class="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row mb-3">
+            <%= label_tag :file, t("form.upload_file"), class: 'col-3 col-form-label' %>
+            <div class="col-9">
+              <%= file_field_tag :file, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <div class="form-check form-switch form-switch-xl">
+                  <%= check_box_tag :send_email, 'true', class: "form-check-input" %>
+                  <%= label_tag :send_email, t("form.send_email"), class: "form-check-label" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <div class="form-check form-switch form-switch-xl">
+                  <%= check_box_tag :send_wecom_message, 'true', class: "form-check-input" %>
+                  <%= label_tag :send_wecom_message, t("form.send_wecom_message"), class: "form-check-label" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="modal-footer">
         <%= f.submit t('form.confirm'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
         <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>

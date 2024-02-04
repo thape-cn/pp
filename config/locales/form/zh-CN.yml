@@ -43,3 +43,5 @@ zh-CN:
     created_at: "创建时间"
     updated_at: "更新时间"
     manually: "手动"
+    send_email: "发送邮件"
+    send_wecom_message: "发送企业微信消息"
