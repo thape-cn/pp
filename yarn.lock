@@ -2263,9 +2263,9 @@ envinfo@^7.7.3:
   integrity sha512-8PiZgZNIB4q/Lw4AhOvAfB/ityHAd2bli3lESSWmWSzSsl5dKpy5N1d1Rfkd2teq/g9xN90lc6o98DOjMeYHpg==
 
 es-errors@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmmirror.com/es-errors/-/es-errors-1.0.0.tgz#1936450fb8cff7bffb969335d0e55dfca7279aab"
-  integrity sha512-yHV74THqMJUyFKkHyN7hyENcEZM3Dj2a2IrdClY+IT4BFQHkIVwlh8s6uZfjsFydMdNHv0F5mWgAA3ajFbsvVQ==
+  version "1.2.1"
+  resolved "https://registry.npmmirror.com/es-errors/-/es-errors-1.2.1.tgz#84e6f247b599ad90c3c6a5a9aa29f0d76e431586"
+  integrity sha512-pxzkrX6Jf/KtJH+qn7qyy8XQjNLwcLiU2gL6+gozhYXKBE8DoTaeCn3Tobb324QI6Fe3L8FuaVUMUaWtnSCRRw==
 
 es-module-lexer@^1.2.1:
   version "1.4.1"
