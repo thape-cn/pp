@@ -37,7 +37,7 @@
     "react-table": "^7.8.0",
     "sass": "^1.70.0",
     "sass-loader": "^13.3.3",
-    "semver": "^7.5.4",
+    "semver": "^7.5.3",
     "shakapacker": "=7.2.2",
     "simplebar": "^6.2.5",
     "style-loader": "^3.3.4",
