@@ -243,7 +243,7 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.7.2)
-    irb (1.11.1)
+    irb (1.11.2)
       rdoc
       reline (>= 0.4.2)
     jbuilder (2.11.5)
@@ -276,7 +276,7 @@ GEM
     meta-tags (2.20.0)
       actionpack (>= 6.0.0, < 7.2)
     mini_mime (1.1.5)
-    minitest (5.22.1)
+    minitest (5.22.2)
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
