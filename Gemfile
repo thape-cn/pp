@@ -37,7 +37,7 @@ gem "browser"
 gem "config"
 
 gem "ajax-datatables-rails"
-gem "pagy"
+gem "pagy", "~> 6.5"
 
 gem "redcarpet"
 
