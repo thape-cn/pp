@@ -24,6 +24,7 @@
     "compression-webpack-plugin": "^9.2.0",
     "css-loader": "^6.9.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
+    "datatables.net": "~1.13.10",
     "datatables.net-bs5": "^1.13.8",
     "date-fns": "^2.30.0",
     "local-time": "^2.1.0",
