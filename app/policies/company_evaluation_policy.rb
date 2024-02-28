@@ -45,6 +45,14 @@ class CompanyEvaluationPolicy < ApplicationPolicy
     confirm_to_end_evaluation?
   end
 
+  def confirm_filling_final_total_evaluation_grade?
+    user.admin?
+  end
+
+  def filling_final_total_evaluation_grade?
+    confirm_filling_final_total_evaluation_grade?
+  end
+
   def confirm_destroy?
     user.admin?
   end

@@ -37,6 +37,9 @@
                   <%= link_to edit_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.edit"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                     <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
                   <% end %>
+                  <%= link_to confirm_filling_final_total_evaluation_grade_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("evaluation.filling_final_total_evaluation_grade"), controller: "modal", action: "modal#click"} do -%>
+                    <%= svg_icon('free.svg#cil-color-fill', %w[icon icon-lg]) -%>
+                  <% end %>
                   <%= link_to confirm_remove_leaving_employee_eucs_admin_company_evaluation_path(id: company_evaluation.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.remove_leaving_employee_eucs"), controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                     <%= svg_icon('free.svg#cil-recycle', %w[icon icon-lg]) -%>
                   <% end %>

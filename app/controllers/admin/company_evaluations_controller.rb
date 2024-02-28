@@ -5,7 +5,8 @@ module Admin
     after_action :verify_policy_scoped, only: :index
     before_action :set_company_evaluation, only: %i[edit update
       confirm_to_end_evaluation to_end_evaluation
-      confirm_remove_leaving_employee_eucs remove_leaving_employee_eucs]
+      confirm_remove_leaving_employee_eucs remove_leaving_employee_eucs
+      confirm_filling_final_total_evaluation_grade filling_final_total_evaluation_grade]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 
     def index
@@ -44,6 +45,14 @@ module Admin
 
     def to_end_evaluation
       @company_evaluation.end_evaluation
+    end
+
+    def confirm_filling_final_total_evaluation_grade
+      render layout: false
+    end
+
+    def filling_final_total_evaluation_grade
+      @company_evaluation.filling_final_total_evaluation_grade
     end
 
     private

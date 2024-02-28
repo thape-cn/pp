@@ -13,3 +13,6 @@ zh-CN:
       confirm_to_end_evaluation:
         title: "是否结束本次公司考评？"
         confirm_explain_text: "关闭公司考评后将不能开启，关闭公司考评的后会正式写入最终绩效等级到数据库，并上传至相应系统。"
+      confirm_filling_final_total_evaluation_grade:
+        title: "写入已完成员工绩效考评的最终绩效等级？"
+        confirm_explain_text: "您可以放心的多次执行这个写入到数据库的操作。"

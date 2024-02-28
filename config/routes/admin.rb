@@ -59,6 +59,8 @@ namespace :admin do
       put :remove_leaving_employee_eucs
       get :confirm_to_end_evaluation
       put :to_end_evaluation
+      get :confirm_filling_final_total_evaluation_grade
+      put :filling_final_total_evaluation_grade
     end
   end # of company_evaluations
 

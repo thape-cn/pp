@@ -83,6 +83,7 @@ zh-CN:
     custom_description: "自定义能力描述"
     history_evaluation: "历史的考评"
     history_user_capabilities: "员工的历史考评"
+    filling_final_total_evaluation_grade: "写入已完成员工绩效考评的最终绩效等级到数据库"
     form_status:
       initial: "员工自评"
       self_assessment_done: "直属上级评价"

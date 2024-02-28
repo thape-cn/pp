@@ -83,6 +83,7 @@ en:
     custom_description: "Custom capability description"
     history_evaluation: "History evaluation"
     history_user_capabilities: "User's history capabilities"
+    filling_final_total_evaluation_grade: "Filling final total evaluation grade"
     form_status:
       initial: "Employee self-assessment"
       self_assessment_done: "Superior evaluation"
