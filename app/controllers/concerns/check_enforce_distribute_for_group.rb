@@ -16,9 +16,9 @@ module CheckEnforceDistributeForGroup
       else
         I18n.t("calibration.enforce_highest_only_for_staff_failure", apa_grade_rate: ct.apa_grade_rate)
       end
-    elsif lower_quotas_staff[:apa_grade_rate] == apa_grade_rate_people_count \
-      && lower_quotas_staff[:b_grade_rate] == b_grade_rate_people_count \
-      && lower_quotas_staff[:cd_grade_rate] == cd_grade_rate_people_count
+    elsif lower_quotas_staff[:apa_grade_rate] == apa_grade_rate_people_count &&
+        lower_quotas_staff[:b_grade_rate] == b_grade_rate_people_count &&
+        lower_quotas_staff[:cd_grade_rate] == cd_grade_rate_people_count
       nil
     else
       I18n.t("calibration.enforce_distribute_for_staff_failure", apa_grade_rate: ct.apa_grade_rate,
@@ -39,9 +39,9 @@ module CheckEnforceDistributeForGroup
       else
         I18n.t("calibration.enforce_highest_only_for_manager_failure", beyond_standard_rate: ct.beyond_standard_rate)
       end
-    elsif lower_quotas_manager[:below_standard_rate] == below_standard_rate_people_count \
-      && lower_quotas_manager[:standards_compliant_rate] == standards_compliant_rate_people_count \
-      && lower_quotas_manager[:beyond_standard_rate] == beyond_standard_rate_people_count
+    elsif lower_quotas_manager[:below_standard_rate] == below_standard_rate_people_count &&
+        lower_quotas_manager[:standards_compliant_rate] == standards_compliant_rate_people_count &&
+        lower_quotas_manager[:beyond_standard_rate] == beyond_standard_rate_people_count
       nil
     else
       I18n.t("calibration.enforce_distribute_for_manager_failure", below_standard_rate: ct.below_standard_rate,
