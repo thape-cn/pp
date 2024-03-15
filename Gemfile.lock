@@ -109,7 +109,7 @@ GEM
     base64 (0.2.0)
     bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.0)
-    bigdecimal (3.1.6)
+    bigdecimal (3.1.7)
     bindata (2.5.0)
     bindex (0.8.1)
     browser (5.3.1)
