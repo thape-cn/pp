@@ -1328,9 +1328,9 @@
     "@types/express" "*"
 
 "@types/serve-static@*", "@types/serve-static@^1.13.10":
-  version "1.15.6"
-  resolved "https://registry.npmmirror.com/@types/serve-static/-/serve-static-1.15.6.tgz#9cacd9b0b0fc5183ff0d5b27c1b1cad398113673"
-  integrity sha512-xkChxykiNb1X2YBevPIhQhNU9m9M7h9e2gDsmePAP2kNqhOvpKOrZWOCzq2ERQqfNFzlzHG2bdM0u3z5x+gQgg==
+  version "1.15.7"
+  resolved "https://registry.npmmirror.com/@types/serve-static/-/serve-static-1.15.7.tgz#22174bbd74fb97fe303109738e9b5c2f3064f714"
+  integrity sha512-W8Ym+h8nhuRwaKPaDw34QUkwsGi6Rc4yYqvKFo5rm2FUEhCFbzVWrxXUxuKK8TASjWsysJY0nsmNCGhCOIsrOw==
   dependencies:
     "@types/http-errors" "*"
     "@types/node" "*"
@@ -3477,9 +3477,9 @@ postcss-modules-local-by-default@^4.0.4:
     postcss-value-parser "^4.1.0"
 
 postcss-modules-scope@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.npmmirror.com/postcss-modules-scope/-/postcss-modules-scope-3.1.1.tgz#32cfab55e84887c079a19bbb215e721d683ef134"
-  integrity sha512-uZgqzdTleelWjzJY+Fhti6F3C9iF1JR/dODLs/JDefozYcKTBCdD8BIl6nNPbTbcLnGrk56hzwZC2DaGNvYjzA==
+  version "3.1.2"
+  resolved "https://registry.npmmirror.com/postcss-modules-scope/-/postcss-modules-scope-3.1.2.tgz#e7d360c0a1f6493134f00a0483bafacba0a297bd"
+  integrity sha512-hHTYdjVmywC2TAmz134e9M4WZ6i9bh9OoHD8l2qVqc/fXxti1+4UDfZ+Pw/WCdkNIi811eJiTQ+RsfTFEuAjXw==
   dependencies:
     postcss-selector-parser "^6.0.4"
 
@@ -4237,9 +4237,9 @@ terser-webpack-plugin@^5.3.10:
     terser "^5.26.0"
 
 terser@^5.26.0:
-  version "5.30.2"
-  resolved "https://registry.npmmirror.com/terser/-/terser-5.30.2.tgz#79fc2222c241647cea54ab928ac987ffbe8ce9e2"
-  integrity sha512-vTDjRKYKip4dOFL5VizdoxHTYDfEXPdz5t+FbxCC5Rp2s+KbEO8w5wqMDPgj7CtFKZuzq7PXv28fZoXfqqBVuw==
+  version "5.30.3"
+  resolved "https://registry.npmmirror.com/terser/-/terser-5.30.3.tgz#f1bb68ded42408c316b548e3ec2526d7dd03f4d2"
+  integrity sha512-STdUgOUx8rLbMGO9IOwHLpCqolkDITFFQSMYYwKE1N2lY6MVSaeoi10z/EhWxRc6ybqoVmKSkhKYH/XUpl7vSA==
   dependencies:
     "@jridgewell/source-map" "^0.3.3"
     acorn "^8.8.2"
