@@ -419,12 +419,12 @@ GEM
       rack (>= 2.2.4)
       redis-client (>= 0.19.0)
     sorbet-runtime (0.5.11350)
-    sqlite3 (2.0.0-aarch64-linux-gnu)
-    sqlite3 (2.0.0-arm-linux-gnu)
-    sqlite3 (2.0.0-arm64-darwin)
-    sqlite3 (2.0.0-x86-linux-gnu)
-    sqlite3 (2.0.0-x86_64-darwin)
-    sqlite3 (2.0.0-x86_64-linux-gnu)
+    sqlite3 (1.7.3-aarch64-linux)
+    sqlite3 (1.7.3-arm-linux)
+    sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86-linux)
+    sqlite3 (1.7.3-x86_64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     sshkit (1.22.1)
       base64
       mutex_m
@@ -524,7 +524,7 @@ DEPENDENCIES
   selenium-webdriver (>= 4.11.0)
   shakapacker
   sidekiq
-  sqlite3
+  sqlite3 (~> 1.7)
   standard
   tzinfo-data
   web-console
