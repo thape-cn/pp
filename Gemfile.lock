@@ -112,7 +112,7 @@ GEM
     bigdecimal (3.1.7)
     bindata (2.5.0)
     bindex (0.8.1)
-    browser (6.0.0)
+    browser (5.3.1)
     builder (3.2.4)
     capistrano (3.18.1)
       airbrussh (>= 1.0.0)
@@ -491,7 +491,7 @@ PLATFORMS
 DEPENDENCIES
   ajax-datatables-rails
   bcrypt_pbkdf
-  browser
+  browser (< 6)
   capistrano
   capistrano-rails
   capistrano-rbenv
