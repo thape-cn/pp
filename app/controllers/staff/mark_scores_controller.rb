@@ -106,7 +106,7 @@ module Staff
       evaluation_user_capabilities.each do |evaluation_user_capability|
         evaluation_user_capability.update_form_status_to("manager_scored", current_user)
         evaluation_user_capability.update_columns(
-          manager_scored_total_evaluation_score: evaluation_user_capability.pre_total_evaluation_score,
+          manager_scored_total_evaluation_score: evaluation_user_capability.raw_total_evaluation_score,
           final_total_evaluation_score: evaluation_user_capability.total_evaluation_score
         )
       end
@@ -223,7 +223,7 @@ module Staff
       headers_of_performance
         .concat(headers_of_capability).append({
           Header: I18n.t("evaluation.total_evaluation_score"),
-          accessor: "pre_total_evaluation_score",
+          accessor: "raw_total_evaluation_score",
           description: I18n.t("evaluation.total_evaluation_score_description")
         })
     end

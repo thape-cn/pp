@@ -33,6 +33,6 @@ json.array! need_calibration_eucs do |euc|
     json.set! "#{h[:accessor]}_id", jrep&.id
   end
   json.id_euc euc.id
-  json.pre_total_evaluation_score euc.pre_total_evaluation_score
+  json.raw_total_evaluation_score euc.raw_total_evaluation_score
   json.total_evaluation_score euc.total_evaluation_score
 end

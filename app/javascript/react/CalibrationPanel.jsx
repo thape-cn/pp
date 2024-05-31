@@ -37,7 +37,7 @@ function CalibrationPanel() {
       return calibrationEucs[`${row}${column}`].map(euc => {
         return (
           <PersonCard key={euc.id} id={euc.id} user_id={euc.id} chinese_name={euc.chinese_name}
-            pre_total_evaluation_score={euc.pre_total_evaluation_score}
+            raw_total_evaluation_score={euc.raw_total_evaluation_score}
             work_attitude={euc.work_attitude}
             row={row} column={column} group_level={group_level} />
         )

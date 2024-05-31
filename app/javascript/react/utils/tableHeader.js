@@ -110,7 +110,7 @@ export function groupLevel() {
 }
 
 export function prepareTableSubmitData(data) {
-  const skip_to_submit_accessor = ["chinese_name", "title", "department", "pre_total_evaluation_score", "total_evaluation_score", "form_status_name"];
+  const skip_to_submit_accessor = ["chinese_name", "title", "department", "raw_total_evaluation_score", "total_evaluation_score", "form_status_name"];
   return data.map(function (obj) {
     let newObj = {};
     for (let key in obj) {

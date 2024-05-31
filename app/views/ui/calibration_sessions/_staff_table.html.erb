@@ -5,15 +5,15 @@
       <th><%= t("user.chinese_name") -%></th>
       <th><%= t("user.department") -%></th>
       <th><%= t("user.title") -%></th>
-      <th><%= t("calibration.pre_total_evaluation_score") -%></th>
+      <th><%= t("calibration.raw_total_evaluation_score") -%></th>
       <th><%= t("evaluation.total_evaluation_score") -%></th>
       <th><%= t('evaluation.evaluation') -%></th>
     </tr>
   </thead>
   <tbody>
     <% calibration_session_users.each_with_index do |csu, index| %>
-      <% bg_color_pre = (csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.pre_total_evaluation_score).abs > 1.5 ? "bg-danger-gradient" : "" %>
-      <% bg_color = ((csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.pre_total_evaluation_score).abs > 1.5 || csu.evaluation_user_capability.total_evaluation_score < 2.5) ? "bg-danger-gradient" : "" %>
+      <% bg_color_pre = (csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.raw_total_evaluation_score).abs > 1.5 ? "bg-danger-gradient" : "" %>
+      <% bg_color = ((csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.raw_total_evaluation_score).abs > 1.5 || csu.evaluation_user_capability.total_evaluation_score < 2.5) ? "bg-danger-gradient" : "" %>
       <tr>
         <td><%= index + 1 -%></td>
         <td>
@@ -32,7 +32,7 @@
         </td>
         <td><%= csu.evaluation_user_capability.title -%></td>
         <td class="<%= bg_color_pre -%>">
-          <%= public_send(company_evaluation_template.total_reverse_matric, csu.evaluation_user_capability.pre_total_evaluation_score) -%>
+          <%= public_send(company_evaluation_template.total_reverse_matric, csu.evaluation_user_capability.raw_total_evaluation_score) -%>
         </td>
         <td class="<%= bg_color -%>">
           <%= public_send(company_evaluation_template.total_reverse_matric, csu.evaluation_user_capability.total_evaluation_score) -%>

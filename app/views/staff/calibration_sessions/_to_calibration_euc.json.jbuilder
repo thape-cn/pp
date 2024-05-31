@@ -4,7 +4,7 @@ need_calibration_evaluation_user_capabilities.keys.each do |key|
       json.id euc.id
       json.user_id euc.user.id
       json.chinese_name euc.user.chinese_name
-      json.pre_total_evaluation_score format("%.1f", euc.pre_total_evaluation_score.round(1))
+      json.raw_total_evaluation_score format("%.1f", euc.raw_total_evaluation_score.round(1))
       if group_level == "staff"
         json.work_attitude euc.work_attitude
       end

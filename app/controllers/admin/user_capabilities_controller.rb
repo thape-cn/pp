@@ -78,7 +78,7 @@ module Admin
       end
       @evaluation_user_capability.save(validate: false)
       @evaluation_user_capability.update_columns(
-        manager_scored_total_evaluation_score: @evaluation_user_capability.pre_total_evaluation_score,
+        manager_scored_total_evaluation_score: @evaluation_user_capability.raw_total_evaluation_score,
         final_total_evaluation_score: @evaluation_user_capability.total_evaluation_score
       )
       head :no_content

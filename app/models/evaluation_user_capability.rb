@@ -87,7 +87,7 @@ class EvaluationUserCapability < ApplicationRecord
     total_profession_sum / total_profession_count.to_f
   end
 
-  def pre_total_evaluation_score
+  def raw_total_evaluation_score
     pre_work_pct_proportion = pre_work_capability_pct.to_f * (company_evaluation_template.pct_proportion / 100.0)
     Rails.logger.debug "pre_work_pct_proportion: #{pre_work_pct_proportion}"
 

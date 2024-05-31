@@ -5,10 +5,10 @@ import {calibrationLabels} from "../utils/tableHeader";
 import {EucModalDialog} from "../modal_dialog/EucModalDialog";
 import {personBadgeBgClass} from "../utils/grade_help";
 
-function PersonCard({id, user_id, chinese_name, pre_total_evaluation_score, work_attitude, row, column, group_level}) {
+function PersonCard({id, user_id, chinese_name, raw_total_evaluation_score, work_attitude, row, column, group_level}) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'personCard',
-    item: { id, user_id, chinese_name, person_row: row, pre_total_evaluation_score, work_attitude, person_column: column, group_level },
+    item: { id, user_id, chinese_name, person_row: row, raw_total_evaluation_score, work_attitude, person_column: column, group_level },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -34,7 +34,7 @@ function PersonCard({id, user_id, chinese_name, pre_total_evaluation_score, work
       <span className={personBadgeBgClass(group_level, work_attitude)}
         title={calibrationLabels().total_evaluation_score}
         onClick={handleClick}>
-        {pre_total_evaluation_score}
+        {raw_total_evaluation_score}
       </span>
     </span>
     {showModal == id && createPortal(

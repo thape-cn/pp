@@ -59,7 +59,7 @@ module HR
             form_status: @evaluation_user_capability.form_status, user_id: current_user.id)
         if @evaluation_user_capability.form_status_was == "self_assessment_done" && @evaluation_user_capability.form_status == "manager_scored"
           @evaluation_user_capability.update_columns(
-            manager_scored_total_evaluation_score: @evaluation_user_capability.pre_total_evaluation_score,
+            manager_scored_total_evaluation_score: @evaluation_user_capability.raw_total_evaluation_score,
             final_total_evaluation_score: @evaluation_user_capability.total_evaluation_score
           )
         elsif @evaluation_user_capability.form_status_was == "manager_scored" && @evaluation_user_capability.form_status == "department_calibrated"

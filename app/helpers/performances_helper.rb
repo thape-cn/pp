@@ -13,7 +13,7 @@ module PerformancesHelper
       end
       concat(content_tag(:span, class: "btn btn-light rounded-pill m-1") do
         concat(euc.user.chinese_name)
-        concat(link_to(format("%.1f", euc.pre_total_evaluation_score.round(1)), link_url, class: "text-decoration-none link-light badge ms-1 rounded-pill bg-info", data: {controller: "modal", action: "modal#click", "modal-page-reload-value": false}))
+        concat(link_to(format("%.1f", euc.raw_total_evaluation_score.round(1)), link_url, class: "text-decoration-none link-light badge ms-1 rounded-pill bg-info", data: {controller: "modal", action: "modal#click", "modal-page-reload-value": false}))
       end)
     end
     nil # already concat the output.

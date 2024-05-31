@@ -48,7 +48,7 @@ module Staff
       @need_calibration_eucs = EvaluationUserCapability.where(id: id_eucs).order(:id)
       @need_calibration_eucs.each do |euc|
         p = save_params[:calibration_table_session].find { |ms| ms[:id_euc] == euc.id }.to_h
-        update_h = p.select { |key, value| !key.start_with?("p_") && value != "none" && !%w[id_cet id_euc id_user pre_total_evaluation_score].include?(key) }
+        update_h = p.select { |key, value| !key.start_with?("p_") && value != "none" && !%w[id_cet id_euc id_user raw_total_evaluation_score].include?(key) }
         euc.assign_attributes(update_h)
         euc.save(validate: false)
 
@@ -84,7 +84,7 @@ module Staff
         calibration_table_session: [:id_user,
           *Capability.performance_column_names,
           :calibration_work_quality, :calibration_work_load, :calibration_work_attitude,
-          :calibration_management_profession_score, :calibration_performance_score, :pre_total_evaluation_score,
+          :calibration_management_profession_score, :calibration_performance_score, :raw_total_evaluation_score,
           :id_cet, :id_euc,
           *Capability.management_column_names, *Capability.profession_column_names,
           *JobRoleEvaluationPerformance.en_column_names],
@@ -153,7 +153,7 @@ module Staff
         {Header: h[:Header], accessor: accessor}
       end
       headers_of_performance
-        .prepend({Header: I18n.t("calibration.pre_total_evaluation_score"), accessor: "pre_total_evaluation_score"})
+        .prepend({Header: I18n.t("calibration.raw_total_evaluation_score"), accessor: "raw_total_evaluation_score"})
         .prepend({Header: I18n.t("calibration.pre_work_attitude"), accessor: "work_attitude"})
         .prepend({Header: I18n.t("calibration.pre_work_quality"), accessor: "work_quality"})
         .prepend({Header: I18n.t("calibration.pre_work_load"), accessor: "work_load"})
@@ -167,8 +167,8 @@ module Staff
       calibration_capability = headers_of_capability
       headers_of_performance
         .concat(calibration_capability)
-        .append({Header: I18n.t("calibration.pre_total_evaluation_score"),
-          accessor: "pre_total_evaluation_score"})
+        .append({Header: I18n.t("calibration.raw_total_evaluation_score"),
+          accessor: "raw_total_evaluation_score"})
         .append({Header: I18n.t("evaluation.total_evaluation_score"),
           accessor: "total_evaluation_score"})
     end

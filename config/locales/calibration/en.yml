@@ -31,7 +31,7 @@ en:
     pre_work_load: "Pre work load"
     pre_work_quality: "Pre work quality"
     pre_work_attitude: "Pre work attitude"
-    pre_total_evaluation_score: "Pre total evaluation score"
+    raw_total_evaluation_score: "Pre total evaluation score"
     accept_finalize_confirm_message: "Do you really want to end this calibration session? This action cannot be undone. Editing of this calibration session is not allowed after finalization."
     enforce_distribute_title: "Please proceed with calibration"
     enforce_distribute_for_staff_failure: "The requirements of the performance distribution principle have not been met: %{apa_grade_rate}% for A+ and A, %{b_grade_rate}% for B, %{cd_grade_rate}% for C and D, please continue to perform performance level calibration."

@@ -68,7 +68,7 @@ export const EditableCell = ({
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     }
   } else {
-    if (id == 'total_evaluation_score' || id == 'pre_total_evaluation_score') {
+    if (id == 'total_evaluation_score' || id == 'raw_total_evaluation_score') {
       return <p className="m-1 text-end">{reverseScoreInMatric(value, total_reverse_matric)}</p>;
     } else if (id.startsWith('p_')) {
       return (
