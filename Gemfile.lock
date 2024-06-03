@@ -1,14 +1,6 @@
 GIT
-  remote: https://git.thape.com.cn/rails/edoc2-api.git
-  revision: efe4adc9a72657ee6cd6a5bb8021fb5c132698a3
-  branch: main
-  specs:
-    edoc2-api (0.0.1)
-      http (>= 2.0.3, < 6)
-
-GIT
-  remote: https://github.com/Eric-Guo/wechat
-  revision: 1d6c815e1852d1608d2bd53226ca59e366b6c7a8
+  remote: https://git.thape.com.cn/Eric-Guo/wechat.git
+  revision: 083af89bbbfacb099d466e8cdd2cd6fa92bc3235
   branch: main
   specs:
     wechat (0.17.3)
@@ -18,6 +10,14 @@ GIT
       rexml
       thor
       zeitwerk (~> 2.4)
+
+GIT
+  remote: https://git.thape.com.cn/rails/edoc2-api.git
+  revision: efe4adc9a72657ee6cd6a5bb8021fb5c132698a3
+  branch: main
+  specs:
+    edoc2-api (0.0.1)
+      http (>= 2.0.3, < 6)
 
 GEM
   remote: https://rubygems.org/
