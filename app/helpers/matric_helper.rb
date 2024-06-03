@@ -1,5 +1,5 @@
 module MatricHelper
-  def to_matrics_value(score)
+  def to_metrics_value(score)
     return score if score.is_a?(Integer)
 
     str_score = score.to_s
@@ -11,15 +11,15 @@ module MatricHelper
   end
 
   # List all available matric names
-  def all_matrics
+  def all_metrics
     {
-      "三档量表" => "grading_3_matric",
-      "五档量表" => "grading_5_matric",
-      "九档量表" => "grading_9_matric"
+      "三档量表" => "grading_3_metric",
+      "五档量表" => "grading_5_metric",
+      "九档量表" => "grading_9_metric"
     }
   end
 
-  def grading_3_matric
+  def grading_3_metric
     {
       "超出标准" => 5,
       "符合标准" => 3,
@@ -27,7 +27,7 @@ module MatricHelper
     }
   end
 
-  def grading_5_matric
+  def grading_5_metric
     {
       "A+" => 5,
       "A" => 4,
@@ -37,7 +37,7 @@ module MatricHelper
     }
   end
 
-  def grading_9_matric
+  def grading_9_metric
     {
       "5-优秀" => 5,
       "4.5" => 4.5,
@@ -51,14 +51,14 @@ module MatricHelper
     }
   end
 
-  def reverse_total_evaluation_score_matrics
+  def reverse_total_evaluation_score_metrics
     {
-      "五档量表" => "reverse_5_matric"
+      "五档量表" => "reverse_5_metric"
     }
   end
 
   # Don't forget add JS code reverseScoreInMatric also
-  def reverse_5_matric(score)
+  def reverse_5_metric(score)
     case score
     when 4.5..5
       "A+"

@@ -30,18 +30,18 @@ export const EditableCell = ({
     setValue(initialValue)
   }, [initialValue])
 
-  const work_quality_matric = company_evaluation_templates[row_data.id_cet].work_quality_matric;
-  const work_load_matric = company_evaluation_templates[row_data.id_cet].work_load_matric;
-  const work_attitude_matric = company_evaluation_templates[row_data.id_cet].work_attitude_matric;
-  const professional_management_matric = company_evaluation_templates[row_data.id_cet].professional_management_matric;
-  const performance_matric = company_evaluation_templates[row_data.id_cet].performance_matric;
-  const total_reverse_matric = company_evaluation_templates[row_data.id_cet].total_reverse_matric;
+  const work_quality_metric = company_evaluation_templates[row_data.id_cet].work_quality_metric;
+  const work_load_metric = company_evaluation_templates[row_data.id_cet].work_load_metric;
+  const work_attitude_metric = company_evaluation_templates[row_data.id_cet].work_attitude_metric;
+  const professional_management_metric = company_evaluation_templates[row_data.id_cet].professional_management_metric;
+  const performance_metric = company_evaluation_templates[row_data.id_cet].performance_metric;
+  const total_reverse_metric = company_evaluation_templates[row_data.id_cet].total_reverse_metric;
 
   if (value == 'none') {
     return null;
   } else if (row_data[id+"_fixed"] == true) {
     if (id.startsWith('p_')) {
-      const item = performance_matric.find(item => item.value === value);
+      const item = performance_metric.find(item => item.value === value);
       return (
         <div className="m-1 text-end">
           <span className="me-2">{item ? item.label : null}</span>
@@ -52,30 +52,30 @@ export const EditableCell = ({
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
-      const item = work_quality_matric.find(item => item.value === value);
+      const item = work_quality_metric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     } else if ( id == 'work_load' || id == "calibration_work_load") {
-      const item = work_load_matric.find(item => item.value === value);
+      const item = work_load_metric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
-      const item = work_attitude_matric.find(item => item.value === value);
+      const item = work_attitude_metric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     } else if ( id == 'annual_output' || id == "calibration_performance_score") {
-      const item = performance_matric.find(item => item.value === value);
+      const item = performance_metric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     } else {
-      const item = professional_management_matric.find(item => item.value === value);
+      const item = professional_management_metric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     }
   } else {
     if (id == 'total_evaluation_score' || id == 'raw_total_evaluation_score') {
-      return <p className="m-1 text-end">{reverseScoreInMatric(value, total_reverse_matric)}</p>;
+      return <p className="m-1 text-end">{reverseScoreInMatric(value, total_reverse_metric)}</p>;
     } else if (id.startsWith('p_')) {
       return (
         <div className="input-group">
           <select value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
             <option value='0'>{not_rated_text}</option>
-            {performance_matric.map(option => (
+            {performance_metric.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>
@@ -86,15 +86,15 @@ export const EditableCell = ({
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_quality_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_quality_metric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_load' || id == "calibration_work_load") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_load_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_load_metric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_attitude_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_attitude_metric} not_rated_text={not_rated_text} />;
     } else if ( id == 'annual_output' || id == "calibration_performance_score") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={performance_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={performance_metric} not_rated_text={not_rated_text} />;
     } else {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={professional_management_matric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={professional_management_metric} not_rated_text={not_rated_text} />;
     }
   }
 }

@@ -81,9 +81,9 @@ module Admin
               values << euc.company_evaluation_template.title
               values << euc.manager_user&.chinese_name
               values << euc.manager_user_id
-              values << public_send(euc.company_evaluation_template.total_reverse_matric, euc.manager_scored_total_evaluation_score)
-              values << public_send(euc.company_evaluation_template.total_reverse_matric, euc.final_total_evaluation_score)
-              values << public_send(euc.company_evaluation_template.total_reverse_matric, euc.total_evaluation_score)
+              values << public_send(euc.company_evaluation_template.total_reverse_metric, euc.manager_scored_total_evaluation_score)
+              values << public_send(euc.company_evaluation_template.total_reverse_metric, euc.final_total_evaluation_score)
+              values << public_send(euc.company_evaluation_template.total_reverse_metric, euc.total_evaluation_score)
               values << csu.calibration_session.session_name
               values << csu.calibration_session.owner.chinese_name
               values << csu.calibration_session.owner_id

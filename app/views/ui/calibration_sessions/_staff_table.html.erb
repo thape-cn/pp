@@ -32,10 +32,10 @@
         </td>
         <td><%= csu.evaluation_user_capability.title -%></td>
         <td class="<%= bg_color_pre -%>">
-          <%= public_send(company_evaluation_template.total_reverse_matric, csu.evaluation_user_capability.raw_total_evaluation_score) -%>
+          <%= public_send(company_evaluation_template.total_reverse_metric, csu.evaluation_user_capability.raw_total_evaluation_score) -%>
         </td>
         <td class="<%= bg_color -%>">
-          <%= public_send(company_evaluation_template.total_reverse_matric, csu.evaluation_user_capability.total_evaluation_score) -%>
+          <%= public_send(company_evaluation_template.total_reverse_metric, csu.evaluation_user_capability.total_evaluation_score) -%>
         </td>
         <td>
           <%

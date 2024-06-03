@@ -56,19 +56,19 @@
               <span class="fw-bold float-end">
                 <% if %w[work_quality].include?(capability.en_name) %>
                   <% score = evaluation_user_capability.calibration_work_quality || evaluation_user_capability.work_quality -%>
-                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_quality_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_quality_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
                 <% elsif %w[work_load].include?(capability.en_name) %>
                   <% score = evaluation_user_capability.calibration_work_load || evaluation_user_capability.work_load -%>
-                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_load_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_load_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
                 <% elsif %w[work_attitude].include?(capability.en_name) %>
                   <% score = evaluation_user_capability.calibration_work_attitude || evaluation_user_capability.work_attitude -%>
-                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_attitude_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.work_attitude_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
                 <% elsif %w[annual_output].include?(capability.en_name) %>
                   <% score = evaluation_user_capability.calibration_performance_score || evaluation_user_capability.annual_output -%>
-                  <%= public_send(evaluation_user_capability.company_evaluation_template.performance_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.performance_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
                 <% else %>
                   <% score = evaluation_user_capability.attributes[capability.en_name] -%>
-                  <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                  <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
                 <% end %>
               </span>
             </p>
@@ -82,7 +82,7 @@
               <%= t("evaluation.manager_given_score") -%>
               <span class="fw-bold float-end">
                 <% score = jrep.obj_result -%>
-                <%= public_send(evaluation_user_capability.company_evaluation_template.performance_matric).invert[score] || t("evaluation.not_rated") -%>
+                <%= public_send(evaluation_user_capability.company_evaluation_template.performance_metric).invert[score] || t("evaluation.not_rated") -%>
               </span>
             </p>
             <hr />
@@ -102,7 +102,7 @@
               <%= t("evaluation.manager_given_score") -%>
               <span class="fw-bold float-end">
                 <% score = evaluation_user_capability.attributes[capability.en_name] -%>
-                <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
               </span>
             </p>
             <hr />
@@ -122,7 +122,7 @@
               <%= t("evaluation.manager_given_score") -%>
               <span class="fw-bold float-end">
                 <% score = evaluation_user_capability.attributes[capability.en_name] -%>
-                <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+                <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
               </span>
             </p>
             <hr />
@@ -164,7 +164,7 @@
       <div class="row mt-3" style="break-after: auto;">
         <div class="col-4">
           <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.grade") -%></h5>
-          <p class="p-2 fs-3"><%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_matric, evaluation_user_capability.total_evaluation_score) -%></p>
+          <p class="p-2 fs-3"><%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_metric, evaluation_user_capability.total_evaluation_score) -%></p>
         </div>
         <%= render partial: 'staff/signing/square_9',
           locals: {group_level: group_level,

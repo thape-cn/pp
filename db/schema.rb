@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_03_023655) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_032151) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -198,15 +198,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_03_023655) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "brief"
-    t.string "professional_management_matric", default: "grading_5_matric"
-    t.string "performance_matric", default: "grading_5_matric"
-    t.string "total_reverse_matric", default: "reverse_5_matric"
+    t.string "professional_management_metric", default: "grading_5_metric"
+    t.string "performance_metric", default: "grading_5_metric"
+    t.string "total_reverse_metric", default: "reverse_5_metric"
     t.integer "pct_proportion", default: 100
     t.integer "rate_proportion", default: 0
     t.string "group_level", default: "staff"
-    t.string "work_quality_matric", default: "grading_5_matric"
-    t.string "work_load_matric", default: "grading_5_matric"
-    t.string "work_attitude_matric", default: "grading_5_matric"
+    t.string "work_quality_metric", default: "grading_5_metric"
+    t.string "work_load_metric", default: "grading_5_metric"
+    t.string "work_attitude_metric", default: "grading_5_metric"
     t.string "self_overall_output_hint"
     t.string "self_overall_improvement_hint"
     t.string "self_overall_plan_hint"

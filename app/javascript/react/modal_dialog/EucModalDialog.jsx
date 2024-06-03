@@ -94,13 +94,13 @@ export function EucModalDialog({euc_id, onClose}) {
             let item = undefined;
 
             if (key == "work_quality") {
-              item = companyEvaluationTemplate.work_quality_matric.find(item => item.value === value);
+              item = companyEvaluationTemplate.work_quality_metric.find(item => item.value === value);
             } else if (key == "work_load") {
-              item = companyEvaluationTemplate.work_load_matric.find(item => item.value === value);
+              item = companyEvaluationTemplate.work_load_metric.find(item => item.value === value);
             } else if (key == "work_attitude") {
-              item = companyEvaluationTemplate.work_attitude_matric.find(item => item.value === value);
+              item = companyEvaluationTemplate.work_attitude_metric.find(item => item.value === value);
             } else {
-              item = companyEvaluationTemplate.professional_management_matric.find(item => item.value === value);
+              item = companyEvaluationTemplate.professional_management_metric.find(item => item.value === value);
             }
 
             return (
@@ -112,7 +112,7 @@ export function EucModalDialog({euc_id, onClose}) {
           }}/>}
           {evaluationUserCapability.job_role_performances && <PerformanceDetail job_role_performances={evaluationUserCapability.job_role_performances}
           callbackfn={([key, value]) => {
-            const item = companyEvaluationTemplate.performance_matric.find(item => item.value === value);
+            const item = companyEvaluationTemplate.performance_metric.find(item => item.value === value);
 
             return (
               <tr key={key}>
@@ -123,7 +123,7 @@ export function EucModalDialog({euc_id, onClose}) {
           }}/>}
           {evaluationUserCapability.profession_capability && <ProfessionalCapabilityDetail profession_capability={evaluationUserCapability.profession_capability}
           callbackfn={([key, value]) => {
-            const item = companyEvaluationTemplate.professional_management_matric.find(item => item.value === value);
+            const item = companyEvaluationTemplate.professional_management_metric.find(item => item.value === value);
 
             return (
               <tr key={key}>
@@ -134,7 +134,7 @@ export function EucModalDialog({euc_id, onClose}) {
           }}/>}
           {evaluationUserCapability.management_capability && <ManagementCapabilityDetail management_capability={evaluationUserCapability.management_capability}
           callbackfn={([key, value]) => {
-            const item = companyEvaluationTemplate.professional_management_matric.find(item => item.value === value);
+            const item = companyEvaluationTemplate.professional_management_metric.find(item => item.value === value);
 
             return (
               <tr key={key}>

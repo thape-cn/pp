@@ -1,37 +1,37 @@
 json.company_evaluation_templates do
   @company_evaluation_templates.each do |cet|
     json.set! cet.id do
-      json.set! :work_quality_matric do
-        json.array! public_send(cet.work_quality_matric) do |k|
+      json.set! :work_quality_metric do
+        json.array! public_send(cet.work_quality_metric) do |k|
           json.label k.first
           json.value k.second
         end
       end
-      json.set! :work_load_matric do
-        json.array! public_send(cet.work_load_matric) do |k|
+      json.set! :work_load_metric do
+        json.array! public_send(cet.work_load_metric) do |k|
           json.label k.first
           json.value k.second
         end
       end
-      json.set! :work_attitude_matric do
-        json.array! public_send(cet.work_attitude_matric) do |k|
+      json.set! :work_attitude_metric do
+        json.array! public_send(cet.work_attitude_metric) do |k|
           json.label k.first
           json.value k.second
         end
       end
-      json.set! :professional_management_matric do
-        json.array! public_send(cet.professional_management_matric) do |k|
+      json.set! :professional_management_metric do
+        json.array! public_send(cet.professional_management_metric) do |k|
           json.label k.first
           json.value k.second
         end
       end
-      json.set! :performance_matric do
-        json.array! public_send(cet.performance_matric) do |k|
+      json.set! :performance_metric do
+        json.array! public_send(cet.performance_metric) do |k|
           json.label k.first
           json.value k.second
         end
       end
-      json.set! :total_reverse_matric, cet.total_reverse_matric
+      json.set! :total_reverse_metric, cet.total_reverse_metric
     end
   end
 end

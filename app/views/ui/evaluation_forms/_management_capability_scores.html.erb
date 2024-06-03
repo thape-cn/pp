@@ -2,6 +2,6 @@
   <%= t("evaluation.manager_given_score") -%>
   <span class="fw-bold float-end">
     <% score = evaluation_user_capability.attributes[capability.en_name] -%>
-    <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_matric).invert[to_matrics_value(score)] || t("evaluation.not_rated") -%>
+    <%= public_send(evaluation_user_capability.company_evaluation_template.professional_management_metric).invert[to_metrics_value(score)] || t("evaluation.not_rated") -%>
   </span>
 </p>

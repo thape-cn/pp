@@ -4,17 +4,17 @@ ect_staff:
   title: "2023年年中绩效评价沟通表（员工层）"
   group_level: "staff"
   work_quality_pct: 50
-  work_quality_matric: "grading_3_matric"
+  work_quality_metric: "grading_3_metric"
   work_load_pct: 50
-  work_load_matric: "grading_3_matric"
+  work_load_metric: "grading_3_metric"
   work_attitude_pct: 0
-  work_attitude_matric: "grading_3_matric"
+  work_attitude_metric: "grading_3_metric"
   management_subtotal_rate: 15
   profession_subtotal_rate: 35
-  professional_management_matric: "grading_3_matric"
+  professional_management_metric: "grading_3_metric"
   performance_subtotal_rate: 50
-  performance_matric: "grading_3_matric"
-  total_reverse_matric: "reverse_5_matric"
+  performance_metric: "grading_3_metric"
+  total_reverse_metric: "reverse_5_metric"
   pct_proportion: 100
   rate_proportion: 0
 

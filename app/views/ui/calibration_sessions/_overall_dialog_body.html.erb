@@ -13,43 +13,43 @@
         <% if evaluation_user_capability.annual_output.present? %>
           <tr>
             <td><%= t('calibration.annual_output') -%></td>
-            <td><%= public_send(company_evaluation_template.performance_matric).invert[to_matrics_value(evaluation_user_capability.annual_output)] || evaluation_user_capability.annual_output -%></td>
+            <td><%= public_send(company_evaluation_template.performance_metric).invert[to_metrics_value(evaluation_user_capability.annual_output)] || evaluation_user_capability.annual_output -%></td>
           </tr>
         <% end %>
         <% if evaluation_user_capability.work_quality.present? %>
           <tr>
             <td><%= t('calibration.pre_work_quality') -%></td>
-            <td><%= public_send(company_evaluation_template.work_quality_matric).invert[to_matrics_value(evaluation_user_capability.work_quality)] || evaluation_user_capability.work_quality -%></td>
+            <td><%= public_send(company_evaluation_template.work_quality_metric).invert[to_metrics_value(evaluation_user_capability.work_quality)] || evaluation_user_capability.work_quality -%></td>
           </tr>
         <% end %>
         <% if evaluation_user_capability.work_load.present? %>
           <tr>
             <td><%= t('calibration.pre_work_load') -%></td>
-            <td><%= public_send(company_evaluation_template.work_load_matric).invert[to_matrics_value(evaluation_user_capability.work_load)] || evaluation_user_capability.work_load -%></td>
+            <td><%= public_send(company_evaluation_template.work_load_metric).invert[to_metrics_value(evaluation_user_capability.work_load)] || evaluation_user_capability.work_load -%></td>
           </tr>
         <% end %>
         <% if evaluation_user_capability.work_attitude.present? %>
           <tr>
             <td><%= t('calibration.pre_work_attitude') -%></td>
-            <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[to_matrics_value(evaluation_user_capability.work_attitude)] || evaluation_user_capability.work_attitude -%></td>
+            <td><%= public_send(company_evaluation_template.work_attitude_metric).invert[to_metrics_value(evaluation_user_capability.work_attitude)] || evaluation_user_capability.work_attitude -%></td>
           </tr>
         <% end %>
         <% if evaluation_user_capability.calibration_work_quality.present? %>
           <tr>
             <td><%= t('evaluation.work_quality_pct') -%></td>
-            <td><%= public_send(company_evaluation_template.work_quality_matric).invert[evaluation_user_capability.calibration_work_quality] || evaluation_user_capability.calibration_work_quality -%></td>
+            <td><%= public_send(company_evaluation_template.work_quality_metric).invert[evaluation_user_capability.calibration_work_quality] || evaluation_user_capability.calibration_work_quality -%></td>
           </tr>
         <% end %>
         <% if evaluation_user_capability.calibration_work_load.present? %>
           <tr>
             <td><%= t('evaluation.work_load_pct') -%></td>
-            <td><%= public_send(company_evaluation_template.work_load_matric).invert[evaluation_user_capability.calibration_work_load] || evaluation_user_capability.calibration_work_load -%></td>
+            <td><%= public_send(company_evaluation_template.work_load_metric).invert[evaluation_user_capability.calibration_work_load] || evaluation_user_capability.calibration_work_load -%></td>
           </tr>
         <% end %>
         <% if evaluation_user_capability.calibration_work_attitude.present? %>
           <tr>
             <td><%= t('evaluation.work_attitude_pct') -%></td>
-            <td><%= public_send(company_evaluation_template.work_attitude_matric).invert[evaluation_user_capability.calibration_work_attitude] || evaluation_user_capability.calibration_work_attitude -%></td>
+            <td><%= public_send(company_evaluation_template.work_attitude_metric).invert[evaluation_user_capability.calibration_work_attitude] || evaluation_user_capability.calibration_work_attitude -%></td>
           </tr>
         <% end %>
       </tbody>
@@ -67,7 +67,7 @@
         <% job_role_performances.each do |jrep| %>
           <tr>
             <td><%= jrep.obj_name -%></td>
-            <td><%= public_send(company_evaluation_template.performance_matric).invert[jrep.obj_result] || jrep.obj_result -%></td>
+            <td><%= public_send(company_evaluation_template.performance_metric).invert[jrep.obj_result] || jrep.obj_result -%></td>
           </tr>
         <% end %>
       </tbody>
@@ -85,7 +85,7 @@
         <% professional_capabilities.each do |cap| %>
           <tr>
             <td><%= cap.name -%></td>
-            <td><%= public_send(company_evaluation_template.professional_management_matric).invert[to_matrics_value(evaluation_user_capability.attributes[cap.en_name])] || evaluation_user_capability.attributes[cap.en_name] -%></td>
+            <td><%= public_send(company_evaluation_template.professional_management_metric).invert[to_metrics_value(evaluation_user_capability.attributes[cap.en_name])] || evaluation_user_capability.attributes[cap.en_name] -%></td>
           </tr>
         <% end %>
       </tbody>
@@ -103,7 +103,7 @@
         <% management_capabilities.each do |cap| %>
           <tr>
             <td><%= cap.name -%></td>
-            <td><%= public_send(company_evaluation_template.professional_management_matric).invert[to_matrics_value(evaluation_user_capability.attributes[cap.en_name])] || evaluation_user_capability.attributes[cap.en_name] -%></td>
+            <td><%= public_send(company_evaluation_template.professional_management_metric).invert[to_metrics_value(evaluation_user_capability.attributes[cap.en_name])] || evaluation_user_capability.attributes[cap.en_name] -%></td>
           </tr>
         <% end %>
       </tbody>
