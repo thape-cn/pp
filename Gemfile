@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.0"
 
-gem "rails", "~> 7.1.2"
+gem "rails", "~> 7.2.0.beta1"
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
 # fix STARTTLS handling until https://github.com/mikel/mail/pull/1536 is
@@ -13,7 +13,7 @@ gem "mail", "= 2.8.1"
 gem "jbuilder"
 gem "propshaft"
 
-gem "sqlite3", "~> 1.7"
+gem "sqlite3", "~> 2.0"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
