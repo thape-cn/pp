@@ -24,4 +24,5 @@ zh-CN:
         title: "新建考评模版"
       edit:
         title: "编辑考评模版"
-        brief: "简介"
+        brief: "表单头的简介"
+        brief_placeholder: "可输入 Markdown 文本获得格式支持"

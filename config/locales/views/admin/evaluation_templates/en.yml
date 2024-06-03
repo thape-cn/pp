@@ -24,4 +24,5 @@ en:
         title: "New evaluation template"
       edit:
         title: "Edit evaluation template"
-        brief: "Brief"
+        brief: "Brief at the beginning of the form"
+        brief_placeholder: "Markdown text can be input for formatting support"

@@ -22,7 +22,7 @@
           <div class="row mb-2">
             <%= f.label :brief, t("admin.evaluation_templates.edit.brief"), class: 'col-2 col-form-label' %>
             <div class="col-10">
-              <%= f.text_area :brief, class: 'form-control', rows: 8, maxlength: 5000, placeholder: 'User Markdown for formatting' %>
+              <%= f.text_area :brief, class: 'form-control', rows: 8, maxlength: 5000, placeholder: t("admin.evaluation_templates.edit.brief_placeholder") %>
             </div>
           </div>
           <div class="row mb-1">
