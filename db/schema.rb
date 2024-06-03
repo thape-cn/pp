@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_23_080916) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_03_023655) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -207,6 +207,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_23_080916) do
     t.string "work_quality_matric", default: "grading_5_matric"
     t.string "work_load_matric", default: "grading_5_matric"
     t.string "work_attitude_matric", default: "grading_5_matric"
+    t.string "self_overall_output_hint"
+    t.string "self_overall_improvement_hint"
+    t.string "self_overall_plan_hint"
+    t.string "manager_overall_output_hint"
+    t.string "manager_overall_improvement_hint"
+    t.string "manager_overall_plan_hint"
     t.index ["company_evaluation_id"], name: "index_company_evaluation_templates_on_company_evaluation_id"
   end
 

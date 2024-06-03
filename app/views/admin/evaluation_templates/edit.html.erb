@@ -91,6 +91,42 @@
               <%= f.select :total_reverse_matric, reverse_total_evaluation_score_matrics, {}, class: 'form-control' %>
             </div>
           </div>
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.edit.self_overall_output_hint"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :self_overall_output_hint, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.edit.self_overall_improvement_hint"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :self_overall_improvement_hint, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.edit.self_overall_plan_hint"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :self_overall_plan_hint, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.edit.manager_overall_output_hint"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :manager_overall_output_hint, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.edit.manager_overall_improvement_hint"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :manager_overall_improvement_hint, class: 'form-control' -%>
+            </div>
+          </div>
+          <div class="row mb-1">
+            <%= f.label :title, t("admin.evaluation_templates.edit.manager_overall_plan_hint"), class: 'col-2 col-form-label' %>
+            <div class="col-10">
+              <%= f.text_field :manager_overall_plan_hint, class: 'form-control' -%>
+            </div>
+          </div>
         </div>
       </div>
       <div class="modal-footer">

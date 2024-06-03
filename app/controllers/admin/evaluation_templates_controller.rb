@@ -48,7 +48,9 @@ module Admin
           :work_quality_pct, :work_load_pct, :work_attitude_pct,
           :work_quality_matric, :work_load_matric, :work_attitude_matric,
           :management_subtotal_rate, :profession_subtotal_rate, :performance_subtotal_rate,
-          :professional_management_matric, :performance_matric, :total_reverse_matric)
+          :professional_management_matric, :performance_matric, :total_reverse_matric,
+          :self_overall_output_hint, :self_overall_improvement_hint, :self_overall_plan_hint,
+          :manager_overall_output_hint, :manager_overall_improvement_hint, :manager_overall_plan_hint)
     end
 
     def set_breadcrumbs
