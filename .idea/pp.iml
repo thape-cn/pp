@@ -28,17 +28,17 @@
     </content>
     <orderEntry type="jdk" jdkName="ruby-3.3.2-p78" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionpack (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actiontext (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="actionview (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activejob (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actioncable (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailbox (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionmailer (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionpack (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actiontext (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="actionview (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activejob (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.6, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="aes_key_wrap (v1.1.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="airbrussh (v1.5.2, ruby-3.3.2-p78) [gem]" level="application" />
@@ -81,6 +81,7 @@
     <orderEntry type="library" scope="PROVIDED" name="faraday-follow_redirects (v0.3.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday-net_http (v3.1.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ferrum (v0.15, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffi (v1.17.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi-compiler (v1.3.2, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v5.0.0, ruby-3.3.2-p78) [gem]" level="application" />
@@ -136,10 +137,10 @@
     <orderEntry type="library" scope="PROVIDED" name="rack-session (v2.0.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v2.1.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rackup (v2.1.0, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rails (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.2.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.6.0, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="railties (v7.1.3.3, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="railties (v7.2.0.beta1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.7.0, ruby-3.3.2-p78) [gem]" level="application" />
@@ -158,10 +159,10 @@
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v2.3.2, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.21.1, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="semantic_range (v3.0.0, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="shakapacker (v7.2.3, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="shakapacker (v8.0.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sidekiq (v7.2.4, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sorbet-runtime (v0.5.11406, ruby-3.3.2-p78) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v1.7.3, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v2.0.2, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.22.2, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="standard (v1.36.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="standard-custom (v1.0.2, ruby-3.3.2-p78) [gem]" level="application" />
@@ -172,6 +173,7 @@
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v2.5.0, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uri (v0.13.0, ruby-3.3.2-p78) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="useragent (v0.16.10, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="validate_url (v1.0.15, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.2.9, ruby-3.3.2-p78) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, ruby-3.3.2-p78) [gem]" level="application" />
@@ -191,76 +193,112 @@
   <component name="RailsGeneratorsCache">
     <option name="generators">
       <list>
-        <option value="active_record:migration" />
-        <option value="active_record:model" />
-        <option value="active_record:observer" />
-        <option value="active_record:session_migration" />
+        <option value="active_record:application_record" />
+        <option value="active_record:devise" />
+        <option value="active_record:multi_db" />
+        <option value="application_record" />
+        <option value="benchmark" />
+        <option value="capistrano:nginx_puma:config" />
+        <option value="capistrano:sidekiq:monit:template" />
+        <option value="channel" />
+        <option value="config:install" />
         <option value="controller" />
-        <option value="erb:controller" />
-        <option value="erb:mailer" />
-        <option value="erb:scaffold" />
+        <option value="datatable" />
+        <option value="devcontainer" />
+        <option value="devise" />
+        <option value="devise:controllers" />
+        <option value="devise:i18n:locale" />
+        <option value="devise:i18n:views" />
+        <option value="devise:install" />
+        <option value="devise:views" />
         <option value="generator" />
         <option value="helper" />
         <option value="integration_test" />
+        <option value="jbuilder" />
+        <option value="job" />
+        <option value="mailbox" />
         <option value="mailer" />
-        <option value="metal" />
+        <option value="meta_tags:install" />
         <option value="migration" />
         <option value="model" />
-        <option value="model_subclass" />
-        <option value="observer" />
-        <option value="performance_test" />
-        <option value="plugin" />
+        <option value="mongoid:devise" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="resource" />
+        <option value="responders:install" />
+        <option value="responders_controller" />
+        <option value="rspec:policy" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
-        <option value="session_migration" />
-        <option value="stylesheets" />
-        <option value="test_unit:controller" />
-        <option value="test_unit:helper" />
-        <option value="test_unit:integration" />
-        <option value="test_unit:mailer" />
-        <option value="test_unit:model" />
-        <option value="test_unit:observer" />
-        <option value="test_unit:performance" />
+        <option value="sidekiq:job" />
+        <option value="system_test" />
+        <option value="task" />
+        <option value="test_unit:channel" />
+        <option value="test_unit:generator" />
+        <option value="test_unit:install" />
+        <option value="test_unit:mailbox" />
         <option value="test_unit:plugin" />
-        <option value="test_unit:scaffold" />
+        <option value="test_unit:policy" />
+        <option value="wechat:config" />
+        <option value="wechat:install" />
+        <option value="wechat:menu" />
+        <option value="wechat:redis_store" />
+        <option value="wechat:session" />
       </list>
     </option>
     <option name="myGenerators">
       <list>
-        <option value="active_record:migration" />
-        <option value="active_record:model" />
-        <option value="active_record:observer" />
-        <option value="active_record:session_migration" />
+        <option value="active_record:application_record" />
+        <option value="active_record:devise" />
+        <option value="active_record:multi_db" />
+        <option value="application_record" />
+        <option value="benchmark" />
+        <option value="capistrano:nginx_puma:config" />
+        <option value="capistrano:sidekiq:monit:template" />
+        <option value="channel" />
+        <option value="config:install" />
         <option value="controller" />
-        <option value="erb:controller" />
-        <option value="erb:mailer" />
-        <option value="erb:scaffold" />
+        <option value="datatable" />
+        <option value="devcontainer" />
+        <option value="devise" />
+        <option value="devise:controllers" />
+        <option value="devise:i18n:locale" />
+        <option value="devise:i18n:views" />
+        <option value="devise:install" />
+        <option value="devise:views" />
         <option value="generator" />
         <option value="helper" />
         <option value="integration_test" />
+        <option value="jbuilder" />
+        <option value="job" />
+        <option value="mailbox" />
         <option value="mailer" />
-        <option value="metal" />
+        <option value="meta_tags:install" />
         <option value="migration" />
         <option value="model" />
-        <option value="model_subclass" />
-        <option value="observer" />
-        <option value="performance_test" />
-        <option value="plugin" />
+        <option value="mongoid:devise" />
+        <option value="pundit:install" />
+        <option value="pundit:policy" />
         <option value="resource" />
+        <option value="responders:install" />
+        <option value="responders_controller" />
+        <option value="rspec:policy" />
         <option value="scaffold" />
         <option value="scaffold_controller" />
-        <option value="session_migration" />
-        <option value="stylesheets" />
-        <option value="test_unit:controller" />
-        <option value="test_unit:helper" />
-        <option value="test_unit:integration" />
-        <option value="test_unit:mailer" />
-        <option value="test_unit:model" />
-        <option value="test_unit:observer" />
-        <option value="test_unit:performance" />
+        <option value="sidekiq:job" />
+        <option value="system_test" />
+        <option value="task" />
+        <option value="test_unit:channel" />
+        <option value="test_unit:generator" />
+        <option value="test_unit:install" />
+        <option value="test_unit:mailbox" />
         <option value="test_unit:plugin" />
-        <option value="test_unit:scaffold" />
+        <option value="test_unit:policy" />
+        <option value="wechat:config" />
+        <option value="wechat:install" />
+        <option value="wechat:menu" />
+        <option value="wechat:redis_store" />
+        <option value="wechat:session" />
       </list>
     </option>
   </component>
@@ -315,9 +353,6 @@
     </entry>
     <entry key="config/routes.rb">
       <value>file://$MODULE_DIR$/config/routes.rb</value>
-    </entry>
-    <entry key="config/secrets">
-      <value>file://$MODULE_DIR$/config</value>
     </entry>
     <entry key="db">
       <value>file://$MODULE_DIR$/db</value>
