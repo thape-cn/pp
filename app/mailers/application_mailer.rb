@@ -1,7 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
   default from: "performance@thape.com.cn"
   layout "mailer"
-  helper :matric
+  helper :metric
 
   def get_user_email(user)
     if Rails.env.development?

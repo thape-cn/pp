@@ -1,6 +1,6 @@
 module Staff
   class UserCapabilitiesController < BaseController
-    include MatricHelper
+    include MetricHelper
     include Pagy::Backend
     include SetSidebarEvaluationUserCapability
     before_action :set_sidebar_evaluation_user_capabilities, only: %i[index]

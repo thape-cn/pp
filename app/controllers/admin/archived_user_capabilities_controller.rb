@@ -1,6 +1,6 @@
 module Admin
   class ArchivedUserCapabilitiesController < BaseController
-    include MatricHelper
+    include MetricHelper
     include Pagy::Backend
     after_action :verify_policy_scoped, only: %i[index excel_report confirm_restore restore]
     before_action :set_company_evaluation, only: %i[index excel_report confirm_restore restore]

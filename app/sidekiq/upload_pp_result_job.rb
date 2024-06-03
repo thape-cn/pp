@@ -1,5 +1,5 @@
 class UploadPpResultJob
-  include MatricHelper
+  include MetricHelper
   include Sidekiq::Job
 
   def perform(evaluation_user_capability_id)

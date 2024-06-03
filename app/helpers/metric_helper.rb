@@ -1,4 +1,4 @@
-module MatricHelper
+module MetricHelper
   def to_metrics_value(score)
     return score if score.is_a?(Integer)
 
@@ -10,7 +10,7 @@ module MatricHelper
     end
   end
 
-  # List all available matric names
+  # List all available metric names
   def all_metrics
     {
       "三档量表" => "grading_3_metric",
@@ -57,7 +57,7 @@ module MatricHelper
     }
   end
 
-  # Don't forget add JS code reverseScoreInMatric also
+  # Don't forget add JS code reverseScoreInMetric also
   def reverse_5_metric(score)
     case score
     when 4.5..5

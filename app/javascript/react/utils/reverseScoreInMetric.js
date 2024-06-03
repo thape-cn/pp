@@ -1,4 +1,4 @@
-export function reverseScoreInMatric(score, reverse_metric_name) {
+export function reverseScoreInMetric(score, reverse_metric_name) {
   // Don't forget add Ruby code like reverse_5_metric also
   if (reverse_metric_name == 'reverse_5_metric') {
     if (score >= 4.5 && score <= 5) {

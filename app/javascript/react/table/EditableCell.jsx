@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {reverseScoreInMatric} from "../utils/reverseScoreInMatric";
+import {reverseScoreInMetric} from "../utils/reverseScoreInMetric";
 import {JobPerformanceInfo} from "./JobPerformanceInfo";
 import {CapabilitySelect} from "./CapabilitySelect";
 
@@ -69,7 +69,7 @@ export const EditableCell = ({
     }
   } else {
     if (id == 'total_evaluation_score' || id == 'raw_total_evaluation_score') {
-      return <p className="m-1 text-end">{reverseScoreInMatric(value, total_reverse_metric)}</p>;
+      return <p className="m-1 text-end">{reverseScoreInMetric(value, total_reverse_metric)}</p>;
     } else if (id.startsWith('p_')) {
       return (
         <div className="input-group">
@@ -86,15 +86,15 @@ export const EditableCell = ({
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_quality_metric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} metric={work_quality_metric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_load' || id == "calibration_work_load") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_load_metric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} metric={work_load_metric} not_rated_text={not_rated_text} />;
     } else if ( id == 'work_attitude' || id == "calibration_work_attitude") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={work_attitude_metric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} metric={work_attitude_metric} not_rated_text={not_rated_text} />;
     } else if ( id == 'annual_output' || id == "calibration_performance_score") {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={performance_metric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} metric={performance_metric} not_rated_text={not_rated_text} />;
     } else {
-      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} matric={professional_management_metric} not_rated_text={not_rated_text} />;
+      return <CapabilitySelect value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} metric={professional_management_metric} not_rated_text={not_rated_text} />;
     }
   }
 }

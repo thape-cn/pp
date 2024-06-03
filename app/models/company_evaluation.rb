@@ -1,5 +1,5 @@
 class CompanyEvaluation < ApplicationRecord
-  include MatricHelper
+  include MetricHelper
   has_many :company_evaluation_templates
   has_many :import_excel_files
   has_many :ended_company_evaluation_role_capabilities
