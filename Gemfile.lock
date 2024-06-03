@@ -506,7 +506,7 @@ DEPENDENCIES
   caxlsx
   config
   csv
-  debug
+  debug (~> 1.9)
   devise
   devise-i18n
   ed25519
