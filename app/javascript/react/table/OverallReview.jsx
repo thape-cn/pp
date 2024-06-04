@@ -70,15 +70,15 @@ export function OverallReview({
       <td colSpan={visibleColumns.length}>
         <form onSubmit={handleSubmit} className="row g-3">
           <div className="col-4">
-            <label htmlFor="self_overall_output" className="form-label">{review_labels.self_overall_output}</label>
+            <label className="form-label">{review_labels.self_overall_output}</label>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.self_overall_output}}></div>
           </div>
           <div className="col-4">
-            <label htmlFor="self_overall_improvement" className="form-label">{review_labels.self_overall_improvement}</label>
+            <label className="form-label">{review_labels.self_overall_improvement}</label>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.self_overall_improvement}}></div>
           </div>
           <div className="col-4">
-            <label htmlFor="self_overall_plan" className="form-label">{review_labels.self_overall_plan}</label>
+            <label className="form-label">{review_labels.self_overall_plan}</label>
             <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.self_overall_plan}}></div>
           </div>
           <div className="col-4">
