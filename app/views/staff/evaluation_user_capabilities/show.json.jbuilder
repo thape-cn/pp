@@ -59,8 +59,11 @@ json.evaluation_user_capability do
   json.self_overall_improvement markdown(@evaluation_user_capability.self_overall_improvement)
   json.self_overall_plan markdown(@evaluation_user_capability.self_overall_plan)
   json.manager_overall_output markdown(@evaluation_user_capability.manager_overall_output)
+  json.manager_overall_output_hint markdown(@company_evaluation_template.manager_overall_output_hint)
   json.manager_overall_improvement markdown(@evaluation_user_capability.manager_overall_improvement)
+  json.manager_overall_improvement_hint markdown(@company_evaluation_template.manager_overall_improvement_hint)
   json.manager_overall_plan markdown(@evaluation_user_capability.manager_overall_plan)
+  json.manager_overall_plan_hint markdown(@company_evaluation_template.manager_overall_plan_hint)
   json.edit_manager_overall_output @evaluation_user_capability.manager_overall_output || ""
   json.edit_manager_overall_improvement @evaluation_user_capability.manager_overall_improvement || ""
   json.edit_manager_overall_plan @evaluation_user_capability.manager_overall_plan || ""

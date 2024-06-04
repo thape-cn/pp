@@ -84,19 +84,22 @@ export function OverallReview({
           <div className="col-4">
             <label htmlFor="manager_overall_output" className="form-label">{review_labels.manager_overall_output}</label>
             {show_save_close_button
-             ? <textarea className="form-control" id="manager_overall_output" rows="3" value={managerOverallOutput} onChange={handleOverallOutputChange} />
+             ?
+             <textarea className="form-control" id="manager_overall_output" rows="3" value={managerOverallOutput} onChange={handleOverallOutputChange} />
              : <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.manager_overall_output}}></div>}
           </div>
           <div className="col-4">
             <label htmlFor="manager_overall_improvement" className="form-label">{review_labels.manager_overall_improvement}</label>
             {show_save_close_button
-             ? <textarea className="form-control" id="manager_overall_improvement" rows="3" value={managerOverallImprovement} onChange={handleOverallImprovementChange} />
+             ?
+             <textarea className="form-control" id="manager_overall_improvement" rows="3" value={managerOverallImprovement} onChange={handleOverallImprovementChange} />
              : <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.manager_overall_improvement}}></div>}
           </div>
           <div className="col-4">
             <label htmlFor="manager_overall_plan" className="form-label">{review_labels.manager_overall_plan}</label>
             {show_save_close_button
-             ? <textarea className="form-control" id="manager_overall_plan" rows="3" value={managerOverallPlan} onChange={handleOverallPlanChange} />
+             ?
+             <textarea className="form-control" id="manager_overall_plan" rows="3" value={managerOverallPlan} onChange={handleOverallPlanChange} />
              : <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.manager_overall_plan}}></div>}
           </div>
           {show_save_close_button && showSaveCloseButton()}

@@ -107,7 +107,7 @@
               <% if @evaluation_user_capability.user_id == current_user.id %>
                 <% if @company_evaluation_template.self_overall_output_hint.present? %>
                   <div class="alert alert-dark alert-dismissible fade show mb-1" role="alert">
-                    <%= @company_evaluation_template.self_overall_output_hint -%>
+                    <%= markdown(@company_evaluation_template.self_overall_output_hint) -%>
                     <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <% end %>
@@ -121,7 +121,7 @@
               <% if @evaluation_user_capability.user_id == current_user.id %>
                 <% if @company_evaluation_template.self_overall_improvement_hint.present? %>
                   <div class="alert alert-dark alert-dismissible fade show mb-1" role="alert">
-                    <%= @company_evaluation_template.self_overall_improvement_hint -%>
+                    <%= markdown(@company_evaluation_template.self_overall_improvement_hint) -%>
                     <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <% end %>
@@ -135,7 +135,7 @@
               <% if @evaluation_user_capability.user_id == current_user.id %>
                 <% if @company_evaluation_template.self_overall_plan_hint.present? %>
                   <div class="alert alert-dark alert-dismissible fade show mb-1" role="alert">
-                    <%= @company_evaluation_template.self_overall_plan_hint -%>
+                    <%= markdown(@company_evaluation_template.self_overall_plan_hint) -%>
                     <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
                   </div>
                 <% end %>

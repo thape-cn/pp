@@ -4,6 +4,7 @@ module Staff
     before_action :set_evaluation_user_capability, only: %i[show update overall_text]
 
     def show
+      @company_evaluation_template = @evaluation_user_capability.company_evaluation_template
       @job_role_performances = JobRoleEvaluationPerformance
         .performance_from_evaluation_user_capability(@evaluation_user_capability)
     end
