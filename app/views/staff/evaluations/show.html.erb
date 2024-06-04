@@ -105,6 +105,10 @@
             <div class="mb-3">
               <%= f.label :self_overall_output, t('evaluation.self_overall_output'), class: "form-label" -%>
               <% if @evaluation_user_capability.user_id == current_user.id %>
+                <div class="alert alert-dark alert-dismissible fade show mb-1" role="alert">
+                  <%= @company_evaluation_template.self_overall_output_hint -%>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 <%= f.text_area :self_overall_output, class: "form-control", rows: 3, placeholder: I18n.t("evaluation.self_overall_placeholder") -%>
               <% else %>
                 <%= markdown(@evaluation_user_capability.self_overall_output) -%>

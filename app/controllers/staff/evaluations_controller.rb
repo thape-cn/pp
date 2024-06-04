@@ -9,7 +9,7 @@ module Staff
       @evaluation_user_capability = authorize policy_scope(EvaluationUserCapability).find(params[:id])
       return redirect_to staff_in_evaluation_path(id: @evaluation_user_capability.id), alert: I18n.t("evaluation.form_submitted") unless @evaluation_user_capability.form_status == "initial"
 
-      title = @evaluation_user_capability.company_evaluation_template.title
+      @company_evaluation_template = @evaluation_user_capability.company_evaluation_template
 
       @job_role_performances = JobRoleEvaluationPerformance
         .performance_from_evaluation_user_capability(@evaluation_user_capability)
@@ -18,8 +18,8 @@ module Staff
       @management_capabilities = @evaluation_user_capability.management_capabilities
       @professional_capabilities = @evaluation_user_capability.professional_capabilities
 
-      add_to_breadcrumbs title
-      set_meta_tags(title: title)
+      add_to_breadcrumbs @company_evaluation_template.title
+      set_meta_tags(title: @company_evaluation_template.title)
     end
 
     def update
