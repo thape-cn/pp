@@ -1,7 +1,7 @@
 import * as React from "react";
 import {svgInfo} from "../utils/tableHeader";
 
-export function CapabilitySelectWithDescription({ value, ercd, onChange, onBlur, metric, not_rated_text, description }) {
+export function CapabilitySelectWithDescription({ id, value, ercd, onChange, onBlur, metric, not_rated_text, description }) {
   const popoverRef = React.useRef();
 
   React.useEffect(() => {
@@ -18,7 +18,7 @@ export function CapabilitySelectWithDescription({ value, ercd, onChange, onBlur,
 
   return (
     <div className="input-group">
-      <select value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
+      <select id={id} value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
         <option value='0'>{not_rated_text}</option>
         {metric.map(option => (
           <option key={option.value} value={option.value}>{option.label}</option>
