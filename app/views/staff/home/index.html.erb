@@ -34,7 +34,11 @@
               <div class="progress progress-white progress-thin my-2">
               <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="10" class="progress-bar" role="progressbar" style="width: 10%"></div>
               </div>
-              <%= link_to t(".click_to_start"), staff_mark_score_path(id: current_user.id, company_evaluation_ids: @company_evaluation_ids), class: "text-medium-emphasis-inverse" -%>
+              <% if current_user.read_manager_instruction? %>
+                <%= link_to t(".click_to_start"), staff_mark_score_path(id: current_user.id, company_evaluation_ids: @company_evaluation_ids), class: "text-medium-emphasis-inverse" -%>
+              <% else %>
+                <%= link_to t(".click_to_start"), staff_read_manager_instruction_path, class: "text-medium-emphasis-inverse" -%>
+              <% end %>
             </div>
           </div>
         </div>

@@ -22,6 +22,7 @@ namespace :staff do
       get :expender
     end
   end
+  resource :read_manager_instruction, only: %i[show create]
   resources :mark_scores, only: %i[show update] do
     member do
       put :score_confirm
