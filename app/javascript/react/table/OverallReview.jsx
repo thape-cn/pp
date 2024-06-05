@@ -86,30 +86,28 @@ export function OverallReview({
                  dangerouslySetInnerHTML={{__html: overallReview.self_overall_plan}}></div>
           </div>
           <div className="col-4">
-            <ManagerOverallKeyin managerOverallOutput={review_labels.manager_overall_output}
+            <ManagerOverallKeyin label_text={review_labels.manager_overall_output}
                                  showSaveCloseButton={show_save_close_button}
                                  keyin_control_id="manager_overall_output"
                                  value={managerOverallOutput}
-                                 onChange={handleOverallOutputChange} overallReview={overallReview}/>
+                                 onChange={handleOverallOutputChange}
+                                 html_value={overallReview.manager_overall_output}/>
           </div>
           <div className="col-4">
-            <label htmlFor="manager_overall_improvement"
-                   className="form-label">{review_labels.manager_overall_improvement}</label>
-            {show_save_close_button
-              ?
-              <textarea className="form-control" id="manager_overall_improvement" rows="3"
-                        value={managerOverallImprovement} onChange={handleOverallImprovementChange}/>
-              : <div className="form-control min-vh-8"
-                     dangerouslySetInnerHTML={{__html: overallReview.manager_overall_improvement}}></div>}
+            <ManagerOverallKeyin label_text={review_labels.manager_overall_improvement}
+                                 showSaveCloseButton={show_save_close_button}
+                                 keyin_control_id="manager_overall_improvement"
+                                 value={managerOverallImprovement}
+                                 onChange={handleOverallImprovementChange}
+                                 html_value={overallReview.manager_overall_improvement}/>
           </div>
           <div className="col-4">
-            <label htmlFor="manager_overall_plan" className="form-label">{review_labels.manager_overall_plan}</label>
-            {show_save_close_button
-              ?
-              <textarea className="form-control" id="manager_overall_plan" rows="3" value={managerOverallPlan}
-                        onChange={handleOverallPlanChange}/>
-              : <div className="form-control min-vh-8"
-                     dangerouslySetInnerHTML={{__html: overallReview.manager_overall_plan}}></div>}
+            <ManagerOverallKeyin label_text={review_labels.manager_overall_plan}
+                                 showSaveCloseButton={show_save_close_button}
+                                 keyin_control_id="manager_overall_plan"
+                                 value={managerOverallPlan}
+                                 onChange={handleOverallPlanChange}
+                                 html_value={overallReview.manager_overall_plan}/>
           </div>
           {show_save_close_button && showSaveCloseButton()}
         </form>
