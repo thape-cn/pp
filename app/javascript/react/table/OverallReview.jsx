@@ -91,6 +91,7 @@ export function OverallReview({
                                  keyin_control_id="manager_overall_output"
                                  value={managerOverallOutput}
                                  onChange={handleOverallOutputChange}
+                                 html_hint={overallReview.manager_overall_output_hint}
                                  html_value={overallReview.manager_overall_output}/>
           </div>
           <div className="col-4">
@@ -99,6 +100,7 @@ export function OverallReview({
                                  keyin_control_id="manager_overall_improvement"
                                  value={managerOverallImprovement}
                                  onChange={handleOverallImprovementChange}
+                                 html_hint={overallReview.manager_overall_improvement_hint}
                                  html_value={overallReview.manager_overall_improvement}/>
           </div>
           <div className="col-4">
@@ -107,6 +109,7 @@ export function OverallReview({
                                  keyin_control_id="manager_overall_plan"
                                  value={managerOverallPlan}
                                  onChange={handleOverallPlanChange}
+                                 html_hint={overallReview.manager_overall_plan_hint}
                                  html_value={overallReview.manager_overall_plan}/>
           </div>
           {show_save_close_button && showSaveCloseButton()}
