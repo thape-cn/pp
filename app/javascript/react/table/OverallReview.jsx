@@ -1,6 +1,7 @@
 import * as React from "react";
 import {get, put} from '@rails/request.js'
 import {evaluationUserCapabilitiesPath} from "../utils/url";
+import {ManagerOverallKeyin} from "./ManagerOverallKeyin";
 
 export function OverallReview({
   row: { index: rowIndex, original: {id_euc} },
@@ -71,36 +72,44 @@ export function OverallReview({
         <form onSubmit={handleSubmit} className="row g-3">
           <div className="col-4">
             <label className="form-label">{review_labels.self_overall_output}</label>
-            <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.self_overall_output}}></div>
+            <div className="form-control min-vh-8"
+                 dangerouslySetInnerHTML={{__html: overallReview.self_overall_output}}></div>
           </div>
           <div className="col-4">
             <label className="form-label">{review_labels.self_overall_improvement}</label>
-            <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.self_overall_improvement}}></div>
+            <div className="form-control min-vh-8"
+                 dangerouslySetInnerHTML={{__html: overallReview.self_overall_improvement}}></div>
           </div>
           <div className="col-4">
             <label className="form-label">{review_labels.self_overall_plan}</label>
-            <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.self_overall_plan}}></div>
+            <div className="form-control min-vh-8"
+                 dangerouslySetInnerHTML={{__html: overallReview.self_overall_plan}}></div>
           </div>
           <div className="col-4">
-            <label htmlFor="manager_overall_output" className="form-label">{review_labels.manager_overall_output}</label>
-            {show_save_close_button
-             ?
-             <textarea className="form-control" id="manager_overall_output" rows="3" value={managerOverallOutput} onChange={handleOverallOutputChange} />
-             : <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.manager_overall_output}}></div>}
+            <ManagerOverallKeyin managerOverallOutput={review_labels.manager_overall_output}
+                                 showSaveCloseButton={show_save_close_button}
+                                 keyin_control_id="manager_overall_output"
+                                 value={managerOverallOutput}
+                                 onChange={handleOverallOutputChange} overallReview={overallReview}/>
           </div>
           <div className="col-4">
-            <label htmlFor="manager_overall_improvement" className="form-label">{review_labels.manager_overall_improvement}</label>
+            <label htmlFor="manager_overall_improvement"
+                   className="form-label">{review_labels.manager_overall_improvement}</label>
             {show_save_close_button
-             ?
-             <textarea className="form-control" id="manager_overall_improvement" rows="3" value={managerOverallImprovement} onChange={handleOverallImprovementChange} />
-             : <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.manager_overall_improvement}}></div>}
+              ?
+              <textarea className="form-control" id="manager_overall_improvement" rows="3"
+                        value={managerOverallImprovement} onChange={handleOverallImprovementChange}/>
+              : <div className="form-control min-vh-8"
+                     dangerouslySetInnerHTML={{__html: overallReview.manager_overall_improvement}}></div>}
           </div>
           <div className="col-4">
             <label htmlFor="manager_overall_plan" className="form-label">{review_labels.manager_overall_plan}</label>
             {show_save_close_button
-             ?
-             <textarea className="form-control" id="manager_overall_plan" rows="3" value={managerOverallPlan} onChange={handleOverallPlanChange} />
-             : <div className="form-control min-vh-8" dangerouslySetInnerHTML={{__html: overallReview.manager_overall_plan}}></div>}
+              ?
+              <textarea className="form-control" id="manager_overall_plan" rows="3" value={managerOverallPlan}
+                        onChange={handleOverallPlanChange}/>
+              : <div className="form-control min-vh-8"
+                     dangerouslySetInnerHTML={{__html: overallReview.manager_overall_plan}}></div>}
           </div>
           {show_save_close_button && showSaveCloseButton()}
         </form>
