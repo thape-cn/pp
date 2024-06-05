@@ -2,9 +2,122 @@
   <%= append_javascript_pack_tag 'stimulus' %>
 <% end %>
 
+<style>
+.carousel-control-prev {
+  left: -34px;
+}
+.carousel-control-next {
+  right: -50px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+}
+.carousel-indicators {
+  background-color: gray;
+}
+.image-map-container {
+  position: relative;
+}
+.image-map-link {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+}
+.image-map-link.top-left {
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+}
+.image-map-link.top-right {
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+}
+.image-map-link.bottom-left {
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 50%;
+}
+.image-map-link.bottom-right {
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 50%;
+}
+</style>
+
 <div class="row justify-content-center">
+  <div id="carouselInstruction" class="carousel slide" data-coreui-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-coreui-target="#carouselInstruction" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-coreui-target="#carouselInstruction" data-coreui-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-coreui-target="#carouselInstruction" data-coreui-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="<%= asset_path('instruction_0.jpg') -%>" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <div class="image-map-container">
+          <img src="<%= asset_path('instruction_1.jpg') -%>" class="d-block w-100" alt="...">
+          <a class="image-map-link top-left" href="https://short.yunxuetang.cn/AABJPj0t" target="_blank" rel="noopener noreferrer" aria-label="绩效面谈—如何给低绩效的员工进行辅导反馈"></a>
+          <a class="image-map-link top-right" href="https://short.yunxuetang.cn/jVR5yyfw" target="_blank" rel="noopener noreferrer" aria-label="绩效面谈—如何与不认同绩效结果的员工沟通"></a>
+          <a class="image-map-link bottom-left" href="https://short.yunxuetang.cn/wenyKcEJ" target="_blank" rel="noopener noreferrer" aria-label="绩效考核（线上文字评价案例）"></a>
+          <a class="image-map-link bottom-right" href="https://short.yunxuetang.cn/4ctkdSY5" target="_blank" rel="noopener noreferrer" aria-label="绩效面谈（意义、常见问题及流程）"></a>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= asset_path('instruction_2.jpg') -%>" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-coreui-target="#carouselInstruction" data-coreui-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-coreui-target="#carouselInstruction" data-coreui-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
   <div class="col offset-md-9">
     <%= button_to t(".i_read_this_instruction"), staff_read_manager_instruction_path,
-      method: :post, class: "btn btn-primary" %>
+      method: :post, class: "btn btn-primary", disabled: true, id: "readInstructionButton" %>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var carousel = document.getElementById('carouselInstruction');
+    var button = document.getElementById('readInstructionButton');
+    var prevButton = document.querySelector('.carousel-control-prev');
+    var nextButton = document.querySelector('.carousel-control-next');
+
+    function updatePrevButtonState(event) {
+      if (event.to === 0) {
+        prevButton.disabled = true;
+      } else {
+        prevButton.disabled = false;
+      }
+
+      if (event.to === 2) {
+        nextButton.disabled = true;
+      } else {
+        nextButton.disabled = false;
+      }
+    }
+
+    // Initial check
+    updatePrevButtonState({ to: 0 });
+
+    carousel.addEventListener('slid.coreui.carousel', function(event) {
+      updatePrevButtonState(event);
+      if (event.to === 2) { // Index of the last slide (0-based index)
+        button.disabled = false;
+      }
+    });
+  });
+</script>
