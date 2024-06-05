@@ -8,3 +8,8 @@ Stimulus.load(definitionsFromContext(context))
 
 const tooltipTriggerList = document.querySelectorAll('[data-coreui-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new coreui.Tooltip(tooltipTriggerEl))
+
+const carouselElementList = document.querySelectorAll('.carousel')
+const carouselList = [...carouselElementList].map(carouselEl => new coreui.Carousel(carouselEl, {
+  interval: false // Disable automatic cycling
+}))
