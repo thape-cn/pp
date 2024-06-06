@@ -3,4 +3,8 @@
 <% end %>
 
 <div class="row justify-content-center">
+  <div class="col offset-md-9">
+    <%= button_to t(".i_read_this_instruction"), staff_read_manager_instruction_path,
+      method: :post, class: "btn btn-primary" %>
+  </div>
 </div>

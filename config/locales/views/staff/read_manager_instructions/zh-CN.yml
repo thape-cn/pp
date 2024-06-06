@@ -4,3 +4,6 @@ zh-CN:
     read_manager_instructions:
       show:
         title: "绩效考核打分说明"
+        i_read_this_instruction: "我已阅读了本说明"
+      create:
+        success: "请遵循打分说明开始打分"
