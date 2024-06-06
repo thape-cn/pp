@@ -16,6 +16,7 @@
 			"public/packs-test": true,
 			"public/packs/css": true,
 			"public/packs/js": true
-		}
+		},
+		"files.autoSave": "onWindowChange"
 	}
 }
