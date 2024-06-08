@@ -1,8 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "~> 3.0"
-
+ruby "~> 3.1" # Rails 7.2 require 3.1
 gem "rails", "~> 7.2.0.beta2"
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
