@@ -314,7 +314,7 @@ GEM
     pundit (2.3.2)
       activesupport (>= 3.0.0)
     racc (1.8.0)
-    rack (3.0.11)
+    rack (3.1.0)
     rack-oauth2 (2.2.1)
       activesupport
       attr_required
@@ -376,7 +376,7 @@ GEM
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.9)
+    rexml (3.3.0)
       strscan
     roo (2.10.1)
       nokogiri (~> 1)
@@ -420,7 +420,7 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.19.0)
-    sorbet-runtime (0.5.11422)
+    sorbet-runtime (0.5.11428)
     sqlite3 (2.0.2-aarch64-linux-gnu)
     sqlite3 (2.0.2-arm-linux-gnu)
     sqlite3 (2.0.2-arm64-darwin)
