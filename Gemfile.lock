@@ -424,7 +424,7 @@ GEM
       connection_pool (>= 2.3.0)
       rack (>= 2.2.4)
       redis-client (>= 0.19.0)
-    sorbet-runtime (0.5.11429)
+    sorbet-runtime (0.5.11430)
     sqlite3 (2.0.2-aarch64-linux-gnu)
     sqlite3 (2.0.2-arm-linux-gnu)
     sqlite3 (2.0.2-arm64-darwin)
