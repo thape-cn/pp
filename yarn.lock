@@ -2243,9 +2243,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.796:
-  version "1.4.801"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.801.tgz#0dba4f20638d80a2de512ca5aab138fda0b13637"
-  integrity sha512-PnlUz15ii38MZMD2/CEsAzyee8tv9vFntX5nhtd2/4tv4HqY7C5q2faUAjmkXS/UFpVooJ/5H6kayRKYWoGMXQ==
+  version "1.4.802"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.802.tgz#49b397eadc95a49b1ac33eebee146b8e5a93773f"
+  integrity sha512-TnTMUATbgNdPXVSHsxvNVSG0uEd6cSZsANjm8c9HbvflZVVn1yTRcmVXYT1Ma95/ssB/Dcd30AHweH2TE+dNpA==
 
 emojis-list@^3.0.0:
   version "3.0.0"
@@ -4067,23 +4067,22 @@ signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.npmmirror.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simplebar-core@^1.2.5:
-  version "1.2.5"
-  resolved "https://registry.npmmirror.com/simplebar-core/-/simplebar-core-1.2.5.tgz#1e8db8f43a4c103e7ef37823eb88b321a96e1b11"
-  integrity sha512-33AVCYXS8yavWId0GbE4TG1cYELsYybpCKWHJYuWEY/j6nccgz6zQdJ7nCqOpIGo7HgPPbkSSSIlJhi43fHP6A==
+simplebar-core@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.npmmirror.com/simplebar-core/-/simplebar-core-1.2.6.tgz#8317bb6c1bcb38739eae43f1edc902cdd1d858d9"
+  integrity sha512-H5NYU+O+uvqOH5VXw3+lgoc1vTI6jL8LOZJsw4xgRpV7uIPjRpmLPdz0TrouxwKHBhpVLzVIlyKhaRLelIThMw==
   dependencies:
     "@types/lodash-es" "^4.17.6"
-    can-use-dom "^0.1.0"
     lodash "^4.17.21"
     lodash-es "^4.17.21"
 
 simplebar@^6.2.6:
-  version "6.2.6"
-  resolved "https://registry.npmmirror.com/simplebar/-/simplebar-6.2.6.tgz#b5c7814c0bc159a33b406ddd12875a3cedce60f8"
-  integrity sha512-dN+MoK2JJY8u+3CokYm0GTAi1bo+aefyyY2fk3pZlwOZdLSNY9P0Ze6kb6e86VuXgFgbcX4z8SuM41RK1/zM+g==
+  version "6.2.7"
+  resolved "https://registry.npmmirror.com/simplebar/-/simplebar-6.2.7.tgz#fb48934487794ff44e7fe0943e788f4e78e1bc1c"
+  integrity sha512-IdD6HwZLz4f83lG0yN5r/3Mts4qR+pKAc9IjVdtJ96Ow6IqSA+jG2PlniQ710XUygal/mOA774IgAvcoirUP4g==
   dependencies:
     can-use-dom "^0.1.0"
-    simplebar-core "^1.2.5"
+    simplebar-core "^1.2.6"
 
 slash@^2.0.0:
   version "2.0.0"
