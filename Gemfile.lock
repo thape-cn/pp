@@ -251,7 +251,6 @@ GEM
       date
       net-protocol
     net-pop (0.1.2)
-      net-protocol
     net-protocol (0.2.2)
       timeout
     net-scp (4.0.0)
@@ -405,6 +404,8 @@ GEM
       prism (>= 0.29.0, < 0.31)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
+    ruby-lsp-rails (0.3.7)
+      ruby-lsp (>= 0.17.0, < 0.18.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     selenium-webdriver (4.21.1)
@@ -529,6 +530,7 @@ DEPENDENCIES
   redcarpet
   roo
   ruby-lsp
+  ruby-lsp-rails
   selenium-webdriver (>= 4.11.0)
   shakapacker (~> 8.0)
   sidekiq
