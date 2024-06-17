@@ -1,0 +1,8 @@
+---
+corp_president_managed_company_one:
+  user: user_guochunzhong
+  managed_company: "My Company 1"
+
+corp_president_managed_company_two:
+  user: user_guochunzhong
+  managed_company: "My Company 2"

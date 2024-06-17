@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_06_05_073150) do
+ActiveRecord::Schema[7.2].define(version: 2024_06_17_060525) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -224,6 +224,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_06_05_073150) do
     t.datetime "updated_at", null: false
     t.boolean "evaluation_ended", default: false
     t.string "bonus_period"
+  end
+
+  create_table "corp_president_managed_companies", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "managed_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_corp_president_managed_companies_on_user_id"
   end
 
   create_table "ended_company_evaluation_role_capabilities", force: :cascade do |t|

@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :job_roles, through: :user_job_roles
   has_many :evaluation_user_capabilities
   has_many :hr_user_managed_companies
+  has_many :corp_president_managed_companies
   has_many :hrbp_user_managed_departments
   has_many :secretary_managed_departments
   has_many :euc_form_status_histories
