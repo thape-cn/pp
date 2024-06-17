@@ -22,6 +22,7 @@ en:
     preferred_language: "Preferred language"
     roles: "Roles"
     hr_user_managed_companies: "Company managed as HR"
+    corp_president_managed_companies: "Company managed as Corp-president"
     hrbp_user_managed_departments: "Department managed as HRBP"
     secretary_managed_departments: "Department managed as secretary"
     password: "Password"

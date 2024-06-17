@@ -22,6 +22,7 @@ zh-CN:
     preferred_language: "首选语言"
     roles: "角色"
     hr_user_managed_companies: "作为 HR 管理的公司"
+    corp_president_managed_companies: "作为 子公司总经理 管理的公司"
     hrbp_user_managed_departments: "作为 HRBP 管理的部门"
     secretary_managed_departments: "作为 秘书 管理的部门"
     password: "密码"

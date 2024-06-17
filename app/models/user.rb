@@ -80,6 +80,26 @@ class User < ApplicationRecord
     end
   end
 
+  def corp_president_managed_company_names
+    @_corp_president_managed_company_names ||= corp_president_managed_companies.collect(&:managed_company)
+  end
+
+  def corp_president_managed_company_names=(values)
+    select_values = Array(values).reject(&:blank?)
+    if new_record?
+      (select_values - corp_president_managed_company_names).each do |new_company_name|
+        corp_president_managed_companies.build(managed_company: new_company_name)
+      end
+    else
+      (corp_president_managed_company_names - select_values).each do |to_destroy_company_name|
+        corp_president_managed_companies.find_by(managed_company: to_destroy_company_name).destroy
+      end
+      (select_values - corp_president_managed_company_names).each do |to_add_company_name|
+        corp_president_managed_companies.create(managed_company: to_add_company_name)
+      end
+    end
+  end
+
   def hrbp_user_managed_dept_codes
     @_hrbp_user_managed_dept_codes ||= hrbp_user_managed_departments.collect(&:managed_dept_code)
   end

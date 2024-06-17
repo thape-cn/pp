@@ -14,6 +14,7 @@ zh-CN:
         user_calibrations: "员工的校准"
         user_performances: "员工上传的业绩"
         account: "账号"
+        corp_president_managed_companies: "子公司总经理管理的公司"
         hrbp_managed_departments: "HRBP 管理的部门"
         secretary_managed_departments: "部门的管理秘书"
         job_roles: "工作角色"

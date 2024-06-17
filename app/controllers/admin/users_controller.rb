@@ -139,7 +139,10 @@ module Admin
 
     def user_params
       params.require(:user).permit(:preferred_language, :wecom_id,
-        managed_company_names: [], hrbp_user_managed_dept_codes: [], secretary_managed_dept_codes: [])
+        managed_company_names: [],
+        corp_president_managed_company_names: [],
+        hrbp_user_managed_dept_codes: [],
+        secretary_managed_dept_codes: [])
     end
 
     def set_breadcrumbs
