@@ -142,6 +142,7 @@ namespace :admin do
     end
   end
   resources :duplicate_users, only: %i[index edit update]
+  resources :corp_president_managed_companies, only: %i[index]
   resources :hrbp_managed_departments, only: %i[index]
   resources :secretary_managed_departments, only: %i[index]
   resources :job_roles, only: %i[index edit update] do
