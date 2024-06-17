@@ -47,6 +47,7 @@ en:
     company: "Company"
     department: "Department"
     dept_code: "Department code"
+    corp_president_name: "Corp president name"
     hrbp_name: "HRBP name"
     st_code: "ST code"
     hire_date: "Hire date"

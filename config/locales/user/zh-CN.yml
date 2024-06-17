@@ -47,6 +47,7 @@ zh-CN:
     company: "公司"
     department: "部门"
     dept_code: "部门代码"
+    corp_president_name: "子公司总经理 姓名"
     hrbp_name: "HRBP 姓名"
     st_code: "ST 代码"
     hire_date: "入职日期"
