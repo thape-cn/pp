@@ -11,6 +11,8 @@ class UserMerger
     EvaluationUserCapability.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     EvaluationUserCapability.where(manager_user_id: to_remove_user_ids).update_all(manager_user_id: main_user_id)
     HRUserManagedCompany.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
+    CorpPresidentManagedCompany.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
+    SecretaryManagedDepartment.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     HrbpUserManagedDepartment.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     JobRoleEvaluationPerformance.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     UserJobRole.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
