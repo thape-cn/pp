@@ -1,0 +1,7 @@
+---
+en:
+  layouts:
+    sidebars:
+      corp_president:
+        header: "Home"
+        dashboard: "Dashboard"

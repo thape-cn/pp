@@ -32,6 +32,10 @@ class User < ApplicationRecord
     hr_user_managed_companies.present?
   end
 
+  def corp_president?
+    corp_president_managed_companies.present?
+  end
+
   def secretary?
     secretary_managed_departments.present?
   end

@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
   def index
     return redirect_to admin_root_path if current_user&.admin?
+    return redirect_to cp_root_path if current_user&.corp_president?
     return redirect_to hr_root_path if current_user&.hr_staff?
     redirect_to staff_root_path if current_user.present?
   end

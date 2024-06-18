@@ -1,0 +1,7 @@
+---
+zh-CN:
+  layouts:
+    sidebars:
+      corp_president:
+        header: "HR首页"
+        dashboard: "主页"

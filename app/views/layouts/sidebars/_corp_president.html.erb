@@ -1,0 +1,16 @@
+<div class="sidebar sidebar-dark sidebar-fixed bg-dark-gradient <%= current_user&.sidebar_narrow? ? "sidebar-narrow-unfoldable" : "" -%>" id="sidebar" data-controller="sidebar">
+  <div class="sidebar-brand d-none d-md-flex">
+    <%= link_to root_path, class: "text-reset text-decoration-none" do %>
+      <image class="sidebar-brand-full" width="118" height="46" alt="TH Logo" src="<%= asset_path('th-logo.png') -%>" />
+    <% end %>
+    <%= link_to cp_root_path, class: "text-reset text-decoration-none" do %>
+      <svg alt="Thape PP Logo" class="sidebar-brand-narrow" height="46" width="46">
+        <use xlink:href="<%= asset_path('th-logo.svg#signet') %>"></use>
+      </svg>
+    <% end %>
+    <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable" data-action="click->sidebar#click"></button>
+  </div>
+  <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
+    <%= nav_item(t('.dashboard'), cp_root_path, 'free.svg#cil-speedometer') -%>
+  </ul>
+</div>

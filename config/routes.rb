@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get "auth/openid_connect/callback" => "openid_connect#callback"
 
   draw :admin
+  draw :cp
   draw :hr
   draw :staff
 
