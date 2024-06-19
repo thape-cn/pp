@@ -5,3 +5,5 @@ en:
       corp_president:
         header: "Home"
         dashboard: "Dashboard"
+        evaluation: "Evaluation"
+        user_capabilities: "User’s capabilities"

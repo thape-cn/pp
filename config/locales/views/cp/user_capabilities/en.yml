@@ -1,0 +1,5 @@
+en:
+  cp:
+    user_capabilities:
+      index:
+        breadcrumb_title: "%{title}"

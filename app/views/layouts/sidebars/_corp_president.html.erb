@@ -12,5 +12,20 @@
   </div>
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
     <%= nav_item(t('.dashboard'), cp_root_path, 'free.svg#cil-speedometer') -%>
+
+    <li class="nav-title"><%= t('.evaluation') -%></li>
+    <li class="nav-group <%= %w[user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[user_capabilities].include?(controller_name) -%>
+      data-expender-url-value="<%= expender_cp_evaluation_user_capabilities_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('.user_capabilities') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[user_capabilities].include?(controller_name) %>
+          <%= render partial: 'cp/evaluation_user_capabilities/expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).open_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
   </ul>
 </div>

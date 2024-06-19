@@ -304,7 +304,7 @@ module Admin
     def set_breadcrumbs
       @_breadcrumbs = [
         {text: t("layouts.sidebars.admin.header"),
-         link: root_path},
+         link: admin_root_path},
         {text: t("layouts.sidebars.admin.user_capabilities"),
          link: nil}
       ]
