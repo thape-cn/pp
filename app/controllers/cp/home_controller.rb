@@ -19,11 +19,6 @@ module CP
       @need_signing_evaluations = current_open_evaluations
         .where(user_id: current_user.id, form_status: "hr_review_completed")
 
-      @proofreading_calibration_sessions = policy_scope(CalibrationSession)
-        .where(session_status: "proofreading")
-        .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
-        .distinct
-
       respond_to do |format|
         format.html { render }
       end

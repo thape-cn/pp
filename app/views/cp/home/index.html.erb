@@ -79,25 +79,5 @@
         <% end %>
       </div>
     <% end %>
-
-    <% if @proofreading_calibration_sessions.present? %>
-      <h3 class="mb-3"><%= t(".proofreading_calibration_session") -%></h3>
-      <div class="row">
-        <% @proofreading_calibration_sessions.each do |calibration_session| %>
-          <div class="col-lg-6 col-xl-4 mb-3">
-            <div class="card text-white bg-primary">
-              <div class="card-body">
-                <div class="fw-semibold"><%= calibration_session.session_name -%></div>
-                <div><%= t(".need_review_calibration_session_users", count: calibration_session.calibration_session_users.count) -%></div>
-                <div class="progress progress-white progress-thin my-2">
-                <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="50.0" class="progress-bar" role="progressbar" style="width: 50.0%"></div>
-                </div>
-                <%= link_to t(".click_to_start"), hr_calibration_session_path(id: calibration_session.id), class: "text-medium-emphasis-inverse" -%>
-              </div>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
   </div>
 </div>
