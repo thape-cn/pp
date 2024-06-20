@@ -113,6 +113,8 @@ module Admin
               row.cells[6].value = ujr.job_role.st_code
               row.cells[9].type = :string
               row.cells[9].value = ujr.dept_code
+              row.cells[16].type = :string
+              row.cells[16].value = ujr.manager_user&.clerk_code
             end
           end
 
