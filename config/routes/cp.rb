@@ -17,4 +17,9 @@ namespace :cp do
       get :expender
     end
   end
+  resources :staff_performances, only: %i[index show] do
+    member do
+      get :more_people
+    end
+  end
 end
