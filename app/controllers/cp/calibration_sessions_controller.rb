@@ -1,8 +1,10 @@
 module CP
   class CalibrationSessionsController < BaseController
     include Pagy::Backend
+    after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
-    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index]
+    before_action :set_calibration_session, only: %i[show]
+    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index show]
 
     def index
       add_to_breadcrumbs t(".title"), cp_calibration_sessions_path
@@ -35,11 +37,20 @@ module CP
       @pagy, @calibration_sessions = pagy(calibration_sessions, items: current_user.preferred_page_length)
     end
 
+    def show
+      add_to_breadcrumbs t("layouts.sidebars.corp_president.calibration_session"), cp_calibration_sessions_path
+      add_to_breadcrumbs t(".title")
+    end
+
     def expender
       render layout: false
     end
 
     private
+
+    def set_calibration_session
+      @calibration_session = authorize CalibrationSession.find(params[:id])
+    end
 
     def set_breadcrumbs
       @_breadcrumbs = [

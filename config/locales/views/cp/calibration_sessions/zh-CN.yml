@@ -4,3 +4,5 @@ zh-CN:
     calibration_sessions:
       index:
         title: "子公司总经理的校验会话"
+      show:
+        title: "校验会话明细"

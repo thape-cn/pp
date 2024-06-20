@@ -1,0 +1,19 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
+      <% case company_evaluation_template.group_level %>
+      <% when 'staff' %>
+        <%= render partial: "ui/calibration_sessions/staff_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
+      <% when 'auxiliary' %>
+        <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
+      <% when 'manager' %>
+        <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
+      <% end %>
+    </div>
+  </div>
+</div>

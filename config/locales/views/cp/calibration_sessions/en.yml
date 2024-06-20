@@ -4,3 +4,5 @@ en:
     calibration_sessions:
       index:
         title: "Corp president calibration sessions"
+      show:
+        title: "HR calibration session detail"
