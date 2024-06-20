@@ -1,7 +1,8 @@
 module CP
   class UserCapabilitiesController < BaseController
+    include MetricHelper
     include Pagy::Backend
-    after_action :verify_policy_scoped, only: %i[index]
+    after_action :verify_policy_scoped, only: %i[index excel_report]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 
     def index
@@ -34,6 +35,61 @@ module CP
       evaluation_user_capabilities = evaluation_user_capabilities.where(form_status: @form_status) if @form_status.present?
       evaluation_user_capabilities = evaluation_user_capabilities.order(final_total_evaluation_score: :asc) if @sort_on_final_total_evaluation_score.present?
       @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
+    end
+
+    def excel_report
+      company_evaluation = CompanyEvaluation.find params[:company_evaluation_id]
+      evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
+        .joins(:company_evaluation_template)
+        .includes(:user, :job_role, :manager_user)
+        .where(company_evaluation_template: {company_evaluation_id: company_evaluation.id})
+      respond_to do |format|
+        format.xlsx do
+          p = Axlsx::Package.new
+          wb = p.workbook
+
+          wb.add_worksheet(name: company_evaluation.title) do |sheet|
+            sheet.add_row [I18n.t("user.chinese_name"),
+              I18n.t("user.clerk_code"),
+              I18n.t("user.st_code"),
+              I18n.t("evaluation.evaluation_status"),
+              I18n.t("user.company"),
+              I18n.t("user.department"),
+              I18n.t("user.title"),
+
+              I18n.t("user.dept_code"),
+              I18n.t("admin.evaluation_templates.index.template_title"),
+              I18n.t("user.manager_user"),
+              I18n.t("evaluation.final_total_evaluation_score")]
+            evaluation_user_capabilities.find_each do |euc|
+              values = []
+              values << euc.user.chinese_name
+              values << euc.user.clerk_code
+              values << euc.job_role.st_code
+              values << EvaluationUserCapability.form_status_options.invert[euc.form_status]
+              values << euc.company
+              values << euc.department
+              values << euc.title
+
+              values << euc.dept_code
+              values << euc.company_evaluation_template.title
+              values << euc.manager_user&.chinese_name
+              values << public_send(euc.company_evaluation_template.total_reverse_metric, euc.final_total_evaluation_score)
+              row = sheet.add_row values
+              row.cells[1].type = :string
+              row.cells[1].value = euc.user.clerk_code # Must overwrite again after setting cell type
+              row.cells[2].type = :string
+              row.cells[2].value = euc.job_role.st_code
+              row.cells[7].type = :string
+              row.cells[7].value = euc.dept_code
+            end
+          end
+
+          temp_file = Tempfile.new("hf_excel_report")
+          p.serialize temp_file
+          send_file temp_file, filename: "#{company_evaluation.title}.xlsx"
+        end
+      end
     end
 
     private

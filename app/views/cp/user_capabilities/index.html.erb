@@ -1,5 +1,17 @@
 <% content_for :head do %>
   <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'selectize_user_ids' %>
+  <%= append_javascript_pack_tag 'selectize' %>
+<% end %>
+
+<%- content_for :action_bar do %>
+  <ol>
+    <li class="action_bar-item">
+      <%= link_to excel_report_cp_company_evaluation_user_capabilities_path(company_evaluation_id: @company_evaluation.id, format: :xlsx), class: "btn btn-outline-primary" do -%>
+        <%= t("form.excel_report") %> <%= svg_icon('free.svg#cil-copy', %w[icon]) -%>
+      <% end %>
+    </li>
+  </ol>
 <% end %>
 
 <div class="row justify-content-center">
