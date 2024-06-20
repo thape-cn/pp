@@ -32,6 +32,9 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   def show?
     return true if user.admin?
 
+    cp_managed_companies = user.corp_president_managed_companies.pluck(:managed_company)
+    return true if cp_managed_companies.include?(record.company)
+
     hr_bp_managed_companies = user.hr_user_managed_companies.pluck(:managed_company)
     return true if hr_bp_managed_companies.include?(record.company)
 
@@ -83,7 +86,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   end
 
   def overall_text?
-    if user.admin? || user.hr_staff? || user.id == record.manager_user_id
+    if user.admin? || user.hr_staff? || current_user.corp_president? || user.id == record.manager_user_id
       true
     elsif record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
         record.calibration_session_users.any? { |csu| csu.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id } }

@@ -5,11 +5,29 @@ module PerformancesHelper
     evaluation_user_capabilities.take(9).each do |euc|
       link_url = case euc.company_evaluation_template.group_level
       when "manager"
-        current_user.admin? ? admin_manager_performance_path(id: euc.id) : hr_manager_performance_path(id: euc.id)
+        if current_user.admin?
+          admin_manager_performance_path(id: euc.id)
+        elsif current_user.corp_president?
+          cp_manager_performance_path(id: euc.id)
+        else
+          hr_manager_performance_path(id: euc.id)
+        end
       when "auxiliary"
-        current_user.admin? ? admin_auxiliary_performance_path(id: euc.id) : hr_auxiliary_performance_path(id: euc.id)
+        if current_user.admin?
+          admin_auxiliary_performance_path(id: euc.id)
+        elsif current_user.corp_president?
+          cp_auxiliary_performance_path(id: euc.id)
+        else
+          hr_auxiliary_performance_path(id: euc.id)
+        end
       else
-        current_user.admin? ? admin_staff_performance_path(id: euc.id) : hr_staff_performance_path(id: euc.id)
+        if current_user.admin?
+          admin_staff_performance_path(id: euc.id)
+        elsif current_user.corp_president?
+          cp_staff_performance_path(id: euc.id)
+        else
+          hr_staff_performance_path(id: euc.id)
+        end
       end
       concat(content_tag(:span, class: "btn btn-light rounded-pill m-1") do
         concat(euc.user.chinese_name)
