@@ -53,6 +53,7 @@ en:
     hire_date: "Hire date"
     manager_user: "Manager"
     manager_user_id: "Manager ID"
+    manager_user_clerk_code: "Manager clerk code"
     title: "Title"
     job_role: "Job role"
     job_role_id: "Job role ID"

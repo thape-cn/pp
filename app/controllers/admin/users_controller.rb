@@ -80,6 +80,7 @@ module Admin
               I18n.t("user.job_family"),
 
               I18n.t("user.manager_user"),
+              I18n.t("user.manager_user_clerk_code"),
               I18n.t("user.hrbp_name")]
             user_job_roles.find_each do |ujr|
               values = []
@@ -101,6 +102,7 @@ module Admin
               values << ujr.job_role.job_family
 
               values << ujr.manager_user&.chinese_name
+              values << ujr.manager_user&.clerk_code
               values << d2hrbp[ujr.dept_code]&.collect do |hrbp_user_managed_department|
                 hrbp_user_managed_department.user.chinese_name
               end&.join(", ")

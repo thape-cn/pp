@@ -53,6 +53,7 @@ zh-CN:
     hire_date: "入职日期"
     manager_user: "直属上级"
     manager_user_id: "直属上级 ID"
+    manager_user_clerk_code: "直属上级员工号"
     title: "职务名称"
     job_role: "工作角色"
     job_role_id: "工作角色 ID"
