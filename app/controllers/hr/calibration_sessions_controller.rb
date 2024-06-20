@@ -100,8 +100,8 @@ module HR
 
     def set_breadcrumbs
       @_breadcrumbs = [
-        {text: t("layouts.sidebars.admin.header"),
-         link: root_path}
+        {text: t("layouts.sidebars.hr_staff.header"),
+         link: hr_root_path}
       ]
     end
   end

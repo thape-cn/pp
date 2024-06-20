@@ -7,6 +7,11 @@ namespace :cp do
       end
     end
   end
+  resources :calibration_sessions, only: %i[index] do
+    collection do
+      get :expender
+    end
+  end
   resources :evaluation_user_capabilities, only: %i[] do
     collection do
       get :expender
