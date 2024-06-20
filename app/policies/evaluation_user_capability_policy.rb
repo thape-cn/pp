@@ -3,6 +3,8 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
+      elsif user.corp_president?
+        scope.where(company: user.corp_president_managed_companies.pluck(:managed_company))
       elsif user.hr_staff?
         scope.where(company: user.hr_user_managed_companies.pluck(:managed_company))
       elsif user.secretary?

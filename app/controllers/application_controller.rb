@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     @_sidebar_name = if current_user&.admin?
       "admin"
     elsif current_user&.corp_president?
-      "corp_president"      
+      "corp_president"
     elsif current_user&.hr_staff?
       "hr_staff"
     elsif current_user.present?
