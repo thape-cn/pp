@@ -6,6 +6,7 @@ namespace :cp do
         get :excel_report
       end
     end
+    resources :history_user_capabilities, only: %i[index]
   end
   resources :calibration_sessions, only: %i[index show] do
     collection do

@@ -1,0 +1,6 @@
+---
+en:
+  cp:
+    history_user_capabilities:
+      index:
+        breadcrumb_title: "%{title}"

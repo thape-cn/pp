@@ -1,7 +1,7 @@
 class CompanyEvaluationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      if user.admin? || user.hr_staff? || user.hrbp_user_managed_departments.present?
+      if user.admin? || user.corp_president? || user.hr_staff? || user.hrbp_user_managed_departments.present?
         scope.all
       else
         scope.open_for_user
