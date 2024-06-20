@@ -14,7 +14,7 @@ module CP
       @department = params[:department]
       @form_status = params[:form_status]
       @sort_on_final_total_evaluation_score = params[:sort_on_final_total_evaluation_score] == "true"
-      add_to_breadcrumbs title, hr_company_evaluation_history_user_capabilities_path(company_evaluation_id: @company_evaluation.id)
+      add_to_breadcrumbs title, cp_company_evaluation_history_user_capabilities_path(company_evaluation_id: @company_evaluation.id)
       set_meta_tags(title: title)
       evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
         .joins(:company_evaluation_template)
