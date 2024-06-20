@@ -15,6 +15,7 @@ namespace :cp do
   resources :evaluation_user_capabilities, only: %i[] do
     collection do
       get :expender
+      get :history_expender
     end
   end
   resources :staff_performances, only: %i[index show] do

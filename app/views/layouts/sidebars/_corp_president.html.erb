@@ -48,5 +48,19 @@
     <%= nav_item(t('performance.manager_performances'), cp_manager_performances_path, 'free.svg#cil-usb', nav_class: 'rotate_180') -%>
     <%= nav_item(t('performance.auxiliary_performances'), cp_auxiliary_performances_path, 'free.svg#cil-columns') -%>
 
+    <li class="nav-title"><%= t('evaluation.history_evaluation') -%></li>
+    <li class="nav-group <%= %w[history_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"
+      data-expender-loaded-value=<%= %w[history_user_capabilities].include?(controller_name) -%>
+      data-expender-url-value="<%= history_expender_cp_evaluation_user_capabilities_path -%>">
+      <a class="nav-link nav-group-toggle" data-action="expender#click" href="#">
+        <%= svg_icon('free.svg#cil-wifi-signal-3', 'nav-icon') -%>
+        <%= t('evaluation.history_user_capabilities') -%>
+      </a>
+      <ul class="nav-group-items" data-expender-target="htc">
+        <% if %w[history_user_capabilities].include?(controller_name) %>
+          <%= render partial: 'cp/evaluation_user_capabilities/history_expender', locals: {company_evaluations: policy_scope(CompanyEvaluation).closed_for_user} -%>
+        <% end %>
+      </ul>
+    </li>
   </ul>
 </div>

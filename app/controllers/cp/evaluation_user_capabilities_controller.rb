@@ -3,5 +3,9 @@ module CP
     def expender
       render layout: false
     end
+
+    def history_expender
+      render layout: false
+    end
   end
 end
