@@ -3,7 +3,7 @@ zh-CN:
   layouts:
     sidebars:
       hr_staff:
-        header: "HR首页"
+        header: "首页"
         dashboard: "主页"
         evaluation: "考评"
         user_capabilities: "员工的考评"

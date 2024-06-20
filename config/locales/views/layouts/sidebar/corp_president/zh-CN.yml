@@ -3,7 +3,7 @@ zh-CN:
   layouts:
     sidebars:
       corp_president:
-        header: "CP首页"
+        header: "首页"
         dashboard: "主页"
         evaluation: "考评"
         user_capabilities: "员工的考评"
