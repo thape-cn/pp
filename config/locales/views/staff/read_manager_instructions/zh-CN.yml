@@ -6,4 +6,4 @@ zh-CN:
         title: "文字评价指引"
         i_read_this_instruction: "我已阅读了本说明"
       create:
-        success: "请遵循打分说明开始打分"
+        success: "请开始评分"
