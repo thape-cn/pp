@@ -13,7 +13,7 @@
   <ul class="sidebar-nav" data-coreui="navigation" data-simplebar>
     <%= nav_item(t('.dashboard'), staff_root_path, 'free.svg#cil-speedometer') -%>
 
-    <% if current_user.hrbp_user_managed_departments.present? %>
+    <% if current_user.hrbp_user_managed_departments.present? || current_user.secretary_managed_departments.present?  %>
       <%= nav_item(t('.evaluation_progress'), staff_evaluation_progress_path, 'free.svg#cil-newspaper') %>
     <% end %>
 
