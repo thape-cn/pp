@@ -365,7 +365,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    rbs (3.5.1)
+    rbs (3.5.2)
       logger
     rdoc (6.7.0)
       psych (>= 4.0.0)
