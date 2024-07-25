@@ -179,7 +179,7 @@ GEM
       logger
     faraday-follow_redirects (0.3.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.1.0)
+    faraday-net_http (3.1.1)
       net-http
     ferrum (0.15)
       addressable (~> 2.5)
@@ -429,7 +429,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11492)
+    sorbet-runtime (0.5.11493)
     sqlite3 (2.0.2-aarch64-linux-gnu)
     sqlite3 (2.0.2-arm-linux-gnu)
     sqlite3 (2.0.2-arm64-darwin)
