@@ -315,7 +315,7 @@ GEM
       nio4r (~> 2.0)
     pundit (2.3.2)
       activesupport (>= 3.0.0)
-    racc (1.8.0)
+    racc (1.8.1)
     rack (3.1.7)
     rack-oauth2 (2.2.1)
       activesupport
@@ -401,7 +401,7 @@ GEM
     rubocop-performance (1.21.1)
       rubocop (>= 1.48.1, < 2.0)
       rubocop-ast (>= 1.31.1, < 2.0)
-    ruby-lsp (0.17.9)
+    ruby-lsp (0.17.10)
       language_server-protocol (~> 3.17.0)
       prism (>= 0.29.0, < 0.31)
       rbs (>= 3, < 4)
@@ -429,7 +429,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11495)
+    sorbet-runtime (0.5.11500)
     sqlite3 (2.0.3-aarch64-linux-gnu)
     sqlite3 (2.0.3-arm-linux-gnu)
     sqlite3 (2.0.3-arm64-darwin)
