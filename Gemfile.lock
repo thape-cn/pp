@@ -174,7 +174,7 @@ GEM
     email_validator (2.2.4)
       activemodel
     erubi (1.13.0)
-    faraday (2.10.0)
+    faraday (2.10.1)
       faraday-net_http (>= 2.0, < 3.2)
       logger
     faraday-follow_redirects (0.3.0)
@@ -429,7 +429,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11500)
+    sorbet-runtime (0.5.11501)
     sqlite3 (2.0.3-aarch64-linux-gnu)
     sqlite3 (2.0.3-arm-linux-gnu)
     sqlite3 (2.0.3-arm64-darwin)
