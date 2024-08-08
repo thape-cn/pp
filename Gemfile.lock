@@ -300,7 +300,7 @@ GEM
     package_json (0.1.0)
     pagy (6.5.0)
     parallel (1.25.1)
-    parser (3.3.4.0)
+    parser (3.3.4.1)
       ast (~> 2.4.1)
       racc
     prism (0.30.0)
@@ -431,7 +431,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11511)
+    sorbet-runtime (0.5.11514)
     sqlite3 (2.0.3-aarch64-linux-gnu)
     sqlite3 (2.0.3-arm-linux-gnu)
     sqlite3 (2.0.3-arm64-darwin)
