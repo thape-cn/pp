@@ -1,9 +1,9 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: ad22e6af8c0d953604fde3a16a9cbcbd58086340
+  revision: 52acb663c9bc033507d9649ed0fa53d571198dfa
   branch: main
   specs:
-    wechat (0.17.3)
+    wechat (0.17.4)
       activesupport (>= 6.0, < 8)
       http (>= 1.0.4, < 6)
       nokogiri (>= 1.6.0)
@@ -246,7 +246,7 @@ GEM
     meta-tags (2.22.0)
       actionpack (>= 6.0.0, < 8.1)
     mini_mime (1.1.5)
-    minitest (5.24.1)
+    minitest (5.25.0)
     net-http (0.4.1)
       uri
     net-imap (0.4.14)
@@ -386,13 +386,13 @@ GEM
     roo (2.10.1)
       nokogiri (~> 1)
       rubyzip (>= 1.3.0, < 3.0.0)
-    rubocop (1.64.1)
+    rubocop (1.65.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
       parser (>= 3.3.0.2)
       rainbow (>= 2.2.2, < 4.0)
-      regexp_parser (>= 1.8, < 3.0)
+      regexp_parser (>= 2.4, < 3.0)
       rexml (>= 3.2.5, < 4.0)
       rubocop-ast (>= 1.31.1, < 2.0)
       ruby-progressbar (~> 1.7)
@@ -431,22 +431,22 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11518)
-    sqlite3 (2.0.3-aarch64-linux-gnu)
-    sqlite3 (2.0.3-arm-linux-gnu)
-    sqlite3 (2.0.3-arm64-darwin)
-    sqlite3 (2.0.3-x86-linux-gnu)
-    sqlite3 (2.0.3-x86_64-darwin)
-    sqlite3 (2.0.3-x86_64-linux-gnu)
+    sorbet-runtime (0.5.11519)
+    sqlite3 (2.0.4-aarch64-linux-gnu)
+    sqlite3 (2.0.4-arm-linux-gnu)
+    sqlite3 (2.0.4-arm64-darwin)
+    sqlite3 (2.0.4-x86-linux-gnu)
+    sqlite3 (2.0.4-x86_64-darwin)
+    sqlite3 (2.0.4-x86_64-linux-gnu)
     sshkit (1.23.0)
       base64
       net-scp (>= 1.1.2)
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
-    standard (1.39.2)
+    standard (1.40.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
-      rubocop (~> 1.64.0)
+      rubocop (~> 1.65.0)
       standard-custom (~> 1.0.0)
       standard-performance (~> 1.4)
     standard-custom (1.0.2)
