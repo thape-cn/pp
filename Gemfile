@@ -1,8 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "~> 3.1" # Rails 7.2 require 3.1
-gem "rails", "~> 7.2.0"
+ruby "~> 3.0" # Rails 7.2 require 3.1
+gem "rails", "~> 7.1.3"
+gem "ffi", "~> 1.16.3" # make Ruby 3.0 CI happy
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
 # fix STARTTLS handling until https://github.com/mikel/mail/pull/1536 is
@@ -12,7 +13,7 @@ gem "mail", "= 2.8.1"
 gem "jbuilder"
 gem "propshaft"
 
-gem "sqlite3", "~> 2.0"
+gem "sqlite3", "~> 1.7"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
