@@ -1,0 +1,97 @@
+diff --git a/node_modules/@coreui/coreui/scss/_reboot.scss b/node_modules/@coreui/coreui/scss/_reboot.scss
+index a1cc05b..9c195e2 100644
+--- a/node_modules/@coreui/coreui/scss/_reboot.scss
++++ b/node_modules/@coreui/coreui/scss/_reboot.scss
+@@ -494,13 +494,13 @@ fieldset {
+ //    See https://github.com/twbs/bootstrap/issues/29712
+ 
+ legend {
+-  @include ltr-rtl("float", left); // 1
+   width: 100%;
+   padding: 0;
+   margin-bottom: $legend-margin-bottom;
+-  @include font-size($legend-font-size);
+   font-weight: $legend-font-weight;
+   line-height: inherit;
++  @include ltr-rtl("float", left); // 1
++  @include font-size($legend-font-size);
+ 
+   + * {
+     clear: left; // 2
+diff --git a/node_modules/@coreui/coreui/scss/_type.scss b/node_modules/@coreui/coreui/scss/_type.scss
+index 3e40be5..61d098b 100644
+--- a/node_modules/@coreui/coreui/scss/_type.scss
++++ b/node_modules/@coreui/coreui/scss/_type.scss
+@@ -34,11 +34,11 @@
+ // Type display classes
+ @each $display, $font-size in $display-font-sizes {
+   .display-#{$display} {
+-    @include font-size($font-size);
+     font-family: $display-font-family;
+     font-style: $display-font-style;
+     font-weight: $display-font-weight;
+     line-height: $display-line-height;
++    @include font-size($font-size);
+   }
+ }
+ 
+diff --git a/node_modules/@coreui/coreui/scss/_variables.scss b/node_modules/@coreui/coreui/scss/_variables.scss
+index cd72142..7877d93 100644
+--- a/node_modules/@coreui/coreui/scss/_variables.scss
++++ b/node_modules/@coreui/coreui/scss/_variables.scss
+@@ -985,13 +985,13 @@ $input-padding-y-lg:                    $input-btn-padding-y-lg !default;
+ $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
+ $input-font-size-lg:                    $input-btn-font-size-lg !default;
+ 
+-$input-bg:                              var(--#{$prefix}body-bg) !default;
++$input-bg:                              $body-bg !default;
+ $input-disabled-color:                  null !default;
+ $input-disabled-bg:                     var(--#{$prefix}secondary-bg) !default;
+ $input-disabled-border-color:           null !default;
+ 
+ $input-color:                           var(--#{$prefix}body-color) !default;
+-$input-border-color:                    var(--#{$prefix}border-color) !default;
++$input-border-color:                    $gray-400 !default;
+ $input-border-width:                    $input-btn-border-width !default;
+ $input-box-shadow:                      var(--#{$prefix}box-shadow-inset) !default;
+ 
+diff --git a/node_modules/@coreui/coreui/scss/forms/_form-select.scss b/node_modules/@coreui/coreui/scss/forms/_form-select.scss
+index 7f68bd8..a4f58dc 100644
+--- a/node_modules/@coreui/coreui/scss/forms/_form-select.scss
++++ b/node_modules/@coreui/coreui/scss/forms/_form-select.scss
+@@ -8,10 +8,8 @@
+ 
+   display: block;
+   width: 100%;
+-  @include ltr-rtl-value-only("padding", $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x, $form-select-padding-y $form-select-padding-x $form-select-padding-y $form-select-indicator-padding);
+   -moz-padding-start: subtract($form-select-padding-x, 3px); // See https://github.com/twbs/bootstrap/issues/32636
+   font-family: $form-select-font-family;
+-  @include font-size($form-select-font-size);
+   font-weight: $form-select-font-weight;
+   line-height: $form-select-line-height;
+   color: var(--#{$prefix}form-select-color, $form-select-color);
+@@ -19,9 +17,11 @@
+   background-color: var(--#{$prefix}form-select-bg, $form-select-bg);
+   background-image: var(--#{$prefix}form-select-bg-img), var(--#{$prefix}form-select-bg-icon, none);
+   background-repeat: no-repeat;
+-  @include ltr-rtl-value-only("background-position", $form-select-bg-position);
+   background-size: $form-select-bg-size;
+   border: $form-select-border-width solid var(--#{$prefix}form-select-border-color, $form-select-border-color);
++  @include ltr-rtl-value-only("padding", $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x, $form-select-padding-y $form-select-padding-x $form-select-padding-y $form-select-indicator-padding);
++  @include font-size($form-select-font-size);
++  @include ltr-rtl-value-only("background-position", $form-select-bg-position);
+   @include border-radius($form-select-border-radius, 0);
+   @include box-shadow($form-select-box-shadow);
+   @include transition($form-select-transition);
+diff --git a/node_modules/@coreui/coreui/scss/mixins/_lists.scss b/node_modules/@coreui/coreui/scss/mixins/_lists.scss
+index 5b82d80..b6dc281 100644
+--- a/node_modules/@coreui/coreui/scss/mixins/_lists.scss
++++ b/node_modules/@coreui/coreui/scss/mixins/_lists.scss
+@@ -2,6 +2,6 @@
+ 
+ // Unstyled keeps list items block level, just removes default browser padding and list-style
+ @mixin list-unstyled {
+-  @include ltr-rtl("padding-left", 0);
+   list-style: none;
++  @include ltr-rtl("padding-left", 0);
+ }

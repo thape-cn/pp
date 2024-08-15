@@ -12,7 +12,7 @@
     "@babel/preset-react": "^7.24.6",
     "@babel/runtime": "^7.24.6",
     "@coreui/chartjs": "^3.1.2",
-    "@coreui/coreui": "=4.2.6",
+    "@coreui/coreui": "=4.3.2",
     "@coreui/icons": "^3.0.1",
     "@coreui/utils": "^2.0.2",
     "@hotwired/stimulus": "^3.2.2",

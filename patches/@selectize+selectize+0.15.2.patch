@@ -12,3 +12,35 @@ index ac37fff..ace1c24 100644
  
  $enable-shadows: true !default;
  $select-font-family: inherit !default;
+diff --git a/node_modules/@selectize/selectize/dist/scss/selectize.scss b/node_modules/@selectize/selectize/dist/scss/selectize.scss
+index 25e4a35..289f295 100644
+--- a/node_modules/@selectize/selectize/dist/scss/selectize.scss
++++ b/node_modules/@selectize/selectize/dist/scss/selectize.scss
+@@ -74,7 +74,6 @@ $select-spinner-border-color: $select-color-border;
+ }
+ 
+ @import "plugins/drag_drop.scss";
+-@import "plugins/dropdown_header.scss";
+ @import "plugins/optgroup_columns.scss";
+ @import "plugins/remove_button.scss";
+ @import "plugins/clear_button.scss";
+@@ -177,9 +176,6 @@ $select-spinner-border-color: $select-color-border;
+     }
+   }
+   > input {
+-    &::-ms-clear {
+-      display: none;
+-    }
+     display: inline-block !important;
+     padding: 0 !important;
+     min-height: 0 !important;
+@@ -192,6 +188,9 @@ $select-spinner-border-color: $select-color-border;
+     line-height: inherit !important;
+     user-select: auto !important;
+     box-shadow: none !important;
++    &::-ms-clear {
++      display: none;
++    }
+     &:focus {
+       outline: none !important;
+     }

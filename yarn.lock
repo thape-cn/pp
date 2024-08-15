@@ -1011,14 +1011,7 @@
     "@coreui/coreui" "^4.2.6"
     chart.js "^3.9.1"
 
-"@coreui/coreui@=4.2.6":
-  version "4.2.6"
-  resolved "https://registry.npmmirror.com/@coreui/coreui/-/coreui-4.2.6.tgz#8ae8aa4c834552328c5748385be5bc33df86aab7"
-  integrity sha512-h9j1BVnaDi9vSr1t0H8NL3hlDD4lU9kIdGLXn7g9k5iaFq5EDlRDcSBDer6lR2O4sIEl7W7YqTlevLxFC+1cIA==
-  dependencies:
-    postcss-combine-duplicated-selectors "^10.0.3"
-
-"@coreui/coreui@^4.2.6":
+"@coreui/coreui@=4.3.2", "@coreui/coreui@^4.2.6":
   version "4.3.2"
   resolved "https://registry.npmmirror.com/@coreui/coreui/-/coreui-4.3.2.tgz#3c1d7eae4a740d2b473e862580ee863c40dcde18"
   integrity sha512-SKGY6E6v7QGq0P3YTnZQRSrU8t0euLQ3UV/FH5j0JmHYBBu7Mv0Hd9g8AESnj8xrCelKZ5bdZKZhmKaIdG5clw==
