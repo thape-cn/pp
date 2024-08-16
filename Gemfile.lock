@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 52acb663c9bc033507d9649ed0fa53d571198dfa
+  revision: 79a714f8b84ceb10804c6afed2faafc4cb4eb35a
   branch: main
   specs:
     wechat (0.17.4)
@@ -407,7 +407,7 @@ GEM
       prism (>= 0.29.0, < 0.31)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.3.12)
+    ruby-lsp-rails (0.3.13)
       ruby-lsp (>= 0.17.12, < 0.18.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
@@ -424,7 +424,7 @@ GEM
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    sidekiq (7.3.0)
+    sidekiq (7.3.1)
       concurrent-ruby (< 2)
       connection_pool (>= 2.3.0)
       logger
