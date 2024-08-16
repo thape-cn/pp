@@ -53,6 +53,9 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
     hr_bp_managed_companies = user.hr_user_managed_companies.pluck(:managed_company)
     return true if hr_bp_managed_companies.include?(record.company)
 
+    hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
+    return true if hrbp_user_managed_departments.include?(record.dept_code)
+
     record.user_id == user.id ||
       record.manager_user&.id == user.id ||
       record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
