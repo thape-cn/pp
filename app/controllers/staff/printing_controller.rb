@@ -44,7 +44,7 @@ module Staff
 
     def pdf
       evaluation_user_capability = authorize(EvaluationUserCapability.find(params[:id]), :print?)
-      browser = Ferrum::Browser.new
+      browser = Ferrum::Browser.new(process_timeout: 30)
       browser.go_to staff_printing_url(id: evaluation_user_capability.id)
       browser.network.wait_for_idle
 
