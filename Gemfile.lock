@@ -368,7 +368,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
-    rbs (3.5.2)
+    rbs (3.5.3)
       logger
     rdoc (6.7.0)
       psych (>= 4.0.0)
@@ -430,7 +430,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11535)
+    sorbet-runtime (0.5.11545)
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm-linux)
     sqlite3 (1.7.3-arm64-darwin)
