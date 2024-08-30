@@ -39,7 +39,7 @@
     "sass": "^1.77.4",
     "sass-loader": "^13.3.3",
     "semver": "^7.5.3",
-    "shakapacker": "=8.0.1",
+    "shakapacker": "=8.0.2",
     "simplebar": "^6.2.6",
     "style-loader": "^3.3.4",
     "terser-webpack-plugin": "^5.3.10",
