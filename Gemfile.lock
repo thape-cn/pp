@@ -297,6 +297,7 @@ GEM
       validate_url
       webfinger (~> 2.0)
     orm_adapter (0.5.0)
+    ostruct (0.6.0)
     package_json (0.1.0)
     pagy (6.5.0)
     parallel (1.26.3)
@@ -376,7 +377,7 @@ GEM
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.9)
+    reline (0.5.10)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -429,18 +430,19 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11554)
+    sorbet-runtime (0.5.11558)
     sqlite3 (1.7.3-aarch64-linux)
     sqlite3 (1.7.3-arm-linux)
     sqlite3 (1.7.3-arm64-darwin)
     sqlite3 (1.7.3-x86-linux)
     sqlite3 (1.7.3-x86_64-darwin)
     sqlite3 (1.7.3-x86_64-linux)
-    sshkit (1.23.0)
+    sshkit (1.23.1)
       base64
       net-scp (>= 1.1.2)
       net-sftp (>= 2.1.2)
       net-ssh (>= 2.8.0)
+      ostruct
     standard (1.40.0)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.0)
