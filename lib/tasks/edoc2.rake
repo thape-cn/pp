@@ -1,7 +1,8 @@
 namespace :edoc2 do
   desc "Add calibration judge in batch"
-  task :generate_pdf_files, [:company_evaluation_id, :eucs_id] => [:environment] do |task, args|
+  task :generate_pdf_files, [:company_evaluation_id, :written_date, :eucs_id] => [:environment] do |task, args|
     company_evaluation_id = args[:company_evaluation_id]
+    written_date = args[:written_date]
     eucs_id = args[:eucs_id].to_i
     end_eucs_id = eucs_id + 100
 
@@ -14,7 +15,7 @@ namespace :edoc2 do
       puts "Upload euc id: #{euc.id}"
       euc.generate_pdf_file
       euc.upload_pdf_to_edoc
-      euc.upload_meta_arch
+      euc.upload_meta_arch(written_date)
     end
   end
 end

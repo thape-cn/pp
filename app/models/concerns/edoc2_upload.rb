@@ -24,7 +24,7 @@ module Edoc2Upload
       update(edoc_file_id: res[0]["fileId"])
     end
 
-    def upload_meta_arch
+    def upload_meta_arch(written_date)
       return unless edoc_file_id.present? && edoc_guid.present?
 
       res = Edoc2.get_dossier_and_arch_type_id_list(user.clerk_code)
@@ -43,7 +43,7 @@ module Edoc2Upload
           carrier: "电子",
           objtype: "",
           entitynum: "",
-          writtendate: "2023-12-01",
+          writtendate: written_date,
           duration: "永久",
           secert: "普通商密",
           ifInbound: "0",
