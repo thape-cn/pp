@@ -1,4 +1,4 @@
-class CreateCorpPresidentManagedCompanies < ActiveRecord::Migration[7.1]
+class CreateCorpPresidentManagedCompanies < ActiveRecord::Migration[7.2]
   def change
     create_table :corp_president_managed_companies do |t|
       t.references :user, null: false

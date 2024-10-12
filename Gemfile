@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.1" # Rails 7.2 require 3.1
-gem "rails", "~> 7.1.3"
+gem "rails", "~> 7.2.1"
 gem "zeitwerk", "~> 2.6.18" # make Ruby 3.1 works
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
@@ -13,7 +13,7 @@ gem "mail", "= 2.8.1"
 gem "jbuilder"
 gem "propshaft"
 
-gem "sqlite3", "~> 1.7"
+gem "sqlite3", "~> 2.0"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
