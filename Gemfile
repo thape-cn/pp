@@ -1,10 +1,9 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "~> 3.0" # Rails 7.2 require 3.1
+ruby "~> 3.1" # Rails 7.2 require 3.1
 gem "rails", "~> 7.1.3"
 gem "zeitwerk", "~> 2.6.18" # make Ruby 3.1 works
-gem "ffi", "~> 1.16.3" # make Ruby 3.0 CI happy
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
 # fix STARTTLS handling until https://github.com/mikel/mail/pull/1536 is
