@@ -251,7 +251,7 @@ GEM
     minitest (5.25.1)
     net-http (0.4.1)
       uri
-    net-imap (0.4.16)
+    net-imap (0.4.17)
       date
       net-protocol
     net-pop (0.1.2)
@@ -320,7 +320,7 @@ GEM
     pundit (2.4.0)
       activesupport (>= 3.0.0)
     racc (1.8.1)
-    rack (3.1.7)
+    rack (3.1.8)
     rack-oauth2 (2.2.1)
       activesupport
       attr_required
