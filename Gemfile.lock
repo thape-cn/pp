@@ -432,7 +432,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11608)
+    sorbet-runtime (0.5.11609)
     sqlite3 (2.1.0-aarch64-linux-gnu)
     sqlite3 (2.1.0-arm-linux-gnu)
     sqlite3 (2.1.0-arm64-darwin)
