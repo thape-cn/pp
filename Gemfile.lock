@@ -220,7 +220,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.7.3)
+    json (2.7.4)
     json-jwt (1.16.7)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -235,7 +235,7 @@ GEM
       rake (~> 13.0)
     local_time (3.0.2)
     logger (1.6.1)
-    loofah (2.23.0)
+    loofah (2.23.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
