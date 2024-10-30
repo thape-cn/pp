@@ -56,6 +56,7 @@ zh-CN:
     manager_user_clerk_code: "直属上级员工号"
     title: "职务名称"
     job_role: "工作角色"
+    job_roles: "工作角色"
     job_role_id: "工作角色 ID"
     job_level: "岗位职级"
     job_code: "基准岗"

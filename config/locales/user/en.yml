@@ -56,6 +56,7 @@ en:
     manager_user_clerk_code: "Manager clerk code"
     title: "Title"
     job_role: "Job role"
+    job_roles: "Job roles"
     job_role_id: "Job role ID"
     job_level: "Job level"
     job_code: "Job code"
