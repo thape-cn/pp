@@ -433,7 +433,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11630)
+    sorbet-runtime (0.5.11631)
     sqlite3 (2.2.0-aarch64-linux-gnu)
     sqlite3 (2.2.0-arm-linux-gnu)
     sqlite3 (2.2.0-arm64-darwin)
@@ -485,7 +485,7 @@ GEM
       activesupport
       faraday (~> 2.0)
       faraday-follow_redirects
-    webrick (1.8.2)
+    webrick (1.9.0)
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
