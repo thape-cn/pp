@@ -251,9 +251,9 @@ GEM
       actionpack (>= 6.0.0, < 8.1)
     mini_mime (1.1.5)
     minitest (5.25.1)
-    net-http (0.4.1)
+    net-http (0.5.0)
       uri
-    net-imap (0.5.0)
+    net-imap (0.5.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -380,7 +380,7 @@ GEM
     redis-client (0.22.2)
       connection_pool
     regexp_parser (2.9.2)
-    reline (0.5.10)
+    reline (0.5.11)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -409,7 +409,7 @@ GEM
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
-    ruby-lsp-rails (0.3.25)
+    ruby-lsp-rails (0.3.26)
       ruby-lsp (>= 0.21.2, < 0.22.0)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
@@ -432,7 +432,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11641)
+    sorbet-runtime (0.5.11642)
     sqlite3 (2.2.0-aarch64-linux-gnu)
     sqlite3 (2.2.0-arm-linux-gnu)
     sqlite3 (2.2.0-arm64-darwin)
