@@ -314,7 +314,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.1.2)
+    psych (5.2.0)
       stringio
     public_suffix (6.0.1)
     puma (6.4.3)
@@ -432,7 +432,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11642)
+    sorbet-runtime (0.5.11645)
     sqlite3 (2.2.0-aarch64-linux-gnu)
     sqlite3 (2.2.0-arm-linux-gnu)
     sqlite3 (2.2.0-arm64-darwin)
@@ -468,7 +468,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.6.0)
-    uri (0.13.1)
+    uri (1.0.1)
     useragent (0.16.10)
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
