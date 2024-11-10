@@ -36,7 +36,7 @@ append :linked_dirs, *%w[log storage edoc_guid_pdf tmp/pids tmp/cache tmp/socket
 # set :ssh_options, verify_host_key: :secure
 
 set :rbenv_type, :user
-set :rbenv_ruby, "3.2.4"
+set :rbenv_ruby, "3.2.6"
 
 set :puma_init_active_record, true
 set :puma_phased_restart, true
