@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "~> 3.2" # Rails 7.2 require 3.1
-gem "rails", "~> 7.2.1"
+ruby "~> 3.2"
+gem "rails", "~> 7.2.2"
 gem "zeitwerk"
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
@@ -37,7 +37,7 @@ gem "browser"
 gem "config"
 
 gem "ajax-datatables-rails"
-gem "pagy", "~> 6.5"
+gem "pagy"
 
 gem "redcarpet"
 
