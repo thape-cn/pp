@@ -112,7 +112,7 @@ GEM
     bigdecimal (3.1.8)
     bindata (2.5.0)
     bindex (0.8.1)
-    browser (5.3.1)
+    browser (6.0.0)
     builder (3.3.0)
     capistrano (3.19.2)
       airbrussh (>= 1.0.0)
@@ -493,7 +493,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.6.18)
+    zeitwerk (2.7.1)
 
 PLATFORMS
   aarch64-linux
@@ -506,7 +506,7 @@ PLATFORMS
 DEPENDENCIES
   ajax-datatables-rails
   bcrypt_pbkdf
-  browser (< 6)
+  browser
   capistrano
   capistrano-rails
   capistrano-rbenv
@@ -546,7 +546,7 @@ DEPENDENCIES
   web-console
   wechat!
   whenever
-  zeitwerk (~> 2.6.18)
+  zeitwerk
 
 RUBY VERSION
    ruby 3.2.2p53
