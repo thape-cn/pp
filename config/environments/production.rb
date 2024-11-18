@@ -72,7 +72,6 @@ Rails.application.configure do
     read_timeout: 5
   }
 
-
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
   #   user_name: Rails.application.credentials.dig(:smtp, :user_name),
