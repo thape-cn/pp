@@ -56,6 +56,7 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   config.action_mailer.raise_delivery_errors = true
   Rails.application.routes.default_url_options = {host: "performance.thape.com.cn", port: 443}
+  # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = {host: "performance.thape.com.cn", port: 443}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -71,8 +72,6 @@ Rails.application.configure do
     read_timeout: 5
   }
 
-  # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = {host: "example.com"}
 
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   # config.action_mailer.smtp_settings = {
