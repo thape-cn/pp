@@ -184,8 +184,8 @@ GEM
       logger
     faraday-follow_redirects (0.3.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.3.0)
-      net-http
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
     ferrum (0.15)
       addressable (~> 2.5)
       concurrent-ruby (~> 1.1)
@@ -303,7 +303,7 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     package_json (0.1.0)
-    pagy (9.2.2)
+    pagy (9.3.0)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
