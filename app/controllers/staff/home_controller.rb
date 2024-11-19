@@ -14,6 +14,7 @@ module Staff
         .or(CalibrationSession.left_joins(:calibration_session_judges).where(calibration_session_judges: {judge_id: current_user.id}))
         .where(session_status: "calibrating")
         .distinct
+        .reject { |cs| cs.calibration_template.company_evaluation_template.company_evaluation.evaluation_ended? }
       @need_signing_evaluations = current_open_evaluations
         .where(user_id: current_user.id, form_status: "hr_review_completed")
     end
