@@ -16,9 +16,6 @@ module Staff
         .joins(:company_evaluation_template)
         .includes(:user, :job_role, :manager_user)
         .where(company_evaluation_template: {company_evaluation_id: @company_evaluation.id})
-      if current_user.secretary_managed_departments.present?
-        evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: current_user.id)
-      end
       if @user_id.present?
         evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: @user_id)
       end

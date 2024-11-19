@@ -26,9 +26,6 @@ module Staff
       end
       evaluation_user_capabilities = evaluation_user_capabilities.where(form_status: @form_status) if @form_status.present?
       evaluation_user_capabilities = evaluation_user_capabilities.order(final_total_evaluation_score: :asc) if @sort_on_final_total_evaluation_score.present?
-      if current_user.secretary_managed_departments.present?
-        evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: current_user.id)
-      end
       @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
     end
 
@@ -38,9 +35,6 @@ module Staff
         .joins(:company_evaluation_template)
         .includes(:user, :job_role, :manager_user)
         .where(company_evaluation_template: {company_evaluation_id: company_evaluation.id})
-      if current_user.secretary_managed_departments.present?
-        evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: current_user.id)
-      end
       respond_to do |format|
         format.xlsx do
           p = Axlsx::Package.new
@@ -86,9 +80,6 @@ module Staff
         .joins(:company_evaluation_template)
         .includes(:user, :job_role, :manager_user)
         .where(company_evaluation_template: {company_evaluation_id: company_evaluation.id})
-      if current_user.secretary_managed_departments.present?
-        evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: current_user.id)
-      end
       respond_to do |format|
         format.xlsx do
           p = Axlsx::Package.new
