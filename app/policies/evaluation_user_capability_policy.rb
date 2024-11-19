@@ -6,7 +6,13 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
       elsif user.corp_president?
         scope.where(company: user.corp_president_managed_companies.pluck(:managed_company))
       elsif user.hr_staff?
+        owned_user_ids = user.owned_calibration_sessions.collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
+        judge_user_ids = user.calibration_session_judges.collect { |csj| csj.calibration_session.calibration_session_users.collect(&:user_id) }.flatten
+
         scope.where(company: user.hr_user_managed_companies.pluck(:managed_company))
+          .or(scope.where(user_id: user.id))
+          .or(scope.where(manager_user_id: user.id))
+          .or(scope.where(user_id: owned_user_ids + judge_user_ids))
       elsif user.secretary?
         scope.where(dept_code: user.secretary_managed_departments.pluck(:managed_dept_code))
           .or(scope.where(user_id: user.id))
