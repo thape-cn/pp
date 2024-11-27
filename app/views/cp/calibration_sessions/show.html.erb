@@ -11,7 +11,7 @@
         <%= render partial: "ui/calibration_sessions/staff_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
       <% when 'auxiliary' %>
         <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
-      <% when 'manager' %>
+      <% when 'manager_a' %>
         <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
       <% end %>
     </div>

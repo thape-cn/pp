@@ -20,7 +20,7 @@ module Staff
         @evaluation_user_capability.group_of_staff_work_quality_and_work_attitude
       when "auxiliary"
         @evaluation_user_capability.group_of_manager_capability
-      when "manager"
+      when "manager_a"
         @evaluation_user_capability.group_of_manager_capability
       end
 
@@ -29,7 +29,7 @@ module Staff
         @evaluation_user_capability.group_of_staff_work_load
       when "auxiliary"
         @evaluation_user_capability.group_of_manager_performance
-      when "manager"
+      when "manager_a"
         @evaluation_user_capability.group_of_manager_performance
       end
 

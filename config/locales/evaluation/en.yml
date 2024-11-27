@@ -13,6 +13,7 @@ en:
     group_level: "Group level"
     staff_level: "Staff level"
     manager_level: "Manager level"
+    manager_level_a: "Manager level A"
     auxiliary_level: "Auxiliary manager level"
     employee_info: "Employee information"
     performance: "Performance"

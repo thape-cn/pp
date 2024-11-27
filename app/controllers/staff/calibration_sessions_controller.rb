@@ -85,7 +85,7 @@ module Staff
         update_staff_group(params[:calibration])
       when "auxiliary"
         update_manager_group(params[:calibration])
-      when "manager"
+      when "manager_a"
         update_manager_group(params[:calibration])
       end
 
@@ -95,7 +95,7 @@ module Staff
           check_enforce_distribute_for_staff_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         when "auxiliary"
           check_enforce_distribute_for_staff_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
-        when "manager"
+        when "manager_a"
           check_enforce_distribute_for_manager_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         end
         if @enforce_distribute_reject_message.nil?
@@ -148,7 +148,7 @@ module Staff
         staff_group(need_calibration_evaluation_user_capabilities)
       when "auxiliary"
         manager_group(need_calibration_evaluation_user_capabilities)
-      when "manager"
+      when "manager_a"
         manager_group(need_calibration_evaluation_user_capabilities)
       end
     end

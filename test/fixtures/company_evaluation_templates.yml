@@ -20,7 +20,7 @@ ect_staff:
 
 ect_manager:
   company_evaluation: ce_one
-  group_level: "manager"
+  group_level: "manager_a"
   title: "2023年年中绩效评价沟通表（主管层）"
   work_quality_pct: 35
   work_load_pct: 50

@@ -4,7 +4,7 @@ module PerformancesHelper
 
     evaluation_user_capabilities.take(9).each do |euc|
       link_url = case euc.company_evaluation_template.group_level
-      when "manager"
+      when "manager_a"
         if current_user.admin?
           admin_manager_performance_path(id: euc.id)
         elsif current_user.corp_president?

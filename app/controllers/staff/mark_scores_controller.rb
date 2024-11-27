@@ -13,7 +13,7 @@ module Staff
       respond_to do |format|
         format.html do
           @staff_table_headers = mark_score_table_headers(current_open_evaluations, "staff")
-          @manager_table_headers = mark_score_table_headers(current_open_evaluations, "manager")
+          @manager_table_headers = mark_score_table_headers(current_open_evaluations, "manager_a")
           @auxiliary_table_headers = mark_score_table_headers(current_open_evaluations, "auxiliary")
           @review_labels = {
             self_overall_output: I18n.t("evaluation.self_overall_output"),
