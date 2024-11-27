@@ -22,7 +22,7 @@ module Staff
         @evaluation_user_capability.group_of_manager_management_profession
       when "manager_a"
         @evaluation_user_capability.group_of_manager_management_profession
-      when "manager_a"
+      when "manager_b"
         @evaluation_user_capability.group_of_manager_only_management
       end
 
@@ -33,7 +33,7 @@ module Staff
         @evaluation_user_capability.group_of_manager_performance
       when "manager_a"
         @evaluation_user_capability.group_of_manager_performance
-      when "manager_a"
+      when "manager_b"
         @evaluation_user_capability.group_of_manager_only_profession
       end
 
