@@ -22,6 +22,8 @@ module Staff
         @evaluation_user_capability.group_of_manager_management_profession
       when "manager_a"
         @evaluation_user_capability.group_of_manager_management_profession
+      when "manager_a"
+        @evaluation_user_capability.group_of_manager_only_management
       end
 
       @vertical_position = case company_evaluation_template.group_level
@@ -31,6 +33,8 @@ module Staff
         @evaluation_user_capability.group_of_manager_performance
       when "manager_a"
         @evaluation_user_capability.group_of_manager_performance
+      when "manager_a"
+        @evaluation_user_capability.group_of_manager_only_profession
       end
 
       @evaluation_user_capability.sign_date ||= Date.today

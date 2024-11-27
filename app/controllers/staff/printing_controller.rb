@@ -25,6 +25,8 @@ module Staff
         @evaluation_user_capability.group_of_manager_management_profession
       when "manager_a"
         @evaluation_user_capability.group_of_manager_management_profession
+      when "manager_b"
+        @evaluation_user_capability.group_of_manager_only_management
       end
 
       @vertical_position = case company_evaluation_template.group_level
@@ -34,6 +36,8 @@ module Staff
         @evaluation_user_capability.group_of_manager_performance
       when "manager_a"
         @evaluation_user_capability.group_of_manager_performance
+      when "manager_b"
+        @evaluation_user_capability.group_of_manager_only_profession
       end
 
       add_to_breadcrumbs company_evaluation_template.title

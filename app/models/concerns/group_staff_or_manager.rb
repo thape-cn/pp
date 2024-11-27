@@ -55,7 +55,7 @@ module GroupStaffOrManager
       @group_of_manager_only_profession ||= begin
         profession_score = calibration_profession_score.present? ? calibration_profession_score : profession_subtotal_score.to_f
         Rails.logger.info "profession_only_score: #{profession_score} euc_id: #{id}"
-        horizontal_score_to_row_square(profession_score)
+        vertical_score_to_column_square(profession_score)
       end
     end
 
