@@ -11,13 +11,13 @@ function GradeSquare({ row, column, calibration_template, children, onDrop, onCo
   const [{ isOver }, drop] = useDrop(() => ({
     accept: 'personCard',
     drop: item => {
-      if ((item.group_level == "manager_a" && item.person_row == row) || item.group_level == "staff" || group_level == "auxiliary") {
+      if ((item.group_level == "manager_a" && item.person_row == row) || item.group_level == "staff" || group_level == "auxiliary" || group_level == "manager_b") {
         onDrop(item, row, column);
       }
     },
     collect: monitor => {
       const item = monitor.getItem();
-      const isAllowed = item && ((item.group_level == "manager_a" && item.person_row == row) || item.group_level == "staff" || group_level == "auxiliary");
+      const isAllowed = item && ((item.group_level == "manager_a" && item.person_row == row) || item.group_level == "staff" || group_level == "auxiliary" || group_level == "manager_b");
       return {
         isOver: monitor.isOver() && isAllowed,
       };
