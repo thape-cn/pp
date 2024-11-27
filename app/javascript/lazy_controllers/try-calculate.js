@@ -8,7 +8,7 @@ Stimulus.register("try-calculate", class extends Controller {
 
   click(e) {
     e.preventDefault();
-    const url = ['staff', 'auxiliary'].includes(this.groupLevelValue) ?
+    const url = ['staff', 'auxiliary', 'manager_b'].includes(this.groupLevelValue) ?
       `/admin/calibration_sessions/calculate.json?group_level=${this.groupLevelValue}&people=${this.peopleCountTarget.value}&apa=${this.apaRateTarget.value}&b=${this.bRateTarget.value}&cd=${this.cdRateTarget.value}` :
       `/admin/calibration_sessions/calculate.json?group_level=${this.groupLevelValue}&people=${this.peopleCountTarget.value}&beyond=${this.beyondRateTarget.value}&standard=${this.standardRateTarget.value}&below=${this.belowRateTarget.value}`;
 
@@ -16,7 +16,7 @@ Stimulus.register("try-calculate", class extends Controller {
       if (response.ok) {
         const result_json = response.json;
         result_json.then(result => {
-          if (['staff', 'auxiliary'].includes(result.group_level)) {
+          if (['staff', 'auxiliary', 'manager_b'].includes(result.group_level)) {
             this.apaTarget.innerHTML = result.apa_grade_rate;
             this.bTarget.innerHTML = result.b_grade_rate;
             this.cdTarget.innerHTML = result.cd_grade_rate;

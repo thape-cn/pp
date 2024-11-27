@@ -5,7 +5,7 @@
       <%= f.text_field :template_name, class: "form-control" %>
     </div>
   </div>
-  <% if %w[staff auxiliary].include?(calibration_template.company_evaluation_template.group_level) %>
+  <% if %w[staff auxiliary manager_b].include?(calibration_template.company_evaluation_template.group_level) %>
     <div class="row mb-3">
       <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">

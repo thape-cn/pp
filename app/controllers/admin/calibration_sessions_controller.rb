@@ -123,6 +123,8 @@ module Admin
         {apa_grade_rate: params[:apa].to_i, b_grade_rate: params[:b].to_i, cd_grade_rate: params[:cd].to_i}
       when "auxiliary"
         {apa_grade_rate: params[:apa].to_i, b_grade_rate: params[:b].to_i, cd_grade_rate: params[:cd].to_i}
+      when "manager_b"
+        {apa_grade_rate: params[:apa].to_i, b_grade_rate: params[:b].to_i, cd_grade_rate: params[:cd].to_i}
       when "manager_a"
         {beyond_standard_rate: params[:beyond].to_i, standards_compliant_rate: params[:standard].to_i, below_standard_rate: params[:below].to_i}
       end

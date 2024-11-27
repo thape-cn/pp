@@ -1,4 +1,4 @@
-<div class="modal-dialog">
+<div class="modal-dialog modal-lg">
   <div class="modal-content">
     <%= form_with model: @calibration_template, url: admin_company_evaluation_template_calibration_templates_path(template_id: @company_evaluation_template.id, company_evaluation_id: @company_evaluation.id), method: :post do |f| %>
       <div class="modal-header">
@@ -9,7 +9,7 @@
         <%= render partial: 'form', locals: {f: f, calibration_template: @calibration_template} %>
       </div>
       <div class="modal-footer">
-        <%= f.submit t('form.update'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
+        <%= f.submit t('form.create'), class: 'btn btn-primary', data: {'coreui-dismiss': :modal} %>
         <button class="btn btn-secondary" type="button" data-coreui-dismiss="modal"><%= t("form.close") -%></button>
       </div>
     <% end %>
