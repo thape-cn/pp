@@ -19,9 +19,9 @@ module Staff
       when "staff"
         @evaluation_user_capability.group_of_staff_work_quality_and_work_attitude
       when "auxiliary"
-        @evaluation_user_capability.group_of_manager_capability
+        @evaluation_user_capability.group_of_manager_management_profession
       when "manager_a"
-        @evaluation_user_capability.group_of_manager_capability
+        @evaluation_user_capability.group_of_manager_management_profession
       end
 
       @vertical_position = case company_evaluation_template.group_level

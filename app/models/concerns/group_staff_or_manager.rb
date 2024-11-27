@@ -29,8 +29,8 @@ module GroupStaffOrManager
       end
     end
 
-    def group_of_manager_capability
-      @group_of_manager_capability ||= begin
+    def group_of_manager_management_profession
+      @group_of_manager_management_profession ||= begin
         total_rate = company_evaluation_template.management_subtotal_rate + company_evaluation_template.profession_subtotal_rate
 
         management_part = management_subtotal_score.to_f * (company_evaluation_template.management_subtotal_rate / total_rate.to_f)

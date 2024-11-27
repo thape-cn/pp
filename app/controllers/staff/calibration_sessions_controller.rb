@@ -147,9 +147,9 @@ module Staff
       when "staff"
         staff_group(need_calibration_evaluation_user_capabilities)
       when "auxiliary"
-        manager_group(need_calibration_evaluation_user_capabilities)
+        manager_group_a(need_calibration_evaluation_user_capabilities)
       when "manager_a"
-        manager_group(need_calibration_evaluation_user_capabilities)
+        manager_group_a(need_calibration_evaluation_user_capabilities)
       end
     end
 

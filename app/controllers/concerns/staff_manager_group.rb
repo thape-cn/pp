@@ -9,9 +9,9 @@ module StaffManagerGroup
     end
   end
 
-  def manager_group(evaluation_user_capabilities)
+  def manager_group_a(evaluation_user_capabilities)
     evaluation_user_capabilities.group_by do |euc|
-      "#{euc.group_of_manager_performance}#{euc.group_of_manager_capability}"
+      "#{euc.group_of_manager_performance}#{euc.group_of_manager_management_profession}"
     end
   end
 end
