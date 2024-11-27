@@ -7,8 +7,8 @@ class CompanyEvaluationTemplate < ApplicationRecord
   def self.group_level_options
     {
       I18n.t("evaluation.staff_level") => "staff",
-      I18n.t("evaluation.manager_level") => "manager",
       I18n.t("evaluation.manager_level_a") => "manager_a",
+      I18n.t("evaluation.manager_level_b") => "manager_b",
       I18n.t("evaluation.auxiliary_level") => "auxiliary"
     }
   end

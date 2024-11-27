@@ -36,12 +36,12 @@
 <% end %>
 
 <%# Table header number is 1 and build at table_headers_of_capability  %>
-<% if @manager_table_headers.length > 1 %>
-  <h4 class="my-4"><%= t("evaluation.manager_level") %></h4>
+<% if @manager_a_table_headers.length > 1 %>
+  <h4 class="my-4"><%= t("evaluation.manager_level_a") %></h4>
 
   <div class="row justify-content-center mt-2">
     <div class="col-lg-12">
-      <%= content_tag :div, nil, id: "manager-mark", data: {header: @manager_table_headers} %>
+      <%= content_tag :div, nil, id: "manager_a-mark", data: {header: @manager_table_headers} %>
     </div>
   </div>
 <% end %>

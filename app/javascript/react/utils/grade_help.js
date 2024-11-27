@@ -18,7 +18,7 @@ export function calibrateGradeQuota(row, column, {group_level, apa_grade, b_grad
     grade_quota = calibrateStaffRate(row, column, apa_grade, b_grade, cd_grade);
   } else if (group_level == "auxiliary") {
     grade_quota = calibrateStaffRate(row, column, apa_grade, b_grade, cd_grade);
-  } else if (group_level == "manager") {
+  } else if (group_level == "manager_a") {
     grade_quota = calibrateManagerRate(row, column, below_standard, standards_compliant, beyond_standard);
   }
   return grade_quota;

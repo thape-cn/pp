@@ -11,11 +11,11 @@ if (staff_node) {
   });
 }
 
-const manager_node = document.getElementById('manager-mark');
+const manager_node = document.getElementById('manager_a-mark');
 if (manager_node) {
   const manager_root = createRoot(manager_node);
   document.addEventListener('DOMContentLoaded', () => {
-    manager_root.render(<MarkScores group_level='manager' />);
+    manager_root.render(<MarkScores group_level='manager_a' />);
   });
 }
 
