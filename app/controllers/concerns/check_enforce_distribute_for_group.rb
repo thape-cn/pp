@@ -3,7 +3,7 @@ module CheckEnforceDistributeForGroup
 
   private
 
-  def check_enforce_distribute_for_staff_group(calibration, enforce_highest_only)
+  def check_enforce_distribute_for_aa_b_cd_group(calibration, enforce_highest_only)
     lower_quotas_staff = @calibration_session.lower_quotas_staff
     ct = @calibration_session.calibration_template
     apa_grade_rate_people_count = calibration["13"]&.length.to_i + calibration["12"]&.length.to_i + calibration["23"]&.length.to_i

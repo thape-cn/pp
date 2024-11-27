@@ -17,6 +17,8 @@ json.array! need_calibration_eucs do |euc|
   json.calibration_work_attitude_fixed true
   json.calibration_management_profession_score euc.calibration_management_profession_score || "none"
   json.calibration_performance_score euc.calibration_performance_score || "none"
+  json.calibration_profession_score euc.calibration_profession_score || "none"
+  json.calibration_management_score euc.calibration_management_score || "none"
   Capability.management_column_names.each do |management_column_name|
     json.set! management_column_name, euc.attributes[management_column_name]&.to_f&.round(1) || "none"
     json.set! "#{management_column_name}_fixed", true

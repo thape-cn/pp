@@ -35,6 +35,8 @@ class Capability < ApplicationRecord
   def self.calibration_column_names
     %w[calibration_management_profession_score
       calibration_performance_score
+      calibration_profession_score
+      calibration_management_score
       calibration_work_load
       calibration_work_attitude
       calibration_work_quality]

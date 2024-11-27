@@ -40,6 +40,8 @@ zh-CN:
     enforce_highest_only_for_manager_failure: "尚未满足绩效分布原则要求：专业/管理能力-超出标准为 %{beyond_standard_rate}%，请继续进行绩效等级校准。"
     calibration_management_profession_score: "校准后的管理/专业能力"
     calibration_performance_score: "校准后的业绩产出"
+    calibration_profession_score: "校准后的专业能力"
+    calibration_management_score: "校准后的管理能力"
     calibration_work_load: "校准后的工作量"
     calibration_work_attitude: "校准后的工作态度"
     calibration_work_quality: "校准后的工作质量"

@@ -43,6 +43,22 @@ module GroupStaffOrManager
       end
     end
 
+    def group_of_manager_only_management
+      @group_of_manager_only_management ||= begin
+        management_score = calibration_management_score.present? ? calibration_management_score : management_subtotal_score.to_f
+        Rails.logger.info "management_only_score: #{management_score} euc_id: #{id}"
+        horizontal_score_to_row_square(management_score)
+      end
+    end
+
+    def group_of_manager_only_profession
+      @group_of_manager_only_profession ||= begin
+        profession_score = calibration_profession_score.present? ? calibration_profession_score : profession_subtotal_score.to_f
+        Rails.logger.info "profession_only_score: #{profession_score} euc_id: #{id}"
+        horizontal_score_to_row_square(profession_score)
+      end
+    end
+
     private
 
     def horizontal_score_to_row_square(score)

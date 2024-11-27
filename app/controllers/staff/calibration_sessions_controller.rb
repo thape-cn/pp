@@ -84,19 +84,23 @@ module Staff
       when "staff"
         update_staff_group(params[:calibration])
       when "auxiliary"
-        update_manager_group(params[:calibration])
+        update_manager_group_a(params[:calibration])
       when "manager_a"
-        update_manager_group(params[:calibration])
+        update_manager_group_a(params[:calibration])
+      when "manager_b"
+        update_manager_group_b(params[:calibration])
       end
 
       if params[:finalize] && @calibration_session.calibration_template.enforce_distribute?
         @enforce_distribute_reject_message = case @group_level
         when "staff"
-          check_enforce_distribute_for_staff_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
+          check_enforce_distribute_for_aa_b_cd_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         when "auxiliary"
-          check_enforce_distribute_for_staff_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
+          check_enforce_distribute_for_aa_b_cd_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         when "manager_a"
           check_enforce_distribute_for_manager_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
+        when "manager_b"
+          check_enforce_distribute_for_aa_b_cd_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         end
         if @enforce_distribute_reject_message.nil?
           @accept_finalize_confirm_message = I18n.t("calibration.accept_finalize_confirm_message")
@@ -150,6 +154,8 @@ module Staff
         manager_group_a(need_calibration_evaluation_user_capabilities)
       when "manager_a"
         manager_group_a(need_calibration_evaluation_user_capabilities)
+      when "manager_b"
+        manager_group_b(need_calibration_evaluation_user_capabilities)
       end
     end
 

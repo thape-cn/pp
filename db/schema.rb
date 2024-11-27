@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_27_025605) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_27_071314) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -125,6 +125,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_27_025605) do
     t.decimal "set_vision_goals", precision: 5, scale: 2
     t.decimal "build_team", precision: 5, scale: 2
     t.decimal "team_atmosphere", precision: 5, scale: 2
+    t.integer "calibration_management_score"
+    t.integer "calibration_profession_score"
     t.index ["deleted_user_id"], name: "index_archived_evaluation_user_capabilities_on_deleted_user_id"
   end
 
@@ -359,6 +361,8 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_27_025605) do
     t.decimal "set_vision_goals", precision: 5, scale: 2
     t.decimal "build_team", precision: 5, scale: 2
     t.decimal "team_atmosphere", precision: 5, scale: 2
+    t.integer "calibration_management_score"
+    t.integer "calibration_profession_score"
     t.index ["job_role_id"], name: "index_evaluation_user_capabilities_on_job_role_id"
     t.index ["manager_user_id"], name: "index_evaluation_user_capabilities_on_manager_user_id"
     t.index ["user_id"], name: "index_evaluation_user_capabilities_on_user_id"

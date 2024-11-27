@@ -239,7 +239,9 @@ module Staff
       any_attributes_zero_eucs = need_review_evaluations.find_all do |euc|
         euc.attributes.any? do |key, value|
           if %w[id company_evaluation_template_id user_id job_role_id
-            calibration_management_profession_score calibration_performance_score calibration_work_load
+            calibration_management_score calibration_profession_score
+            calibration_management_profession_score calibration_performance_score
+            calibration_work_load
             calibration_work_attitude calibration_work_quality].include?(key)
             false
           elsif value.nil? || !value.is_a?(BigDecimal)

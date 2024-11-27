@@ -38,6 +38,8 @@ en:
     enforce_distribute_for_manager_failure: "The requirements of the performance distribution principle have not been met: professional/management ability - %{beyond_standard_rate}% for exceeding the standard, %{standards_compliant_rate}% for meeting the standard, and %{below_standard_rate}% for being below the standard, please continue to perform performance level calibration."
     calibration_management_profession_score: "Calibration management profession score"
     calibration_performance_score: "Calibration performance score"
+    calibration_profession_score: "Calibration profession score"
+    calibration_management_score: "Calibration management score"
     calibration_work_load: "Calibration work load"
     calibration_work_attitude: "Calibration work attitude"
     calibration_work_quality: "Calibration work quality"
