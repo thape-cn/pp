@@ -115,7 +115,19 @@ class EvaluationUserCapability < ApplicationRecord
     performance_subtotal_pct_proportion = (calibration_performance_score.nil? ? performance_weight_result : calibration_performance_score).to_f * (company_evaluation_template.performance_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
     # Rails.logger.debug "performance_subtotal_pct_proportion: #{performance_subtotal_pct_proportion}"
 
-    if calibration_management_profession_score.nil?
+    if calibration_management_profession_score.present?
+      management_profession_subtotal_pct_proportion = calibration_management_profession_score.to_f * ((company_evaluation_template.management_subtotal_rate + company_evaluation_template.profession_subtotal_rate) / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
+      # Rails.logger.debug "management_profession_subtotal_pct_proportion: #{management_profession_subtotal_pct_proportion}"
+
+      work_pct_proportion.to_f + management_profession_subtotal_pct_proportion.to_f + performance_subtotal_pct_proportion.to_f
+    elsif calibration_management_score.present? && calibration_profession_score.present?
+      management_subtotal_pct_proportion = calibration_management_score.to_f * (company_evaluation_template.management_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
+      # Rails.logger.debug "management_subtotal_pct_proportion: #{management_subtotal_pct_proportion}"
+      profession_subtotal_pct_proportion = calibration_profession_score.to_f * (company_evaluation_template.profession_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
+      # Rails.logger.debug "profession_subtotal_pct_proportion: #{profession_subtotal_pct_proportion}"
+
+      work_pct_proportion.to_f + management_subtotal_pct_proportion.to_f + profession_subtotal_pct_proportion.to_f + performance_subtotal_pct_proportion.to_f
+    else
       management_subtotal_pct_proportion = management_subtotal_score.to_f * (company_evaluation_template.management_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
       # Rails.logger.debug "management_subtotal_pct_proportion: #{management_subtotal_pct_proportion}"
 
@@ -123,11 +135,6 @@ class EvaluationUserCapability < ApplicationRecord
       # Rails.logger.debug "profession_subtotal_pct_proportion: #{profession_subtotal_pct_proportion}"
 
       work_pct_proportion.to_f + management_subtotal_pct_proportion.to_f + profession_subtotal_pct_proportion.to_f + performance_subtotal_pct_proportion.to_f
-    else
-      management_profession_subtotal_pct_proportion = calibration_management_profession_score.to_f * ((company_evaluation_template.management_subtotal_rate + company_evaluation_template.profession_subtotal_rate) / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
-      # Rails.logger.debug "management_profession_subtotal_pct_proportion: #{management_profession_subtotal_pct_proportion}"
-
-      work_pct_proportion.to_f + management_profession_subtotal_pct_proportion.to_f + performance_subtotal_pct_proportion.to_f
     end
   end
 
