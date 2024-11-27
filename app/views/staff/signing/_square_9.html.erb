@@ -2,7 +2,16 @@
   <table class="table table-borderless">
     <tbody>
       <tr style="height: 66px;">
-        <td rowspan="4" class="text-end"><%= group_level == "staff" ? t("evaluation.work_load_pct") : t("evaluation.performance") %></td>
+        <td rowspan="4" class="text-end">
+          <%= if group_level == "staff"
+                t("evaluation.work_load_pct")
+              elsif group_level == "manager_b"
+                t("evaluation.professional_capability")
+              else
+                t("evaluation.performance")
+              end
+          %>
+        </td>
         <td class="border border-primary">B
           <div class="p-0 text-center">
             <%= svg_icon('free.svg#cil-user', %w[icon]) if horizontal_position == 1 && vertical_position == 1  -%>
@@ -55,7 +64,14 @@
       </tr>
       <tr>
         <td colspan="3" class="text-end">
-          <%= group_level == "staff" ? t("evaluation.work_quality_pct") : t("evaluation.professional_management_capability") %>
+          <%= if group_level == "staff"
+                t("evaluation.work_quality_pct")
+              elsif group_level == "manager_b"
+                t("evaluation.management_capability")
+              else
+                t("evaluation.professional_management_capability")
+              end
+          %>
         </td>
       </tr>
     </tbody>
