@@ -41,10 +41,21 @@
 
   <div class="row justify-content-center mt-2">
     <div class="col-lg-12">
-      <%= content_tag :div, nil, id: "manager_a-mark", data: {header: @manager_table_headers} %>
+      <%= content_tag :div, nil, id: "manager_a-mark", data: {header: @manager_a_table_headers} %>
     </div>
   </div>
 <% end %>
+
+<% if @manager_b_table_headers.length > 1 %>
+  <h4 class="my-4"><%= t("evaluation.manager_level_b") %></h4>
+
+  <div class="row justify-content-center mt-2">
+    <div class="col-lg-12">
+      <%= content_tag :div, nil, id: "manager_b-mark", data: {header: @manager_b_table_headers} %>
+    </div>
+  </div>
+<% end %>
+
 
 <% if @auxiliary_table_headers.length > 1 %>
   <h4 class="my-4"><%= t("evaluation.auxiliary_level") %></h4>

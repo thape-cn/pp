@@ -11,11 +11,19 @@ if (staff_node) {
   });
 }
 
-const manager_node = document.getElementById('manager_a-mark');
-if (manager_node) {
-  const manager_root = createRoot(manager_node);
+const manager_a_node = document.getElementById('manager_a-mark');
+if (manager_a_node) {
+  const manager_root = createRoot(manager_a_node);
   document.addEventListener('DOMContentLoaded', () => {
     manager_root.render(<MarkScores group_level='manager_a' />);
+  });
+}
+
+const manager_b_node = document.getElementById('manager_b-mark');
+if (manager_b_node) {
+  const manager_root = createRoot(manager_b_node);
+  document.addEventListener('DOMContentLoaded', () => {
+    manager_root.render(<MarkScores group_level='manager_b' />);
   });
 }
 
