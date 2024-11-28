@@ -36,19 +36,37 @@ module ScoredInMetric
 
     private
 
+    #      x<2   2≤x<4   x≥4
+    # y≥4   B      A     A+
+    # 2≤y<4 C      B      A
+    # y<2   D      C      B
     def reverse_2d_metric(x, y)
       return "N/A" if x.blank? || y.blank?
 
-      if x >= 4 && y >= 4
-        "A+"
-      elsif (x >= 2 && y >= 4) || (x >= 4 && y >= 2)
-        "A"
-      elsif (x >= 4 && y < 2) || (y >= 4 && x < 2) || (x >= 2 && y >= 2)
-        "B"
-      elsif (x >= 2 && y < 2) || (x < 2 && y >= 2)
-        "C"
+      if y >= 4
+        if x >= 4
+          "A+"
+        elsif x >= 2
+          "A"
+        else
+          "B"
+        end
+      elsif y >= 2
+        if x >= 4
+          "A"
+        elsif x >= 2
+          "B"
+        else
+          "C"
+        end
       else
-        "D"
+        if x >= 4
+          "B"
+        elsif x >= 2
+          "C"
+        else
+          "D"
+        end
       end
     end
 
