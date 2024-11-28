@@ -210,7 +210,7 @@ module Staff
         end
         header
       end
-      table_headers_of_capability(table_headers_of_capability, table_headers_of_performance)
+      build_table_headers_of_capability(table_headers_of_capability, table_headers_of_performance, group_level)
     end
 
     def table_need_capabilities(evaluation_user_capabilities)
@@ -220,13 +220,21 @@ module Staff
       [Capability.where(id: capability_ids).order(:category_name), job_role_ids]
     end
 
-    def table_headers_of_capability(headers_of_capability, headers_of_performance)
-      headers_of_performance
-        .concat(headers_of_capability).append({
+    def build_table_headers_of_capability(headers_of_capability, headers_of_performance, group_level)
+      if group_level == "manager_b"
+        headers_of_capability.append({
           Header: I18n.t("evaluation.total_evaluation_score"),
           accessor: "raw_total_evaluation_score",
           description: I18n.t("evaluation.total_evaluation_score_description")
         })
+      else
+        headers_of_performance
+          .concat(headers_of_capability).append({
+            Header: I18n.t("evaluation.total_evaluation_score"),
+            accessor: "raw_total_evaluation_score",
+            description: I18n.t("evaluation.total_evaluation_score_description")
+          })
+      end
     end
 
     def check_mark_score_completion(need_review_evaluations, job_role_evaluation_performances)
