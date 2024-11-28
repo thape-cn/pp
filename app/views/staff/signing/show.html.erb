@@ -22,7 +22,7 @@
     <div id="list-evaluation" class="list-group">
       <a class="list-group-item" href="#list-brief"><%= t("evaluation.brief") -%></a>
       <a class="list-group-item" href="#list-employee-info"><%= t("evaluation.employee_info") -%></a>
-      <% if @job_role_performances.present? || @performance_capabilities.present? %>
+      <% if (@job_role_performances.present? || @performance_capabilities.present?) && @evaluation_user_capability.company_evaluation_template.group_level != 'manager_b' %>
         <a class="list-group-item" href="#list-performance"><%= t("evaluation.performance") -%></a>
       <% end %>
       <% if @professional_capabilities.present? %>
