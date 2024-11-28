@@ -10,7 +10,7 @@ module ScoredInMetric
       end
     end
 
-    def final_total_score_in_metric
+    def final_score_in_metric
       if company_evaluation_template.group_level == "manager_b"
         reverse_2d_metric(calibration_management_score, calibration_profession_score)
       else
@@ -20,7 +20,7 @@ module ScoredInMetric
 
     def total_score_in_metric
       if company_evaluation_template.group_level == "manager_b"
-        reverse_2d_metric(calibration_management_score, calibration_profession_score)
+        reverse_2d_metric(calibration_management_score || management_subtotal_score, calibration_profession_score || profession_subtotal_score)
       else
         reverse_5_metric(total_evaluation_score)
       end
@@ -37,13 +37,15 @@ module ScoredInMetric
     private
 
     def reverse_2d_metric(x, y)
+      return "N/A" if x.blank? || y.blank?
+
       if x >= 4 && y >= 4
         "A+"
       elsif (x >= 2 && y >= 4) || (x >= 4 && y >= 2)
         "A"
-      elsif x >= 2 || y >= 2
+      elsif (x >= 4 && y < 2) || (y >= 4 && x < 2) || (x >= 2 && y >= 2)
         "B"
-      elsif x >= 1 || y >= 1
+      elsif (x >= 2 && y < 2) || (x < 2 && y >= 2)
         "C"
       else
         "D"

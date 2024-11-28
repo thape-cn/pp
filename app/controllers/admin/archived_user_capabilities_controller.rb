@@ -71,7 +71,7 @@ module Admin
               values << euc.manager_user&.chinese_name
               values << euc.manager_user_id
               values << euc.manager_scored_in_metric
-              values << euc.final_total_score_in_metric
+              values << euc.final_score_in_metric
               values << euc.deleted_user.chinese_name
               values << euc.deleted_reason
               values << euc.deleted_time
