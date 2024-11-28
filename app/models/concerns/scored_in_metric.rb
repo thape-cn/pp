@@ -37,7 +37,17 @@ module ScoredInMetric
     private
 
     def reverse_2d_metric(x, y)
-      "N/A"
+      if x >= 4 && y >= 4
+        "A+"
+      elsif (x >= 2 && y >= 4) || (x >= 4 && y >= 2)
+        "A"
+      elsif x >= 2 || y >= 2
+        "B"
+      elsif x >= 1 || y >= 1
+        "C"
+      else
+        "D"
+      end
     end
 
     def reverse_5_metric(score)
