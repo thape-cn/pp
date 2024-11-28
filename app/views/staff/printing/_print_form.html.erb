@@ -33,7 +33,7 @@
         </table>
       </div>
     </div>
-    <% if job_role_performances.present? || performance_capabilities.present? %>
+    <% if (job_role_performances.present? || performance_capabilities.present?) && evaluation_user_capability.company_evaluation_template.group_level != 'manager_b' %>
       <div>
         <h4 class="p-2 bg-primary text-emphasis-primary"><%= t("evaluation.performance") -%></h4>
         <div class="px-2" style="break-after: auto;">
