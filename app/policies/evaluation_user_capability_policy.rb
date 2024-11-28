@@ -95,7 +95,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   end
 
   def overall_text?
-    if user.admin? || user.hr_staff? || current_user.corp_president? || user.id == record.manager_user_id
+    if user.admin? || user.hr_staff? || user.corp_president? || user.id == record.manager_user_id
       true
     elsif record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
         record.calibration_session_users.any? { |csu| csu.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id } }
