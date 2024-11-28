@@ -59,14 +59,12 @@ module ScoredInMetric
         else
           "C"
         end
+      elsif x >= 4
+        "B"
+      elsif x >= 2
+        "C"
       else
-        if x >= 4
-          "B"
-        elsif x >= 2
-          "C"
-        else
-          "D"
-        end
+        "D"
       end
     end
 
