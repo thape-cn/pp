@@ -3,24 +3,43 @@ module ScoredInMetric
 
   included do
     def manager_scored_in_metric
-      reverse_5_metric(manager_scored_total_evaluation_score)
+      if company_evaluation_template.group_level == "manager_b"
+        reverse_2d_metric(management_subtotal_score, profession_subtotal_score)
+      else
+        reverse_5_metric(manager_scored_total_evaluation_score)
+      end
     end
 
     def final_total_score_in_metric
-      reverse_5_metric(final_total_evaluation_score)
+      if company_evaluation_template.group_level == "manager_b"
+        reverse_2d_metric(calibration_management_score, calibration_profession_score)
+      else
+        reverse_5_metric(final_total_evaluation_score)
+      end
     end
 
     def total_score_in_metric
-      reverse_5_metric(total_evaluation_score)
+      if company_evaluation_template.group_level == "manager_b"
+        reverse_2d_metric(calibration_management_score, calibration_profession_score)
+      else
+        reverse_5_metric(total_evaluation_score)
+      end
     end
 
     def raw_total_score_in_metric
-      reverse_5_metric(raw_total_evaluation_score)
+      if company_evaluation_template.group_level == "manager_b"
+        reverse_2d_metric(management_subtotal_score, profession_subtotal_score)
+      else
+        reverse_5_metric(raw_total_evaluation_score)
+      end
     end
 
     private
 
-    # Don't forget add JS code reverseScoreInMetric also
+    def reverse_2d_metric(x, y)
+      "N/A"
+    end
+
     def reverse_5_metric(score)
       case score
       when 4.5..5
