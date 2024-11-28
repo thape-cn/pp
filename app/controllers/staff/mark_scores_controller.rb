@@ -281,7 +281,7 @@ module Staff
         user_chinese_name = any_attributes_zero_eucs.collect { |euc| euc.user.chinese_name }
         reject_message << I18n.t("evaluation.any_attitude_zero_reject_message", user_names: user_chinese_name.to_sentence(words_connector: "、", last_word_connector: "和", two_words_connector: "、"))
       end
-      if any_obj_result_zero_jreps.length > 0
+      if any_obj_result_zero_jreps.length > 0 && need_review_evaluations.all? { |euc| euc.company_evaluation_template.group_level != "manager_b" }
         user_chinese_name = any_obj_result_zero_jreps.collect { |jrep| jrep.user.chinese_name }
         reject_message << I18n.t("evaluation.any_obj_result_zero_reject_message", user_names: user_chinese_name.to_sentence(words_connector: "、", last_word_connector: "和", two_words_connector: "、"))
       end
