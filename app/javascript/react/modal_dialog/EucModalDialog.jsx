@@ -59,7 +59,7 @@ function PerformanceDetail({job_role_performances, callbackfn}) {
   </table>;
 }
 
-export function EucModalDialog({euc_id, onClose}) {
+export function EucModalDialog({euc_id, group_level, onClose}) {
   const [evaluationUserCapability, setEvaluationUserCapability] = React.useState({});
   const [companyEvaluationTemplate, setCompanyEvaluationTemplate] = React.useState({});
   const modalRef = React.useRef();
@@ -110,7 +110,7 @@ export function EucModalDialog({euc_id, onClose}) {
               </tr>
             );
           }}/>}
-          {evaluationUserCapability.job_role_performances && <PerformanceDetail job_role_performances={evaluationUserCapability.job_role_performances}
+          {evaluationUserCapability.job_role_performances && group_level != "manager_b" && <PerformanceDetail job_role_performances={evaluationUserCapability.job_role_performances}
           callbackfn={([key, value]) => {
             const item = companyEvaluationTemplate.performance_metric.find(item => item.value === value);
 

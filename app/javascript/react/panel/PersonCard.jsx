@@ -40,6 +40,7 @@ function PersonCard({id, user_id, chinese_name, raw_total_evaluation_score, work
     {showModal == id && createPortal(
       <EucModalDialog
         euc_id={id}
+        group_level={group_level}
         onClose={handleClose}
       />,
       document.getElementById("coreuiModal")
