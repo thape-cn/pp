@@ -60,7 +60,7 @@ module Staff
               values << euc.company_evaluation_template.title
               values << euc.manager_user&.chinese_name
               values << EvaluationUserCapability.form_status_options.invert[euc.form_status]
-              values << reverse_5_metric(euc.final_total_evaluation_score)
+              values << euc.final_score_in_metric
               row = sheet.add_row values
               row.cells[1].type = :string
               row.cells[1].value = euc.user.clerk_code
@@ -107,7 +107,7 @@ module Staff
               values << euc.company_evaluation_template.title
               values << euc.manager_user&.chinese_name
               values << EvaluationUserCapability.form_status_options.invert[euc.form_status]
-              values << reverse_5_metric(euc.final_total_evaluation_score)
+              values << euc.final_score_in_metric
               row = sheet.add_row values + [I18n.t("evaluation.self_overall_output"), euc.self_overall_output]
               row.cells[1].type = :string
               row.cells[1].value = euc.user.clerk_code

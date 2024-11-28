@@ -81,9 +81,9 @@ module Admin
               values << euc.company_evaluation_template.title
               values << euc.manager_user&.chinese_name
               values << euc.manager_user_id
-              values << reverse_5_metric(euc.manager_scored_total_evaluation_score)
-              values << reverse_5_metric(euc.final_total_evaluation_score)
-              values << reverse_5_metric(euc.total_evaluation_score)
+              values << euc.manager_scored_in_metric
+              values << euc.final_score_in_metric
+              values << euc.total_score_in_metric
               values << csu.calibration_session.session_name
               values << csu.calibration_session.owner.chinese_name
               values << csu.calibration_session.owner_id

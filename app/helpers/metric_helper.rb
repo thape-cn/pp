@@ -50,22 +50,4 @@ module MetricHelper
       "1-差" => 1
     }
   end
-
-  # Don't forget add JS code reverseScoreInMetric also
-  def reverse_5_metric(score)
-    case score
-    when 4.5..5
-      "A+"
-    when 3.5...4.5
-      "A"
-    when 2.5...3.5
-      "B"
-    when 1.5...2.5
-      "C"
-    when 1...1.5
-      "D"
-    else
-      "N/A"
-    end
-  end
 end

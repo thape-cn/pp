@@ -8,7 +8,7 @@ class UploadPpResultJob
     clerk_code = euc.user&.clerk_code
     return unless clerk_code.present?
 
-    performance_rating = reverse_5_metric(euc.total_evaluation_score)
+    performance_rating = euc.total_score_in_metric
 
     response = HTTP.post(Rails.application.credentials.pm_upload_service_url!,
       json: {

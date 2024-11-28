@@ -15,6 +15,7 @@ class EvaluationUserCapability < ApplicationRecord
 
   include Edoc2Upload
   include GroupStaffOrManager
+  include ScoredInMetric
 
   def not_nil_capability_column_names
     ((attributes.keys.reject { |key| self[key].nil? }) & Capability.all_capability_column_names) - Capability.calibration_column_names

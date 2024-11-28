@@ -32,10 +32,10 @@
         </td>
         <td><%= csu.evaluation_user_capability.title -%></td>
         <td class="<%= bg_color_pre -%>">
-          <%= reverse_5_metric(csu.evaluation_user_capability.raw_total_evaluation_score) -%>
+          <%= csu.evaluation_user_capability.raw_total_score_in_metric -%>
         </td>
         <td class="<%= bg_color -%>">
-          <%= reverse_5_metric(csu.evaluation_user_capability.total_evaluation_score) -%>
+          <%= csu.evaluation_user_capability.total_score_in_metric -%>
         </td>
         <td>
           <%

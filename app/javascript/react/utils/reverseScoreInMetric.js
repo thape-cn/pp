@@ -1,5 +1,5 @@
 export function reverseScoreInMetric(score) {
-  // Don't forget add Ruby code like reverse_5_metric also
+  // Don't forget add Ruby code like *_scored_in_metric also
     if (score >= 4.5 && score <= 5) {
       return "A+";
     } else if (score >= 3.5 && score < 4.5) {

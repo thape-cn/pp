@@ -164,7 +164,7 @@
       <div class="row mt-3" style="break-after: auto;">
         <div class="col-4">
           <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.grade") -%></h5>
-          <p class="p-2 fs-3"><%= reverse_5_metric(evaluation_user_capability.total_evaluation_score) -%></p>
+          <p class="p-2 fs-3"><%= evaluation_user_capability.total_score_in_metric -%></p>
         </div>
         <%= render partial: 'staff/signing/square_9',
           locals: {group_level: group_level,
