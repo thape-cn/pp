@@ -86,17 +86,17 @@
               </td>
               <td>
                 <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= euc.manager_scored_total_evaluation_score&.round(2) || " " -%>">
-                  <%= public_send(euc.company_evaluation_template.total_reverse_metric, euc.manager_scored_total_evaluation_score) -%>
+                  <%= reverse_5_metric(euc.manager_scored_total_evaluation_score) -%>
                 </span>
               </td>
               <td>
                 <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= euc.final_total_evaluation_score&.round(2) || " " -%>">
-                  <%= public_send(euc.company_evaluation_template.total_reverse_metric, euc.final_total_evaluation_score) -%>
+                  <%= reverse_5_metric(euc.final_total_evaluation_score) -%>
                 </span>
               </td>
               <td>
                 <span data-coreui-toggle="tooltip" data-coreui-placement="top" data-coreui-title="<%= euc.total_evaluation_score&.round(2) || " " -%>">
-                  <%= public_send(euc.company_evaluation_template.total_reverse_metric, euc.total_evaluation_score) -%>
+                  <%= reverse_5_metric(euc.total_evaluation_score) -%>
                 </span>
               </td>
               <td>

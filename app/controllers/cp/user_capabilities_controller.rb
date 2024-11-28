@@ -74,7 +74,7 @@ module CP
               values << euc.dept_code
               values << euc.company_evaluation_template.title
               values << euc.manager_user&.chinese_name
-              values << public_send(euc.company_evaluation_template.total_reverse_metric, euc.final_total_evaluation_score)
+              values << reverse_5_metric(euc.final_total_evaluation_score)
               row = sheet.add_row values
               row.cells[1].type = :string
               row.cells[1].value = euc.user.clerk_code # Must overwrite again after setting cell type

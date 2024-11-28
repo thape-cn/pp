@@ -14,7 +14,7 @@
           evaluation_user_capability = csu.evaluation_user_capability
           next if evaluation_user_capability.manager_user_id != @manager.id
           %>
-          <li style="margin:0 0 10px 30px;"><%= evaluation_user_capability.user.chinese_name %>：<%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_metric, evaluation_user_capability.total_evaluation_score) -%></li>
+          <li style="margin:0 0 10px 30px;"><%= evaluation_user_capability.user.chinese_name %>：<%= reverse_5_metric(evaluation_user_capability.total_evaluation_score) -%></li>
         <% end %>
       </ul>
       <p style="margin: 0;">详细评价，请登录绩效系统查看。</p>

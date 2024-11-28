@@ -19,7 +19,6 @@ zh-CN:
         performance_subtotal_rate: "业绩比例"
         professional_management_metric: "专业/管理能力量表"
         performance_metric: "业绩量表"
-        total_reverse_metric: "总分反向量表"
       new:
         title: "新建考评模版"
       edit:

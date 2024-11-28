@@ -24,7 +24,6 @@
             <th><%= t('.performance_rate') -%></th>
             <th><%= t('.professional_management_metric') -%></th>
             <th><%= t('.performance_metric') -%></th>
-            <th><%= t('.total_reverse_metric') -%></th>
             <th><%= t('form.action') -%></th>
           </tr>
         </thead>
@@ -54,7 +53,6 @@
               </td>
               <td><%= all_metrics.invert[template.professional_management_metric] -%></td>
               <td><%= all_metrics.invert[template.performance_metric] -%></td>
-              <td><%= reverse_total_evaluation_score_metrics.invert[template.total_reverse_metric] -%></td>
               <td>
                 <%= link_to edit_admin_company_evaluation_template_path(id: template.id, company_evaluation_id: @company_evaluation.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                   <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>

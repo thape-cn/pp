@@ -86,10 +86,6 @@
             <div class="col-2">
               <%= f.select :performance_metric, all_metrics, {}, class: 'form-control' %>
             </div>
-            <%= f.label :total_reverse_metric, t("admin.evaluation_templates.index.total_reverse_metric"), class: 'col-2 col-form-label' %>
-            <div class="col-2">
-              <%= f.select :total_reverse_metric, reverse_total_evaluation_score_metrics, {}, class: 'form-control' %>
-            </div>
           </div>
           <div class="row mb-1">
             <%= f.label :title, t("admin.evaluation_templates.edit.self_overall_output_hint"), class: 'col-2 col-form-label' %>

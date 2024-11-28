@@ -31,7 +31,6 @@ json.company_evaluation_templates do
           json.value k.second
         end
       end
-      json.set! :total_reverse_metric, cet.total_reverse_metric
     end
   end
 end

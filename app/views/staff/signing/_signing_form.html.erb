@@ -124,7 +124,7 @@
       <div class="row">
         <div class="col-4">
           <h5 class="p-2 text-emphasis-primary"><%= t("evaluation.grade") -%></h5>
-          <p class="p-2 fs-3"><%= public_send(evaluation_user_capability.company_evaluation_template.total_reverse_metric, evaluation_user_capability.total_evaluation_score) -%></p>
+          <p class="p-2 fs-3"><%= reverse_5_metric(evaluation_user_capability.total_evaluation_score) -%></p>
         </div>
         <%= render partial: 'square_9',
           locals: {group_level: group_level,

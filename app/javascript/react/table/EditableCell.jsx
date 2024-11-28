@@ -35,7 +35,6 @@ export const EditableCell = ({
   const work_attitude_metric = company_evaluation_templates[row_data.id_cet].work_attitude_metric;
   const professional_management_metric = company_evaluation_templates[row_data.id_cet].professional_management_metric;
   const performance_metric = company_evaluation_templates[row_data.id_cet].performance_metric;
-  const total_reverse_metric = company_evaluation_templates[row_data.id_cet].total_reverse_metric;
 
   if (value == 'none') {
     return null;
@@ -69,7 +68,7 @@ export const EditableCell = ({
     }
   } else {
     if (id == 'total_evaluation_score' || id == 'raw_total_evaluation_score') {
-      return <p className="m-1 text-end">{reverseScoreInMetric(value, total_reverse_metric)}</p>;
+      return <p className="m-1 text-end">{reverseScoreInMetric(value)}</p>;
     } else if (id.startsWith('p_')) {
       return (
         <div className="input-group">

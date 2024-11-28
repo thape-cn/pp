@@ -48,7 +48,7 @@ module Admin
           :work_quality_pct, :work_load_pct, :work_attitude_pct,
           :work_quality_metric, :work_load_metric, :work_attitude_metric,
           :management_subtotal_rate, :profession_subtotal_rate, :performance_subtotal_rate,
-          :professional_management_metric, :performance_metric, :total_reverse_metric,
+          :professional_management_metric, :performance_metric,
           :self_overall_output_hint, :self_overall_improvement_hint, :self_overall_plan_hint,
           :manager_overall_output_hint, :manager_overall_improvement_hint, :manager_overall_plan_hint)
     end

@@ -14,7 +14,6 @@ ect_staff:
   professional_management_metric: "grading_3_metric"
   performance_subtotal_rate: 50
   performance_metric: "grading_3_metric"
-  total_reverse_metric: "reverse_5_metric"
   pct_proportion: 100
   rate_proportion: 0
 

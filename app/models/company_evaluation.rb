@@ -25,7 +25,7 @@ class CompanyEvaluation < ApplicationRecord
   def end_evaluation
     to_end_company_evaluation_template_ids = CompanyEvaluationTemplate.where(company_evaluation_id: id).pluck(:id)
     EvaluationUserCapability.where(form_status: %w[hr_review_completed data_locked], company_evaluation_template_id: to_end_company_evaluation_template_ids).find_each do |euc|
-      final_total_evaluation_grade = public_send(euc.company_evaluation_template.total_reverse_metric, euc.total_evaluation_score)
+      final_total_evaluation_grade = reverse_5_metric(euc.total_evaluation_score)
       euc.update(final_total_evaluation_grade: final_total_evaluation_grade)
     end
     update(evaluation_ended: true)
@@ -36,7 +36,7 @@ class CompanyEvaluation < ApplicationRecord
   def filling_final_total_evaluation_grade
     to_end_company_evaluation_template_ids = CompanyEvaluationTemplate.where(company_evaluation_id: id).pluck(:id)
     EvaluationUserCapability.where(form_status: %w[hr_review_completed data_locked], company_evaluation_template_id: to_end_company_evaluation_template_ids).find_each do |euc|
-      final_total_evaluation_grade = public_send(euc.company_evaluation_template.total_reverse_metric, euc.total_evaluation_score)
+      final_total_evaluation_grade = reverse_5_metric(euc.total_evaluation_score)
       euc.update(final_total_evaluation_grade: final_total_evaluation_grade)
     end
   end

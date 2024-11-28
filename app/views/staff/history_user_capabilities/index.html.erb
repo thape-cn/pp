@@ -53,7 +53,7 @@
                 <% end %>
               </td>
               <td>
-                <%= public_send(euc.company_evaluation_template.total_reverse_metric, euc.final_total_evaluation_score) -%>
+                <%= reverse_5_metric(euc.final_total_evaluation_score) -%>
               </td>
             </tr>
           <% end %>

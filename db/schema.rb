@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_11_27_071314) do
+ActiveRecord::Schema[8.0].define(version: 2024_11_28_131733) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -202,7 +202,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_27_071314) do
     t.text "brief"
     t.string "professional_management_metric", default: "grading_5_metric"
     t.string "performance_metric", default: "grading_5_metric"
-    t.string "total_reverse_metric", default: "reverse_5_metric"
     t.integer "pct_proportion", default: 100
     t.integer "rate_proportion", default: 0
     t.string "group_level", default: "staff"

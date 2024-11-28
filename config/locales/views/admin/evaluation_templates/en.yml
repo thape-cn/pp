@@ -19,7 +19,6 @@ en:
         performance_subtotal_rate: "Performance subtotal rate"
         professional_management_metric: "Professional management metric"
         performance_metric: "Performance metric"
-        total_reverse_metric: "Total reverse metric"
       new:
         title: "New evaluation template"
       edit:

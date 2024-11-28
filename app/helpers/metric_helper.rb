@@ -51,12 +51,6 @@ module MetricHelper
     }
   end
 
-  def reverse_total_evaluation_score_metrics
-    {
-      "五档量表" => "reverse_5_metric"
-    }
-  end
-
   # Don't forget add JS code reverseScoreInMetric also
   def reverse_5_metric(score)
     case score
