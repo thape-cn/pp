@@ -2,6 +2,22 @@ module ScoredInMetric
   extend ActiveSupport::Concern
 
   included do
+    def management_subtotal_score
+      management_attrs = attributes.select { |key, value| Capability.management_column_names.include?(key.to_s) && value.present? }
+      total_management_sum = management_attrs.values.sum
+      total_management_count = management_attrs.keys.count
+      return 0 if total_management_count.zero?
+      total_management_sum / total_management_count.to_f
+    end
+
+    def profession_subtotal_score
+      profession_attrs = attributes.select { |key, value| Capability.profession_column_names.include?(key.to_s) && value.present? }
+      total_profession_sum = profession_attrs.values.sum
+      total_profession_count = profession_attrs.keys.count
+      return 0 if total_profession_count.zero?
+      total_profession_sum / total_profession_count.to_f
+    end
+
     def manager_scored_in_metric
       if company_evaluation_template.group_level == "manager_b"
         reverse_2d_metric(management_subtotal_score, profession_subtotal_score)
