@@ -36,5 +36,7 @@ json.array! need_calibration_eucs do |euc|
   end
   json.id_euc euc.id
   json.raw_total_evaluation_score euc.raw_total_evaluation_score
+  json.raw_total_score_in_metric euc.raw_total_score_in_metric
   json.total_evaluation_score euc.total_evaluation_score
+  json.total_score_in_metric euc.total_score_in_metric
 end

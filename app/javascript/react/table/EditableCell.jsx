@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {reverseScoreInMetric} from "../utils/reverseScoreInMetric";
 import {JobPerformanceInfo} from "./JobPerformanceInfo";
 import {CapabilitySelect} from "./CapabilitySelect";
 
@@ -67,8 +66,10 @@ export const EditableCell = ({
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
     }
   } else {
-    if (id == 'total_evaluation_score' || id == 'raw_total_evaluation_score') {
-      return <p className="m-1 text-end">{reverseScoreInMetric(value)}</p>;
+    if (id == 'total_evaluation_score') {
+      return <p className="m-1 text-end">{row_data["total_score_in_metric"]}</p>;
+    } else if (id == 'raw_total_evaluation_score') {
+      return <p className="m-1 text-end">{row_data["raw_total_score_in_metric"]}</p>;
     } else if (id.startsWith('p_')) {
       return (
         <div className="input-group">
