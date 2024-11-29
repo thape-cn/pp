@@ -4,7 +4,8 @@ class EvaluationUserCapability < ApplicationRecord
   belongs_to :user
   belongs_to :job_role
   belongs_to :manager_user, optional: true, class_name: :User
-  has_many :job_role_evaluation_performances, dependent: :destroy
+  # after set null, it will be binding at mark scores update
+  has_many :job_role_evaluation_performances, dependent: :nullify
   has_many :calibration_session_users, dependent: :destroy
   has_many :euc_form_status_histories, dependent: :destroy
   validates :self_overall_output, length: {minimum: 20}, on: :update
