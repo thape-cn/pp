@@ -27,7 +27,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
           .collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
         judge_user_ids = user.calibration_session_judges
           .includes(:calibration_session)
-          .where(calibration_session: { calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids})
+          .where(calibration_session: {calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids})
           .collect { |csj| csj.calibration_session.calibration_session_users.collect(&:user_id) }.flatten
         scope.where(user_id: user.id)
           .or(scope.where(manager_user_id: user.id))
