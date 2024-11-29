@@ -40,4 +40,5 @@ json.array! need_review_evaluations.includes(:job_role, :user) do |euc|
   end
   json.id_euc euc.id
   json.raw_total_evaluation_score euc.raw_total_evaluation_score
+  json.raw_total_score_in_metric euc.raw_total_score_in_metric
 end
