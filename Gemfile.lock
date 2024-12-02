@@ -486,7 +486,7 @@ GEM
       activesupport
       faraday (~> 2.0)
       faraday-follow_redirects
-    webrick (1.9.0)
+    webrick (1.9.1)
     websocket (1.2.11)
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
