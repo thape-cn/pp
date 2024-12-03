@@ -1,6 +1,7 @@
 class CalibrationSession < ApplicationRecord
   belongs_to :calibration_template
   belongs_to :owner, class_name: "User"
+  belongs_to :hr_reviewer, class_name: "User", optional: true
   has_many :calibration_session_judges, dependent: :destroy
   has_many :calibration_session_users, dependent: :destroy
 

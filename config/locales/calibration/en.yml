@@ -24,6 +24,7 @@ en:
     session_name_and_template: "Calibration session name / template"
     owner_judge: "Owner / Judge"
     owner: "Owner"
+    hr_reviewer: "HR reviewer"
     judge: "Judge"
     current_people: "Current"
     accept_title: "End session"

@@ -94,6 +94,7 @@ class InitiationNewCalibration
       calibration_template_name: "Calibration Template",
       calibration_session_name: "Calibration Session",
       calibration_owner: "Calibration Owner",
+      calibration_hr_reviewer: "Calibration HR Reviewer",
       calibration_participants: "Calibration Participants"
     ) do |h|
       clerk_code = h[:clerk_code].to_s
@@ -108,10 +109,14 @@ class InitiationNewCalibration
       company_evaluation_template = import_excel_file.company_evaluation.company_evaluation_templates.find_by!(title: template_title)
       evaluation_user_capability = EvaluationUserCapability.find_by!(user_id: user.id, job_role_id: job_role.id, company_evaluation_template_id: company_evaluation_template.id)
       calibration_owner = User.find_by!(clerk_code: h[:calibration_owner].to_s)
+      calibration_hr_reviewer = User.find_by!(clerk_code: h[:calibration_hr_reviewer].to_s)
 
       calibration_template = company_evaluation_template.calibration_templates.find_or_create_by(template_name: h[:calibration_template_name].to_s)
 
-      calibration_session = calibration_template.calibration_sessions.find_or_create_by(session_name: h[:calibration_session_name].to_s, owner_id: calibration_owner.id)
+      calibration_session = calibration_template.calibration_sessions.find_or_initialize_by(session_name: h[:calibration_session_name].to_s, owner_id: calibration_owner.id)
+      calibration_session.hr_reviewer_id = calibration_hr_reviewer.id
+      calibration_session.save
+
       h[:calibration_participants].to_s.split(";").each do |participant|
         judge = User.find_by!(clerk_code: participant)
         calibration_session.calibration_session_judges.find_or_create_by(judge_id: judge.id)

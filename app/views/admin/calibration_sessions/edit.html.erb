@@ -19,6 +19,12 @@
               <%= f.select :owner_id, options_from_collection_for_select(User.where(id: @calibration_session.owner_id), "id", "name_with_clerk_code", @calibration_session.owner_id), {}, class: 'form-control', data: {"selectize-user-ids-target": "selectBox"} -%>
             </div>
           </div>
+          <div class="row mb-3">
+            <%= f.label :hr_reviewer_id, t("calibration.hr_reviewer"), class: 'col-4 col-form-label' %>
+            <div class="col-8" data-controller="selectize-user-ids">
+              <%= f.select :hr_reviewer_id, options_from_collection_for_select(User.where(id: @calibration_session.hr_reviewer_id), "id", "name_with_clerk_code", @calibration_session.hr_reviewer_id), {}, class: 'form-control', data: {"selectize-user-ids-target": "selectBox"} -%>
+            </div>
+          </div>
           <% if %w[waiting_manager_score calibrating].include?(@calibration_session.session_status) %>
             <div class="row mb-3">
               <%= f.label :calibration_template, t('calibration.calibration_template'), class: 'col-4 col-form-label' %>

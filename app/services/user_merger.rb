@@ -7,6 +7,7 @@ class UserMerger
     CalibrationSessionJudge.where(judge_id: to_remove_user_ids).update_all(judge_id: main_user_id)
     CalibrationSessionUser.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     CalibrationSession.where(owner_id: to_remove_user_ids).update_all(owner_id: main_user_id)
+    CalibrationSession.where(hr_reviewer_id: to_remove_user_ids).update_all(hr_reviewer_id: main_user_id)
     EucFormStatusHistory.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     EvaluationUserCapability.where(user_id: to_remove_user_ids).update_all(user_id: main_user_id)
     EvaluationUserCapability.where(manager_user_id: to_remove_user_ids).update_all(manager_user_id: main_user_id)

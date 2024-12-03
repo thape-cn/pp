@@ -24,6 +24,7 @@ zh-CN:
     session_name_and_template: "校准会话名称 / 模版"
     owner_judge: "所有者 / 参与者"
     owner: "所有者"
+    hr_reviewer: "HR校审者"
     judge: "参与者"
     current_people: "目前"
     accept_title: "结束会话"
