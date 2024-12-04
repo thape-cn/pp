@@ -1,0 +1,31 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<%- content_for :action_bar do %>
+  <ol>
+  <% if @calibration_session.session_status.in?(%w[proofreading]) %>
+    <li class="action_bar-item">
+      <%= link_to approve_confirm_hr_calibration_session_path(id: @calibration_session.id), class: "btn btn-outline-primary", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do %>
+        <%= t("calibration.approve") %> <%= svg_icon('free.svg#cil-check-alt', %w[icon]) -%>
+      <% end %>
+    </li>
+  <% end %>
+  </ol>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
+      <% case company_evaluation_template.group_level %>
+      <% when 'staff' %>
+        <%= render partial: "ui/calibration_sessions/staff_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
+      <% when 'auxiliary' %>
+        <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
+      <% when 'manager_a', 'manager_b' %>
+        <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
+      <% end %>
+    </div>
+  </div>
+</div>

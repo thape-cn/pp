@@ -55,6 +55,8 @@
             undo_confirm_admin_calibration_session_user_path(id: csu.id)
           elsif current_user.hr_staff?
             undo_confirm_hr_calibration_session_user_path(id: csu.id)
+          elsif current_user.id == csu.calibration_session.hr_reviewer_id
+            undo_confirm_staff_calibration_session_user_path(id: csu.id)
           end
           %>
           <% if csu.new_calibration_session_id.nil? && session_status.in?(%w[proofreading]) && undo_confirm_path.present? %>

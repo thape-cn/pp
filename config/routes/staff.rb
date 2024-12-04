@@ -37,6 +37,23 @@ namespace :staff do
       get :expender
     end
   end
+  resources :proofreading_calibration_sessions, only: %i[index show] do
+    member do
+      get :approve_confirm
+      put :approve
+      get :undo_confirm
+      put :undo
+    end
+    collection do
+      get :expender
+    end
+  end
+  resources :calibration_session_users, only: %i[] do
+    member do
+      get :undo_confirm
+      put :undo
+    end
+  end
   resources :calibration_table_sessions, only: %i[show update]
   resources :evaluation_user_capabilities, only: %i[show update] do
     member do

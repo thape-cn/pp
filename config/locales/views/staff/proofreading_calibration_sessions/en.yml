@@ -1,0 +1,13 @@
+---
+en:
+  staff:
+    proofreading_calibration_sessions:
+      index:
+        title: "HR calibration sessions"
+      show:
+        title: "HR calibration session detail"
+      undo_confirm:
+        title: "Confirm entire group recalibration?"
+        calibration_session_status_not_in_proofreading: "The entire set of states is out of calibration and cannot be recalibrated."
+      approve_confirm:
+        title: "Pass this calibration result?"

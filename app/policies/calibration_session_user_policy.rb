@@ -18,7 +18,7 @@ class CalibrationSessionUserPolicy < ApplicationPolicy
   end
 
   def undo_confirm?
-    user.admin? || user.hr_staff?
+    user.admin? || user.hr_staff? || record.calibration_session.hr_reviewer_id == user.id
   end
 
   def undo?
