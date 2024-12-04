@@ -1,6 +1,6 @@
 ---
 zh-CN:
-  hr:
+  staff:
     calibration_session_users:
       undo_confirm:
         title: "确认重新校准到？"

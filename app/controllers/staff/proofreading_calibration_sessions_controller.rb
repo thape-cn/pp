@@ -3,7 +3,7 @@ module Staff
     include Pagy::Backend
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
-    before_action :set_calibration_session, only: %i[show approve_confirm approve undo_confirm undo]
+    before_action :set_calibration_session, only: %i[show approve_confirm approve]
     before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index show]
 
     def index
@@ -60,17 +60,6 @@ module Staff
       end
       HRReviewCompletedStaffJob.perform_async(@calibration_session.id)
       HRReviewCompletedManagerJob.perform_async(@calibration_session.id)
-    end
-
-    def undo_confirm
-      render layout: false
-    end
-
-    def undo
-      @calibration_session.calibration_session_users.each do |csu|
-        csu.evaluation_user_capability.update_form_status_to("manager_scored", current_user)
-      end
-      @calibration_session.update(session_status: "calibrating")
     end
 
     def expender

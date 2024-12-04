@@ -6,8 +6,5 @@ zh-CN:
         title: "校验会话"
       show:
         title: "校验会话明细"
-      undo_confirm:
-        title: "确认整组重新校准？"
-        calibration_session_status_not_in_proofreading: "整组状态已经不在校验中，无法重新校准。"
       approve_confirm:
         title: "通过这次的校准结果？"

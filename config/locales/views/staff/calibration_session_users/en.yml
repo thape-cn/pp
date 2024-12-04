@@ -1,6 +1,6 @@
 ---
 en:
-  hr:
+  staff:
     calibration_session_users:
       undo_confirm:
         title: "Confirm recalibration this person?"

@@ -41,8 +41,6 @@ namespace :staff do
     member do
       get :approve_confirm
       put :approve
-      get :undo_confirm
-      put :undo
     end
     collection do
       get :expender
