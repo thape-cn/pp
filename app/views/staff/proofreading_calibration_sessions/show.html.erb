@@ -6,7 +6,7 @@
   <ol>
   <% if @calibration_session.session_status.in?(%w[proofreading]) %>
     <li class="action_bar-item">
-      <%= link_to approve_confirm_hr_calibration_session_path(id: @calibration_session.id), class: "btn btn-outline-primary", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do %>
+      <%= link_to approve_confirm_staff_proofreading_calibration_session_path(id: @calibration_session.id), class: "btn btn-outline-primary", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do %>
         <%= t("calibration.approve") %> <%= svg_icon('free.svg#cil-check-alt', %w[icon]) -%>
       <% end %>
     </li>

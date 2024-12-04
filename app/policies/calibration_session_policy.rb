@@ -39,7 +39,7 @@ class CalibrationSessionPolicy < ApplicationPolicy
   end
 
   def approve_confirm?
-    user.admin? || user.hr_staff?
+    user.admin? || user.hr_staff? || record.hr_reviewer_id == user.id
   end
 
   def approve?
