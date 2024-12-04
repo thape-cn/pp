@@ -22,12 +22,14 @@ class CalibrationSessionPolicy < ApplicationPolicy
   def show?
     return true if user.admin?
     record.owner_id == user.id \
+    || record.hr_reviewer_id == user.id \
     || record.calibration_session_judges.collect(&:judge_id).include?(user.id)
   end
 
   def update?
     return true if user.admin?
     record.owner_id == user.id \
+    || record.hr_reviewer_id == user.id \
     || record.calibration_session_judges.collect(&:judge_id).include?(user.id)
   end
 

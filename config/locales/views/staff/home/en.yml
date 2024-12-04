@@ -9,5 +9,7 @@ en:
         calibration: "Calibration"
         need_review_evaluations: "Need to evaluate: %{count} people"
         need_calibration_session_users: "Need to calibrate: %{count} people"
+        need_review_calibration_session_users: "Need to review calibrate：%{count} people"
+        proofreading_calibration_session: "Proofreading calibration session"
         evaluation_signing: "Evaluation signing"
         click_to_start: "Click to start"

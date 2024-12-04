@@ -16,6 +16,11 @@ module Staff
         .where(session_status: "calibrating")
         .distinct
         .reject { |cs| cs.calibration_template.company_evaluation_template.company_evaluation.evaluation_ended? }
+
+      @proofreading_calibration_sessions = CalibrationSession
+        .where(session_status: "proofreading", hr_reviewer_id: current_user.id)
+        .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
+        .distinct
       @need_signing_evaluations = current_open_evaluations
         .where(user_id: current_user.id, form_status: "hr_review_completed")
     end
