@@ -17,7 +17,11 @@ module UndoCalibrationSessionUser
       .where(evaluation_user_capability_id: evaluation_user_capability.id).count
     if result == true
       new_calibration_session = undo_calibration_template
-        .calibration_sessions.find_or_create_by(session_name: "#{undo_calibration_template.template_name}-#{evaluation_user_capability.department}-#{undo_user.chinese_name}-#{undo_calibration_count}", owner_id: previous_calibration_session.owner_id)
+        .calibration_sessions.find_or_create_by(
+          session_name: "#{undo_calibration_template.template_name}-#{evaluation_user_capability.department}-#{undo_user.chinese_name}-#{undo_calibration_count}",
+          owner_id: previous_calibration_session.owner_id,
+          hr_reviewer_id: previous_calibration_session.hr_reviewer_id
+        )
       case params["commit"]
       when I18n.t("calibration.to_manager_score")
         new_calibration_session.update(session_status: "waiting_manager_score")
