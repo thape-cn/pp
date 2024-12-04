@@ -10,6 +10,7 @@
           <tr>
             <th><%= t('calibration.session_name_and_template') -%></th>
             <th><%= t('calibration.owner_judge') -%></th>
+            <th><%= t('calibration.hr_reviewer') -%></th>
             <th><%= t('calibration.calibration_user') -%></th>
             <th><%= t('calibration.session_status_name') -%></th>
             <th><%= t('form.action') -%></th>
@@ -28,6 +29,21 @@
                 <br/>
                 <% calibration_session.calibration_session_judges.each do |sj| -%>
                   <%= sj.judge.chinese_name -%>
+                  <% if policy(current_user).impersonation? %>
+                    <%= link_to impersonation_admin_user_path(id: sj.judge.id), class: 'pe-2', data: {controller: "modal", action: "modal#click"} do %>
+                      <%= svg_icon('free.svg#cil-account-logout', %w[icon icon-lg pt-1]) -%>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td>
+                <% if calibration_session.hr_reviewer.present? %>
+                  <%= calibration_session.hr_reviewer.chinese_name -%>
+                  <% if policy(current_user).impersonation? %>
+                    <%= link_to impersonation_admin_user_path(id: calibration_session.hr_reviewer.id), class: 'pe-2', data: {controller: "modal", action: "modal#click"} do %>
+                      <%= svg_icon('free.svg#cil-account-logout', %w[icon icon-lg pt-1]) -%>
+                    <% end %>
+                  <% end %>
                 <% end %>
               </td>
               <td>
