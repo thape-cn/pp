@@ -1,11 +1,8 @@
 module HR
   class CalibrationSessionUsersController < BaseController
     include UndoCalibrationSessionUser
-    after_action :verify_authorized, except: :index
+    after_action :verify_authorized
     before_action :set_calibration_session_user, only: %i[undo_confirm undo]
-
-    def index
-    end
 
     def undo_confirm
       @undo_company_evaluation_template = @calibration_session_user

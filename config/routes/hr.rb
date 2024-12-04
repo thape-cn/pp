@@ -20,7 +20,7 @@ namespace :hr do
       get :expender
     end
   end
-  resources :calibration_session_users, only: %i[index] do
+  resources :calibration_session_users, only: %i[] do
     member do
       get :undo_confirm
       put :undo
