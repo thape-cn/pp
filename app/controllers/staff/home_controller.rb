@@ -10,7 +10,8 @@ module Staff
       @need_review_evaluations = current_open_evaluations
         .where(manager_user_id: current_user.id)
         .where(form_status: "self_assessment_done")
-      @need_calibration_sessions = CalibrationSession.left_joins(:calibration_session_judges).where(owner_id: current_user.id)
+      @need_calibration_sessions = CalibrationSession.where(owner_id: current_user.id).or(CalibrationSession.where(hr_reviewer_id: current_user.id))
+        .left_joins(:calibration_session_judges)
         .or(CalibrationSession.left_joins(:calibration_session_judges).where(calibration_session_judges: {judge_id: current_user.id}))
         .where(session_status: "calibrating")
         .distinct

@@ -12,7 +12,8 @@ module Admin
         .where(manager_user_id: current_user.id)
         .where(form_status: "self_assessment_done")
 
-      my_name_in_calibration_sessions = CalibrationSession.where(owner_id: current_user.id).left_joins(:calibration_session_judges)
+      my_name_in_calibration_sessions = CalibrationSession.where(owner_id: current_user.id).or(CalibrationSession.where(hr_reviewer_id: current_user.id))
+        .left_joins(:calibration_session_judges)
         .or(CalibrationSession.left_joins(:calibration_session_judges).where(calibration_session_judges: {judge_id: current_user.id}))
 
       @need_calibration_sessions = my_name_in_calibration_sessions

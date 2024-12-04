@@ -4,7 +4,8 @@ class CalibrationSessionPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.where(owner_id: user.id).left_joins(:calibration_session_judges)
+        scope.where(owner_id: user.id).or(scope.where(hr_reviewer_id: user.id))
+          .left_joins(:calibration_session_judges)
           .or(scope.left_joins(:calibration_session_judges).where(calibration_session_judges: {judge_id: user.id}))
       end
     end
