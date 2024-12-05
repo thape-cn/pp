@@ -112,7 +112,7 @@ GEM
     bigdecimal (3.1.8)
     bindata (2.5.0)
     bindex (0.8.1)
-    browser (6.1.0)
+    browser (6.2.0)
     builder (3.3.0)
     capistrano (3.19.2)
       airbrussh (>= 1.0.0)
