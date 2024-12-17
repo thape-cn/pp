@@ -240,7 +240,9 @@ module Staff
     def check_mark_score_completion(need_review_evaluations, job_role_evaluation_performances)
       all_overall_not_valid_eucs = need_review_evaluations.find_all do |euc|
         euc.manager_overall_improvement&.length.to_i < 20 \
-        || euc.manager_overall_plan&.length.to_i < 20
+        || euc.manager_overall_plan&.length.to_i < 20 \
+        || euc.manager_overall_improvement&.strip&.empty? \
+        || euc.manager_overall_plan&.strip&.empty?
       end
       Rails.logger.debug "all_overall_not_valid_eucs: #{all_overall_not_valid_eucs}"
 
