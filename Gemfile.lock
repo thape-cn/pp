@@ -315,7 +315,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
       railties (>= 7.0.0)
-    psych (5.2.1)
+    psych (5.2.2)
       date
       stringio
     public_suffix (6.0.1)
@@ -435,7 +435,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11699)
+    sorbet-runtime (0.5.11704)
     sqlite3 (2.4.1-aarch64-linux-gnu)
     sqlite3 (2.4.1-arm-linux-gnu)
     sqlite3 (2.4.1-arm64-darwin)
