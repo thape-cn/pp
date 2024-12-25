@@ -48,6 +48,12 @@ module HR
     end
 
     def edit
+      @calibration_session = policy_scope(CalibrationSession)
+        .includes(:calibration_session_users)
+        .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
+        .where(calibration_session_users: {evaluation_user_capability_id: @evaluation_user_capability.id})
+        .order(id: :desc)
+        .first
       render layout: false
     end
 

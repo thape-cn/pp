@@ -13,6 +13,14 @@
               <%= f.select :form_status, EvaluationUserCapability.form_status_options, {}, class: 'form-control' -%>
             </div>
           </div>
+          <% if @calibration_session.present? %>
+            <div class="row mb-2">
+              <div class="alert alert-primary" role="alert">
+                <%= t('.calibration_status_change_notice') -%>
+                <%= link_to t('form.click_to_go'), hr_calibration_session_path(id: @calibration_session.id), class: 'alert-link' -%>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="modal-footer">

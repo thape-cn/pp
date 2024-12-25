@@ -12,6 +12,7 @@ en:
     upload_and_update: "Upload file and update"
     reset: "Reset"
     close: "Close"
+    click_to_go: "Click to go"
     print: "Print"
     pdf_file: "PDF file"
     merge: "Merge"
