@@ -5,6 +5,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         scope.all
       elsif user.corp_president?
         scope.where(company: user.corp_president_managed_companies.pluck(:managed_company))
+          .or(scope.where(manager_user_id: user.id))
       elsif user.hr_staff?
         owned_user_ids = user.owned_calibration_sessions
           .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
