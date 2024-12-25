@@ -6,3 +6,4 @@ en:
         breadcrumb_title: "%{title}"
       edit:
         title: "Edit staff reviews"
+        calibration_status_change_notice: "If you want to change the form status to 'Calibration', please goto the calibration session page and perform the rollback operation, because the status of the verification session is independent of the form status."
