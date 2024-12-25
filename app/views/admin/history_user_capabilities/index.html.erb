@@ -25,19 +25,23 @@
       <%= form_tag admin_company_evaluation_history_user_capabilities_path, method: :get do -%>
         <%= hidden_field_tag :company_evaluation_id, @company_evaluation.id %>
         <div class="row g-3 align-items-center m-2">
-          <label class="col-auto"><%= t("user.chinese_name") -%>：</label>
           <div class="col-md-3" data-controller="selectize-user-ids">
+            <label class="col-auto"><%= t("user.chinese_name") -%>：</label>
             <%= select_tag :user_id, options_from_collection_for_select(User.where(id: @user_id), "id", "name_with_clerk_code", @user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
           </div>
-          <label class="col-auto"><%= t("user.manager_user") -%>：</label>
           <div class="col-md-3" data-controller="selectize-user-ids">
+            <label class="col-auto"><%= t("user.manager_user") -%>：</label>
             <%= select_tag :manager_user_id, options_from_collection_for_select(User.where(id: @manager_user_id), "id", "name_with_clerk_code", @manager_user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
           </div>
-          <label class="col-auto"><%= t("evaluation.evaluation_status") -%>：</label>
+          <div class="col-md-4" data-controller="selectizes">
+            <label><%= t("user.company") -%></label>
+            <%= select_tag :company, options_for_select(@all_companies, @company), {include_blank: true, class: 'form-control', data: { 'selectizes-target': 'select' }} -%>
+          </div>
           <div class="col-auto">
+            <label class="col-auto"><%= t("evaluation.evaluation_status") -%>：</label>
             <%= select_tag 'form_status', options_for_select(EvaluationUserCapability.form_status_options, @form_status), { include_blank: true, class: 'form-control' } %>
           </div>
-          <div class="col">
+          <div class="col-auto">
             <%= submit_tag t("form.confirm"), class: 'btn btn-primary' %>
           </div>
         </div>
