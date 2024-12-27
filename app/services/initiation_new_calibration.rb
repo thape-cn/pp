@@ -74,6 +74,10 @@ class InitiationNewCalibration
       end
     end
 
+    if row_number == 1
+      import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.calibration_sessions_not_imported"))
+    end
+
     if import_excel_file.import_excel_file_messages.present?
       import_excel_file.update(file_status: "validate_failed")
     else
