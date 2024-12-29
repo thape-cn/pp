@@ -124,7 +124,7 @@ namespace :admin do
       get :more_people
     end
   end
-  resources :manager_performances, only: %i[index show] do
+  resources :manager_a_performances, only: %i[index show] do
     member do
       get :more_people
     end

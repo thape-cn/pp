@@ -1,5 +1,5 @@
 module CP
-  class ManagerPerformancesController < BaseController
+  class ManagerAPerformancesController < BaseController
     include ShowPerformance
 
     private

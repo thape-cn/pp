@@ -1,5 +1,5 @@
 module HR
-  class ManagerPerformancesController < BaseController
+  class ManagerAPerformancesController < BaseController
     include ShowPerformance
 
     private

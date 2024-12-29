@@ -1,8 +1,8 @@
 ---
 en:
   admin:
-    manager_performances:
+    manager_a_performances:
       index:
-        title: "Manager performance result"
+        title: "Manager A performance result"
       show:
         title: "Performance of %{chinese_name}"
