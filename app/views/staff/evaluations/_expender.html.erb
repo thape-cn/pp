@@ -3,6 +3,6 @@
 <% end %>
 <% evaluation_user_capabilities.each do |euc| %>
   <%= nav_item(euc.user.chinese_name, staff_form_path(euc), 'free.svg#cil-balance-scale') do %>
-    <span class="badge bg-primary-gradient ms-auto"><%= EvaluationUserCapability.form_status_options.invert[euc.form_status] -%></span>
+    <span class="badge bg-primary ms-auto"><%= EvaluationUserCapability.form_status_options.invert[euc.form_status] -%></span>
   <% end %>
 <% end %>

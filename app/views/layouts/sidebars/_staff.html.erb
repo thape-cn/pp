@@ -1,4 +1,4 @@
-<div class="sidebar sidebar-dark sidebar-fixed bg-dark-gradient <%= current_user&.sidebar_narrow? ? "sidebar-narrow-unfoldable" : "" -%>" id="sidebar" data-controller="sidebar">
+<div class="sidebar sidebar-dark sidebar-fixed bg-dark <%= current_user&.sidebar_narrow? ? "sidebar-narrow-unfoldable" : "" -%>" id="sidebar" data-controller="sidebar">
   <div class="sidebar-brand d-none d-md-flex">
     <%= link_to root_path, class: "text-reset text-decoration-none" do %>
       <image class="sidebar-brand-full" width="118" height="46" alt="TH Logo" src="<%= asset_path('th-logo.png') -%>" />

@@ -12,8 +12,8 @@
   </thead>
   <tbody>
     <% calibration_session_users.each_with_index do |csu, index| %>
-      <% bg_color_pre = (csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.raw_total_evaluation_score).abs > 1.5 ? "bg-danger-gradient" : "" %>
-      <% bg_color = ((csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.raw_total_evaluation_score).abs > 1.5 || csu.evaluation_user_capability.total_evaluation_score < 2.5) ? "bg-danger-gradient" : "" %>
+      <% bg_color_pre = (csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.raw_total_evaluation_score).abs > 1.5 ? "bg-danger" : "" %>
+      <% bg_color = ((csu.evaluation_user_capability.total_evaluation_score - csu.evaluation_user_capability.raw_total_evaluation_score).abs > 1.5 || csu.evaluation_user_capability.total_evaluation_score < 2.5) ? "bg-danger" : "" %>
       <tr>
         <td><%= index + 1 -%></td>
         <td>
