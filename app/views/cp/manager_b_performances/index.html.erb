@@ -1,0 +1,196 @@
+<% content_for :head do %>
+  <%= append_stylesheet_pack_tag 'selectize' %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'selectize_user_ids' %>
+  <%= append_javascript_pack_tag 'toggle_people_performance' %>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-12">
+    <div class="container">
+      <%= form_tag cp_manager_b_performances_path, method: :get do -%>
+        <div class="row g-3 align-items-center m-2">
+          <div class="col-2">
+            <label><%= t("performance.company_evaluation") -%></label>
+            <%= select_tag :company_evaluation_id, options_from_collection_for_select(CompanyEvaluation.all.order(id: :desc), "id", "title", @company_evaluation_id), {class: 'form-control'} -%>
+          </div>
+          <div class="col-2">
+            <label><%= t("user.department") -%></label>
+            <%= select_tag :department, options_for_select(@departments, @department), {include_blank: true, class: 'form-control'} -%>
+          </div>
+          <div class="col-2" data-controller="selectize-user-ids">
+            <label><%= t("user.manager_user") -%></label>
+            <%= select_tag :manager_user_id, options_from_collection_for_select(User.where(id: @manager_user_id), "id", "name_with_clerk_code", @manager_user_id), {class: 'form-control', data: {"selectize-user-ids-target": "selectBox"}} -%>
+          </div>
+          <div class="col">
+            <label><%= t("evaluation.evaluation_status") -%>：</label>
+            <%= select_tag 'form_status', options_for_select(EvaluationUserCapability.form_status_options, @form_status), { include_blank: true, class: 'form-control' } %>
+          </div>
+          <div class="col">
+            <%= submit_tag t("form.confirm"), class: 'btn btn-primary mt-button' %>
+          </div>
+        </div>
+      <% end -%>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td rowspan="4" class="text-end"><%= t("evaluation.performance") -%></td>
+            <td class="position-relative border border-primary bg-warning"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "11", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+            <td class="position-relative border border-primary bg-primary"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "12", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+            <td class="position-relative border border-primary bg-info"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "13", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
+              <h5>A+ <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="position-relative border border-primary bg-warning"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "21", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+            <td class="position-relative border border-primary bg-primary"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "22", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+            <td class="position-relative border border-primary bg-info"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "23", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="position-relative border border-primary bg-warning"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "31", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
+              <h5>D <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+            <td class="position-relative border border-primary bg-primary"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "32", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+            <td class="position-relative border border-primary bg-info"
+              data-controller="toggle-people-performance"
+              data-toggle-people-performance-url-value="<%= more_people_cp_manager_a_performance_path(id: "33", company_evaluation_id: @company_evaluation_id, company: @company, department: @department) -%>"
+              data-toggle-people-performance-expand-icon-value="<%= asset_path("free.svg#cil-flip-to-back") -%>"
+              data-toggle-people-performance-shrink-icon-value="<%= asset_path("free.svg#cil-flip-to-front") -%>">
+              <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td" data-toggle-people-performance-target="peopleList">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+              <% if eucs.length > EvaluationUserCapability::MINIMAL_DISPLAY_PEOPLE_NUM %>
+                <div class="position-absolute bottom-0 end-0 m-1 cursor_pointer" data-action="click->toggle-people-performance#toggle">
+                  <%= svg_icon('free.svg#cil-flip-to-back', %w[icon icon-lg flip_horizontal], data: {"toggle-people-performance-target"=> "icon"}) -%>
+                </div>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="text-end">
+              <%= t("evaluation.professional_management_capability") -%>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

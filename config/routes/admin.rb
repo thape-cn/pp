@@ -129,6 +129,11 @@ namespace :admin do
       get :more_people
     end
   end
+  resources :manager_b_performances, only: %i[index show] do
+    member do
+      get :more_people
+    end
+  end
   resources :users, only: %i[index edit update new create] do
     member do
       get :impersonation

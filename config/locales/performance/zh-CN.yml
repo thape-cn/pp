@@ -6,4 +6,5 @@ zh-CN:
     staff_performances: "员工层绩效"
     auxiliary_performances: "非设计主管层及以上绩效"
     manager_a_performances: "主管层A绩效"
+    manager_b_performances: "主管层B绩效"
     panel_total: "共 %{people_number} 人，%{people_percent} %%"
