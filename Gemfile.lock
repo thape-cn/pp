@@ -133,7 +133,7 @@ GEM
       sidekiq (>= 6.0)
     capistrano-yarn (2.0.2)
       capistrano (~> 3.0)
-    capistrano3-puma (6.0.0.beta.1)
+    capistrano3-puma (6.0.0)
       capistrano (~> 3.7)
       capistrano-bundler
       puma (>= 5.1, < 7.0)
@@ -237,7 +237,7 @@ GEM
       rake (~> 13.0)
     local_time (3.0.2)
     logger (1.6.4)
-    loofah (2.23.1)
+    loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -432,7 +432,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11708)
+    sorbet-runtime (0.5.11709)
     sqlite3 (2.5.0-aarch64-linux-gnu)
     sqlite3 (2.5.0-arm-linux-gnu)
     sqlite3 (2.5.0-arm64-darwin)
