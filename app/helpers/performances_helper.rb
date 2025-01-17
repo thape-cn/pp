@@ -9,7 +9,7 @@ module PerformancesHelper
           admin_manager_a_performance_path(id: euc.id)
         elsif current_user.corp_president?
           cp_manager_a_performance_path(id: euc.id)
-        else
+        elsif current_user.hr_staff?
           hr_manager_a_performance_path(id: euc.id)
         end
       when "manager_b"
@@ -17,7 +17,7 @@ module PerformancesHelper
           admin_manager_b_performance_path(id: euc.id)
         elsif current_user.corp_president?
           cp_manager_b_performance_path(id: euc.id)
-        else
+        elsif current_user.hr_staff?
           hr_manager_b_performance_path(id: euc.id)
         end
       when "auxiliary"
@@ -25,7 +25,7 @@ module PerformancesHelper
           admin_auxiliary_performance_path(id: euc.id)
         elsif current_user.corp_president?
           cp_auxiliary_performance_path(id: euc.id)
-        else
+        elsif current_user.hr_staff?
           hr_auxiliary_performance_path(id: euc.id)
         end
       else
@@ -33,7 +33,7 @@ module PerformancesHelper
           admin_staff_performance_path(id: euc.id)
         elsif current_user.corp_president?
           cp_staff_performance_path(id: euc.id)
-        else
+        elsif current_user.hr_staff?
           hr_staff_performance_path(id: euc.id)
         end
       end
