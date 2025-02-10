@@ -224,7 +224,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.9.1)
+    json (2.10.0)
     json-jwt (1.16.7)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -439,7 +439,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11812)
+    sorbet-runtime (0.5.11813)
     sqlite3 (2.5.0-aarch64-linux-gnu)
     sqlite3 (2.5.0-arm-linux-gnu)
     sqlite3 (2.5.0-arm64-darwin)
