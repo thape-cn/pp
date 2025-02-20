@@ -439,7 +439,7 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
-    sorbet-runtime (0.5.11835)
+    sorbet-runtime (0.5.11839)
     sqlite3 (2.5.0-aarch64-linux-gnu)
     sqlite3 (2.5.0-arm-linux-gnu)
     sqlite3 (2.5.0-arm64-darwin)
@@ -464,7 +464,7 @@ GEM
     standard-performance (1.6.0)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.23.0)
-    stringio (3.1.3)
+    stringio (3.1.4)
     swd (2.0.3)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
