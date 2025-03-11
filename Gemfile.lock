@@ -303,7 +303,7 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.1)
     package_json (0.1.0)
-    pagy (9.3.3)
+    pagy (9.3.4)
     parallel (1.26.3)
     parser (3.3.7.1)
       ast (~> 2.4.1)
@@ -326,7 +326,7 @@ GEM
     pundit (2.5.0)
       activesupport (>= 3.0.0)
     racc (1.8.1)
-    rack (3.1.11)
+    rack (3.1.12)
     rack-oauth2 (2.2.1)
       activesupport
       attr_required
@@ -442,7 +442,7 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
-    sorbet-runtime (0.5.11911)
+    sorbet-runtime (0.5.11915)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
