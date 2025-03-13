@@ -432,7 +432,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
-    shakapacker (8.1.0)
+    shakapacker (8.2.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -444,7 +444,7 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
-    sorbet-runtime (0.5.11919)
+    sorbet-runtime (0.5.11930)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
@@ -553,7 +553,7 @@ DEPENDENCIES
   ruby-lsp
   ruby-lsp-rails
   selenium-webdriver (>= 4.11.0)
-  shakapacker (~> 8.0)
+  shakapacker (~> 8.2)
   sidekiq
   sqlite3 (~> 2.0)
   standard

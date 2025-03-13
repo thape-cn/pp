@@ -18,7 +18,7 @@ gem "sqlite3", "~> 2.0"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
 
-gem "shakapacker", "~> 8.0"
+gem "shakapacker", "~> 8.2"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
