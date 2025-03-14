@@ -237,7 +237,7 @@ GEM
     llhttp-ffi (0.5.1)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
-    local_time (3.0.2)
+    local_time (3.0.3)
     logger (1.6.6)
     loofah (2.24.0)
       crass (~> 1.0.2)
@@ -567,4 +567,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.6.5
+   2.6.6
