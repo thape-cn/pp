@@ -16,6 +16,11 @@
         <%= t("form.archived_excel_report") %> <%= svg_icon('free.svg#cil-copy', %w[icon]) -%>
       <% end %>
     </li>
+    <li class="action_bar-item">
+      <%= link_to excel_detail_report_admin_company_evaluation_history_user_capabilities_path(company_evaluation_id: @company_evaluation.id, format: :xlsx), class: "btn btn-outline-primary" do -%>
+        <%= t("form.excel_detail_report") %> <%= svg_icon('free.svg#cil-copy', %w[icon]) -%>
+      <% end %>
+    </li>
   </ol>
 <% end %>
 

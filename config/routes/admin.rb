@@ -27,7 +27,11 @@ namespace :admin do
       end
     end
     resources :user_descriptions, only: %i[index]
-    resources :history_user_capabilities, only: %i[index]
+    resources :history_user_capabilities, only: %i[index] do
+      collection do
+        get :excel_detail_report
+      end
+    end
     resources :archived_user_capabilities, only: %i[index] do
       member do
         get :confirm_restore
