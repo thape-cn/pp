@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "~> 3.2"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0.2"
 gem "zeitwerk"
 
 # `config/initializers/mail_starttls_patch.rb` has also been patched to
@@ -13,7 +13,7 @@ gem "mail", "= 2.8.1"
 gem "jbuilder"
 gem "propshaft"
 
-gem "sqlite3", "~> 2.0"
+gem "sqlite3", "~> 2.6"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma"
@@ -69,7 +69,7 @@ gem "whenever", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", "~> 1.9", platforms: %i[mri mingw x64_mingw]
+  gem "debug", "~> 1.10", platforms: %i[mri mingw x64_mingw]
 
   gem "standard"
 end
@@ -92,7 +92,7 @@ group :development do
   gem "capistrano-rails"
   gem "capistrano-yarn"
   gem "capistrano-rbenv"
-  gem "capistrano3-puma", ">= 6.0.0.beta.1"
+  gem "capistrano3-puma", ">= 6.0.0"
   gem "capistrano-sidekiq", "~> 2.3"
 
   gem "ed25519"
@@ -102,5 +102,5 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem "selenium-webdriver", ">= 4.11.0"
+  gem "selenium-webdriver", ">= 4.31.0"
 end

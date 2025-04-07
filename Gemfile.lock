@@ -528,12 +528,12 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano-sidekiq (~> 2.3)
   capistrano-yarn
-  capistrano3-puma (>= 6.0.0.beta.1)
+  capistrano3-puma (>= 6.0.0)
   capybara
   caxlsx
   config
   csv
-  debug (~> 1.9)
+  debug (~> 1.10)
   devise
   devise-i18n
   ed25519
@@ -548,15 +548,15 @@ DEPENDENCIES
   propshaft
   puma
   pundit
-  rails (~> 8.0.0)
+  rails (~> 8.0.2)
   redcarpet
   roo
   ruby-lsp
   ruby-lsp-rails
-  selenium-webdriver (>= 4.11.0)
+  selenium-webdriver (>= 4.31.0)
   shakapacker (~> 8.2)
   sidekiq
-  sqlite3 (~> 2.0)
+  sqlite3 (~> 2.6)
   standard
   tzinfo-data
   web-console
