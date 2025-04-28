@@ -93,7 +93,7 @@ group :development do
   gem "capistrano-yarn"
   gem "capistrano-rbenv"
   gem "capistrano3-puma", ">= 6.0.0"
-  gem "capistrano-sidekiq", "~> 2.3"
+  gem "capistrano-sidekiq"
 
   gem "ed25519"
   gem "bcrypt_pbkdf"
