@@ -52,6 +52,7 @@
   "version": "0.1.0",
   "resolutions": {
     "inherits": "~2.0.4",
+    "cookie": "~0.7.2",
     "datatables.net": "~1.13.10",
     "mdn-data": "~2.0.30",
     "merge-descriptors": "~1.0.3",
