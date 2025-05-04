@@ -10,7 +10,7 @@ class UploadPpResultJob
 
     performance_rating = euc.total_score_in_metric
 
-    response = HTTP.post(Rails.application.credentials.pm_upload_service_url!,
+    response = HTTPX.post(Rails.application.credentials.pm_upload_service_url!,
       json: {
         secret: Rails.application.credentials.pm_upload_secret_key!,
         evaluation_user_capability_id: evaluation_user_capability_id,
