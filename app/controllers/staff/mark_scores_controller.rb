@@ -222,19 +222,19 @@ module Staff
 
     def build_table_headers_of_capability(headers_of_capability, headers_of_performance, group_level)
       if group_level == "manager_b"
-        headers_of_capability.append({
-          Header: I18n.t("evaluation.total_evaluation_score"),
-          accessor: "raw_total_evaluation_score",
-          description: I18n.t("evaluation.total_evaluation_score_description")
-        })
+        headers_of_capability
       else
         headers_of_performance
-          .concat(headers_of_capability).append({
-            Header: I18n.t("evaluation.total_evaluation_score"),
-            accessor: "raw_total_evaluation_score",
-            description: I18n.t("evaluation.total_evaluation_score_description")
-          })
-      end
+          .concat(headers_of_capability)
+      end.append({
+        Header: I18n.t("evaluation.total_evaluation_score_raw"),
+        accessor: "raw_total_evaluation_score_raw",
+        description: I18n.t("evaluation.total_evaluation_score_raw_description")
+      }, {
+        Header: I18n.t("evaluation.total_evaluation_score"),
+        accessor: "raw_total_evaluation_score",
+        description: I18n.t("evaluation.total_evaluation_score_description")
+      })
     end
 
     def check_mark_score_completion(need_review_evaluations, job_role_evaluation_performances)

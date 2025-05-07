@@ -62,6 +62,8 @@ zh-CN:
     evaluation_label: "评价栏位名称"
     evaluation_value: "评价栏位内容"
     sort_on_final_total_evaluation_score: "按照最终绩效等级倒序排序"
+    total_evaluation_score_raw: "上级评分"
+    total_evaluation_score_raw_description: "原始打分"
     total_evaluation_score: "绩效等级"
     total_evaluation_score_description: "A+ 优秀；A 优良；B 合格；C 待提高；D 不合格"
     form_submitted: "表单已提交"

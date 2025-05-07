@@ -70,6 +70,8 @@ export const EditableCell = ({
       return <p className="m-1 text-end">{row_data["total_score_in_metric"]}</p>;
     } else if (id == 'raw_total_evaluation_score') {
       return <p className="m-1 text-end">{row_data["raw_total_score_in_metric"]}</p>;
+    } else if (id == 'raw_total_evaluation_score_raw') {
+      return <p className="m-1 text-end">{row_data["raw_total_evaluation_score"]}</p>;
     } else if (id.startsWith('p_')) {
       return (
         <div className="input-group">

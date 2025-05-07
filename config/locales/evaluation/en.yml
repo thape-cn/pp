@@ -62,6 +62,8 @@ en:
     evaluation_label: "Evaluation label"
     evaluation_value: "Evaluation value"
     sort_on_final_total_evaluation_score: "Sort on reverse order of final total evaluation score"
+    total_evaluation_score_raw: "Supervisor's rating"
+    total_evaluation_score_raw_description: "Raw score"
     total_evaluation_score: "Total evaluation score"
     total_evaluation_score_description: "A is excellent; A is good; B is qualified; C needs to be improved; D is unqualified"
     form_submitted: "Form submitted"
