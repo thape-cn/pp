@@ -1,8 +1,3 @@
 <% company_evaluations.each do |company_evaluation| %>
   <%= nav_item(company_evaluation.title, staff_company_evaluation_user_capabilities_path(company_evaluation_id: company_evaluation.id), 'free.svg#cil-balance-scale') %>
 <% end %>
-<% evaluation_user_capabilities.each do |euc| %>
-  <%= nav_item(euc.user.chinese_name, staff_form_path(euc), 'free.svg#cil-balance-scale') do %>
-    <span class="badge bg-primary ms-auto"><%= EvaluationUserCapability.form_status_options.invert[euc.form_status] -%></span>
-  <% end %>
-<% end %>

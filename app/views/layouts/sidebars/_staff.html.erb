@@ -28,7 +28,6 @@
       <ul class="nav-group-items" data-expender-target="htc">
         <% if %w[evaluations in_evaluation signing user_capabilities].include?(controller_name) %>
           <%= render partial: 'staff/evaluations/expender', locals: {
-            evaluation_user_capabilities: @sidebar_evaluation_user_capabilities,
             company_evaluations: @company_evaluations
           } -%>
         <% end %>
