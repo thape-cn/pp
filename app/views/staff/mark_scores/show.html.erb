@@ -3,12 +3,12 @@
   <%= append_javascript_pack_tag 'mark-scores' %>
 <% end %>
 
-<p class="mt-2">请对员工的以下维度进行评分，并点开向下箭头 <%= content_tag(:svg, content_tag(:use, nil, "xlink:href": asset_path('free.svg#cil-arrow-thick-from-top')), class: "nav-icon text-danger", style: "width: 20px; height: 20px;") -%>（表格第2列）完成文字评论；</p>
+<p class="mt-2">请对员工的以下维度进行评分，并点开向下箭头 <%= content_tag(:svg, content_tag(:use, nil, "xlink:href": asset_path('free.svg#cil-arrow-thick-from-top')), class: "nav-icon text-danger", style: "width: 20px; height: 20px;") -%>（表格第 2 列）完成文字评论；</p>
 <p>点击【保存】，保存修改并重新计算绩效分值；</p>
 <p>点击【确认并提交】，确认评分并进入下一步；</p>
-<p>本阶段待改善点及下阶段目标/发展计划需在<strong class="text-danger">20字</strong>以上；</p>
+<p>本阶段待改善点及下阶段目标/发展计划需在<strong class="text-danger">20 字</strong>以上；</p>
 <p>绩效等级 : A+ 优秀;A 优良 ;B 合格:C 待提高;D 不合格。</p>
-<p><strong>如您需要回看线上文字评价案例(含“绩效面谈”提纲)请点击链接:</strong> <a href="/system/Performance-feedback-courseware_v2.pdf" target="_blank" class="text-danger">参考资料</a></p>
+<p><strong>如您需要回看线上文字评价案例 (含“绩效面谈”提纲) 请点击链接：</strong> <a href="/system/Performance-feedback-courseware_v2.pdf" target="_blank" class="text-danger">参考资料</a></p>
 
 <%= content_tag :h4, class: 'my-4', id: 'i18n-root',
   data: {review: @review_labels,
@@ -21,7 +21,7 @@
   <%= t("evaluation.staff_level") %>
 <% end %>
 
-<% if @staff_table_headers.length > 1 %>
+<% if @staff_table_headers.length > 2 %>
   <div class="row justify-content-center mt-2">
     <div class="col-lg-12">
       <%= content_tag :div, nil, id: "staff-mark", data: {header: @staff_table_headers} %>
@@ -35,8 +35,8 @@
   </div>
 <% end %>
 
-<%# Table header number is 1 and build at table_headers_of_capability  %>
-<% if @manager_a_table_headers.length > 1 %>
+<%# Table header number is 2 and build at table_headers_of_capability  %>
+<% if @manager_a_table_headers.length > 2 %>
   <h4 class="my-4"><%= t("evaluation.manager_level_a") %></h4>
 
   <div class="row justify-content-center mt-2">
@@ -46,7 +46,7 @@
   </div>
 <% end %>
 
-<% if @manager_b_table_headers.length > 1 %>
+<% if @manager_b_table_headers.length > 2 %>
   <h4 class="my-4"><%= t("evaluation.manager_level_b") %></h4>
 
   <div class="row justify-content-center mt-2">
@@ -57,7 +57,7 @@
 <% end %>
 
 
-<% if @auxiliary_table_headers.length > 1 %>
+<% if @auxiliary_table_headers.length > 2 %>
   <h4 class="my-4"><%= t("evaluation.auxiliary_level") %></h4>
 
   <div class="row justify-content-center mt-2">
