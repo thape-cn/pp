@@ -5,6 +5,12 @@
 <div class="row justify-content-center">
   <div class="col-lg-12">
     <div class="container">
+      <nav class="d-flex justify-content-center">
+        <div class="nav nav-tabs" role="tablist" id="switch-nav">
+          <button class="nav-link" type="button" role="tab" aria-controls="nav-square" aria-selected="true"><%= I18n.t("form.nine_square_grid") -%></button>
+          <button class="nav-link active" type="button" role="tab" aria-controls="nav-table" aria-selected="false"><%= I18n.t("form.table_grid") -%></button>
+        </div>
+      </nav>
       <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
       <% case company_evaluation_template.group_level %>
       <% when 'staff' %>

@@ -7,8 +7,8 @@ module Staff
     before_action :check_brower, only: %i[show], if: -> { request.format.html? }
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
-    before_action :set_calibration_session, only: %i[show update finalize_calibration fixed]
-    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index fixed]
+    before_action :set_calibration_session, only: %i[show update finalize_calibration table]
+    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index table]
 
     def index
       add_to_breadcrumbs t(".title")
@@ -125,7 +125,7 @@ module Staff
       @calibration_session.update(session_status: "proofreading")
     end
 
-    def fixed
+    def table
       add_to_breadcrumbs t("layouts.sidebars.staff.calibration_session"), staff_calibration_sessions_path
       add_to_breadcrumbs t(".title")
     end

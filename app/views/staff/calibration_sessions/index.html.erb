@@ -55,7 +55,7 @@
                 <%= CalibrationSession.session_status_options.invert[calibration_session.session_status] -%>
               </td>
               <td>
-                <%= link_to fixed_staff_calibration_session_path(id: calibration_session.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.excerpt") } do -%>
+                <%= link_to table_staff_calibration_session_path(id: calibration_session.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.excerpt") } do -%>
                   <%= svg_icon('free.svg#cil-excerpt', %w[icon icon-lg]) -%>
                 <% end %>
                 <% if calibration_session.session_status.in?(%w[proofreading]) %>

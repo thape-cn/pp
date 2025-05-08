@@ -176,9 +176,9 @@ function CalibratioTable() {
   <>
     {createPortal(
       <>
-        <button onClick={handleSaveAndSwitch} className="nav-link" type="button" role="tab" aria-controls="nav-home"
+        <button onClick={handleSaveAndSwitch} className="nav-link" type="button" role="tab" aria-controls="nav-square"
                 aria-selected="false">{calibrationTableLabels().nine_square_grid}</button>
-        <button className="nav-link active" type="button" role="tab" aria-controls="nav-profile"
+        <button className="nav-link active" type="button" role="tab" aria-controls="nav-table"
                 aria-selected="true">{calibrationTableLabels().table_grid}</button>
       </>,
       document.getElementById("switch-nav")

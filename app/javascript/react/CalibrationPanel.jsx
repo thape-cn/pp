@@ -157,8 +157,8 @@ function CalibrationPanel() {
   <DndProvider backend={HTML5Backend}>
     {createPortal(
       <>
-        <button className="nav-link active" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{calibrationLabels().nine_square_grid}</button>
-        <button onClick={handleSaveAndSwitch} className="nav-link" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{calibrationLabels().table_grid}</button>
+        <button className="nav-link active" type="button" role="tab" aria-controls="nav-square" aria-selected="true">{calibrationLabels().nine_square_grid}</button>
+        <button onClick={handleSaveAndSwitch} className="nav-link" type="button" role="tab" aria-controls="nav-table" aria-selected="false">{calibrationLabels().table_grid}</button>
       </>,
       document.getElementById("switch-nav")
     )}

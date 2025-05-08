@@ -62,7 +62,7 @@ class CalibrationSessionPolicy < ApplicationPolicy
     destroy_confirm?
   end
 
-  def fixed?
+  def table?
     user.present?
   end
 
