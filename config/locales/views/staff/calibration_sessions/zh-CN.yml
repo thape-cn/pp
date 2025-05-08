@@ -9,5 +9,7 @@ zh-CN:
         waiting_score: "该绩效校准还在等待上级打分。"
         finalized: "该绩效校准已经定案。"
         can_not_start: "该绩效校准会话未激活。"
+      square:
+        title: "校验会话明细 - 九宫格"
       table:
-        title: "校验会话明细"
+        title: "校验会话明细 - 表格"

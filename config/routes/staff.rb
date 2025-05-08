@@ -31,6 +31,7 @@ namespace :staff do
   resources :calibration_sessions, only: %i[index show update] do
     member do
       put :finalize_calibration
+      get :square
       get :table
     end
     collection do

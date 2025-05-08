@@ -62,6 +62,10 @@ class CalibrationSessionPolicy < ApplicationPolicy
     destroy_confirm?
   end
 
+  def square?
+    user.present?
+  end
+
   def table?
     user.present?
   end

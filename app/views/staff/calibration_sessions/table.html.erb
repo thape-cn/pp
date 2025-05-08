@@ -7,8 +7,8 @@
     <div class="container">
       <nav class="d-flex justify-content-center">
         <div class="nav nav-tabs" role="tablist" id="switch-nav">
-          <button class="nav-link" type="button" role="tab" aria-controls="nav-square" aria-selected="true"><%= I18n.t("form.nine_square_grid") -%></button>
-          <button class="nav-link active" type="button" role="tab" aria-controls="nav-table" aria-selected="false"><%= I18n.t("form.table_grid") -%></button>
+          <%= link_to I18n.t("form.nine_square_grid"), square_staff_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-square", "aria-selected": "true", class: "nav-link" -%>
+          <%= link_to I18n.t("form.table_grid"), table_staff_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-table", "aria-selected": "false", class: "nav-link active" -%>
         </div>
       </nav>
       <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
