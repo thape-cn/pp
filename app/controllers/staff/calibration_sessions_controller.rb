@@ -128,6 +128,19 @@ module Staff
     def square
       add_to_breadcrumbs t("layouts.sidebars.staff.calibration_session"), staff_calibration_sessions_path
       add_to_breadcrumbs t(".title")
+
+      group_level = @calibration_session.calibration_template.company_evaluation_template.group_level
+
+      case group_level
+      when "staff"
+        render "staff_square"
+      when "auxiliary"
+        render "auxiliary_square"
+      when "manager_a"
+        render "manager_a_square"
+      when "manager_b"
+        render "manager_b_square"
+      end
     end
 
     def table
