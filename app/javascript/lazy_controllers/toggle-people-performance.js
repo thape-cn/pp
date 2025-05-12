@@ -11,9 +11,6 @@ Stimulus.register("toggle-people-performance", class extends Controller {
   }
 
   toggle() {
-    console.log(this.iconTarget);
-    console.log(this.expandIconValue);
-    console.log(this.shrinkIconValue);
     get(`${this.urlValue}&expanded=${this.expandedValue}`).then((response) => {
       if (response.ok) {
         const result_text = response.text;
