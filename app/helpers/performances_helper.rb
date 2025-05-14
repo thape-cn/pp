@@ -11,6 +11,8 @@ module PerformancesHelper
           cp_manager_a_performance_path(id: euc.id)
         elsif current_user.hr_staff?
           hr_manager_a_performance_path(id: euc.id)
+        else
+          overall_text_staff_evaluation_user_capability_path(id: euc.id)
         end
       when "manager_b"
         if current_user.admin?
@@ -19,6 +21,8 @@ module PerformancesHelper
           cp_manager_b_performance_path(id: euc.id)
         elsif current_user.hr_staff?
           hr_manager_b_performance_path(id: euc.id)
+        else
+          overall_text_staff_evaluation_user_capability_path(id: euc.id)
         end
       when "auxiliary"
         if current_user.admin?
@@ -27,6 +31,8 @@ module PerformancesHelper
           cp_auxiliary_performance_path(id: euc.id)
         elsif current_user.hr_staff?
           hr_auxiliary_performance_path(id: euc.id)
+        else
+          overall_text_staff_evaluation_user_capability_path(id: euc.id)
         end
       else
         if current_user.admin?
@@ -35,6 +41,8 @@ module PerformancesHelper
           cp_staff_performance_path(id: euc.id)
         elsif current_user.hr_staff?
           hr_staff_performance_path(id: euc.id)
+        else
+          overall_text_staff_evaluation_user_capability_path(id: euc.id)
         end
       end
       concat(content_tag(:span, class: "btn btn-light rounded-pill m-1") do
