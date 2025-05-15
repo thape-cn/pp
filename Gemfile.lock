@@ -419,7 +419,7 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
       rubocop-ast (>= 1.38.0, < 2.0)
-    ruby-lsp (0.23.19)
+    ruby-lsp (0.23.20)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
@@ -448,7 +448,7 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
-    sorbet-runtime (0.5.12087)
+    sorbet-runtime (0.5.12099)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
@@ -571,4 +571,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.6.8
+   2.6.9
