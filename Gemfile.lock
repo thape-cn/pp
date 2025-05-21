@@ -174,7 +174,7 @@ GEM
       devise (>= 4.9.0)
       rails-i18n
     domain_name (0.6.20240107)
-    drb (2.2.1)
+    drb (2.2.3)
     ed25519 (1.4.0)
     email_validator (2.2.4)
       activemodel
@@ -450,7 +450,7 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
-    sorbet-runtime (0.5.12117)
+    sorbet-runtime (0.5.12119)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
