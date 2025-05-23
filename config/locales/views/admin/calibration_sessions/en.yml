@@ -10,6 +10,8 @@ en:
         title: "Edit calibration session"
       show:
         title: "Calibration session detail"
+      square:
+        title: "Calibration session detail in square"
       undo_confirm:
         title: "Confirm entire group recalibration?"
       approve_confirm:

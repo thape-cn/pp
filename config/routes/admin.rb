@@ -106,6 +106,7 @@ namespace :admin do
       get :undo_confirm
       put :undo
       get :destroy_confirm
+      get :square
     end
     collection do
       get :expender

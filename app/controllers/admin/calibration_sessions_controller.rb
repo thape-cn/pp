@@ -3,8 +3,8 @@ module Admin
     include Pagy::Backend
     after_action :verify_authorized, except: %i[index expender calculate]
     after_action :verify_policy_scoped, only: :index
-    before_action :set_calibration_session, only: %i[show edit update approve_confirm approve undo_confirm undo destroy_confirm destroy]
-    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index show]
+    before_action :set_calibration_session, only: %i[show square edit update approve_confirm approve undo_confirm undo destroy_confirm destroy]
+    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index show square]
 
     def index
       @owner_judge_id = params[:owner_judge_id]
@@ -40,6 +40,12 @@ module Admin
 
     def show
       add_to_breadcrumbs t("layouts.sidebars.admin.calibration_session"), admin_calibration_sessions_path
+      add_to_breadcrumbs t(".title")
+    end
+
+    def square
+      add_to_breadcrumbs t("layouts.sidebars.admin.calibration_session"), admin_calibration_sessions_path
+      add_to_breadcrumbs t("admin.calibration_sessions.show.title"), admin_calibration_session_path(id: @calibration_session.id)
       add_to_breadcrumbs t(".title")
     end
 

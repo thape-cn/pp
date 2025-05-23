@@ -4,12 +4,14 @@ zh-CN:
     calibration_sessions:
       index:
         title: "校验会话"
-      show:
-        title: "校验会话明细"
-      edit:
-        title: "编辑校验会话"
       new:
         title: "上传文件以发起新校准"
+      edit:
+        title: "编辑校验会话"
+      show:
+        title: "校验会话明细"
+      square:
+        title: "校验会话明细 - 九宫格"
       undo_confirm:
         title: "确认整组重新校准？"
       approve_confirm:
