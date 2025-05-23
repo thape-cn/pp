@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 387814ecc5821696ae68da1448b68690b13f8b14
+  revision: bb800a025f3e5faf674d05c648bc645278a2d322
   branch: main
   specs:
     wechat (1.0.0)
@@ -450,7 +450,7 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
-    sorbet-runtime (0.5.12119)
+    sorbet-runtime (0.5.12123)
     sqlite3 (2.6.0-aarch64-linux-gnu)
     sqlite3 (2.6.0-arm-linux-gnu)
     sqlite3 (2.6.0-arm64-darwin)
