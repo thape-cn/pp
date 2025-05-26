@@ -1,0 +1,95 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
+<div class="row justify-content-center">
+  <div class="col-lg-12">
+    <div class="container">
+      <nav class="d-flex justify-content-center">
+        <div class="nav nav-tabs" role="tablist" id="switch-nav">
+          <%= link_to I18n.t("form.nine_square_grid"), square_admin_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-square", "aria-selected": "true", class: "nav-link active" -%>
+          <%= link_to I18n.t("form.table_grid"), table_admin_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-table", "aria-selected": "false", class: "nav-link" -%>
+        </div>
+      </nav>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td rowspan="4" class="text-end"><%= t("evaluation.work_load_pct") -%></td>
+            <td class="position-relative border border-primary bg-primary">
+              <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+            <td class="position-relative border border-primary bg-info">
+              <% eucs = @evaluation_user_capabilities_group.fetch("12", []) %>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+            <td class="position-relative border border-primary bg-info">
+              <% eucs = @evaluation_user_capabilities_group.fetch("13", []) %>
+              <h5>A+ <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="position-relative border border-primary bg-warning">
+              <% eucs = @evaluation_user_capabilities_group.fetch("21", []) %>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+            <td class="position-relative border border-primary bg-primary">
+              <% eucs = @evaluation_user_capabilities_group.fetch("22", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+            <td class="position-relative border border-primary bg-info">
+              <% eucs = @evaluation_user_capabilities_group.fetch("23", []) %>
+              <h5>A <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="position-relative border border-primary bg-warning">
+              <% eucs = @evaluation_user_capabilities_group.fetch("31", []) %>
+              <h5>D <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+            <td class="position-relative border border-primary bg-warning">
+              <% eucs = @evaluation_user_capabilities_group.fetch("32", []) %>
+              <h5>C <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+            <td class="position-relative border border-primary bg-primary">
+              <% eucs = @evaluation_user_capabilities_group.fetch("33", []) %>
+              <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
+              <div class="min-width-td">
+                <%= display_evaluation_user_capabilities(eucs) -%>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="text-end">
+              <%= t("evaluation.work_quality_pct") %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 

@@ -47,6 +47,25 @@ module Admin
       add_to_breadcrumbs t("layouts.sidebars.admin.calibration_session"), admin_calibration_sessions_path
       add_to_breadcrumbs t("admin.calibration_sessions.show.title"), admin_calibration_session_path(id: @calibration_session.id)
       add_to_breadcrumbs t(".title")
+
+      group_level = @calibration_session.calibration_template.company_evaluation_template.group_level
+
+      evaluation_user_capabilities = @calibration_session.calibration_session_users.collect(&:evaluation_user_capability)
+      @total_people_num = evaluation_user_capabilities.length
+      case group_level
+      when "staff"
+        @evaluation_user_capabilities_group = staff_group(evaluation_user_capabilities)
+        render "staff_square"
+      when "auxiliary"
+        @evaluation_user_capabilities_group = manager_group_a(evaluation_user_capabilities)
+        render "auxiliary_square"
+      when "manager_a"
+        @evaluation_user_capabilities_group = manager_group_a(evaluation_user_capabilities)
+        render "manager_a_square"
+      when "manager_b"
+        @evaluation_user_capabilities_group = manager_group_b(evaluation_user_capabilities)
+        render "manager_b_square"
+      end
     end
 
     def new
