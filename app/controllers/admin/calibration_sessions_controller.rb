@@ -1,6 +1,8 @@
 module Admin
   class CalibrationSessionsController < BaseController
     include Pagy::Backend
+    include StaffManagerGroup
+
     after_action :verify_authorized, except: %i[index expender calculate]
     after_action :verify_policy_scoped, only: :index
     before_action :set_calibration_session, only: %i[show square edit update approve_confirm approve undo_confirm undo destroy_confirm destroy]

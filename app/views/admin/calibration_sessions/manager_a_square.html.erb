@@ -8,7 +8,7 @@
       <nav class="d-flex justify-content-center">
         <div class="nav nav-tabs" role="tablist" id="switch-nav">
           <%= link_to I18n.t("form.nine_square_grid"), square_admin_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-square", "aria-selected": "true", class: "nav-link active" -%>
-          <%= link_to I18n.t("form.table_grid"), table_admin_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-table", "aria-selected": "false", class: "nav-link" -%>
+          <%= link_to I18n.t("form.table_grid"), admin_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-table", "aria-selected": "false", class: "nav-link" -%>
         </div>
       </nav>
       <table class="table table-borderless">
