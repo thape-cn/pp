@@ -58,16 +58,6 @@
                 <%= link_to table_staff_calibration_session_path(id: calibration_session.id), data: {"coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.excerpt") } do -%>
                   <%= svg_icon('free.svg#cil-excerpt', %w[icon icon-lg]) -%>
                 <% end %>
-                <% if calibration_session.session_status.in?(%w[proofreading]) %>
-                  <%= link_to approve_confirm_staff_proofreading_calibration_session_path(id: calibration_session.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("calibration.approve") }, class: "ms-1" do -%>
-                    <%= svg_icon('free.svg#cil-check-alt', %w[icon icon-lg]) -%>
-                  <% end %>
-                  <% if calibration_session.can_undo? %>
-                    <%= link_to undo_confirm_staff_proofreading_calibration_session_path(id: calibration_session.id), class: "ms-1", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("calibration.undo_group") } do -%>
-                      <%= svg_icon('free.svg#cil-action-undo', %w[icon icon-lg rotate_90]) -%>
-                    <% end %>
-                  <% end %>
-                <% end %>
               </td>
             </tr>
           <% end %>
