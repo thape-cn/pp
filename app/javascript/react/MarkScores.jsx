@@ -95,6 +95,18 @@ function MarkScores({group_level}) {
       const extended_mark_scores_table_header = original_mark_scores_table_header.map(column => ({
         ...column,
         Header: () => <PopoversHeader header={column.Header} accessor={column.accessor} description={column.description} />,
+        sortType: (rowA, rowB, columnId) => {
+          if ("raw_total_evaluation_score_raw" == columnId)
+            columnId = "raw_total_evaluation_score"
+          const a = parseFloat(rowA.values[columnId]);
+          const b = parseFloat(rowB.values[columnId]);
+
+          if (isNaN(a) || isNaN(b)) {
+            return String(rowA.values[columnId]).localeCompare(String(rowB.values[columnId]));
+          }
+
+          return a - b;
+        }
       }));
 
       return [
