@@ -6,4 +6,4 @@ zh-CN:
         breadcrumb_title: "%{title}"
       edit:
         title: "编辑员工考评"
-        calibration_status_change_notice: "若想更改考评状态到'校验'，请移步到校验会话中进行打回操作，因为校验会话的状态独立于表单本身的状态。"
+        calibration_status_change_notice: "如考评状态在‘校验’，请移步到校验会话中进行打回操作。点击前往"
