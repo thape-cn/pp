@@ -16,7 +16,7 @@ class SentSelfAssessmentRemindWecomJob
 
       sent_message = <<~HELLO
         【绩效评价通知】
-        2024年年底绩效评价已开始，请尽快登录绩效系统，完成员工自评。
+        2025年年中绩效评价已开始，请尽快登录绩效系统，完成员工自评。
         登录链接：https://performance.thape.com.cn/
       HELLO
 
