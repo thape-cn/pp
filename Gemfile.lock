@@ -251,7 +251,7 @@ GEM
       net-pop
       net-smtp
     marcel (1.0.4)
-    matrix (0.4.2)
+    matrix (0.4.3)
     meta-tags (2.22.1)
       actionpack (>= 6.0.0, < 8.1)
     mini_mime (1.1.5)
@@ -304,7 +304,7 @@ GEM
       validate_url
       webfinger (~> 2.0)
     orm_adapter (0.5.0)
-    ostruct (0.6.1)
+    ostruct (0.6.2)
     package_json (0.1.0)
     pagy (9.3.4)
     parallel (1.27.0)
@@ -386,7 +386,7 @@ GEM
     rake (13.3.0)
     rbs (3.9.4)
       logger
-    rdoc (6.14.0)
+    rdoc (6.14.1)
       erb
       psych (>= 4.0.0)
     redcarpet (3.6.1)
@@ -449,7 +449,7 @@ GEM
       logger (>= 1.6.2)
       rack (>= 3.1.0)
       redis-client (>= 0.23.2)
-    sorbet-runtime (0.5.12184)
+    sorbet-runtime (0.5.12189)
     sqlite3 (2.7.0-aarch64-linux-gnu)
     sqlite3 (2.7.0-arm-linux-gnu)
     sqlite3 (2.7.0-arm64-darwin)
