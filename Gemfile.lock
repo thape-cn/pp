@@ -127,13 +127,13 @@ GEM
     capistrano-rbenv (2.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.3)
-    capistrano-sidekiq (3.0.0)
+    capistrano-sidekiq (3.2.0)
       capistrano (>= 3.9.0)
       capistrano-bundler
-      sidekiq (>= 6.0.6)
+      sidekiq (>= 7.0)
     capistrano-yarn (2.0.2)
       capistrano (~> 3.0)
-    capistrano3-puma (6.1.0)
+    capistrano3-puma (6.2.0)
       capistrano (~> 3.7)
       capistrano-bundler
       puma (>= 5.1, < 7.0)
