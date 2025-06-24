@@ -4,7 +4,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       elsif user.corp_president?
-        managed_company_user_ids = scope
+        managed_company_user_ids = UserJobRole
           .where(company: user.corp_president_managed_companies.pluck(:managed_company))
           .pluck(:user_id)
         owned_user_ids = user.owned_calibration_sessions
