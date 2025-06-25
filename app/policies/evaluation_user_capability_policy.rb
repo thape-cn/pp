@@ -85,11 +85,11 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   def show?
     return true if user.admin?
 
-    cp_managed_companies = user.corp_president_managed_companies.pluck(:managed_company)
-    return true if cp_managed_companies.include?(record.company)
+    cp_managed_company_user_ids = UserJobRole.where(company: user.corp_president_managed_companies.pluck(:managed_company)).pluck(:user_id)
+    return true if cp_managed_company_user_ids.include?(record.user_id)
 
-    hr_bp_managed_companies = user.hr_user_managed_companies.pluck(:managed_company)
-    return true if hr_bp_managed_companies.include?(record.company)
+    hr_managed_company_user_ids = UserJobRole.where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
+    return true if hr_managed_company_user_ids.include?(record.user_id)
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
@@ -104,8 +104,8 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   def print?
     return true if user.admin?
 
-    hr_bp_managed_companies = user.hr_user_managed_companies.pluck(:managed_company)
-    return true if hr_bp_managed_companies.include?(record.company)
+    hr_managed_company_user_ids = UserJobRole.where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
+    return true if hr_managed_company_user_ids.include?(record.user_id)
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
