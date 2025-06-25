@@ -23,6 +23,9 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
           .or(scope.where(manager_user_id: user.id))
           .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids + managed_company_user_ids).uniq))
       elsif user.hr_staff?
+        managed_company_user_ids = UserJobRole
+          .where(company: user.hr_user_managed_companies.pluck(:managed_company))
+          .pluck(:user_id)
         owned_user_ids = user.owned_calibration_sessions
           .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
           .collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
@@ -37,7 +40,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         scope.where(company: user.hr_user_managed_companies.pluck(:managed_company))
           .or(scope.where(user_id: user.id))
           .or(scope.where(manager_user_id: user.id))
-          .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids).uniq))
+          .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids + managed_company_user_ids).uniq))
       elsif user.secretary?
         scope.where(dept_code: user.secretary_managed_departments.pluck(:managed_dept_code))
           .or(scope.where(user_id: user.id))
