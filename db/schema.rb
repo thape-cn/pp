@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_30_061507) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_30_080206) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -127,6 +127,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_30_061507) do
     t.decimal "team_atmosphere", precision: 5, scale: 2
     t.integer "calibration_management_score"
     t.integer "calibration_profession_score"
+    t.decimal "architectural_representation_presentation", precision: 5, scale: 2
     t.index ["deleted_user_id"], name: "index_archived_evaluation_user_capabilities_on_deleted_user_id"
   end
 
