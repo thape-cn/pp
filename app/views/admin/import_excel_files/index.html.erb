@@ -30,8 +30,9 @@
                 <% end %>
               </td>
               <td>
-                <%= link_to ief.excel_file.filename, rails_blob_path(ief.excel_file, disposition: "attachment"), data: { "coreui-title" => ief.title, "coreui-toggle" => "tooltip", "coreui-placement" => "top" } -%>
-
+                <% if ief.excel_file.present? %>
+                  <%= link_to ief.excel_file.filename, rails_blob_path(ief.excel_file, disposition: "attachment"), data: { "coreui-title" => ief.title, "coreui-toggle" => "tooltip", "coreui-placement" => "top" } -%>
+                <% end %>
               </td>
               <td><%= local_time(ief.created_at) -%></td>
               <td>
