@@ -4,7 +4,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
       if user.admin?
         scope.all
       elsif user.corp_president?
-        managed_company_user_ids = UserJobRole
+        managed_company_user_ids = UserJobRole.where(is_active: true)
           .where(company: user.corp_president_managed_companies.pluck(:managed_company))
           .pluck(:user_id)
         owned_user_ids = user.owned_calibration_sessions
@@ -23,7 +23,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
           .or(scope.where(manager_user_id: user.id))
           .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids + managed_company_user_ids).uniq))
       elsif user.hr_staff?
-        managed_company_user_ids = UserJobRole
+        managed_company_user_ids = UserJobRole.where(is_active: true)
           .where(company: user.hr_user_managed_companies.pluck(:managed_company))
           .pluck(:user_id)
         owned_user_ids = user.owned_calibration_sessions
@@ -85,10 +85,10 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   def show?
     return true if user.admin?
 
-    cp_managed_company_user_ids = UserJobRole.where(company: user.corp_president_managed_companies.pluck(:managed_company)).pluck(:user_id)
+    cp_managed_company_user_ids = UserJobRole.where(is_active: true).where(company: user.corp_president_managed_companies.pluck(:managed_company)).pluck(:user_id)
     return true if cp_managed_company_user_ids.include?(record.user_id)
 
-    hr_managed_company_user_ids = UserJobRole.where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
+    hr_managed_company_user_ids = UserJobRole.where(is_active: true).where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
     return true if hr_managed_company_user_ids.include?(record.user_id)
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
@@ -104,7 +104,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   def print?
     return true if user.admin?
 
-    hr_managed_company_user_ids = UserJobRole.where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
+    hr_managed_company_user_ids = UserJobRole.where(is_active: true).where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
     return true if hr_managed_company_user_ids.include?(record.user_id)
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
