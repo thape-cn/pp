@@ -66,4 +66,11 @@
   <% end %>
   </tbody>
 </table>
-<%== pagy_bootstrap_nav(pagy) %>
+<div class="d-flex justify-content-between align-items-center mt-3">
+  <div>
+    <%== pagy_info(pagy) %>
+  </div>
+  <div>
+    <%== pagy_bootstrap_nav(pagy) %>
+  </div>
+</div>
