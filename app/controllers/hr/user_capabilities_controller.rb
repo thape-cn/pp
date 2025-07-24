@@ -20,7 +20,7 @@ module HR
       set_meta_tags(title: title)
       evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
         .joins(:company_evaluation_template)
-        .includes(:user, :job_role, :manager_user)
+        .includes(:user, :job_role, :manager_user, :company_evaluation_template)
         .where(company_evaluation_template: {company_evaluation_id: @company_evaluation.id})
       @all_companies = policy_scope(EvaluationUserCapability)
         .joins(:company_evaluation_template)

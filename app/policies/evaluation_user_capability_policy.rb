@@ -53,13 +53,15 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
 
     def calibration_related_user_ids
       owned_user_ids = user.owned_calibration_sessions
+        .includes(:calibration_session_users)
         .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
         .collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
       hr_reviewed_user_ids = user.hr_reviewed_calibration_sessions
+        .includes(:calibration_session_users)
         .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
         .collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
       judge_user_ids = user.calibration_session_judges
-        .includes(:calibration_session)
+        .includes(calibration_session: :calibration_session_users)
         .where(calibration_session: {calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids})
         .collect { |csj| csj.calibration_session.calibration_session_users.collect(&:user_id) }.flatten
       (owned_user_ids + hr_reviewed_user_ids + judge_user_ids).uniq
