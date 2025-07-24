@@ -22,6 +22,33 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
           .or(scope.where(user_id: user.id))
           .or(scope.where(manager_user_id: user.id))
           .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids + managed_company_user_ids).uniq))
+      elsif user.hr_staff? && user.hr_bp?
+        managed_company_user_ids = UserJobRole.where(is_active: true)
+          .where(company: user.hr_user_managed_companies.pluck(:managed_company))
+          .pluck(:user_id)
+
+        owned_user_ids = user.owned_calibration_sessions
+          .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
+          .collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
+        hr_reviewed_user_ids = user.hr_reviewed_calibration_sessions
+          .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
+          .collect { |cs| cs.calibration_session_users.collect(&:user_id) }.flatten
+        judge_user_ids = user.calibration_session_judges
+          .includes(:calibration_session)
+          .where(calibration_session: {calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids})
+          .collect { |csj| csj.calibration_session.calibration_session_users.collect(&:user_id) }.flatten
+
+        hr_staff_scope = scope.where(company: user.hr_user_managed_companies.pluck(:managed_company))
+          .or(scope.where(user_id: user.id))
+          .or(scope.where(manager_user_id: user.id))
+          .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids + managed_company_user_ids).uniq))
+
+        hr_bp_scope = scope.where(dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code))
+          .or(scope.where(user_id: user.id))
+          .or(scope.where(manager_user_id: user.id))
+          .or(scope.where(user_id: (owned_user_ids + hr_reviewed_user_ids + judge_user_ids).uniq))
+
+        hr_staff_scope.or(hr_bp_scope)
       elsif user.hr_staff?
         managed_company_user_ids = UserJobRole.where(is_active: true)
           .where(company: user.hr_user_managed_companies.pluck(:managed_company))
