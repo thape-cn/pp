@@ -5,21 +5,22 @@ class UserPolicy < ApplicationPolicy
         return scope.includes(:user_job_roles)
       end
 
-      scopes = [scope.where(id: user.id)]
+      base_scope = scope.includes(:user_job_roles)
+      scopes = [base_scope.where(id: user.id)]
 
       if user.corp_president?
-        scopes << scope.includes(:user_job_roles).where(user_job_roles: {company: user.corp_president_managed_companies.collect(&:managed_company)})
+        scopes << base_scope.where(user_job_roles: {company: user.corp_president_managed_companies.collect(&:managed_company)})
       else
         if user.hr_staff?
-          scopes << scope.includes(:user_job_roles).where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
+          scopes << base_scope.where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
         end
 
         if user.hr_bp?
-          scopes << scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
+          scopes << base_scope.where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
         end
 
         if user.secretary?
-          scopes << scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.secretary_managed_departments.pluck(:managed_dept_code)})
+          scopes << base_scope.where(user_job_roles: {dept_code: user.secretary_managed_departments.pluck(:managed_dept_code)})
         end
       end
 
