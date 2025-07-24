@@ -6,6 +6,13 @@ class UserPolicy < ApplicationPolicy
       elsif user.corp_president?
         scope.includes(:user_job_roles).where(user_job_roles: {company: user.corp_president_managed_companies.collect(&:managed_company)})
           .or(scope.where(id: user.id))
+      elsif user.hr_staff? && user.hr_bp?
+        scope.includes(:user_job_roles)
+          .where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
+          .or(
+               scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
+             )
+          .or(scope.where(id: user.id))
       elsif user.hr_staff?
         scope.includes(:user_job_roles).where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
           .or(scope.where(id: user.id))
