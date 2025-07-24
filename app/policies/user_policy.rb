@@ -2,29 +2,29 @@ class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin?
-        scope.includes(:user_job_roles)
-      elsif user.corp_president?
-        scope.includes(:user_job_roles).where(user_job_roles: {company: user.corp_president_managed_companies.collect(&:managed_company)})
-          .or(scope.where(id: user.id))
-      elsif user.hr_staff? && user.hr_bp?
-        scope.includes(:user_job_roles)
-          .where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
-          .or(
-               scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
-             )
-          .or(scope.where(id: user.id))
-      elsif user.hr_staff?
-        scope.includes(:user_job_roles).where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
-          .or(scope.where(id: user.id))
-      elsif user.secretary?
-        scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.secretary_managed_departments.pluck(:managed_dept_code)})
-          .or(scope.where(id: user.id))
-      elsif user.hr_bp?
-        scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
-          .or(scope.where(id: user.id))
-      else
-        scope.where(id: user.id)
+        return scope.includes(:user_job_roles)
       end
+
+      scopes = [scope.where(id: user.id)]
+
+      if user.corp_president?
+        scopes << scope.includes(:user_job_roles).where(user_job_roles: {company: user.corp_president_managed_companies.collect(&:managed_company)})
+      else
+        if user.hr_staff?
+          scopes << scope.includes(:user_job_roles).where(user_job_roles: {company: user.hr_user_managed_companies.collect(&:managed_company)})
+        end
+
+        if user.hr_bp?
+          scopes << scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code)})
+        end
+
+        if user.secretary?
+          scopes << scope.includes(:user_job_roles).where(user_job_roles: {dept_code: user.secretary_managed_departments.pluck(:managed_dept_code)})
+        end
+      end
+
+      return scopes.compact.reduce { |combined_scope, s| combined_scope.or(s) } if scopes.size > 1
+      scopes.first
     end
   end
 
