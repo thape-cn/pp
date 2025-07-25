@@ -180,7 +180,7 @@ GEM
       activemodel
     erb (5.0.2)
     erubi (1.13.1)
-    faraday (2.13.3)
+    faraday (2.13.4)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
@@ -308,7 +308,7 @@ GEM
     package_json (0.1.0)
     pagy (9.3.5)
     parallel (1.27.0)
-    parser (3.3.8.0)
+    parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
     pp (0.6.2)
