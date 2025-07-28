@@ -58,7 +58,7 @@ gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
 gem "edoc2-api", git: "https://git.thape.com.cn/rails/edoc2-api.git", branch: :main
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+gem "tzinfo-data", platforms: %i[windows jruby]
 
 gem "sidekiq"
 
@@ -69,7 +69,7 @@ gem "whenever", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", "~> 1.10", platforms: %i[mri mingw x64_mingw]
+  gem "debug", "~> 1.10"
 
   gem "standard"
 end
