@@ -53,6 +53,7 @@ gem "local_time"
 
 # bundle config local.wechat /Users/guochunzhong/git/oss/wechat/
 gem "wechat", git: "https://git.thape.com.cn/Eric-Guo/wechat.git", branch: :main
+gem "httpx"
 
 # bundle config local.edoc2-api /Users/guochunzhong/git/sso/edoc2-api/
 gem "edoc2-api", git: "https://git.thape.com.cn/rails/edoc2-api.git", branch: :main

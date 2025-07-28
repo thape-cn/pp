@@ -540,6 +540,7 @@ DEPENDENCIES
   ed25519
   edoc2-api!
   ferrum
+  httpx
   jbuilder
   local_time
   mail (= 2.8.1)
