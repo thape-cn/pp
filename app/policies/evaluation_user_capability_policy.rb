@@ -12,7 +12,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         scope.where(company: user.corp_president_managed_companies.pluck(:managed_company))
           .or(scope.where(manager_user_id: user.id))
           .or(scope.where(user_id: all_related_user_ids))
-      elsif user.hr_staff? && (user.hr_bp? || user.secretary?)
+      elsif user.hr_staff? && user.hr_bp?
         managed_company_user_ids = UserJobRole.where(is_active: true)
           .where(company: user.hr_user_managed_companies.pluck(:managed_company))
           .pluck(:user_id)
@@ -20,9 +20,8 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
 
         hr_staff_scope = scope.where(company: user.hr_user_managed_companies.pluck(:managed_company))
         hr_bp_scope = scope.where(dept_code: user.hrbp_user_managed_departments.pluck(:managed_dept_code))
-        secretary_scope = user.secretary? ? scope.where(dept_code: user.secretary_managed_departments.pluck(:managed_dept_code)) : scope.none
 
-        hr_staff_scope.or(hr_bp_scope).or(secretary_scope)
+        hr_staff_scope.or(hr_bp_scope)
           .or(scope.where(manager_user_id: user.id))
           .or(scope.where(user_id: all_related_user_ids))
       elsif user.hr_staff? && user.secretary?
@@ -98,9 +97,6 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
 
-    secretary_user_managed_departments = user.secretary_managed_departments.pluck(:managed_dept_code)
-    return true if secretary_user_managed_departments.include?(record.dept_code)
-
     record.user_id == user.id ||
       record.manager_user&.id == user.id ||
       record.calibration_session_users.any? { |csu| csu.calibration_session.owner_id == user.id } ||
@@ -116,9 +112,6 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
-
-    secretary_user_managed_departments = user.secretary_managed_departments.pluck(:managed_dept_code)
-    return true if secretary_user_managed_departments.include?(record.dept_code)
 
     record.user_id == user.id ||
       record.manager_user&.id == user.id ||
