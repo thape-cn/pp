@@ -12,6 +12,12 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         scope.where(company: user.corp_president_managed_companies.pluck(:managed_company))
           .or(scope.where(manager_user_id: user.id))
           .or(scope.where(user_id: all_related_user_ids))
+      elsif user.hr_bp? && user.secretary?
+        all_related_user_ids = (calibration_related_user_ids + [user.id]).uniq
+        dept_codes = user.hrbp_user_managed_departments.pluck(:managed_dept_code) + user.secretary_managed_departments.pluck(:managed_dept_code)
+        scope.where(dept_code: dept_codes)
+          .or(scope.where(manager_user_id: user.id))
+          .or(scope.where(user_id: all_related_user_ids))
       elsif user.hr_staff? && user.hr_bp?
         managed_company_user_ids = UserJobRole.where(is_active: true)
           .where(company: user.hr_user_managed_companies.pluck(:managed_company))
