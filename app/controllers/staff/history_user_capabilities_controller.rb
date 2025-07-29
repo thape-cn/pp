@@ -17,7 +17,7 @@ module Staff
         .includes(:user, :job_role, :manager_user)
         .where(company_evaluation_template: {company_evaluation_id: @company_evaluation.id})
 
-      evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: current_user.id) if current_user.secretary?
+      evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: current_user.id) if current_user.secretary? && !current_user.hr_bp? && !current_user.hr_staff?
       if @user_id.present?
         evaluation_user_capabilities = evaluation_user_capabilities.where(user_id: @user_id)
       end
