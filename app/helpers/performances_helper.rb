@@ -1,8 +1,12 @@
 module PerformancesHelper
-  def display_evaluation_user_capabilities(evaluation_user_capabilities)
+  def display_evaluation_user_capabilities(evaluation_user_capabilities, take_num: 9)
     return nil unless evaluation_user_capabilities.present?
 
-    evaluation_user_capabilities.take(9).each do |euc|
+    if take_num
+      evaluation_user_capabilities.take(take_num)
+    else
+      evaluation_user_capabilities
+    end.each do |euc|
       link_url = case euc.company_evaluation_template.group_level
       when "manager_a"
         if current_user.admin?
