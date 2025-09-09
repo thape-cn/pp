@@ -41,6 +41,7 @@ module UpdateSessionGroup
 
   def update_person_by_square(calibration_square)
     return if calibration_square.nil?
+
     calibration_square.each do |item|
       euc = EvaluationUserCapability.find item["id"]
       yield euc

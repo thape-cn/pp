@@ -19,7 +19,7 @@ class EvaluationUserCapability < ApplicationRecord
   include ScoredInMetric
 
   def not_nil_capability_column_names
-    ((attributes.keys.reject { |key| self[key].nil? }) & Capability.all_capability_column_names) - Capability.calibration_column_names
+    (attributes.keys.reject { |key| self[key].nil? } & Capability.all_capability_column_names) - Capability.calibration_column_names
   end
 
   def pre_work_capability_pct

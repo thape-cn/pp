@@ -4,6 +4,7 @@ module Staff
     include StaffManagerGroup
     include UpdateSessionGroup
     include CheckEnforceDistributeForGroup
+
     before_action :check_brower, only: %i[show], if: -> { request.format.html? }
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index

@@ -49,6 +49,7 @@ module UndoCalibrationSessionUser
       calibration_session.update(session_status: "proofreading_completed")
       calibration_session.calibration_session_users.each do |csu|
         next if csu.new_calibration_session_id.present?
+
         UploadPpResultJob.perform_async(csu.evaluation_user_capability.id)
       end
     end

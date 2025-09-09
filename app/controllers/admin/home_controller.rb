@@ -3,6 +3,7 @@ module Admin
     before_action :check_brower, if: -> { request.format.html? }
     include ExcelExport
     include Pagy::Backend
+
     helper_method :pagy
 
     def index

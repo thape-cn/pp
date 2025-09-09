@@ -28,6 +28,7 @@ module Admin
 
     def destroy
       return if @calibration_template.calibration_sessions.present?
+
       @calibration_template.destroy
     end
 

@@ -74,6 +74,7 @@ module Staff
         performance_h = p.select { |key, value| key.start_with?("p_") && value != "none" }
         job_role_evaluation_performances.each do |jrep|
           next if jrep.obj_result_fixed
+
           value = performance_h.fetch(jrep.en_name, jrep.obj_result)
           jrep.update(obj_result: value, evaluation_user_capability_id: euc.id)
         end
@@ -118,6 +119,7 @@ module Staff
         new_cs_ids = []
         euc.calibration_session_users.each do |csu|
           next if csu.calibration_session.session_status == "proofreading_completed"
+
           new_cs_ids << csu.new_calibration_session_id
         end
         new_cs_ids
@@ -129,6 +131,7 @@ module Staff
         cs_ids = []
         euc.calibration_session_users.each do |csu|
           next if csu.new_calibration_session_id.present?
+
           cs_ids << csu.calibration_session_id
         end
         cs_ids

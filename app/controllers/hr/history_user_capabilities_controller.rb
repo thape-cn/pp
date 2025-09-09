@@ -2,6 +2,7 @@ module HR
   class HistoryUserCapabilitiesController < BaseController
     include MetricHelper
     include Pagy::Backend
+
     after_action :verify_policy_scoped, only: %i[index]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 

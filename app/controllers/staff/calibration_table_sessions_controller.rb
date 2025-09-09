@@ -62,6 +62,7 @@ module Staff
         performance_h = p.select { |key, value| key.start_with?("p_") && value != "none" }
         job_role_evaluation_performances.each do |jrep|
           next if jrep.obj_result_fixed
+
           value = performance_h.fetch(jrep.en_name, jrep.obj_result)
           jrep.update(obj_result: value, evaluation_user_capability_id: euc.id)
         end

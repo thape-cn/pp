@@ -1,6 +1,7 @@
 module Admin
   class CalibrationSessionUsersController < BaseController
     include UndoCalibrationSessionUser
+
     after_action :verify_authorized, except: %i[expender]
     before_action :set_calibration_session_user, only: %i[undo_confirm undo confirm_destroy destroy]
 

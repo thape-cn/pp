@@ -62,6 +62,7 @@ namespace :import do
 
       user = User.find_by email: email
       next if User.user_ids_need_to_skip.include?(user.id)
+
       puts "user email not found: #{email}" unless user.present?
       job_role = JobRole.find_by st_code: st_code
       puts "job_role st_code not found: #{st_code}" unless job_role.present?
@@ -95,6 +96,7 @@ namespace :import do
     CSV.foreach(csv_file_path, headers: true) do |row|
       hr_job_user_id = row["HR"]
       next if hr_job_user_id == "NO_HR"
+
       dept_code = row["CUSTOM01"]
 
       first_part_of_user_id = hr_job_user_id.split("_")[0]

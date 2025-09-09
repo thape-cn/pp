@@ -2,6 +2,7 @@ module HR
   class UserCapabilitiesController < BaseController
     include MetricHelper
     include Pagy::Backend
+
     after_action :verify_authorized, except: %i[index excel_report excel_detail_report]
     after_action :verify_policy_scoped, only: %i[index excel_report excel_detail_report]
     before_action :set_evaluation_user_capability, only: %i[edit update]
@@ -166,18 +167,22 @@ module HR
               add_row_to_sheet(sheet, euc, I18n.t("evaluation.manager_overall_plan"), euc.manager_overall_plan)
               Capability.performance_column_names.each do |column_name|
                 next if euc.attributes[column_name].blank?
+
                 add_row_to_sheet(sheet, euc, I18n.t("evaluation.#{column_name}_pct"), euc.attributes[column_name])
               end
               Capability.profession_column_label_and_names.each do |cp|
                 next if euc.attributes[cp.second].blank?
+
                 add_row_to_sheet(sheet, euc, cp.first, euc.attributes[cp.second])
               end
               Capability.management_column_label_and_names.each do |cp|
                 next if euc.attributes[cp.second].blank?
+
                 add_row_to_sheet(sheet, euc, cp.first, euc.attributes[cp.second])
               end
               Capability.calibration_column_names.each do |column_name|
                 next if euc.attributes[column_name].blank?
+
                 add_row_to_sheet(sheet, euc, I18n.t("calibration.#{column_name}"), euc.attributes[column_name])
               end
             end

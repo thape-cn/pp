@@ -5,6 +5,7 @@ class UploadPpResultJob
   def perform(evaluation_user_capability_id)
     euc = EvaluationUserCapability.find_by(id: evaluation_user_capability_id)
     return unless euc.present?
+
     clerk_code = euc.user&.clerk_code
     return unless clerk_code.present?
 

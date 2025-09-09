@@ -22,6 +22,7 @@ class InitiationNewCalibration
       clerk_code = h[:clerk_code].to_s
       next if clerk_code == "USERNAME"
       next if clerk_code.blank?
+
       row_number += 1
 
       st_code = h[:st_code].to_s

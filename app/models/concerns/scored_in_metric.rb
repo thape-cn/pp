@@ -7,6 +7,7 @@ module ScoredInMetric
       total_management_sum = management_attrs.values.sum
       total_management_count = management_attrs.keys.count
       return 0 if total_management_count.zero?
+
       total_management_sum / total_management_count.to_f
     end
 
@@ -15,6 +16,7 @@ module ScoredInMetric
       total_profession_sum = profession_attrs.values.sum
       total_profession_count = profession_attrs.keys.count
       return 0 if total_profession_count.zero?
+
       total_profession_sum / total_profession_count.to_f
     end
 

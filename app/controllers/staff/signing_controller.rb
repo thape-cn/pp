@@ -1,6 +1,7 @@
 module Staff
   class SigningController < BaseController
     include SetSidebarEvaluationUserCapability
+
     before_action :set_sidebar_evaluation_user_capabilities, only: %i[show]
     after_action :verify_authorized
 

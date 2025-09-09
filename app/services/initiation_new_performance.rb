@@ -21,6 +21,7 @@ class InitiationNewPerformance
       user = User.find_by(clerk_code: h[:user_clerk_code])
       next if h[:action] == "操作" && h[:import_guid] == "指标ID"
       next if h[:action] == "ACTION" && h[:import_guid] == "GUID"
+
       row_number += 1
 
       if user.blank?

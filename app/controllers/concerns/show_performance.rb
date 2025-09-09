@@ -3,6 +3,7 @@ module ShowPerformance
 
   included do
     include StaffManagerGroup
+
     after_action :verify_authorized, only: :show
   end
 

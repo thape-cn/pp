@@ -3,6 +3,7 @@ module Admin
     include MetricHelper
     include Pagy::Backend
     include ExcelDetailReport
+
     after_action :verify_authorized, except: %i[index excel_report excel_detail_report]
     after_action :verify_policy_scoped, only: %i[index excel_report]
     before_action :set_company_evaluation, only: %i[new create edit update show
@@ -174,6 +175,7 @@ module Admin
         clerk_code = h[:clerk_code].to_s
         next if clerk_code == "USERNAME"
         next if clerk_code.blank?
+
         if params[:send_email] == "true"
           StaffNeedConfirmRemindEmailJob.perform_async(@company_evaluation.id, clerk_code)
         end
@@ -195,6 +197,7 @@ module Admin
         clerk_code = h[:clerk_code].to_s
         next if clerk_code == "USERNAME"
         next if clerk_code.blank?
+
         if params[:send_email] == "true"
           SentSelfAssessmentRemindEmailJob.perform_async(@company_evaluation.id, clerk_code)
         end

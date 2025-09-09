@@ -1,6 +1,7 @@
 module Staff
   class EvaluationsController < BaseController
     include SetSidebarEvaluationUserCapability
+
     before_action :set_sidebar_evaluation_user_capabilities, only: %i[show expender]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
     after_action :verify_authorized, except: %i[expender]

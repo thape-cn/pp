@@ -1,6 +1,7 @@
 module Admin
   class ImportExcelFilesController < BaseController
     include Pagy::Backend
+
     after_action :verify_authorized, except: %i[index expender]
     before_action :set_company_evaluation, only: %i[index destroy_confirm do_import_confirm]
     before_action :set_import_excel_file, only: %i[show destroy_confirm destroy do_import_confirm do_import]

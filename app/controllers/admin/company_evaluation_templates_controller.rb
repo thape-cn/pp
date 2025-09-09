@@ -1,6 +1,7 @@
 module Admin
   class CompanyEvaluationTemplatesController < BaseController
     include Pagy::Backend
+
     after_action :verify_policy_scoped, only: :all
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 

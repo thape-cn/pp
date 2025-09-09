@@ -1,6 +1,7 @@
 module CP
   class CalibrationSessionsController < BaseController
     include Pagy::Backend
+
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
     before_action :set_calibration_session, only: %i[show]

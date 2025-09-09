@@ -25,6 +25,7 @@ class UserPolicy < ApplicationPolicy
       end
 
       return scopes.compact.reduce { |combined_scope, s| combined_scope.or(s) } if scopes.size > 1
+
       scopes.first
     end
   end

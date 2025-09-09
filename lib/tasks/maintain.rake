@@ -36,6 +36,7 @@ namespace :maintain do
     CalibrationSessionUser.where(evaluation_user_capability_id: evaluation_user_capability_ids).each do |csu|
       calibration_session = csu.calibration_session
       next if calibration_session.owner_id == user_id
+
       calibration_session.calibration_session_judges.find_or_create_by!(judge_id: user_id)
     end
   end

@@ -4,6 +4,7 @@ module GroupStaffOrManager
   included do
     def group_of_staff_work_load
       return 3 if work_load.nil?
+
       @group_of_staff_work_load ||= vertical_score_to_column_square(calibration_work_load.nil? ? work_load : calibration_work_load)
     end
 

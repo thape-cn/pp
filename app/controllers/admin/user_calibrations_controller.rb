@@ -2,6 +2,7 @@ module Admin
   class UserCalibrationsController < BaseController
     include MetricHelper
     include Pagy::Backend
+
     after_action :verify_authorized, except: %i[index excel_report]
     after_action :verify_policy_scoped, only: %i[index excel_report]
     before_action :set_breadcrumbs, if: -> { request.format.html? }

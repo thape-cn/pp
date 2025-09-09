@@ -2,6 +2,7 @@ module HR
   class HomeController < BaseController
     include ExcelExport
     include Pagy::Backend
+
     helper_method :pagy
 
     def index

@@ -12,11 +12,13 @@ class Initiation
     end
     CalibrationSessionUser.where(user_id: pp_test_user_ids).each do |csu|
       next if csu.evaluation_user_capability.present?
+
       csu.destroy
     end
     calibration_template_ids = CalibrationTemplate.where(company_evaluation_template_id: company_evaluation_template_ids).pluck(:id)
     CalibrationSession.where(calibration_template_id: calibration_template_ids).each do |session|
       next if session.calibration_session_users.present?
+
       session.destroy
     end
   end

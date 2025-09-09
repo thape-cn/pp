@@ -2,6 +2,7 @@ module HR
   class CalibrationSessionsController < BaseController
     include Pagy::Backend
     include StaffManagerGroup
+
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
     before_action :set_calibration_session, only: %i[show square approve_confirm approve undo_confirm undo]
@@ -92,11 +93,13 @@ module HR
 
       @calibration_session.calibration_session_users.each do |csu|
         next if csu.new_calibration_session_id.present?
+
         csu.evaluation_user_capability.update_form_status_to("hr_review_completed", current_user)
       end
       @calibration_session.update(session_status: "proofreading_completed")
       @calibration_session.calibration_session_users.each do |csu|
         next if csu.new_calibration_session_id.present?
+
         UploadPpResultJob.perform_async(csu.evaluation_user_capability.id)
       end
       HRReviewCompletedStaffJob.perform_async(@calibration_session.id)
