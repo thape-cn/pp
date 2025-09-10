@@ -1,0 +1,34 @@
+---
+description: Authentication (Devise, OmniAuth OIDC) and Authorization (Pundit) conventions
+globs: app/**/*.rb,config/**/*.rb,app/views/**/*.erb
+---
+### Authentication
+
+- **Devise**
+  - `User` includes modules in [user.rb](mdc:app/models/user.rb) (e.g., `:database_authenticatable, :recoverable, :rememberable, :validatable, :trackable`).
+  - Devise routes configured in [config/routes.rb](mdc:config/routes.rb) with custom controllers under `app/controllers/users/`, e.g. [users/sessions_controller.rb](mdc:app/controllers/users/sessions_controller.rb).
+  - Global authentication enforced by `before_action :authenticate_user!` in [application_controller.rb](mdc:app/controllers/application_controller.rb).
+
+- **OmniAuth OpenID Connect**
+  - Configured in [config/initializers/omniauth.rb](mdc:config/initializers/omniauth.rb) with environment-specific `issuer` and `redirect_uri`. Credentials pulled from Rails credentials.
+  - Callback handled in [openid_connect_controller.rb](mdc:app/controllers/openid_connect_controller.rb): signs in user by email and redirects back to origin or root.
+
+### Authorization (Pundit)
+
+- `include Pundit::Authorization` in [application_controller.rb](mdc:app/controllers/application_controller.rb). Enforce policy checks in controllers using `authorize` and `policy_scope`.
+- Example: [admin/users_controller.rb](mdc:app/controllers/admin/users_controller.rb) uses `verify_authorized` and `verify_policy_scoped`.
+- Base policy in [application_policy.rb](mdc:app/policies/application_policy.rb); domain policies such as [user_policy.rb](mdc:app/policies/user_policy.rb) and [calibration_session_policy.rb](mdc:app/policies/calibration_session_policy.rb) define permissions and scopes.
+
+### Role-based access via namespaced base controllers
+
+- Admin-only: [admin/base_controller.rb](mdc:app/controllers/admin/base_controller.rb) → `require_admin!` checks `current_user.admin?`.
+- HR-only: [hr/base_controller.rb](mdc:app/controllers/hr/base_controller.rb) → `require_hr_staff!`.
+- Corp President-only: [cp/base_controller.rb](mdc:app/controllers/cp/base_controller.rb) → `require_corp_president!`.
+- Staff (signed-in) area: [staff/base_controller.rb](mdc:app/controllers/staff/base_controller.rb) → requires `user_signed_in?`.
+
+### Practical guidance
+
+- Add new actions under the appropriate namespace and base controller to inherit the right before_actions.
+- Always call `authorize(record)` in member actions and use `policy_scope(Model)` in collection actions.
+- For SSO, ensure `auth/openid_connect/callback` route exists and the environment credentials (`openid_connect_identifier`, `openid_connect_secret`) are configured.
+

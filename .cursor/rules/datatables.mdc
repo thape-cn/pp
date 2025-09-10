@@ -1,0 +1,25 @@
+---
+description: Server-side DataTables usage (Rails + Stimulus + AjaxDatatablesRails)
+globs: app/datatables/**/*.rb,app/javascript/**,app/views/**/*.erb
+---
+### Ruby side (server)
+
+- Base class: [application_datatable.rb](mdc:app/datatables/application_datatable.rb). It requires a `view_context` in `opts` for view helpers.
+- Example: [users_datatable.rb](mdc:app/datatables/users_datatable.rb) defines `view_columns`, `data`, and `get_raw_records`.
+- Controllers should render JSON with the datatable instance, e.g. `render json: UsersDatatable.new(params, users: users, current_user: current_user, view_context: view_context)`.
+
+### JS side (client)
+
+- Include pack: [packs/datatables.js](mdc:app/javascript/packs/datatables.js) which sets up jQuery and `datatables.net-bs5`, and registers the Stimulus controller from [lazy_controllers/datatables.js](mdc:app/javascript/lazy_controllers/datatables.js).
+- In the view, attach `data-controller="datatables"` and pass values:
+  - `data-datatables-source-value` → JSON endpoint URL
+  - `data-datatables-dt-url-value` → i18n JSON for DataTables (see `app/assets/datatables/*.json`)
+  - `data-datatables-columns-value` → array of column keys matching `view_columns`
+  - `data-datatables-page-length-value` → page size
+- Provide a target for the table element: `data-datatables-target="datatable"`.
+
+### Notes
+
+- The Stimulus controller wires arrow key navigation and CoreUI tooltips on draw.
+- Remember to append `stimulus` and `datatables` packs on pages that use DataTables.
+

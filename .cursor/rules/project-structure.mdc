@@ -1,0 +1,33 @@
+---
+alwaysApply: true
+---
+### Project structure overview
+
+- **Rails app layout**
+  - Controllers in `app/controllers/` with namespaced bases: [admin/base_controller.rb](mdc:app/controllers/admin/base_controller.rb), [hr/base_controller.rb](mdc:app/controllers/hr/base_controller.rb), [cp/base_controller.rb](mdc:app/controllers/cp/base_controller.rb), [staff/base_controller.rb](mdc:app/controllers/staff/base_controller.rb).
+  - Global app controller: [application_controller.rb](mdc:app/controllers/application_controller.rb) includes `Pundit::Authorization`, `authenticate_user!`, and layout helpers.
+  - Models in `app/models/`, primary user model: [user.rb](mdc:app/models/user.rb) (Devise modules).
+  - Policies in `app/policies/` (Pundit): e.g. [application_policy.rb](mdc:app/policies/application_policy.rb), [user_policy.rb](mdc:app/policies/user_policy.rb).
+  - Views in `app/views/`, main layout: [application.html.erb](mdc:app/views/layouts/application.html.erb) includes packs via `stylesheet_pack_tag` and `javascript_pack_tag`.
+
+- **Routing**
+  - Top-level routes: [config/routes.rb](mdc:config/routes.rb) and split route files: [config/routes/admin.rb](mdc:config/routes/admin.rb), [config/routes/hr.rb](mdc:config/routes/hr.rb), [config/routes/cp.rb](mdc:config/routes/cp.rb), [config/routes/staff.rb](mdc:config/routes/staff.rb) loaded via `draw`.
+
+- **Authentication & Authorization**
+  - Devise setup for `User`: [user.rb](mdc:app/models/user.rb), Devise initializers/controllers in `app/controllers/users/`.
+  - OmniAuth OpenID Connect: [omniauth initializer](mdc:config/initializers/omniauth.rb) and callback: [openid_connect_controller.rb](mdc:app/controllers/openid_connect_controller.rb).
+  - Pundit is included in [application_controller.rb](mdc:app/controllers/application_controller.rb); policies under `app/policies/` govern access.
+
+- **Frontend (Shakapacker, Stimulus, React)**
+  - Shakapacker config: [config/shakapacker.yml](mdc:config/shakapacker.yml), webpack config: [config/webpack/webpack.config.js](mdc:config/webpack/webpack.config.js).
+  - Entry packs in `app/javascript/packs/` (e.g. [application.js](mdc:app/javascript/packs/application.js), [stimulus.js](mdc:app/javascript/packs/stimulus.js), [datatables.js](mdc:app/javascript/packs/datatables.js), [mark-scores.js](mdc:app/javascript/packs/mark-scores.js), [calibration-panel.js](mdc:app/javascript/packs/calibration-panel.js), [calibration-table.js](mdc:app/javascript/packs/calibration-table.js)).
+  - Stimulus controllers in [app/javascript/controllers](mdc:app/javascript/controllers) and lazily-registered controllers in [app/javascript/lazy_controllers](mdc:app/javascript/lazy_controllers).
+  - React components under [app/javascript/react](mdc:app/javascript/react), mounted by page-specific packs.
+  - Layout always includes `application` pack; views append page packs via helpers like `append_javascript_pack_tag` and `append_stylesheet_pack_tag`.
+
+- **DataTables (server-side)**
+  - Ruby datatables in `app/datatables/` (e.g. [application_datatable.rb](mdc:app/datatables/application_datatable.rb), [users_datatable.rb](mdc:app/datatables/users_datatable.rb)).
+  - Stimulus driver: [lazy_controllers/datatables.js](mdc:app/javascript/lazy_controllers/datatables.js), pack bootstrapper: [packs/datatables.js](mdc:app/javascript/packs/datatables.js).
+
+Use this rule as a guide to navigate files and to place new code in the correct locations.
+

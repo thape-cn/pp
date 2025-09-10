@@ -1,0 +1,39 @@
+---
+description: Frontend build and UI conventions (Shakapacker, Stimulus, React, CoreUI, DataTables packs)
+globs: app/javascript/**,app/views/**/*.erb,config/webpack/**/*.js,config/shakapacker.yml
+---
+### Shakapacker
+
+- Config at [config/shakapacker.yml](mdc:config/shakapacker.yml); entry points live in `app/javascript/packs/`.
+- Webpack customization at [config/webpack/webpack.config.js](mdc:config/webpack/webpack.config.js).
+- Global layout includes `application` pack: see [application.html.erb](mdc:app/views/layouts/application.html.erb). Per-page packs appended via helpers (e.g., `append_javascript_pack_tag`).
+
+### Stimulus
+
+- Bootstrap pack: [packs/stimulus.js](mdc:app/javascript/packs/stimulus.js) registers controllers from [app/javascript/controllers](mdc:app/javascript/controllers).
+- Use `data-controller="..."` in views to activate controllers (e.g., sidebars and expander navs in `app/views/layouts/sidebars/*`).
+- Lazy features live in [app/javascript/lazy_controllers](mdc:app/javascript/lazy_controllers) and are loaded from feature-specific packs (e.g., [packs/datatables.js](mdc:app/javascript/packs/datatables.js)).
+
+### React
+
+- Components under [app/javascript/react](mdc:app/javascript/react).
+- Mounting is performed by page packs using React 18 `createRoot`:
+  - [mark-scores.js](mdc:app/javascript/packs/mark-scores.js) mounts into IDs like `staff-mark`, `manager_a-mark`, `manager_b-mark`, `auxiliary-mark`.
+  - [calibration-panel.js](mdc:app/javascript/packs/calibration-panel.js) mounts into `calibration-panel`.
+  - [calibration-table.js](mdc:app/javascript/packs/calibration-table.js) mounts into `calibration-table`.
+- Ensure corresponding DOM nodes with those IDs exist in the relevant views before appending the pack.
+
+### CoreUI and UI helpers
+
+- CoreUI Pro initialized in [packs/stimulus.js](mdc:app/javascript/packs/stimulus.js) and used by tooltips and carousels.
+- Global utility pack: [packs/application.js](mdc:app/javascript/packs/application.js) (e.g., LocalTime, Simplebar).
+
+### Including packs in views
+
+- Base layout: `stylesheet_pack_tag "application"` and `javascript_pack_tag "application"`.
+- Feature pages append packs using helpers, examples:
+  - `append_javascript_pack_tag 'stimulus'`
+  - `append_javascript_pack_tag 'selectize_user_ids'`
+  - `append_javascript_pack_tag 'mark-scores'`
+  - `append_stylesheet_pack_tag 'selectize'`
+

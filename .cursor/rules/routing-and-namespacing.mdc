@@ -1,0 +1,30 @@
+---
+description: Routing conventions and namespaced controllers
+globs: config/routes*.rb,app/controllers/**/*.rb
+---
+### Routing conventions
+
+- Top-level routes in [config/routes.rb](mdc:config/routes.rb):
+  - `devise_for :users` with custom controllers under `Users::`.
+  - OIDC callback at `auth/openid_connect/callback` → [openid_connect_controller.rb](mdc:app/controllers/openid_connect_controller.rb).
+  - Namespaced route files are drawn via `draw :admin`, `draw :cp`, `draw :hr`, `draw :staff`.
+
+- Namespaced route files:
+  - Admin: [config/routes/admin.rb](mdc:config/routes/admin.rb)
+  - HR: [config/routes/hr.rb](mdc:config/routes/hr.rb)
+  - Corp President: [config/routes/cp.rb](mdc:config/routes/cp.rb)
+  - Staff: [config/routes/staff.rb](mdc:config/routes/staff.rb)
+
+### Namespaced base controllers
+
+- Admin controllers inherit from [admin/base_controller.rb](mdc:app/controllers/admin/base_controller.rb) (`require_admin!`).
+- HR controllers inherit from [hr/base_controller.rb](mdc:app/controllers/hr/base_controller.rb) (`require_hr_staff!`).
+- CP controllers inherit from [cp/base_controller.rb](mdc:app/controllers/cp/base_controller.rb) (`require_corp_president!`).
+- Staff controllers inherit from [staff/base_controller.rb](mdc:app/controllers/staff/base_controller.rb) (`require_user!`).
+
+### Practical guidance
+
+- Place new features inside the appropriate namespace, update the corresponding route file, and inherit from the namespace base controller.
+- For collection endpoints that feed DataTables, prefer JSON responses and use `policy_scope`.
+- For member actions, enforce authorization with `authorize` and add custom member routes as needed (see examples in admin routes file).
+
