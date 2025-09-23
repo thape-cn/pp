@@ -133,10 +133,10 @@ GEM
       sidekiq (>= 7.0)
     capistrano-yarn (2.0.2)
       capistrano (~> 3.0)
-    capistrano3-puma (6.2.0)
+    capistrano3-puma (7.0.0)
       capistrano (~> 3.7)
       capistrano-bundler
-      puma (>= 5.1, < 7.0)
+      puma (>= 6.1, < 8.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -363,7 +363,7 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (6.6.1)
+    puma (7.0.3)
       nio4r (~> 2.0)
     pundit (2.5.1)
       activesupport (>= 3.0.0)
@@ -430,7 +430,7 @@ GEM
       erb
       psych (>= 4.0.0)
     redcarpet (3.6.1)
-    redis-client (0.25.3)
+    redis-client (0.26.0)
       connection_pool
     regexp_parser (2.11.3)
     reline (0.6.2)
