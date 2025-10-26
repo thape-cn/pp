@@ -20,6 +20,7 @@
     "@rails/request.js": "^0.0.9",
     "@selectize/selectize": "^0.15.2",
     "babel-loader": "^8.4.1",
+    "chart.js": "^4.5.1",
     "compression-webpack-plugin": "^9.2.0",
     "css-loader": "^6.11.0",
     "css-minimizer-webpack-plugin": "^4.2.2",
