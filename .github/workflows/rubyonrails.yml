@@ -19,16 +19,23 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3' # Not needed with a .ruby-version file
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+      - name: Enable pnpm
+        run: corepack prepare pnpm@10.19.0 --activate
       - name: Set up database schema
         run: bin/rails db:schema:load
       - name: Install dependencies
-        run: |
-          yarn
+        run: pnpm install --frozen-lockfile
       - name: Assets Precompile
         run: bundle exec rails assets:precompile RAILS_PRECOMPILE=1 RAILS_ENV=production SECRET_KEY_BASE=fake_secure_for_compile
       - name: Run tests

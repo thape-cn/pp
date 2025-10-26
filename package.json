@@ -2,7 +2,6 @@
   "name": "rails-starter",
   "private": true,
   "scripts": {
-    "syncyarnlock": "syncyarnlock -s -k && yarn install --check-files",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -67,5 +66,5 @@
   "browserslist": [
     "defaults"
   ],
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "pnpm@10.19.0"
 }

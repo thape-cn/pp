@@ -2,17 +2,10 @@
 
 APP_ROOT = File.expand_path("..", __dir__)
 Dir.chdir(APP_ROOT) do
-  yarn = ENV["PATH"].split(File::PATH_SEPARATOR)
-    .select { |dir| File.expand_path(dir) != __dir__ }
-    .product(["yarn", "yarnpkg", "yarn.cmd", "yarn.ps1"])
-    .map { |dir, file| File.expand_path(file, dir) }
-    .find { |file| File.executable?(file) }
-
-  if yarn
-    exec yarn, *ARGV
-  else
-    $stderr.puts "Yarn executable was not detected in the system."
-    $stderr.puts "Download Yarn at https://yarnpkg.com/en/docs/install"
-    exit 1
-  end
+  $stderr.puts "Yarn is no longer used in this project. Forwarding to pnpm..."
+  exec File.expand_path("pnpm", __dir__), *ARGV
+rescue Errno::ENOENT
+  $stderr.puts "pnpm executable was not detected in the system."
+  $stderr.puts "Install pnpm by following https://pnpm.io/installation"
+  exit 1
 end

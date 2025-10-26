@@ -21,7 +21,7 @@ set :branch, :main
 append :linked_files, *%w[puma.rb config/settings.local.yml config/database.yml config/master.key config/credentials.yml.enc]
 
 # Default value for linked_dirs is []
-append :linked_dirs, *%w[log storage edoc_guid_pdf tmp/pids tmp/cache tmp/sockets public/packs public/system node_modules]
+append :linked_dirs, *%w[log storage edoc_guid_pdf tmp/pids tmp/cache tmp/sockets public/packs public/system]
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -40,6 +40,7 @@ set :rbenv_ruby, "3.3.8"
 
 set :puma_init_active_record, true
 set :puma_phased_restart, true
+set :pnpm_flags, "--silent"
 
 SSHKit.config.command_map[:sidekiq] = "bundle exec sidekiq"
 SSHKit.config.command_map[:sidekiqctl] = "bundle exec sidekiqctl"

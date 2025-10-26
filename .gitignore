@@ -39,6 +39,7 @@ pp.sublime-workspace
 /node_modules
 /yarn-error.log
 yarn-debug.log*
+pnpm-debug.log*
 .yarn-integrity
 
 config/settings.local.yml

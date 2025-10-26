@@ -121,6 +121,8 @@ GEM
       sshkit (>= 1.9.0)
     capistrano-bundler (2.1.1)
       capistrano (~> 3.1)
+    capistrano-pnpm (1.0.1)
+      capistrano (>= 3.0.0)
     capistrano-rails (1.7.0)
       capistrano (~> 3.1)
       capistrano-bundler (>= 1.1, < 3)
@@ -131,8 +133,6 @@ GEM
       capistrano (>= 3.9.0)
       capistrano-bundler
       sidekiq (>= 7.0)
-    capistrano-yarn (2.0.2)
-      capistrano (~> 3.0)
     capistrano3-puma (7.1.0)
       capistrano (~> 3.7)
       capistrano-bundler
@@ -263,7 +263,7 @@ GEM
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
-    json (2.15.1)
+    json (2.15.2)
     json-jwt (1.17.0)
       activesupport (>= 4.2)
       aes_key_wrap
@@ -288,8 +288,8 @@ GEM
       net-smtp
     marcel (1.1.0)
     matrix (0.4.3)
-    meta-tags (2.22.1)
-      actionpack (>= 6.0.0, < 8.1)
+    meta-tags (2.22.2)
+      actionpack (>= 6.0.0, < 8.2)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
@@ -472,9 +472,9 @@ GEM
     ruby-lsp-rails (0.4.8)
       ruby-lsp (>= 0.26.0, < 0.27.0)
     ruby-progressbar (1.13.0)
-    rubyzip (3.2.0)
+    rubyzip (3.2.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.37.0)
+    selenium-webdriver (4.38.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -576,10 +576,10 @@ DEPENDENCIES
   bcrypt_pbkdf
   browser
   capistrano
+  capistrano-pnpm
   capistrano-rails
   capistrano-rbenv
   capistrano-sidekiq
-  capistrano-yarn
   capistrano3-puma (>= 6.0.0)
   capybara
   caxlsx
