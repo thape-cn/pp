@@ -27,6 +27,7 @@
     "datatables.net": "~1.13.11",
     "datatables.net-bs5": "^1.13.11",
     "date-fns": "^2.30.0",
+    "jquery": "^3.7.1",
     "local-time": "^2.1.0",
     "mini-css-extract-plugin": "^2.9.4",
     "patch-package": "^6.5.1",

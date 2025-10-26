@@ -83,6 +83,9 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
+      jquery:
+        specifier: ^3.7.1
+        version: 3.7.1
       local-time:
         specifier: ^2.1.0
         version: 2.1.0
