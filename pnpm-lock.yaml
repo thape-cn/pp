@@ -11,7 +11,7 @@ overrides:
   mime-db: ~1.54.0
   mdn-data: ~2.0.30
   merge-descriptors: ~1.0.3
-  semver: ^7.5.3
+  semver: ^7.7.3
 
 importers:
 
@@ -120,7 +120,7 @@ importers:
         specifier: ^13.3.3
         version: 13.3.3(sass@1.77.6)(webpack@5.102.1)
       semver:
-        specifier: ^7.5.3
+        specifier: ^7.7.3
         version: 7.7.3
       shakapacker:
         specifier: 8.4.0
