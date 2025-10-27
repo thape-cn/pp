@@ -5,10 +5,7 @@ ruby "~> 3.2"
 gem "rails", "~> 8.0.2"
 gem "zeitwerk"
 
-# `config/initializers/mail_starttls_patch.rb` has also been patched to
-# fix STARTTLS handling until https://github.com/mikel/mail/pull/1536 is
-# released.
-gem "mail", "= 2.8.1"
+gem "mail"
 
 gem "jbuilder"
 gem "propshaft"
