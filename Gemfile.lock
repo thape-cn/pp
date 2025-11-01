@@ -297,7 +297,7 @@ GEM
     mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
     minitest (5.26.0)
-    net-http (0.6.0)
+    net-http (0.7.0)
       uri
     net-imap (0.5.12)
       date
@@ -313,7 +313,7 @@ GEM
     net-smtp (0.5.1)
       net-protocol
     net-ssh (7.3.0)
-    nio4r (2.7.4)
+    nio4r (2.7.5)
     nokogiri (1.18.10-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.10-arm-linux-gnu)
@@ -428,7 +428,7 @@ GEM
     rake (13.3.1)
     rbs (3.9.5)
       logger
-    rdoc (6.15.0)
+    rdoc (6.15.1)
       erb
       psych (>= 4.0.0)
       tsort
@@ -536,7 +536,7 @@ GEM
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.1.0)
-    uri (1.0.4)
+    uri (1.1.0)
     useragent (0.16.11)
     validate_url (1.0.15)
       activemodel (>= 3.0.0)
