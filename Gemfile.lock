@@ -348,9 +348,7 @@ GEM
     orm_adapter (0.5.0)
     ostruct (0.6.3)
     package_json (0.1.1)
-    pagy (43.0.0)
-      json
-      yaml
+    pagy (9.4.0)
     parallel (1.27.0)
     parser (3.3.10.0)
       ast (~> 2.4.1)
@@ -564,7 +562,6 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yaml (0.4.0)
     zeitwerk (2.7.3)
 
 PLATFORMS
@@ -601,7 +598,7 @@ DEPENDENCIES
   mail
   meta-tags
   omniauth_openid_connect
-  pagy
+  pagy (~> 9.4)
   propshaft
   puma
   pundit
