@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat /Users/guochunzhong/git/sso/pp/.rubocop.yml)",
+      "Bash(bin/rails -T)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
