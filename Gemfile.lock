@@ -347,7 +347,7 @@ GEM
       webfinger (~> 2.0)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    package_json (0.1.1)
+    package_json (0.2.0)
     pagy (9.4.0)
     parallel (1.27.0)
     parser (3.3.10.0)
@@ -371,7 +371,7 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (3.2.4)
-    rack-oauth2 (2.2.1)
+    rack-oauth2 (2.3.0)
       activesupport
       attr_required
       faraday (~> 2.0)
