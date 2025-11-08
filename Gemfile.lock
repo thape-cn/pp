@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: e2e018a1ff1f314472693e99d525dfff4c7baed6
+  revision: ae2083bf6402280c8d178fb56e9bcff0733e0f0e
   branch: main
   specs:
     wechat (1.0.1)
@@ -215,8 +215,8 @@ GEM
       logger
     faraday-follow_redirects (0.4.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.4.1)
-      net-http (>= 0.5.0)
+    faraday-net_http (3.4.2)
+      net-http (~> 0.5)
     fast-mcp (1.6.0)
       addressable (~> 2.8)
       base64
@@ -263,7 +263,7 @@ GEM
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
-    json (2.15.2)
+    json (2.16.0)
     json-jwt (1.17.0)
       activesupport (>= 4.2)
       aes_key_wrap
