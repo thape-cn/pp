@@ -44,6 +44,7 @@ namespace :staff do
       put :approve
       get :undo_confirm
       put :undo
+      get :square
     end
     collection do
       get :expender

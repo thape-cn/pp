@@ -4,8 +4,8 @@ module Staff
 
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
-    before_action :set_calibration_session, only: %i[show approve_confirm approve undo_confirm undo]
-    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index show]
+    before_action :set_calibration_session, only: %i[show square approve_confirm approve undo_confirm undo]
+    before_action :set_breadcrumbs, if: -> { request.format.html? }, only: %i[index show square]
 
     def index
       add_to_breadcrumbs t(".title"), staff_proofreading_calibration_sessions_path
@@ -74,6 +74,12 @@ module Staff
         csu.evaluation_user_capability.update_form_status_to("manager_scored", current_user)
       end
       @calibration_session.update(session_status: "calibrating")
+    end
+
+    def square
+      add_to_breadcrumbs t("layouts.sidebars.staff.calibration_session"), staff_proofreading_calibration_sessions_path
+      add_to_breadcrumbs t("staff.proofreading_calibration_sessions.show.title"), staff_proofreading_calibration_session_path(id: @calibration_session.id)
+      add_to_breadcrumbs t(".title")
     end
 
     def expender
