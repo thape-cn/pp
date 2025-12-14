@@ -258,7 +258,7 @@ GEM
       http-2 (>= 1.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    io-console (0.8.1)
+    io-console (0.8.2)
     irb (1.15.3)
       pp (>= 0.6.0)
       rdoc (>= 4.0.0)
@@ -578,7 +578,7 @@ PLATFORMS
   aarch64-linux-musl
   arm-linux-gnu
   arm-linux-musl
-  arm64-darwin-24
+  arm64-darwin
   x86_64-linux-gnu
   x86_64-linux-musl
 
