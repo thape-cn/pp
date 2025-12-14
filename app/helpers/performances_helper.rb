@@ -1,9 +1,9 @@
 module PerformancesHelper
-  def display_evaluation_user_capabilities(evaluation_user_capabilities, take_num: 9)
+  def display_evaluation_user_capabilities(evaluation_user_capabilities, taken_num: 9)
     return nil unless evaluation_user_capabilities.present?
 
-    if take_num
-      evaluation_user_capabilities.take(take_num)
+    if taken_num
+      evaluation_user_capabilities.take(taken_num)
     else
       evaluation_user_capabilities
     end.each do |euc|
