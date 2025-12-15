@@ -23,6 +23,17 @@
           <%= link_to I18n.t("form.table_grid"), staff_proofreading_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-table", "aria-selected": "false", class: "nav-link" -%>
         </div>
       </nav>
+      <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
+      <% case company_evaluation_template.group_level %>
+      <% when 'staff' %>
+        <%= render partial: "staff/proofreading_calibration_sessions/staff_square", locals: {calibration_session: @calibration_session, evaluation_user_capabilities_group: @evaluation_user_capabilities_group, total_people_num: @total_people_num} -%>
+      <% when 'auxiliary' %>
+        <%= render partial: "staff/proofreading_calibration_sessions/auxiliary_square", locals: {calibration_session: @calibration_session, evaluation_user_capabilities_group: @evaluation_user_capabilities_group, total_people_num: @total_people_num} -%>
+      <% when 'manager_a' %>
+        <%= render partial: "staff/proofreading_calibration_sessions/manager_a_square", locals: {calibration_session: @calibration_session, evaluation_user_capabilities_group: @evaluation_user_capabilities_group, total_people_num: @total_people_num} -%>
+      <% when 'manager_b' %>
+        <%= render partial: "staff/proofreading_calibration_sessions/manager_b_square", locals: {calibration_session: @calibration_session, evaluation_user_capabilities_group: @evaluation_user_capabilities_group, total_people_num: @total_people_num} -%>
+      <% end %>
     </div>
   </div>
 </div>
