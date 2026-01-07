@@ -443,7 +443,7 @@ GEM
       psych (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
-    redis-client (0.26.2)
+    redis-client (0.26.3)
       connection_pool
     regexp_parser (2.11.3)
     reline (0.6.3)
@@ -536,7 +536,7 @@ GEM
       attr_required (>= 0.0.5)
       faraday (~> 2.0)
       faraday-follow_redirects
-    thor (1.4.0)
+    thor (1.5.0)
     tidewave (0.4.1)
       fast-mcp (~> 1.6.0)
       rack (>= 2.0)
