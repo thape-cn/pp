@@ -92,6 +92,12 @@ module Staff
         update_manager_group_b(params[:calibration])
       end
 
+      log_calibration_session_save(
+        source: "square",
+        group_level: @group_level,
+        euc_ids: calibration_euc_ids_from_square(params[:calibration])
+      )
+
       if params[:finalize] && @calibration_session.calibration_template.enforce_distribute?
         @enforce_distribute_reject_message = case @group_level
         when "staff"
@@ -193,6 +199,29 @@ module Staff
         {text: t("layouts.sidebars.staff.header"),
          link: root_path}
       ]
+    end
+
+    def log_calibration_session_save(source:, group_level:, euc_ids:)
+      return if euc_ids.blank?
+
+      eucs = EvaluationUserCapability.where(id: euc_ids)
+      return if eucs.blank?
+
+      CalibrationSessionSaveLog.log!(
+        calibration_session: @calibration_session,
+        saved_by: current_user,
+        source: source,
+        group_level: group_level,
+        eucs: eucs
+      )
+    end
+
+    def calibration_euc_ids_from_square(calibration_params)
+      return [] if calibration_params.blank?
+
+      calibration_params.values.flat_map do |square|
+        Array(square).map { |item| item["id"] || item[:id] }
+      end.compact.uniq
     end
   end
 end

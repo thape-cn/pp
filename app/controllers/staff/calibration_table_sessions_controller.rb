@@ -67,6 +67,13 @@ module Staff
           jrep.update(obj_result: value, evaluation_user_capability_id: euc.id)
         end
       end
+
+      log_calibration_session_save(
+        source: "table",
+        group_level: @calibration_session.calibration_template.company_evaluation_template.group_level,
+        eucs: @need_calibration_eucs
+      )
+
       @table_headers_of_performance, @job_role_evaluation_performances = prepare_need_review_evaluations(@need_calibration_eucs)
     end
 
@@ -176,6 +183,18 @@ module Staff
           accessor: "raw_total_evaluation_score"})
         .append({Header: I18n.t("evaluation.total_evaluation_score"),
           accessor: "total_evaluation_score"})
+    end
+
+    def log_calibration_session_save(source:, group_level:, eucs:)
+      return if eucs.blank?
+
+      CalibrationSessionSaveLog.log!(
+        calibration_session: @calibration_session,
+        saved_by: current_user,
+        source: source,
+        group_level: group_level,
+        eucs: eucs
+      )
     end
   end
 end

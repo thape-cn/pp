@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_06_30_080206) do
+ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -138,6 +138,20 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_30_080206) do
     t.datetime "updated_at", null: false
     t.index ["calibration_session_id"], name: "index_calibration_session_judges_on_calibration_session_id"
     t.index ["judge_id"], name: "index_calibration_session_judges_on_judge_id"
+  end
+
+  create_table "calibration_session_save_logs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "calibration_session_id", null: false
+    t.datetime "created_at", null: false
+    t.string "group_level", null: false
+    t.datetime "saved_at", null: false
+    t.bigint "saved_by_id", null: false
+    t.json "scores_snapshot", null: false
+    t.string "source", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calibration_session_id"], name: "index_calibration_session_save_logs_on_calibration_session_id"
+    t.index ["saved_at"], name: "index_calibration_session_save_logs_on_saved_at"
+    t.index ["saved_by_id"], name: "index_calibration_session_save_logs_on_saved_by_id"
   end
 
   create_table "calibration_session_users", force: :cascade do |t|
@@ -521,6 +535,8 @@ ActiveRecord::Schema[8.1].define(version: 2025_06_30_080206) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "calibration_session_judges", "calibration_sessions"
+  add_foreign_key "calibration_session_save_logs", "calibration_sessions"
+  add_foreign_key "calibration_session_save_logs", "users", column: "saved_by_id"
   add_foreign_key "calibration_session_users", "calibration_sessions"
   add_foreign_key "calibration_session_users", "users"
   add_foreign_key "calibration_sessions", "calibration_templates"

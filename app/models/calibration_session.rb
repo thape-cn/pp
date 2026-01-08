@@ -4,6 +4,7 @@ class CalibrationSession < ApplicationRecord
   belongs_to :hr_reviewer, class_name: "User", optional: true
   has_many :calibration_session_judges, dependent: :destroy
   has_many :calibration_session_users, dependent: :destroy
+  has_many :calibration_session_save_logs, dependent: :destroy
 
   def lower_quotas_staff
     populations = {apa_grade_rate: calibration_template.apa_grade_rate, b_grade_rate: calibration_template.b_grade_rate, cd_grade_rate: calibration_template.cd_grade_rate}
