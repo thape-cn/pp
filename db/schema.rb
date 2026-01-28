@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_28_083001) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.integer "deleted_user_id", null: false
     t.string "department", null: false
     t.string "dept_code", null: false
+    t.decimal "design_capability", precision: 5, scale: 2
     t.float "final_total_evaluation_score"
     t.string "form_status", default: "initial"
     t.decimal "goal_achieved", precision: 5, scale: 2
@@ -109,6 +110,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.decimal "presentation_planning", precision: 5, scale: 2
     t.decimal "product_design_landscape", precision: 5, scale: 2
     t.decimal "professional_level", precision: 5, scale: 2
+    t.decimal "project_management", precision: 5, scale: 2
     t.decimal "realization", precision: 5, scale: 2
     t.decimal "realization_landscape", precision: 5, scale: 2
     t.decimal "results", precision: 5, scale: 2
@@ -121,6 +123,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.date "sign_date"
     t.decimal "space_creativity", precision: 5, scale: 2
     t.decimal "team_atmosphere", precision: 5, scale: 2
+    t.decimal "team_management", precision: 5, scale: 2
     t.decimal "technical", precision: 5, scale: 2
     t.string "title", null: false
     t.datetime "updated_at", null: false
@@ -140,12 +143,12 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.index ["judge_id"], name: "index_calibration_session_judges_on_judge_id"
   end
 
-  create_table "calibration_session_save_logs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "calibration_session_id", null: false
+  create_table "calibration_session_save_logs", force: :cascade do |t|
+    t.integer "calibration_session_id", null: false
     t.datetime "created_at", null: false
     t.string "group_level", null: false
     t.datetime "saved_at", null: false
-    t.bigint "saved_by_id", null: false
+    t.integer "saved_by_id", null: false
     t.json "scores_snapshot", null: false
     t.string "source", null: false
     t.datetime "updated_at", null: false
@@ -317,6 +320,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.decimal "customer_needs_non", precision: 5, scale: 2
     t.string "department", null: false
     t.string "dept_code", null: false
+    t.decimal "design_capability", precision: 5, scale: 2
     t.string "edoc_file_id"
     t.string "edoc_guid"
     t.string "final_total_evaluation_grade"
@@ -361,6 +365,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.decimal "presentation_planning", precision: 5, scale: 2
     t.decimal "product_design_landscape", precision: 5, scale: 2
     t.decimal "professional_level", precision: 5, scale: 2
+    t.decimal "project_management", precision: 5, scale: 2
     t.decimal "realization", precision: 5, scale: 2
     t.decimal "realization_landscape", precision: 5, scale: 2
     t.decimal "results", precision: 5, scale: 2
@@ -373,6 +378,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_07_15_000000) do
     t.date "sign_date"
     t.decimal "space_creativity", precision: 5, scale: 2
     t.decimal "team_atmosphere", precision: 5, scale: 2
+    t.decimal "team_management", precision: 5, scale: 2
     t.decimal "technical", precision: 5, scale: 2
     t.string "title", null: false
     t.datetime "updated_at", null: false
