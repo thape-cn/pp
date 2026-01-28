@@ -96,9 +96,9 @@ class CalibrationSession < ApplicationRecord
     CalibrationTemplate.includes(:company_evaluation_template)
       .where(company_evaluation_template: {company_evaluation_id: company_evaluation_ids})
       .each do |calibration_template|
-      calibration_template.calibration_sessions.find_each do |calibration_session|
-        calibration_session.reconcile_session_status
-      end
+        calibration_template.calibration_sessions.find_each do |calibration_session|
+          calibration_session.reconcile_session_status
+        end
     end
   end
 
