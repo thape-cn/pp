@@ -11,7 +11,7 @@ overrides:
   mime-db: ~1.54.0
   mdn-data: ~2.0.30
   merge-descriptors: ~1.0.3
-  semver: ^7.7.3
+  semver: ^7.7.4
 
 importers:
 
