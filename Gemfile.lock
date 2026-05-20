@@ -293,7 +293,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.1.0)
+    marcel (1.1.1)
     matrix (0.4.3)
     meta-tags (2.23.0)
       actionpack (>= 6.0.0)
@@ -344,7 +344,7 @@ GEM
     omniauth_openid_connect (0.8.0)
       omniauth (>= 1.9, < 3)
       openid_connect (~> 2.2)
-    openid_connect (2.3.1)
+    openid_connect (2.4.0)
       activemodel
       attr_required (>= 1.0.0)
       email_validator
@@ -577,7 +577,7 @@ GEM
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.7.5)
+    zeitwerk (2.8.1)
 
 PLATFORMS
   aarch64-linux-gnu
