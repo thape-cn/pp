@@ -1,6 +1,6 @@
 GIT
   remote: https://git.thape.com.cn/Eric-Guo/wechat.git
-  revision: 96f2041e38593987c308325067daae748f794619
+  revision: 42dce1ab715dcc117e3420641913ab85bcb58901
   branch: main
   specs:
     wechat (1.1.0)
@@ -217,7 +217,7 @@ GEM
       logger
     faraday-follow_redirects (0.5.0)
       faraday (>= 1, < 3)
-    faraday-net_http (3.4.2)
+    faraday-net_http (3.4.3)
       net-http (~> 0.5)
     fast-mcp (1.6.0)
       addressable (~> 2.8)
@@ -293,7 +293,7 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.1.1)
+    marcel (1.2.1)
     matrix (0.4.3)
     meta-tags (2.23.0)
       actionpack (>= 6.0.0)
@@ -639,4 +639,4 @@ RUBY VERSION
   ruby 3.2.2p53
 
 BUNDLED WITH
-  4.0.11
+  4.0.12
