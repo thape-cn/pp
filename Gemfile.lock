@@ -148,7 +148,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    caxlsx (4.4.2)
+    caxlsx (4.5.0)
       htmlentities (~> 4.3, >= 4.3.4)
       marcel (~> 1.0)
       nokogiri (~> 1.10, >= 1.10.4)
@@ -265,7 +265,7 @@ GEM
       prism (~> 1.5)
     net-http (0.9.1)
       uri (>= 0.11.1)
-    net-imap (0.6.4)
+    net-imap (0.6.4.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -594,4 +594,4 @@ RUBY VERSION
   ruby 3.2.2p53
 
 BUNDLED WITH
-  4.0.13
+  4.0.14
