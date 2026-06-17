@@ -1,6 +1,6 @@
 module Admin
   class CalibrationSessionsController < BaseController
-    include Pagy::Backend
+    include Pagy::Method
     include StaffManagerGroup
 
     after_action :verify_authorized, except: %i[index expender calculate]
@@ -37,7 +37,7 @@ module Admin
         calibration_sessions = calibration_sessions.where("session_name LIKE ?", "%#{q}%")
       end
       calibration_sessions = calibration_sessions.where(session_status: @session_status) if @session_status.present?
-      @pagy, @calibration_sessions = pagy(calibration_sessions, items: current_user.preferred_page_length)
+      @pagy, @calibration_sessions = pagy(:offset, calibration_sessions, limit: current_user.preferred_page_length)
     end
 
     def show

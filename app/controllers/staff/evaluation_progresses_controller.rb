@@ -1,7 +1,7 @@
 module Staff
   class EvaluationProgressesController < BaseController
     include ExcelExport
-    include Pagy::Backend
+    include Pagy::Method
 
     helper_method :pagy
 

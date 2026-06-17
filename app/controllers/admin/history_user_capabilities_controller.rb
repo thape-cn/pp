@@ -1,7 +1,7 @@
 module Admin
   class HistoryUserCapabilitiesController < BaseController
     include MetricHelper
-    include Pagy::Backend
+    include Pagy::Method
     include ExcelDetailReport
 
     after_action :verify_policy_scoped, only: %i[index]
@@ -34,7 +34,7 @@ module Admin
         evaluation_user_capabilities = evaluation_user_capabilities.where(company: @company)
       end
       evaluation_user_capabilities = evaluation_user_capabilities.where(form_status: @form_status) if @form_status.present?
-      @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
+      @pagy, @evaluation_user_capabilities = pagy(:offset, evaluation_user_capabilities, limit: current_user.preferred_page_length)
     end
 
     private

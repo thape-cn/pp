@@ -33,9 +33,9 @@
 </div>
 
 <% pagy, pagy_eucs = if display_form_status.present?
-    pagy(evaluation_user_capabilities.where(form_status: display_form_status), items: current_user.preferred_page_length)
+    pagy(:offset, evaluation_user_capabilities.where(form_status: display_form_status), limit: current_user.preferred_page_length)
   else
-    pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
+    pagy(:offset, evaluation_user_capabilities, limit: current_user.preferred_page_length)
   end
 %>
 
@@ -68,9 +68,9 @@
 </table>
 <div class="d-flex justify-content-between align-items-center mt-3">
   <div>
-    <%== pagy_info(pagy) %>
+    <%== pagy.info_tag %>
   </div>
   <div>
-    <%== pagy_bootstrap_nav(pagy) %>
+    <%== pagy.series_nav(:bootstrap) %>
   </div>
 </div>

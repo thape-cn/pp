@@ -1,6 +1,6 @@
 module Admin
   class RolesController < BaseController
-    include Pagy::Backend
+    include Pagy::Method
 
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: %i[index expender]
@@ -9,7 +9,7 @@ module Admin
 
     def index
       add_to_breadcrumbs t("user.roles")
-      @pagy, @roles = pagy(policy_scope(Role).all, items: current_user.preferred_page_length)
+      @pagy, @roles = pagy(:offset, policy_scope(Role).all, limit: current_user.preferred_page_length)
     end
 
     def new

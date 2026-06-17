@@ -2,7 +2,7 @@ module Admin
   class HomeController < BaseController
     before_action :check_brower, if: -> { request.format.html? }
     include ExcelExport
-    include Pagy::Backend
+    include Pagy::Method
 
     helper_method :pagy
 

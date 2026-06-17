@@ -1,6 +1,6 @@
 module Admin
   class ImportExcelFilesController < BaseController
-    include Pagy::Backend
+    include Pagy::Method
 
     after_action :verify_authorized, except: %i[index expender]
     before_action :set_company_evaluation, only: %i[index destroy_confirm do_import_confirm]
@@ -10,7 +10,7 @@ module Admin
       import_excel_files = policy_scope(ImportExcelFile)
         .where(company_evaluation_id: @company_evaluation.id)
         .order(id: :desc)
-      @pagy, @import_excel_files = pagy(import_excel_files, items: current_user.preferred_page_length)
+      @pagy, @import_excel_files = pagy(:offset, import_excel_files, limit: current_user.preferred_page_length)
     end
 
     def show

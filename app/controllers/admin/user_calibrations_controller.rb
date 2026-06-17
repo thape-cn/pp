@@ -1,7 +1,7 @@
 module Admin
   class UserCalibrationsController < BaseController
     include MetricHelper
-    include Pagy::Backend
+    include Pagy::Method
 
     after_action :verify_authorized, except: %i[index excel_report]
     after_action :verify_policy_scoped, only: %i[index excel_report]
@@ -27,7 +27,7 @@ module Admin
       else
         calibration_session_users
       end
-      @pagy, @calibration_session_users = pagy(calibration_session_users, items: current_user.preferred_page_length)
+      @pagy, @calibration_session_users = pagy(:offset, calibration_session_users, limit: current_user.preferred_page_length)
     end
 
     def excel_report

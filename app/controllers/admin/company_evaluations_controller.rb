@@ -1,6 +1,6 @@
 module Admin
   class CompanyEvaluationsController < BaseController
-    include Pagy::Backend
+    include Pagy::Method
 
     after_action :verify_authorized, except: :index
     after_action :verify_policy_scoped, only: :index
@@ -12,7 +12,7 @@ module Admin
 
     def index
       add_to_breadcrumbs t(".title")
-      @pagy, @company_evaluations = pagy(policy_scope(CompanyEvaluation), items: current_user.preferred_page_length)
+      @pagy, @company_evaluations = pagy(:offset, policy_scope(CompanyEvaluation), limit: current_user.preferred_page_length)
     end
 
     def new

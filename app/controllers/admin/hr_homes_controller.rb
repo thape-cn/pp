@@ -1,5 +1,7 @@
 module Admin
   class HRHomesController < BaseController
+    include Pagy::Method
+
     helper_method :pagy
 
     def show

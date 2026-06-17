@@ -1,7 +1,7 @@
 module CP
   class UserCapabilitiesController < BaseController
     include MetricHelper
-    include Pagy::Backend
+    include Pagy::Method
 
     after_action :verify_policy_scoped, only: %i[index excel_report]
     before_action :set_breadcrumbs, if: -> { request.format.html? }
@@ -35,7 +35,7 @@ module CP
       end
       evaluation_user_capabilities = evaluation_user_capabilities.where(form_status: @form_status) if @form_status.present?
       evaluation_user_capabilities = evaluation_user_capabilities.order(final_total_evaluation_score: :asc) if @sort_on_final_total_evaluation_score.present?
-      @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
+      @pagy, @evaluation_user_capabilities = pagy(:offset, evaluation_user_capabilities, limit: current_user.preferred_page_length)
     end
 
     def excel_report

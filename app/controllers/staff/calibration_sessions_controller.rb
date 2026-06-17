@@ -1,6 +1,6 @@
 module Staff
   class CalibrationSessionsController < BaseController
-    include Pagy::Backend
+    include Pagy::Method
     include StaffManagerGroup
     include UpdateSessionGroup
     include CheckEnforceDistributeForGroup
@@ -24,7 +24,7 @@ module Staff
       else
         calibration_sessions
       end
-      @pagy, @calibration_sessions = pagy(calibration_sessions, items: current_user.preferred_page_length)
+      @pagy, @calibration_sessions = pagy(:offset, calibration_sessions, limit: current_user.preferred_page_length)
       @skip_title = false
     end
 

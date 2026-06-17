@@ -1,7 +1,7 @@
 module HR
   class HomeController < BaseController
     include ExcelExport
-    include Pagy::Backend
+    include Pagy::Method
 
     helper_method :pagy
 

@@ -1,7 +1,7 @@
 module Admin
   class ArchivedUserCapabilitiesController < BaseController
     include MetricHelper
-    include Pagy::Backend
+    include Pagy::Method
 
     after_action :verify_policy_scoped, only: %i[index excel_report confirm_restore restore]
     before_action :set_company_evaluation, only: %i[index excel_report confirm_restore restore]
@@ -16,7 +16,7 @@ module Admin
       archived_evaluation_user_capabilities = policy_scope(ArchivedEvaluationUserCapability)
         .where(company_evaluation_template_id: company_evaluation_template_ids)
         .order(deleted_time: :desc)
-      @pagy, @archived_evaluation_user_capabilities = pagy(archived_evaluation_user_capabilities, items: current_user.preferred_page_length)
+      @pagy, @archived_evaluation_user_capabilities = pagy(:offset, archived_evaluation_user_capabilities, limit: current_user.preferred_page_length)
     end
 
     def confirm_restore

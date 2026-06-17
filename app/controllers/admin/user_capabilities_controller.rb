@@ -1,7 +1,7 @@
 module Admin
   class UserCapabilitiesController < BaseController
     include MetricHelper
-    include Pagy::Backend
+    include Pagy::Method
     include ExcelDetailReport
 
     after_action :verify_authorized, except: %i[index excel_report excel_detail_report]
@@ -57,7 +57,7 @@ module Admin
       end
       evaluation_user_capabilities = evaluation_user_capabilities.order(final_total_evaluation_score: :asc) if @sort_on_final_total_evaluation_score
       evaluation_user_capabilities = evaluation_user_capabilities.where(user: {is_active: false}) if @show_user_inactive_only
-      @pagy, @evaluation_user_capabilities = pagy(evaluation_user_capabilities, items: current_user.preferred_page_length)
+      @pagy, @evaluation_user_capabilities = pagy(:offset, evaluation_user_capabilities, limit: current_user.preferred_page_length)
     end
 
     def show
