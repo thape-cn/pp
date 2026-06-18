@@ -224,7 +224,7 @@ module Staff
     end
 
     def build_table_headers_of_capability(headers_of_capability, headers_of_performance, group_level)
-      if group_level == "manager_b"
+      if CompanyEvaluationTemplate.manager_b_group_level?(group_level)
         headers_of_capability
       else
         headers_of_performance
@@ -242,9 +242,9 @@ module Staff
 
     def check_mark_score_completion(need_review_evaluations, job_role_evaluation_performances)
       all_overall_not_valid_eucs = need_review_evaluations.find_all do |euc|
-        euc.manager_overall_improvement&.length.to_i < 20 \
-        || euc.manager_overall_plan&.length.to_i < 20 \
-        || euc.manager_overall_improvement&.strip&.empty? \
+        euc.manager_overall_improvement&.length.to_i < 20
+        || euc.manager_overall_plan&.length.to_i < 20
+        || euc.manager_overall_improvement&.strip&.empty?
         || euc.manager_overall_plan&.strip&.empty?
       end
       Rails.logger.debug "all_overall_not_valid_eucs: #{all_overall_not_valid_eucs}"
@@ -286,7 +286,7 @@ module Staff
         user_chinese_name = any_attributes_zero_eucs.collect { |euc| euc.user.chinese_name }
         reject_message << I18n.t("evaluation.any_attitude_zero_reject_message", user_names: user_chinese_name.to_sentence(words_connector: "、", last_word_connector: "和", two_words_connector: "、"))
       end
-      if any_obj_result_zero_jreps.length > 0 && need_review_evaluations.all? { |euc| euc.company_evaluation_template.group_level != "manager_b" }
+      if any_obj_result_zero_jreps.length > 0 && need_review_evaluations.all? { |euc| euc.company_evaluation_template.includes_performance_columns? }
         user_chinese_name = any_obj_result_zero_jreps.collect { |jrep| jrep.user.chinese_name }
         reject_message << I18n.t("evaluation.any_obj_result_zero_reject_message", user_names: user_chinese_name.to_sentence(words_connector: "、", last_word_connector: "和", two_words_connector: "、"))
       end

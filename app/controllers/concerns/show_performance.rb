@@ -2,8 +2,6 @@ module ShowPerformance
   extend ActiveSupport::Concern
 
   included do
-    include StaffManagerGroup
-
     after_action :verify_authorized, only: :show
   end
 
@@ -65,6 +63,6 @@ module ShowPerformance
   end
 
   def group(evaluation_user_capabilities)
-    raise NotImplementedError, "You must implement the group method"
+    CompanyEvaluationTemplate.group_evaluation_user_capabilities(group_level, evaluation_user_capabilities)
   end
 end

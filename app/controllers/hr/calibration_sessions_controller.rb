@@ -1,7 +1,6 @@
 module HR
   class CalibrationSessionsController < BaseController
     include Pagy::Method
-    include StaffManagerGroup
 
     after_action :verify_authorized, except: %i[index expender]
     after_action :verify_policy_scoped, only: :index
@@ -49,24 +48,11 @@ module HR
       add_to_breadcrumbs t("hr.calibration_sessions.show.title"), hr_calibration_session_path(id: @calibration_session.id)
       add_to_breadcrumbs t(".title")
 
-      group_level = @calibration_session.calibration_template.company_evaluation_template.group_level
-
+      company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template
       evaluation_user_capabilities = @calibration_session.calibration_session_users.collect(&:evaluation_user_capability)
       @total_people_num = evaluation_user_capabilities.length
-      case group_level
-      when "staff"
-        @evaluation_user_capabilities_group = staff_group(evaluation_user_capabilities)
-        render "staff_square"
-      when "auxiliary"
-        @evaluation_user_capabilities_group = manager_group_a(evaluation_user_capabilities)
-        render "auxiliary_square"
-      when "manager_a"
-        @evaluation_user_capabilities_group = manager_group_a(evaluation_user_capabilities)
-        render "manager_a_square"
-      when "manager_b"
-        @evaluation_user_capabilities_group = manager_group_b(evaluation_user_capabilities)
-        render "manager_b_square"
-      end
+      @evaluation_user_capabilities_group = company_evaluation_template.group_evaluation_user_capabilities(evaluation_user_capabilities)
+      render company_evaluation_template.square_template
     end
 
     def new

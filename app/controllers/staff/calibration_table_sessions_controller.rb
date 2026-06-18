@@ -132,13 +132,12 @@ module Staff
           accessor: cap.en_name # accessor is the "key" in the react table data
         }
       end
-      if group_level == "staff"
+      company_evaluation_template = CompanyEvaluationTemplate.new(group_level: group_level)
+      if company_evaluation_template.staff?
         staff_table_headers_of_capability_for_calibration(table_headers_of_capability, table_headers_of_performance)
-      elsif group_level == "auxiliary"
-        manager_table_headers_of_capability_for_calibration(table_headers_of_capability, table_headers_of_performance)
-      elsif group_level == "manager_b"
+      elsif company_evaluation_template.manager_b?
         manager_table_headers_of_capability_for_calibration(table_headers_of_capability, [])
-      elsif group_level == "manager_a"
+      else
         manager_table_headers_of_capability_for_calibration(table_headers_of_capability, table_headers_of_performance)
       end
     end

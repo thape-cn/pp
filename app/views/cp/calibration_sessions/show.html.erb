@@ -6,14 +6,7 @@
   <div class="col-lg-12">
     <div class="container">
       <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
-      <% case company_evaluation_template.group_level %>
-      <% when 'staff' %>
-        <%= render partial: "ui/calibration_sessions/staff_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
-      <% when 'auxiliary' %>
-        <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
-      <% when 'manager_a', 'manager_b' %>
-        <%= render partial: "ui/calibration_sessions/manager_table", locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
-      <% end %>
+      <%= render partial: company_evaluation_template.calibration_table_partial, locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
     </div>
   </div>
 </div>

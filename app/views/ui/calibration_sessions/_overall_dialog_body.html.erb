@@ -55,7 +55,7 @@
       </tbody>
     </table>
   <% end %>
-  <% if job_role_performances.present? && company_evaluation_template.group_level != 'manager_b' %>
+  <% if job_role_performances.present? && company_evaluation_template.includes_performance_columns? %>
     <table class="table">
       <thead>
         <tr>

@@ -18,27 +18,8 @@ module Staff
       @management_capabilities = @evaluation_user_capability.management_capabilities
       @professional_capabilities = @evaluation_user_capability.professional_capabilities
 
-      @horizontal_position = case company_evaluation_template.group_level
-      when "staff"
-        @evaluation_user_capability.group_of_staff_work_quality_and_work_attitude
-      when "auxiliary"
-        @evaluation_user_capability.group_of_manager_management_profession
-      when "manager_a"
-        @evaluation_user_capability.group_of_manager_management_profession
-      when "manager_b"
-        @evaluation_user_capability.group_of_manager_only_management
-      end
-
-      @vertical_position = case company_evaluation_template.group_level
-      when "staff"
-        @evaluation_user_capability.group_of_staff_work_load
-      when "auxiliary"
-        @evaluation_user_capability.group_of_manager_performance
-      when "manager_a"
-        @evaluation_user_capability.group_of_manager_performance
-      when "manager_b"
-        @evaluation_user_capability.group_of_manager_only_profession
-      end
+      @horizontal_position = company_evaluation_template.horizontal_position_for(@evaluation_user_capability)
+      @vertical_position = company_evaluation_template.vertical_position_for(@evaluation_user_capability)
 
       add_to_breadcrumbs company_evaluation_template.title
       set_meta_tags(title: company_evaluation_template.title)

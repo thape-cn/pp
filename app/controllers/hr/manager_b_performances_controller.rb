@@ -7,9 +7,5 @@ module HR
     def group_level
       "manager_b"
     end
-
-    def group(evaluation_user_capabilities)
-      manager_group_b(evaluation_user_capabilities)
-    end
   end
 end

@@ -1,7 +1,6 @@
 module Staff
   class CalibrationSessionsController < BaseController
     include Pagy::Method
-    include StaffManagerGroup
     include UpdateSessionGroup
     include CheckEnforceDistributeForGroup
 
@@ -79,18 +78,10 @@ module Staff
     end
 
     def update
-      @group_level = params[:group_level]
+      company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template
+      @group_level = company_evaluation_template.group_level
 
-      case @group_level
-      when "staff"
-        update_staff_group(params[:calibration])
-      when "auxiliary"
-        update_manager_group_a(params[:calibration])
-      when "manager_a"
-        update_manager_group_a(params[:calibration])
-      when "manager_b"
-        update_manager_group_b(params[:calibration])
-      end
+      update_calibration_group(params[:calibration], company_evaluation_template)
 
       log_calibration_session_save(
         source: "square",
@@ -99,15 +90,10 @@ module Staff
       )
 
       if params[:finalize] && @calibration_session.calibration_template.enforce_distribute?
-        @enforce_distribute_reject_message = case @group_level
-        when "staff"
+        @enforce_distribute_reject_message = if company_evaluation_template.staff_distribution?
           check_enforce_distribute_for_aa_b_cd_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
-        when "auxiliary"
-          check_enforce_distribute_for_aa_b_cd_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
-        when "manager_a"
+        elsif company_evaluation_template.manager_distribution?
           check_enforce_distribute_for_manager_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
-        when "manager_b"
-          check_enforce_distribute_for_aa_b_cd_group(params[:calibration], @calibration_session.calibration_template.enforce_highest_only?)
         end
         if @enforce_distribute_reject_message.nil?
           @accept_finalize_confirm_message = I18n.t("calibration.accept_finalize_confirm_message")
@@ -136,24 +122,11 @@ module Staff
       add_to_breadcrumbs t("layouts.sidebars.staff.calibration_session"), staff_calibration_sessions_path
       add_to_breadcrumbs t(".title")
 
-      group_level = @calibration_session.calibration_template.company_evaluation_template.group_level
-
       evaluation_user_capabilities = @calibration_session.calibration_session_users.collect(&:evaluation_user_capability)
       @total_people_num = evaluation_user_capabilities.length
-      case group_level
-      when "staff"
-        @evaluation_user_capabilities_group = staff_group(evaluation_user_capabilities)
-        render "staff_square"
-      when "auxiliary"
-        @evaluation_user_capabilities_group = manager_group_a(evaluation_user_capabilities)
-        render "auxiliary_square"
-      when "manager_a"
-        @evaluation_user_capabilities_group = manager_group_a(evaluation_user_capabilities)
-        render "manager_a_square"
-      when "manager_b"
-        @evaluation_user_capabilities_group = manager_group_b(evaluation_user_capabilities)
-        render "manager_b_square"
-      end
+      company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template
+      @evaluation_user_capabilities_group = company_evaluation_template.group_evaluation_user_capabilities(evaluation_user_capabilities)
+      render company_evaluation_template.square_template
     end
 
     def table
@@ -178,16 +151,7 @@ module Staff
       need_calibration_evaluation_user_capabilities = calibration_session
         .calibration_session_users.collect(&:evaluation_user_capability)
         .reject(&:blank?) # user must having evaluation_user_capability, even it's only having performance.
-      case group_level
-      when "staff"
-        staff_group(need_calibration_evaluation_user_capabilities)
-      when "auxiliary"
-        manager_group_a(need_calibration_evaluation_user_capabilities)
-      when "manager_a"
-        manager_group_a(need_calibration_evaluation_user_capabilities)
-      when "manager_b"
-        manager_group_b(need_calibration_evaluation_user_capabilities)
-      end
+      CompanyEvaluationTemplate.group_evaluation_user_capabilities(group_level, need_calibration_evaluation_user_capabilities)
     end
 
     def set_calibration_session
