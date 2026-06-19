@@ -595,7 +595,7 @@ DEPENDENCIES
   zeitwerk
 
 RUBY VERSION
-  ruby 3.2.2p53
+  ruby 4.0.5
 
 BUNDLED WITH
   4.0.14
