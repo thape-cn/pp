@@ -1,7 +1,7 @@
 class CompanyEvaluationTemplate < ApplicationRecord
+  include CompanyEvaluationTemplateGroupLevels
+
   GROUP_LEVELS = %w[staff manager_a manager_b auxiliary].freeze
-  STAFF_DISTRIBUTION_GROUP_LEVELS = %w[staff auxiliary manager_b].freeze
-  MANAGER_DISTRIBUTION_GROUP_LEVELS = %w[manager_a].freeze
   CALIBRATION_VERTICAL_SCORES = {"1" => 5, "2" => 3, "3" => 1}.freeze
   CALIBRATION_HORIZONTAL_SCORES = {"1" => 1, "2" => 3, "3" => 5}.freeze
 
@@ -19,48 +19,8 @@ class CompanyEvaluationTemplate < ApplicationRecord
     }
   end
 
-  def self.staff_distribution_group_level?(group_level)
-    STAFF_DISTRIBUTION_GROUP_LEVELS.include?(group_level)
-  end
-
-  def self.manager_distribution_group_level?(group_level)
-    MANAGER_DISTRIBUTION_GROUP_LEVELS.include?(group_level)
-  end
-
-  def self.manager_b_group_level?(group_level)
-    group_level == "manager_b"
-  end
-
   def self.group_evaluation_user_capabilities(group_level, evaluation_user_capabilities)
     new(group_level: group_level).group_evaluation_user_capabilities(evaluation_user_capabilities)
-  end
-
-  def staff?
-    group_level == "staff"
-  end
-
-  def manager_a?
-    group_level == "manager_a"
-  end
-
-  def manager_b?
-    self.class.manager_b_group_level?(group_level)
-  end
-
-  def auxiliary?
-    group_level == "auxiliary"
-  end
-
-  def staff_distribution?
-    self.class.staff_distribution_group_level?(group_level)
-  end
-
-  def manager_distribution?
-    self.class.manager_distribution_group_level?(group_level)
-  end
-
-  def includes_performance_columns?
-    !manager_b?
   end
 
   def calibration_table_partial
