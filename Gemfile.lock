@@ -135,7 +135,7 @@ GEM
       capistrano (>= 3.9.0)
       capistrano-bundler
       sidekiq (>= 7.0)
-    capistrano3-puma (8.0.0)
+    capistrano3-puma (8.1.0)
       capistrano (~> 3.7)
       capistrano-bundler
       puma (>= 6.1, < 9.0)
@@ -220,7 +220,7 @@ GEM
     http-form_data (2.3.0)
     httpx (1.8.0)
       http-2 (>= 1.2.0)
-    i18n (1.15.1)
+    i18n (1.15.2)
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
     irb (1.18.0)
@@ -325,7 +325,7 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
-    pp (0.6.3)
+    pp (0.6.4)
       prettyprint
     prettyprint (0.2.0)
     prism (1.9.0)
