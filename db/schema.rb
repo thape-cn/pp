@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_22_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -217,6 +217,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000000) do
     t.string "manager_overall_improvement_hint"
     t.string "manager_overall_output_hint"
     t.string "manager_overall_plan_hint"
+    t.integer "mark_score_group", default: 4
     t.integer "pct_proportion", default: 100
     t.string "performance_metric", default: "grading_5_metric"
     t.integer "performance_subtotal_rate", default: 50, null: false

@@ -15,6 +15,18 @@ class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
     CompanyEvaluationTemplate.new(group_level: "supervisor")
   end
 
+  test "mark score group options describe staff grade bands" do
+    assert_equal(
+      {
+        ">= 10,11 级" => 4,
+        "9 级" => 3,
+        "7,8 级" => 2,
+        "<= 6 级" => 1
+      },
+      CompanyEvaluationTemplate.mark_score_group_options
+    )
+  end
+
   test "distribution predicates describe calibration quota families" do
     assert company_evaluation_templates(:ect_staff).staff_distribution?
     assert company_evaluation_templates(:ect_auxiliary).staff_distribution?

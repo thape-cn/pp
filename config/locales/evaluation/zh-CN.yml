@@ -11,6 +11,7 @@ zh-CN:
     initiate_evaluation: "发起新考评表单"
     brief: "简介"
     group_level: "考评组别"
+    mark_score_group: "评分组别"
     staff_level: "员工层"
     manager_level_a: "主管层 A"
     manager_level_b: "主管层"

@@ -18,6 +18,10 @@
             <div class="col-4">
               <%= f.select :group_level, CompanyEvaluationTemplate.group_level_options, {}, class: 'form-control' %>
             </div>
+            <%= f.label :mark_score_group, t("evaluation.mark_score_group"), class: 'col-2 col-form-label' %>
+            <div class="col-4">
+              <%= f.select :mark_score_group, CompanyEvaluationTemplate.mark_score_group_options, {}, class: 'form-control' %>
+            </div>
           </div>
           <div class="row mb-2">
             <%= f.label :brief, t("admin.evaluation_templates.edit.brief"), class: 'col-2 col-form-label' %>

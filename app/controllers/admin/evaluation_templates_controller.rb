@@ -44,7 +44,7 @@ module Admin
 
     def company_evaluation_template_params
       params.require(:company_evaluation_template)
-        .permit(:title, :group_level, :brief, :pct_proportion, :rate_proportion,
+        .permit(:title, :group_level, :mark_score_group, :brief, :pct_proportion, :rate_proportion,
           :work_quality_pct, :work_load_pct, :work_attitude_pct,
           :work_quality_metric, :work_load_metric, :work_attitude_metric,
           :management_subtotal_rate, :profession_subtotal_rate, :performance_subtotal_rate,

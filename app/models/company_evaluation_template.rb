@@ -20,6 +20,15 @@ class CompanyEvaluationTemplate < ApplicationRecord
     }
   end
 
+  def self.mark_score_group_options
+    {
+      ">= 10,11 级" => 4,
+      "9 级" => 3,
+      "7,8 级" => 2,
+      "<= 6 级" => 1
+    }
+  end
+
   def self.group_evaluation_user_capabilities(group_level, evaluation_user_capabilities)
     new(group_level: group_level).group_evaluation_user_capabilities(evaluation_user_capabilities)
   end
