@@ -1,7 +1,18 @@
 class JobRoleEvaluationPerformance < ApplicationRecord
+  STAFF_REVIEW_HIDDEN_EN_NAMES = %w[
+    p_managedproject_profit
+    p_managedproject_output
+    p_individual_output
+    p_individual_hours
+  ].freeze
+
   belongs_to :user
   belongs_to :company_evaluation
   belongs_to :evaluation_user_capability, optional: true
+
+  scope :visible_in_staff_review, -> {
+    where(en_name: nil).or(where.not(en_name: STAFF_REVIEW_HIDDEN_EN_NAMES))
+  }
 
   def self.en_column_names
     @_en_column_names ||= pluck(:en_name)
