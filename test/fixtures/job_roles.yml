@@ -72,14 +72,14 @@ job_82:
   job_level: 9
   job_code: "助理主创建筑师"
   job_family: "子公司方案"
-  evaluation_role: er_functional_supervisor
+  evaluation_role: er_functional_lead
 
 job_311:
   st_code: "0305050407"
   job_level: 8
   job_code: "A级建筑师（方案）"
   job_family: "子公司方案"
-  evaluation_role: er_functional_supervisor
+  evaluation_role: er_functional_lead
 
 job_176:
   st_code: "0305040400"

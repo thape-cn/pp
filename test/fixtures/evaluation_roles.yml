@@ -8,32 +8,32 @@ er_technical_director:
 er_employee_layer_general:
   role_name: "员工层通用"
 
-er_functional_supervisor:
+er_functional_lead:
   role_name: "职能主管"
 
 er_functional_employee:
   role_name: "职能员工"
 
-er_solution_supervisor:
+er_solution_lead:
   role_name: "方案主管"
 
-er_planning_supervisor:
+er_planning_lead:
   role_name: "规划主管"
 
 er_landscape_technical_director:
   role_name: "景观技术主管"
 
-er_interior_solution_supervisor:
+er_interior_solution_lead:
   role_name: "室内方案主管"
 
-er_landscape_solution_supervisor:
+er_landscape_solution_lead:
   role_name: "景观方案主管"
 
 er_technical_employee:
   role_name: "技术员工"
 
-er_interior_construction_supervisor:
+er_interior_construction_lead:
   role_name: "室内施工图主管"
 
-er_aico_interior_supervisor:
+er_aico_interior_lead:
   role_name: "AICO室内主管"
