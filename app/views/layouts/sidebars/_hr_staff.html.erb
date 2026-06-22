@@ -48,6 +48,7 @@
     <%= nav_item(t('performance.manager_a_performances'), hr_manager_a_performances_path, 'free.svg#cil-usb', nav_class: 'rotate_180') -%>
     <%= nav_item(t('performance.manager_b_performances'), hr_manager_b_performances_path, 'free.svg#cil-usb', nav_class: 'rotate_180') -%>
     <%= nav_item(t('performance.auxiliary_performances'), hr_auxiliary_performances_path, 'free.svg#cil-columns') -%>
+    <%= nav_item(t('performance.supervisor_performances'), hr_supervisor_performances_path, 'free.svg#cil-columns') -%>
 
     <li class="nav-title"><%= t('evaluation.history_evaluation') -%></li>
     <li class="nav-group <%= %w[history_user_capabilities].include?(controller_name) ? "show" : "" -%>" data-controller="expender"

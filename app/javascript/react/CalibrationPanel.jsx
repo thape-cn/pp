@@ -92,6 +92,8 @@ function CalibrationPanel() {
       return calibrationEucsByStaff(row, column, calibrationEucs);
     } else if (group_level == "auxiliary" && Array.isArray(calibrationEucs[`${row}${column}`])) {
       return calibrationEucsByStaff(row, column, calibrationEucs);
+    } else if (group_level == "supervisor" && Array.isArray(calibrationEucs[`${row}${column}`])) {
+      return calibrationEucsByStaff(row, column, calibrationEucs);
     } else if (group_level == "manager_b" && Array.isArray(calibrationEucs[`${row}${column}`])) {
       return calibrationEucsByStaff(row, column, calibrationEucs);
     } else if (group_level == "manager_a" && Array.isArray(calibrationEucs[`${row}${column}`])) {

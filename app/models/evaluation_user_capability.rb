@@ -35,7 +35,7 @@ class EvaluationUserCapability < ApplicationRecord
   end
 
   def performance_weight_result
-    raw_result = if company_evaluation_template.auxiliary?
+    raw_result = if company_evaluation_template.auxiliary? || company_evaluation_template.supervisor?
       annual_output # TODO: should general to performance_column_names and add rate to evaluation_role_capabilities
     else
       performance_weight_upload_result

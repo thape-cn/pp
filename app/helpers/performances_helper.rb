@@ -38,6 +38,16 @@ module PerformancesHelper
         else
           overall_text_staff_evaluation_user_capability_path(id: euc.id)
         end
+      when "supervisor"
+        if current_user.admin?
+          admin_supervisor_performance_path(id: euc.id)
+        elsif current_user.corp_president?
+          cp_supervisor_performance_path(id: euc.id)
+        elsif current_user.hr_staff?
+          hr_supervisor_performance_path(id: euc.id)
+        else
+          overall_text_staff_evaluation_user_capability_path(id: euc.id)
+        end
       else
         if current_user.admin?
           admin_staff_performance_path(id: euc.id)

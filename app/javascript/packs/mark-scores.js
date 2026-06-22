@@ -34,3 +34,11 @@ if (auxiliary_node) {
     auxiliary_root.render(<MarkScores group_level='auxiliary' />);
   });
 }
+
+const supervisor_node = document.getElementById('supervisor-mark');
+if (supervisor_node) {
+  const supervisor_root = createRoot(supervisor_node);
+  document.addEventListener('DOMContentLoaded', () => {
+    supervisor_root.render(<MarkScores group_level='supervisor' />);
+  });
+}

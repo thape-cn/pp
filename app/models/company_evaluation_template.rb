@@ -1,7 +1,7 @@
 class CompanyEvaluationTemplate < ApplicationRecord
   include CompanyEvaluationTemplateGroupLevels
 
-  GROUP_LEVELS = %w[staff manager_a manager_b auxiliary].freeze
+  GROUP_LEVELS = %w[staff manager_a manager_b auxiliary supervisor].freeze
   CALIBRATION_VERTICAL_SCORES = {"1" => 5, "2" => 3, "3" => 1}.freeze
   CALIBRATION_HORIZONTAL_SCORES = {"1" => 1, "2" => 3, "3" => 5}.freeze
 
@@ -15,7 +15,8 @@ class CompanyEvaluationTemplate < ApplicationRecord
       I18n.t("evaluation.staff_level") => "staff",
       I18n.t("evaluation.manager_level_a") => "manager_a",
       I18n.t("evaluation.manager_level_b") => "manager_b",
-      I18n.t("evaluation.auxiliary_level") => "auxiliary"
+      I18n.t("evaluation.auxiliary_level") => "auxiliary",
+      I18n.t("evaluation.supervisor_level") => "supervisor"
     }
   end
 

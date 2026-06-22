@@ -1,7 +1,7 @@
 module CompanyEvaluationTemplateGroupLevels
   extend ActiveSupport::Concern
 
-  STAFF_DISTRIBUTION_GROUP_LEVELS = %w[staff auxiliary manager_b].freeze
+  STAFF_DISTRIBUTION_GROUP_LEVELS = %w[staff auxiliary supervisor manager_b].freeze
   MANAGER_DISTRIBUTION_GROUP_LEVELS = %w[manager_a].freeze
 
   class_methods do
@@ -32,6 +32,10 @@ module CompanyEvaluationTemplateGroupLevels
 
   def auxiliary?
     group_level == "auxiliary"
+  end
+
+  def supervisor?
+    group_level == "supervisor"
   end
 
   def staff_distribution?

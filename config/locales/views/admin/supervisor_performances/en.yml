@@ -1,0 +1,8 @@
+---
+en:
+  admin:
+    supervisor_performances:
+      index:
+        title: "Supervisor performance result"
+      show:
+        title: "Performance of %{chinese_name}"

@@ -1,0 +1,8 @@
+---
+zh-CN:
+  cp:
+    supervisor_performances:
+      index:
+        title: "员工/主管绩效"
+      show:
+        title: "%{chinese_name}的绩效"
