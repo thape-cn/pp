@@ -6,3 +6,11 @@ hrbp_user_managed_department_one:
 hrbp_user_managed_department_two:
   managed_dept_code: "0001010013"
   user: user_guochunzhong
+
+hrbp_user_managed_department_pptest9_000001:
+  managed_dept_code: "000001"
+  user: user_pptest9
+
+hrbp_user_managed_department_pptest1_000001:
+  managed_dept_code: "000001"
+  user: user_pptest1

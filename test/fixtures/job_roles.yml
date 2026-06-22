@@ -19,43 +19,71 @@ job_10:
   job_family: "子公司施工图"
 
 job_64:
-  st_code: "0305090300"
+  st_code: "0305040300"
   job_level: 10
-  job_code: "设总"
-  job_family: "子公司施工图"
+  job_code: "主创建筑师"
+  job_family: "子公司方案"
   evaluation_role: er_technical_director
 
 job_429:
-  st_code: "0305090900"
+  st_code: "0305040800"
   job_level: 5
-  job_code: "D级建筑师"
-  job_family: "子公司施工图"
+  job_code: "四级建筑师"
+  job_family: "子公司方案"
+  evaluation_role: er_employee_layer_general
+
+job_0305040200:
+  st_code: "0305040200"
+  job_level: 11
+  job_code: "资深主创建筑师"
+  job_family: "子公司方案"
+  evaluation_role: er_technical_director
+
+job_0305040700:
+  st_code: "0305040700"
+  job_level: 6
+  job_code: "三级建筑师"
+  job_family: "子公司方案"
+  evaluation_role: er_employee_layer_general
+
+job_0305040600:
+  st_code: "0305040600"
+  job_level: 7
+  job_code: "二级建筑师"
+  job_family: "子公司方案"
+  evaluation_role: er_employee_layer_general
+
+job_0305040500:
+  st_code: "0305040500"
+  job_level: 8
+  job_code: "一级建筑师"
+  job_family: "子公司方案"
   evaluation_role: er_employee_layer_general
 
 job_76:
-  st_code: "0609020600"
-  job_level: 11
-  job_code: "商务经理"
-  job_family: "集团人力资源"
+  st_code: "0305040450"
+  job_level: 9
+  job_code: "资深建筑师（方案）"
+  job_family: "子公司方案"
   evaluation_role: er_functional_employee
 
 job_82:
-  st_code: "0608010900"
-  job_level: 12
-  job_code: "招聘经理"
-  job_family: "集团人力资源"
+  st_code: "0305040400"
+  job_level: 9
+  job_code: "助理主创建筑师"
+  job_family: "子公司方案"
   evaluation_role: er_functional_supervisor
 
 job_311:
-  st_code: "0607010400"
-  job_level: 12
-  job_code: "学习发展经理"
-  job_family: "集团教育培训"
+  st_code: "0305050407"
+  job_level: 8
+  job_code: "A级建筑师（方案）"
+  job_family: "子公司方案"
   evaluation_role: er_functional_supervisor
 
 job_176:
-  st_code: "0605020300"
-  job_level: 13
-  job_code: "行政部经理"
-  job_family: "子公司行政"
+  st_code: "0305040400"
+  job_level: 9
+  job_code: "助理主创建筑师"
+  job_family: "子公司方案"
   evaluation_role: er_functional_employee

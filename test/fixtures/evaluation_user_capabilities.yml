@@ -34,9 +34,9 @@ euc_pp4:
   job_role: job_429
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "D级建筑师"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "四级建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -48,12 +48,12 @@ euc_pp4:
 euc_pp5:
   company_evaluation_template: ect_staff
   user: user_pptest5
-  job_role: job_429
+  job_role: job_0305040700
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "D级建筑师"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "三级建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -65,12 +65,12 @@ euc_pp5:
 euc_pp6:
   company_evaluation_template: ect_staff
   user: user_pptest6
-  job_role: job_429
+  job_role: job_0305040600
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "D级建筑师"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "二级建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -82,12 +82,12 @@ euc_pp6:
 euc_pp7:
   company_evaluation_template: ect_staff
   user: user_pptest7
-  job_role: job_429
+  job_role: job_0305040600
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "D级建筑师"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "二级建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -99,12 +99,12 @@ euc_pp7:
 euc_pp8:
   company_evaluation_template: ect_staff
   user: user_pptest8
-  job_role: job_429
+  job_role: job_0305040500
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "D级建筑师"
+  department: "测试组织"
+  dept_code: "000002"
+  title: "一级建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -116,12 +116,12 @@ euc_pp8:
 euc_pp9:
   company_evaluation_template: ect_staff
   user: user_pptest9
-  job_role: job_429
+  job_role: job_0305040500
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "D级建筑师"
+  department: "测试组织"
+  dept_code: "000005"
+  title: "一级建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -134,11 +134,11 @@ euc_pp1:
   company_evaluation_template: ect_manager
   user: user_pptest1
   job_role: job_64
-  manager_user: user_pptest0
+  manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "设总"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "主创建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -155,12 +155,12 @@ euc_pp1:
 euc_pp2:
   company_evaluation_template: ect_manager
   user: user_pptest2
-  job_role: job_64
-  manager_user: user_pptest0
+  job_role: job_0305040200
+  manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "设总"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "资深主创建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -180,9 +180,9 @@ euc_pp3:
   job_role: job_64
   manager_user: user_pptest0
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
-  title: "设总"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "主创建筑师"
   self_overall_output: "12345678901234567890"
   self_overall_improvement: "12345678901234567890"
   self_overall_plan: "12345678901234567890"
@@ -200,10 +200,10 @@ euc_pp0:
   company_evaluation_template: ect_manager
   user: user_pptest0
   job_role: job_10
-  manager_user: user_fangzixue
+  manager_user:
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "pp2023"
+  department: "测试组织"
+  dept_code: "000004"
   title: "所长（施工图）"
   form_status: "initial"
 
@@ -213,12 +213,12 @@ euc_pp10:
   job_role: job_76
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "000101203"
-  title: "商务经理"
-  self_overall_output: "商务经理 self_overall_output 12345678901234567890"
-  self_overall_improvement: "商务经理 self_overall_improvement 12345678901234567890"
-  self_overall_plan: "商务经理 self_overall_plan 12345678901234567890"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "资深建筑师（方案）"
+  self_overall_output: "资深建筑师（方案） self_overall_output 12345678901234567890"
+  self_overall_improvement: "资深建筑师（方案） self_overall_improvement 12345678901234567890"
+  self_overall_plan: "资深建筑师（方案） self_overall_plan 12345678901234567890"
   form_status: "self_assessment_done"
   work_attitude: 0
   work_load: 0
@@ -230,15 +230,15 @@ euc_pp11:
   job_role: job_176
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "000101203"
-  title: "行政部经理"
-  self_overall_output: "行政部经理 self_overall_output 1234567890"
-  self_overall_improvement: "行政部经理 self_overall_improvement 1234567890"
-  self_overall_plan: "行政部经理 self_overall_plan 1234567890"
-  manager_overall_output: "行政部经理 manager_overall_output 1234567890"
-  manager_overall_improvement: "行政部经理 manager_overall_improvement 1234567890"
-  manager_overall_plan: "行政部经理 manager_overall_plan 1234567890"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "助理主创建筑师"
+  self_overall_output: "助理主创建筑师 self_overall_output 1234567890"
+  self_overall_improvement: "助理主创建筑师 self_overall_improvement 1234567890"
+  self_overall_plan: "助理主创建筑师 self_overall_plan 1234567890"
+  manager_overall_output: "助理主创建筑师 manager_overall_output 1234567890"
+  manager_overall_improvement: "助理主创建筑师 manager_overall_improvement 1234567890"
+  manager_overall_plan: "助理主创建筑师 manager_overall_plan 1234567890"
   form_status: "self_assessment_done"
   work_attitude: 0
   work_load: 0
@@ -250,15 +250,15 @@ euc_pp12:
   job_role: job_82
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "0001010005"
-  title: "学习发展经理"
-  self_overall_output: "学习发展经理 self_overall_output 12345678901234567890"
-  self_overall_improvement: "学习发展经理 self_overall_improvement 12345678901234567890"
-  self_overall_plan: "学习发展经理 self_overall_plan 12345678901234567890"
-  manager_overall_output: "学习发展经理 manager_overall_output 1234567890"
-  manager_overall_improvement: "学习发展经理 manager_overall_improvement 1234567890"
-  manager_overall_plan: "学习发展经理 manager_overall_plan 1234567890"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "助理主创建筑师"
+  self_overall_output: "助理主创建筑师 self_overall_output 12345678901234567890"
+  self_overall_improvement: "助理主创建筑师 self_overall_improvement 12345678901234567890"
+  self_overall_plan: "助理主创建筑师 self_overall_plan 12345678901234567890"
+  manager_overall_output: "助理主创建筑师 manager_overall_output 1234567890"
+  manager_overall_improvement: "助理主创建筑师 manager_overall_improvement 1234567890"
+  manager_overall_plan: "助理主创建筑师 manager_overall_plan 1234567890"
   form_status: "self_assessment_done"
   annual_output: 0
   coaching: 0
@@ -272,15 +272,15 @@ euc_pp13:
   job_role: job_311
   manager_user: user_pptest3
   company: "测试公司"
-  department: "测试部门"
-  dept_code: "000101203"
-  title: "招聘经理"
-  self_overall_output: "招聘经理 self_overall_output 12345678901234567890"
-  self_overall_improvement: "招聘经理 self_overall_improvement 12345678901234567890"
-  self_overall_plan: "招聘经理 self_overall_plan 12345678901234567890"
-  manager_overall_output: "招聘经理 manager_overall_output 1234567890"
-  manager_overall_improvement: "招聘经理 manager_overall_improvement 1234567890"
-  manager_overall_plan: "招聘经理 manager_overall_plan 1234567890"
+  department: "测试组织"
+  dept_code: "000003"
+  title: "A级建筑师（方案）"
+  self_overall_output: "A级建筑师（方案） self_overall_output 12345678901234567890"
+  self_overall_improvement: "A级建筑师（方案） self_overall_improvement 12345678901234567890"
+  self_overall_plan: "A级建筑师（方案） self_overall_plan 12345678901234567890"
+  manager_overall_output: "A级建筑师（方案） manager_overall_output 1234567890"
+  manager_overall_improvement: "A级建筑师（方案） manager_overall_improvement 1234567890"
+  manager_overall_plan: "A级建筑师（方案） manager_overall_plan 1234567890"
   form_status: "self_assessment_done"
   annual_output: 0
   coaching: 0
