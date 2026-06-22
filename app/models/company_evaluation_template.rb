@@ -23,6 +23,14 @@ class CompanyEvaluationTemplate < ApplicationRecord
     new(group_level: group_level).group_evaluation_user_capabilities(evaluation_user_capabilities)
   end
 
+  def job_role_performance_metric(job_role_evaluation_performance)
+    if JobRoleEvaluationPerformance.hidden_rank_en_name?(job_role_evaluation_performance.en_name)
+      rank_performance_metric
+    else
+      performance_metric
+    end
+  end
+
   def calibration_table_partial
     staff? ? "ui/calibration_sessions/staff_table" : "ui/calibration_sessions/manager_table"
   end

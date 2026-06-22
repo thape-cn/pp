@@ -31,6 +31,12 @@ json.company_evaluation_templates do
           json.value k.second
         end
       end
+      json.set! :rank_performance_metric do
+        json.array! public_send(cet.rank_performance_metric) do |k|
+          json.label k.first
+          json.value k.second
+        end
+      end
     end
   end
 end

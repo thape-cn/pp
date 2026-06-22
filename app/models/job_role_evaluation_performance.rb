@@ -1,5 +1,5 @@
 class JobRoleEvaluationPerformance < ApplicationRecord
-  STAFF_REVIEW_HIDDEN_EN_NAMES = %w[
+  HIDDEN_RANK_EN_NAMES = %w[
     p_managedproject_profit
     p_managedproject_output
     p_individual_output
@@ -11,8 +11,12 @@ class JobRoleEvaluationPerformance < ApplicationRecord
   belongs_to :evaluation_user_capability, optional: true
 
   scope :visible_in_staff_review, -> {
-    where(en_name: nil).or(where.not(en_name: STAFF_REVIEW_HIDDEN_EN_NAMES))
+    where(en_name: nil).or(where.not(en_name: HIDDEN_RANK_EN_NAMES))
   }
+
+  def self.hidden_rank_en_name?(en_name)
+    HIDDEN_RANK_EN_NAMES.include?(en_name)
+  end
 
   def self.en_column_names
     @_en_column_names ||= pluck(:en_name)

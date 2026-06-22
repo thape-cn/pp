@@ -67,7 +67,8 @@
         <% job_role_performances.each do |jrep| %>
           <tr>
             <td><%= jrep.obj_name -%></td>
-            <td><%= public_send(company_evaluation_template.performance_metric).invert[jrep.obj_result] || jrep.obj_result -%></td>
+            <% metric = company_evaluation_template.job_role_performance_metric(jrep) -%>
+            <td><%= public_send(metric).invert[jrep.obj_result] || jrep.obj_result -%></td>
           </tr>
         <% end %>
       </tbody>

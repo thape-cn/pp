@@ -18,7 +18,8 @@ en:
         profession_subtotal_rate: "Profession subtotal rate"
         performance_subtotal_rate: "Performance subtotal rate"
         professional_management_metric: "Professional management metric"
-        performance_metric: "Performance metric"
+        performance_metric: "Output performance metric"
+        rank_performance_metric: "Rank performance metric"
       new:
         title: "New evaluation template"
       edit:

@@ -112,7 +112,8 @@ export function EucModalDialog({euc_id, group_level, onClose}) {
           }}/>}
           {evaluationUserCapability.job_role_performances && group_level != "manager_b" && <PerformanceDetail job_role_performances={evaluationUserCapability.job_role_performances}
           callbackfn={([key, value]) => {
-            const item = companyEvaluationTemplate.performance_metric.find(item => item.value === value);
+            const metricName = evaluationUserCapability.job_role_performance_metrics && evaluationUserCapability.job_role_performance_metrics[key] || "performance_metric";
+            const item = companyEvaluationTemplate[metricName].find(item => item.value === value);
 
             return (
               <tr key={key}>

@@ -30,6 +30,12 @@ json.company_evaluation_template do
       json.value k.second
     end
   end
+  json.set! :rank_performance_metric do
+    json.array! public_send(cet.rank_performance_metric) do |k|
+      json.label k.first
+      json.value k.second
+    end
+  end
 end
 json.evaluation_user_capability do
   json.id @evaluation_user_capability.id
@@ -53,6 +59,11 @@ json.evaluation_user_capability do
   json.job_role_performances do
     @job_role_performances.each do |jrep|
       json.set! jrep.obj_name, jrep.obj_result if jrep.obj_result.present?
+    end
+  end
+  json.job_role_performance_metrics do
+    @job_role_performances.each do |jrep|
+      json.set! jrep.obj_name, @evaluation_user_capability.company_evaluation_template.job_role_performance_metric(jrep) if jrep.obj_result.present?
     end
   end
   json.self_overall_output markdown(@evaluation_user_capability.self_overall_output)

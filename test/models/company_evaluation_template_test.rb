@@ -70,4 +70,13 @@ class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
       CompanyEvaluationTemplate.new(group_level: "manager_b").calibration_attributes_for_square("22", euc)
     )
   end
+
+  test "job role performance metric uses rank metric for rank performance columns" do
+    template = company_evaluation_templates(:ect_staff)
+    rank_performance = JobRoleEvaluationPerformance.new(en_name: "p_individual_hours")
+    output_performance = JobRoleEvaluationPerformance.new(en_name: "p_customer")
+
+    assert_equal template.rank_performance_metric, template.job_role_performance_metric(rank_performance)
+    assert_equal template.performance_metric, template.job_role_performance_metric(output_performance)
+  end
 end

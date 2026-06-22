@@ -82,7 +82,8 @@
               <%= t("evaluation.manager_given_score") -%>
               <span class="fw-bold float-end">
                 <% score = jrep.obj_result -%>
-                <%= public_send(evaluation_user_capability.company_evaluation_template.performance_metric).invert[score] || t("evaluation.not_rated") -%>
+                <% metric = evaluation_user_capability.company_evaluation_template.job_role_performance_metric(jrep) -%>
+                <%= public_send(metric).invert[score] || t("evaluation.not_rated") -%>
               </span>
             </p>
             <hr />

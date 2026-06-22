@@ -18,7 +18,8 @@ zh-CN:
         profession_subtotal_rate: "专业能力比例"
         performance_subtotal_rate: "业绩比例"
         professional_management_metric: "专业/管理能力量表"
-        performance_metric: "业绩量表"
+        performance_metric: "产出业绩量表"
+        rank_performance_metric: "排位业绩量表"
       new:
         title: "新建考评模版"
       edit:

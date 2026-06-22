@@ -2,6 +2,13 @@ import * as React from 'react';
 import {JobPerformanceInfo} from "./JobPerformanceInfo";
 import {CapabilitySelect} from "./CapabilitySelect";
 
+const HIDDEN_RANK_EN_NAMES = [
+  'p_managedproject_profit',
+  'p_managedproject_output',
+  'p_individual_output',
+  'p_individual_hours'
+];
+
 export const EditableCell = ({
   value: initialValue,
   row: { index, original: row_data},
@@ -34,12 +41,14 @@ export const EditableCell = ({
   const work_attitude_metric = company_evaluation_templates[row_data.id_cet].work_attitude_metric;
   const professional_management_metric = company_evaluation_templates[row_data.id_cet].professional_management_metric;
   const performance_metric = company_evaluation_templates[row_data.id_cet].performance_metric;
+  const rank_performance_metric = company_evaluation_templates[row_data.id_cet].rank_performance_metric;
+  const jobRolePerformanceMetric = HIDDEN_RANK_EN_NAMES.includes(id) ? rank_performance_metric : performance_metric;
 
   if (value == 'none') {
     return null;
   } else if (row_data[id+"_fixed"] == true) {
     if (id.startsWith('p_')) {
-      const item = performance_metric.find(item => item.value === value);
+      const item = jobRolePerformanceMetric.find(item => item.value === value);
       return (
         <div className="m-1 text-end">
           <span className="me-2">{item ? item.label : null}</span>
@@ -77,7 +86,7 @@ export const EditableCell = ({
         <div className="input-group">
           <select id={`r${index}-${id}`} value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
             <option value='0'>{not_rated_text}</option>
-            {performance_metric.map(option => (
+            {jobRolePerformanceMetric.map(option => (
               <option key={option.value} value={option.value}>{option.label}</option>
             ))}
           </select>

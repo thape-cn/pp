@@ -14,6 +14,7 @@ module MetricHelper
   def all_metrics
     {
       "三档量表" => "grading_3_metric",
+      "排位三档量表" => "grading_rank_3_metric",
       "五档量表" => "grading_5_metric",
       "九档量表" => "grading_9_metric"
     }
@@ -34,6 +35,14 @@ module MetricHelper
       "B" => 3,
       "C" => 2,
       "D" => 1
+    }
+  end
+
+  def grading_rank_3_metric
+    {
+      "前30%" => 5,
+      "中间50%" => 3,
+      "后20%" => 1
     }
   end
 

@@ -66,7 +66,8 @@
       <div class="card">
         <h5 class="card-header"><%= jrep.obj_name -%></h5>
         <div class="card-body">
-          <p class="card-text"><%= jrep.obj_result -%></p>
+          <% metric = evaluation_user_capability.company_evaluation_template.job_role_performance_metric(jrep) -%>
+          <p class="card-text"><%= public_send(metric).invert[jrep.obj_result] || jrep.obj_result -%></p>
         </div>
       </div>
     </div>
