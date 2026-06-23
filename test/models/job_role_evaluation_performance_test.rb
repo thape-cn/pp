@@ -38,6 +38,29 @@ class JobRoleEvaluationPerformanceTest < ActiveSupport::TestCase
     refute_includes staff_review_performances, hidden_performance
   end
 
+  test "visible for staff review hides rank performance columns only from reviewed staff user" do
+    evaluation_user_capability = evaluation_user_capabilities(:euc_two)
+    hidden_performance = JobRoleEvaluationPerformance.create!(
+      user: evaluation_user_capability.user,
+      company_evaluation: evaluation_user_capability.company_evaluation_template.company_evaluation,
+      dept_code: evaluation_user_capability.dept_code,
+      st_code: evaluation_user_capability.job_role.st_code,
+      obj_metric: "metric",
+      obj_name: "hidden performance",
+      obj_weight_pct: 100,
+      import_guid: "hidden-performance-for-reviewer",
+      en_name: JobRoleEvaluationPerformance::HIDDEN_RANK_EN_NAMES.first
+    )
+
+    self_review_performances = JobRoleEvaluationPerformance
+      .visible_for_staff_review_by(evaluation_user_capability, evaluation_user_capability.user)
+    reviewer_performances = JobRoleEvaluationPerformance
+      .visible_for_staff_review_by(evaluation_user_capability, users(:user_fangzixue))
+
+    refute_includes self_review_performances, hidden_performance
+    assert_includes reviewer_performances, hidden_performance
+  end
+
   test "hidden rank en name predicate matches configured rank performance columns" do
     assert JobRoleEvaluationPerformance.hidden_rank_en_name?("p_managedproject_profit")
     assert_not JobRoleEvaluationPerformance.hidden_rank_en_name?("p_customer")

@@ -14,8 +14,19 @@ class JobRoleEvaluationPerformance < ApplicationRecord
     where(en_name: nil).or(where.not(en_name: HIDDEN_RANK_EN_NAMES))
   }
 
+  def self.visible_for_staff_review_by(evaluation_user_capability, user)
+    performances = performance_from_evaluation_user_capability(evaluation_user_capability)
+    return performances.visible_in_staff_review if evaluation_user_capability.user_id == user&.id
+
+    performances
+  end
+
   def self.hidden_rank_en_name?(en_name)
     HIDDEN_RANK_EN_NAMES.include?(en_name)
+  end
+
+  def hidden_in_staff_review_for?(user)
+    user_id == user&.id && self.class.hidden_rank_en_name?(en_name)
   end
 
   def self.en_column_names

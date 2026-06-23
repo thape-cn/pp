@@ -10,7 +10,7 @@ module Staff
       company_evaluation_template = @evaluation_user_capability.company_evaluation_template
 
       @job_role_performances = JobRoleEvaluationPerformance
-        .performance_from_evaluation_user_capability(@evaluation_user_capability)
+        .visible_for_staff_review_by(@evaluation_user_capability, current_user)
 
       @performance_capabilities = @evaluation_user_capability.performance_capabilities
       @management_capabilities = @evaluation_user_capability.management_capabilities

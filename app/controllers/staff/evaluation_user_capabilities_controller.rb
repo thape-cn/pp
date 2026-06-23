@@ -6,7 +6,7 @@ module Staff
     def show
       @company_evaluation_template = @evaluation_user_capability.company_evaluation_template
       @job_role_performances = JobRoleEvaluationPerformance
-        .performance_from_evaluation_user_capability(@evaluation_user_capability)
+        .visible_for_staff_review_by(@evaluation_user_capability, current_user)
     end
 
     def update
@@ -22,7 +22,7 @@ module Staff
 
     def overall_text
       @job_role_performances = JobRoleEvaluationPerformance
-        .performance_from_evaluation_user_capability(@evaluation_user_capability)
+        .visible_for_staff_review_by(@evaluation_user_capability, current_user)
 
       @management_capabilities = @evaluation_user_capability.management_capabilities
       @professional_capabilities = @evaluation_user_capability.professional_capabilities

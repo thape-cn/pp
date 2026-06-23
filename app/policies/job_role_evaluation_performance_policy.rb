@@ -26,6 +26,8 @@ class JobRoleEvaluationPerformancePolicy < ApplicationPolicy
   end
 
   def show?
-    user.admin? || record.user_id == user.id || true
+    return false if record.hidden_in_staff_review_for?(user)
+
+    true
   end
 end
