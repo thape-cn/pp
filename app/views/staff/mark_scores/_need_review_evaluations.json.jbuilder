@@ -32,6 +32,7 @@ json.array! need_review_evaluations.includes(:job_role, :user) do |euc|
     end
   end
   json.id_cet euc.company_evaluation_template_id
+  json.mark_score_group euc.company_evaluation_template.mark_score_group
   table_headers_of_performance.each do |h|
     jrep = job_role_evaluation_performances.find { |jrep| jrep.en_name == h[:accessor] && jrep.user_id == euc.user_id && jrep.dept_code == euc.dept_code && jrep.st_code == euc.job_role.st_code }
     json.set! h[:accessor], jrep&.obj_result || "none"

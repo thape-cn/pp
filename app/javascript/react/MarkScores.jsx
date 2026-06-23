@@ -11,13 +11,13 @@ import {OverallReview} from "./table/OverallReview";
 import {MarkScoreConfirmDialog} from "./modal_dialog/MarkScoreConfirmDialog";
 
 // Custom hook for fetching data
-function useFetchData(group_level, setUpdatedData) {
+function useFetchData(group_level, mark_score_group, setUpdatedData) {
   const [company_evaluation_templates, setCompanyEvaluationTemplates] = React.useState({});
   const [raw_data, setData] = React.useState([]);
   const [expanded, setExpanded] = React.useState([]);
 
   React.useEffect(() => {
-    get(currentPageJsonPath(group_level)).then((response) => {
+    get(currentPageJsonPath(group_level, mark_score_group)).then((response) => {
       if (response.ok) {
         const result_json = response.json;
         result_json.then(result => {
@@ -35,7 +35,7 @@ function useFetchData(group_level, setUpdatedData) {
 }
 
 // Custom hook for handling save and save & confirm
-function useSave(group_level, updatedData, setData, setUpdatedData) {
+function useSave(group_level, mark_score_group, updatedData, setData, setUpdatedData) {
   const [firstSaved, setFirstSaved] = React.useState(false);
   const [successSaveMessage, setSuccessSaveMessage] = React.useState("");
   const [confirmMessage, setConfirmMessage] = React.useState({accepted: false, message: ""});
@@ -43,7 +43,7 @@ function useSave(group_level, updatedData, setData, setUpdatedData) {
   const handleSave = (event, confirm = false) => {
     event.preventDefault();
     const submit_data = prepareTableSubmitData(updatedData);
-    put(currentPageJsonPath(group_level), {body: {confirm, mark_score: submit_data}}).then((response) => {
+    put(currentPageJsonPath(group_level, mark_score_group), {body: {confirm, mark_score: submit_data}}).then((response) => {
       if (response.ok) {
         const result_json = response.json;
         result_json.then(result => {
@@ -71,10 +71,10 @@ function useSave(group_level, updatedData, setData, setUpdatedData) {
   return { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose };
 }
 
-function MarkScores({group_level}) {
+function MarkScores({group_level, mark_score_group = null}) {
   const [updatedData, setUpdatedData] = React.useState([]);
-  const { company_evaluation_templates, raw_data, expanded, setData, setExpanded } = useFetchData(group_level, setUpdatedData);
-  const { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose } = useSave(group_level, updatedData, setData, setUpdatedData);
+  const { company_evaluation_templates, raw_data, expanded, setData, setExpanded } = useFetchData(group_level, mark_score_group, setUpdatedData);
+  const { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose } = useSave(group_level, mark_score_group, updatedData, setData, setUpdatedData);
 
   const data = React.useMemo(
     () => raw_data,

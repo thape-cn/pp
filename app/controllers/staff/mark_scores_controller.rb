@@ -17,6 +17,7 @@ module Staff
           @manager_b_table_headers = mark_score_table_headers(current_open_evaluations, "manager_b")
           @auxiliary_table_headers = mark_score_table_headers(current_open_evaluations, "auxiliary")
           @supervisor_table_headers = mark_score_table_headers(current_open_evaluations, "supervisor")
+          @supervisor_mark_score_groups = mark_score_groups(current_open_evaluations, "supervisor")
           @review_labels = {
             self_overall_output: I18n.t("evaluation.self_overall_output"),
             self_overall_improvement: I18n.t("evaluation.self_overall_improvement"),
@@ -44,8 +45,7 @@ module Staff
         end
         format.json do
           group_level = params[:group_level]
-          @need_review_evaluations = current_open_evaluations
-            .where(company_evaluation_template: {group_level: group_level})
+          @need_review_evaluations = mark_score_evaluations(current_open_evaluations, group_level)
           job_role_ids = @need_review_evaluations.collect(&:job_role_id).uniq
           evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
           @ercs = EvaluationRoleCapability.includes(:capability).where(evaluation_role_id: evaluation_role_ids)
@@ -85,8 +85,7 @@ module Staff
         .where(company_evaluation_template: {company_evaluation_id: params[:company_evaluation_ids]})
         .where(manager_user_id: manager.id)
       group_level = params[:group_level]
-      @need_review_evaluations = current_open_evaluations
-        .where(company_evaluation_template: {group_level: group_level})
+      @need_review_evaluations = mark_score_evaluations(current_open_evaluations, group_level)
         .where(form_status: %w[self_assessment_done])
       job_role_ids = @need_review_evaluations.collect(&:job_role_id).uniq
       evaluation_role_ids = JobRole.where(id: job_role_ids).collect(&:evaluation_role_id).uniq
@@ -177,12 +176,36 @@ module Staff
     end
 
     def save_params
-      params.permit(:id, :format, :group_level, :confirm,
+      params.permit(:id, :format, :group_level, :mark_score_group, :confirm,
         mark_score: [:id_user, *Capability.performance_column_names, :id_cet, :id_euc,
           *Capability.management_column_names, *Capability.profession_column_names,
           *JobRoleEvaluationPerformance.en_column_names,
           :manager_overall_output, :manager_overall_improvement, :manager_overall_plan],
         company_evaluation_ids: [])
+    end
+
+    def mark_score_evaluations(current_open_evaluations, group_level)
+      scope = current_open_evaluations.where(company_evaluation_template: {group_level: group_level})
+      if group_level == "supervisor" && params[:mark_score_group].present?
+        scope = scope.where(company_evaluation_template: {mark_score_group: params[:mark_score_group]})
+      end
+      scope
+    end
+
+    def mark_score_groups(current_open_evaluations, group_level)
+      option_labels = CompanyEvaluationTemplate.mark_score_group_options.invert
+      template_ids = current_open_evaluations
+        .where(company_evaluation_template: {group_level: group_level})
+        .distinct
+        .pluck(:company_evaluation_template_id)
+
+      CompanyEvaluationTemplate.where(id: template_ids)
+        .where.not(mark_score_group: nil)
+        .distinct
+        .pluck(:mark_score_group)
+        .sort
+        .reverse
+        .collect { |value| {label: option_labels[value] || value.to_s, value: value} }
     end
 
     def mark_score_table_headers(current_open_evaluations, group_level)

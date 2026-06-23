@@ -287,3 +287,53 @@ euc_pp13:
   customer_needs_non: 0
   goal_achieved: 0
   professional_level: 0
+
+euc_supervisor_high:
+  company_evaluation_template: ect_supervisor_high
+  user: user_pptest1
+  job_role: job_64
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "主创建筑师"
+  self_overall_output: "主创建筑师 self_overall_output 12345678901234567890"
+  self_overall_improvement: "主创建筑师 self_overall_improvement 12345678901234567890"
+  self_overall_plan: "主创建筑师 self_overall_plan 12345678901234567890"
+  manager_overall_output: "主创建筑师 manager_overall_output 1234567890"
+  manager_overall_improvement: "主创建筑师 manager_overall_improvement 1234567890"
+  manager_overall_plan: "主创建筑师 manager_overall_plan 1234567890"
+  form_status: "self_assessment_done"
+  norms_landscape: 1
+  presentation: 1
+  realization: 1
+  customer_needs: 1
+  graphic_quality: 1
+  coaching: 1
+  goal_achieved: 1
+  onsite_landscape: 1
+
+euc_supervisor_mid:
+  company_evaluation_template: ect_supervisor_mid
+  user: user_pptest2
+  job_role: job_0305040200
+  manager_user: user_pptest3
+  company: "测试公司"
+  department: "测试组织"
+  dept_code: "000001"
+  title: "资深主创建筑师"
+  self_overall_output: "资深主创建筑师 self_overall_output 12345678901234567890"
+  self_overall_improvement: "资深主创建筑师 self_overall_improvement 12345678901234567890"
+  self_overall_plan: "资深主创建筑师 self_overall_plan 12345678901234567890"
+  manager_overall_output: "资深主创建筑师 manager_overall_output 1234567890"
+  manager_overall_improvement: "资深主创建筑师 manager_overall_improvement 1234567890"
+  manager_overall_plan: "资深主创建筑师 manager_overall_plan 1234567890"
+  form_status: "self_assessment_done"
+  norms_landscape: 2
+  presentation: 2
+  realization: 2
+  customer_needs: 2
+  graphic_quality: 2
+  coaching: 2
+  goal_achieved: 2
+  onsite_landscape: 2

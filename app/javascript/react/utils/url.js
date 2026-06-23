@@ -1,8 +1,11 @@
-export function currentPageJsonPath(group_level) {
+export function currentPageJsonPath(group_level, mark_score_group = null) {
   const url = new URL(window.location.href);
   const pathname = url.pathname + '.json';
   url.pathname = pathname;
   url.searchParams.append('group_level', group_level);
+  if (mark_score_group) {
+    url.searchParams.append('mark_score_group', mark_score_group);
+  }
   return url;
 }
 

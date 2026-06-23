@@ -39,6 +39,16 @@ const supervisor_node = document.getElementById('supervisor-mark');
 if (supervisor_node) {
   const supervisor_root = createRoot(supervisor_node);
   document.addEventListener('DOMContentLoaded', () => {
-    supervisor_root.render(<MarkScores group_level='supervisor' />);
+    const mark_score_groups = JSON.parse(supervisor_node.getAttribute('data-mark-score-groups') || '[]');
+    supervisor_root.render(
+      <>
+        {mark_score_groups.map(({label, value}) => (
+          <section key={value} className="mb-4">
+            <h5 className="my-3">{label}</h5>
+            <MarkScores group_level='supervisor' mark_score_group={value} />
+          </section>
+        ))}
+      </>
+    );
   });
 }

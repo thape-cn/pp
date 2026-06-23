@@ -1,6 +1,7 @@
 json.company_evaluation_templates do
   @company_evaluation_templates.each do |cet|
     json.set! cet.id do
+      json.mark_score_group cet.mark_score_group
       json.set! :work_quality_metric do
         json.array! public_send(cet.work_quality_metric) do |k|
           json.label k.first

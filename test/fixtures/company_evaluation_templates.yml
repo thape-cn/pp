@@ -43,3 +43,43 @@ ect_auxiliary:
   performance_subtotal_rate: 50
   pct_proportion: 0
   rate_proportion: 100
+
+ect_supervisor_high:
+  company_evaluation: ce_one
+  group_level: "supervisor"
+  mark_score_group: 4
+  title: "2023年年中绩效评价沟通表（员工/主管 >= 10,11 级）"
+  work_quality_pct: 35
+  work_quality_metric: "grading_3_metric"
+  work_load_pct: 50
+  work_load_metric: "grading_3_metric"
+  work_attitude_pct: 15
+  work_attitude_metric: "grading_3_metric"
+  management_subtotal_rate: 20
+  profession_subtotal_rate: 30
+  professional_management_metric: "grading_3_metric"
+  performance_subtotal_rate: 50
+  performance_metric: "grading_3_metric"
+  rank_performance_metric: "grading_rank_3_metric"
+  pct_proportion: 0
+  rate_proportion: 100
+
+ect_supervisor_mid:
+  company_evaluation: ce_one
+  group_level: "supervisor"
+  mark_score_group: 3
+  title: "2023年年中绩效评价沟通表（员工/主管 9 级）"
+  work_quality_pct: 35
+  work_quality_metric: "grading_3_metric"
+  work_load_pct: 50
+  work_load_metric: "grading_3_metric"
+  work_attitude_pct: 15
+  work_attitude_metric: "grading_3_metric"
+  management_subtotal_rate: 20
+  profession_subtotal_rate: 30
+  professional_management_metric: "grading_3_metric"
+  performance_subtotal_rate: 50
+  performance_metric: "grading_3_metric"
+  rank_performance_metric: "grading_rank_3_metric"
+  pct_proportion: 0
+  rate_proportion: 100
