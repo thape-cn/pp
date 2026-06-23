@@ -8,6 +8,25 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
     sign_in @manager
   end
 
+  test "supervisor html exposes table headers per mark score group" do
+    get staff_mark_score_path(@manager), params: {
+      company_evaluation_ids: [company_evaluations(:ce_one).id]
+    }
+
+    assert_response :success
+    supervisor_node = css_select("#supervisor-mark").first
+    groups = JSON.parse(supervisor_node["data-mark-score-groups"])
+    high_group_accessors = groups.find { |group| group.fetch("value") == 4 }.fetch("table_header").pluck("accessor")
+    mid_group_accessors = groups.find { |group| group.fetch("value") == 3 }.fetch("table_header").pluck("accessor")
+
+    assert_includes high_group_accessors, "p_managedproject_output"
+    assert_includes high_group_accessors, "p_managedproject_profit"
+    assert_includes mid_group_accessors, "p_individual_hours"
+    assert_includes mid_group_accessors, "p_individual_output"
+    assert_not_includes mid_group_accessors, "p_managedproject_output"
+    assert_not_includes mid_group_accessors, "p_managedproject_profit"
+  end
+
   test "supervisor json can be filtered by mark score group" do
     get staff_mark_score_path(@manager, format: :json), params: {
       company_evaluation_ids: [company_evaluations(:ce_one).id],

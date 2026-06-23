@@ -37,3 +37,75 @@ jrep_three:
   en_name: "p_dimission"
   obj_result_fixed: false
   obj_result: 0
+
+jrep_supervisor_high_individual_hours:
+  user: user_pptest1
+  company_evaluation: ce_one
+  import_guid: "1002022116003"
+  dept_code: "000001"
+  st_code: "0305040300"
+  obj_name: "个人工时参考"
+  obj_weight_pct: 25
+  en_name: "p_individual_hours"
+  obj_result_fixed: false
+  obj_result: 1
+
+jrep_supervisor_high_individual_output:
+  user: user_pptest1
+  company_evaluation: ce_one
+  import_guid: "1002022116004"
+  dept_code: "000001"
+  st_code: "0305040300"
+  obj_name: "个人完成产值参考"
+  obj_weight_pct: 25
+  en_name: "p_individual_output"
+  obj_result_fixed: false
+  obj_result: 1
+
+jrep_supervisor_high_managedproject_output:
+  user: user_pptest1
+  company_evaluation: ce_one
+  import_guid: "1002022116005"
+  dept_code: "000001"
+  st_code: "0305040300"
+  obj_name: "担任项目管理角色的项目完成产值参考"
+  obj_weight_pct: 25
+  en_name: "p_managedproject_output"
+  obj_result_fixed: false
+  obj_result: 1
+
+jrep_supervisor_high_managedproject_profit:
+  user: user_pptest1
+  company_evaluation: ce_one
+  import_guid: "1002022116006"
+  dept_code: "000001"
+  st_code: "0305040300"
+  obj_name: "担任项目管理角色的项目完成产值毛利率参考"
+  obj_weight_pct: 25
+  en_name: "p_managedproject_profit"
+  obj_result_fixed: false
+  obj_result: 1
+
+jrep_supervisor_mid_individual_hours:
+  user: user_pptest2
+  company_evaluation: ce_one
+  import_guid: "1002022116007"
+  dept_code: "000001"
+  st_code: "0305040200"
+  obj_name: "个人工时参考"
+  obj_weight_pct: 50
+  en_name: "p_individual_hours"
+  obj_result_fixed: false
+  obj_result: 2
+
+jrep_supervisor_mid_individual_output:
+  user: user_pptest2
+  company_evaluation: ce_one
+  import_guid: "1002022116008"
+  dept_code: "000001"
+  st_code: "0305040200"
+  obj_name: "个人完成产值参考"
+  obj_weight_pct: 50
+  en_name: "p_individual_output"
+  obj_result_fixed: false
+  obj_result: 2

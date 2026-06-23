@@ -1,7 +1,9 @@
-export function markScoresTableHeader(group_level) {
-  const app = document.getElementById(`${group_level}-mark`)
-  const dataHeader = app.getAttribute('data-header')
-  const parsedDataHeader = JSON.parse(dataHeader)
+export function markScoresTableHeader(group_level, table_header = null) {
+  const parsedDataHeader = table_header || (() => {
+    const app = document.getElementById(`${group_level}-mark`)
+    const dataHeader = app.getAttribute('data-header')
+    return JSON.parse(dataHeader)
+  })()
 
   const parsedDataHeaderWithSortType = parsedDataHeader.map(column => {
     return {

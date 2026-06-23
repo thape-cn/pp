@@ -205,11 +205,20 @@ module Staff
         .pluck(:mark_score_group)
         .sort
         .reverse
-        .collect { |value| {label: option_labels[value] || value.to_s, value: value} }
+        .collect do |value|
+          {
+            label: option_labels[value] || value.to_s,
+            value: value,
+            table_header: mark_score_table_headers(current_open_evaluations, group_level, mark_score_group: value)
+          }
+        end
     end
 
-    def mark_score_table_headers(current_open_evaluations, group_level)
+    def mark_score_table_headers(current_open_evaluations, group_level, mark_score_group: nil)
       need_review_evaluations = current_open_evaluations.where(company_evaluation_template: {group_level: group_level})
+      if group_level == "supervisor" && mark_score_group.present?
+        need_review_evaluations = need_review_evaluations.where(company_evaluation_template: {mark_score_group: mark_score_group})
+      end
       job_role_evaluation_performances = JobRoleEvaluationPerformance.need_review_job_role_evaluation_performance(need_review_evaluations)
       table_headers_of_performance = job_role_evaluation_performances.collect do |jrep|
         {

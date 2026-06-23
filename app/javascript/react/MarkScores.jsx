@@ -71,7 +71,7 @@ function useSave(group_level, mark_score_group, updatedData, setData, setUpdated
   return { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose };
 }
 
-function MarkScores({group_level, mark_score_group = null}) {
+function MarkScores({group_level, mark_score_group = null, table_header = null}) {
   const [updatedData, setUpdatedData] = React.useState([]);
   const { company_evaluation_templates, raw_data, expanded, setData, setExpanded } = useFetchData(group_level, mark_score_group, setUpdatedData);
   const { firstSaved, successSaveMessage, confirmMessage, setFirstSaved, setSuccessSaveMessage, handleSave, handleClose } = useSave(group_level, mark_score_group, updatedData, setData, setUpdatedData);
@@ -91,7 +91,7 @@ function MarkScores({group_level, mark_score_group = null}) {
 
   const columns = React.useMemo(
     () => {
-      const original_mark_scores_table_header = markScoresTableHeader(group_level);
+      const original_mark_scores_table_header = markScoresTableHeader(group_level, table_header);
       const extended_mark_scores_table_header = original_mark_scores_table_header.map(column => ({
         ...column,
         Header: () => <PopoversHeader header={column.Header} accessor={column.accessor} description={column.description} />,
@@ -161,7 +161,7 @@ function MarkScores({group_level, mark_score_group = null}) {
       ...extended_mark_scores_table_header
       ]
     },
-    [expanded]
+    [expanded, table_header]
   );
 
   const updateRawData = (rowIndex, columnId, value) => {

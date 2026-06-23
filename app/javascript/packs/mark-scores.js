@@ -42,10 +42,10 @@ if (supervisor_node) {
     const mark_score_groups = JSON.parse(supervisor_node.getAttribute('data-mark-score-groups') || '[]');
     supervisor_root.render(
       <>
-        {mark_score_groups.map(({label, value}) => (
+        {mark_score_groups.map(({label, value, table_header}) => (
           <section key={value} className="mb-4">
             <h5 className="my-3">{label}</h5>
-            <MarkScores group_level='supervisor' mark_score_group={value} />
+            <MarkScores group_level='supervisor' mark_score_group={value} table_header={table_header} />
           </section>
         ))}
       </>
