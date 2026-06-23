@@ -16,7 +16,7 @@ en:
     manager_level_a: "Manager level A"
     manager_level_b: "Manager level"
     auxiliary_level: "Auxiliary manager level"
-    supervisor_level: "Supervisor level"
+    supervisor_level: "Staff/Supervisor level"
     employee_info: "Employee information"
     performance: "Performance"
     fixed_output: "Performance output"
