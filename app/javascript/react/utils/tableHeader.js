@@ -114,7 +114,8 @@ export function groupLevel() {
 export function prepareTableSubmitData(data) {
   const skip_to_submit_accessor = ["chinese_name", "title", "department",
     "raw_total_evaluation_score_raw", "raw_total_evaluation_score",
-    "raw_total_score_in_metric", "total_score_in_metric", "total_evaluation_score", "form_status_name"];
+    "raw_total_score_in_metric", "total_score_in_metric", "total_evaluation_score", "form_status_name",
+    "group_level", "mark_score_group"];
   return data.map(function (obj) {
     let newObj = {};
     for (let key in obj) {
