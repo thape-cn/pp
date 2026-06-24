@@ -3,13 +3,17 @@ import {get} from '@rails/request.js'
 import {calibrationLabels} from "../utils/tableHeader";
 import {evaluationUserCapabilitiesPath} from "../utils/url";
 
-function FixedOutputDetail({fixed_output, callbackfn}) {
+function FixedOutputDetail({fixed_output, managerUserName, callbackfn}) {
   return <table className="table">
     <thead>
-    <tr>
-      <th className="w-75">{calibrationLabels().fixed_output}</th>
-      <th>{calibrationLabels().capability_result}</th>
-    </tr>
+      <tr>
+        <th className="w-75">{calibrationLabels().manager_user}</th>
+        <th>{managerUserName}</th>
+      </tr>
+      <tr>
+        <th>{calibrationLabels().fixed_output}</th>
+        <th>{calibrationLabels().capability_result}</th>
+      </tr>
     </thead>
     <tbody>
       {Object.entries(fixed_output).map(callbackfn)}
@@ -89,7 +93,9 @@ export function EucModalDialog({euc_id, group_level, onClose}) {
           <button className="btn-close" type="button" data-coreui-dismiss="modal" aria-label="Close"></button>
         </div>
         <div className="modal-body">
-          {evaluationUserCapability.fixed_output && <FixedOutputDetail fixed_output={evaluationUserCapability.fixed_output}
+          {evaluationUserCapability.fixed_output && <FixedOutputDetail
+          fixed_output={evaluationUserCapability.fixed_output}
+          managerUserName={evaluationUserCapability.manager_user_name}
           callbackfn={([key, value]) => {
             let item = undefined;
 

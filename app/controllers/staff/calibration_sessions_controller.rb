@@ -48,6 +48,7 @@ module Staff
             work_quality_pct: I18n.t("evaluation.work_quality_pct"),
             work_attitude_pct: I18n.t("evaluation.work_attitude_pct"),
             annual_output_pct: I18n.t("evaluation.annual_output_pct"), # it used at {calibrationLabels()[`${key}_pct`]}
+            manager_user: I18n.t("user.manager_user"),
             below_standard: I18n.t("evaluation.below_standard"),
             standards_compliant: I18n.t("evaluation.standards_compliant"),
             beyond_standard: I18n.t("evaluation.beyond_standard"),

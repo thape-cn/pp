@@ -40,6 +40,8 @@ end
 json.evaluation_user_capability do
   json.id @evaluation_user_capability.id
   json.chinese_name @evaluation_user_capability.user.chinese_name
+  json.manager_user_id @evaluation_user_capability.manager_user_id
+  json.manager_user_name @evaluation_user_capability.manager_user&.chinese_name
   json.form_status EvaluationUserCapability.form_status_options.invert[@evaluation_user_capability.form_status]
   json.fixed_output do
     Capability.performance_column_names.each do |performance_column_name|

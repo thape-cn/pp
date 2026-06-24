@@ -141,7 +141,11 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     get staff_evaluation_user_capability_path(@evaluation_user_capability, format: :json)
 
     assert_response :success
-    metrics = response.parsed_body.dig("evaluation_user_capability", "job_role_performance_metrics")
+    evaluation_user_capability = response.parsed_body.fetch("evaluation_user_capability")
+    assert_equal @evaluation_user_capability.manager_user_id, evaluation_user_capability.fetch("manager_user_id")
+    assert_equal @evaluation_user_capability.manager_user.chinese_name, evaluation_user_capability.fetch("manager_user_name")
+
+    metrics = evaluation_user_capability.fetch("job_role_performance_metrics")
     assert_equal "rank_performance_metric", metrics.fetch(@hidden_performance.obj_name)
     assert_equal "performance_metric", metrics.fetch(@visible_performance.obj_name)
   end
