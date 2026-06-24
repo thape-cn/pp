@@ -155,6 +155,16 @@ module Staff
           session.update(session_status: "waiting_manager_score")
         end
       end
+
+      @company_evaluation_ids = params[:company_evaluation_ids].presence ||
+        evaluation_user_capabilities.joins(:company_evaluation_template)
+          .distinct
+          .pluck("company_evaluation_templates.company_evaluation_id")
+      @need_review_evaluations = policy_scope(EvaluationUserCapability)
+        .joins(:company_evaluation_template)
+        .where(company_evaluation_template: {company_evaluation_id: @company_evaluation_ids})
+        .where(manager_user_id: current_user.id)
+        .where(form_status: "self_assessment_done")
     end
 
     protected

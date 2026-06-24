@@ -63,4 +63,36 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_equal [euc.id], response_body.fetch("need_review_evaluations").pluck("id_euc")
     assert_equal [4], response_body.fetch("need_review_evaluations").pluck("mark_score_group").uniq
   end
+
+  test "score confirm returns mark scores path when reviews remain" do
+    euc = evaluation_user_capabilities(:euc_supervisor_high)
+    company_evaluation_ids = [company_evaluations(:ce_one).id]
+
+    put score_confirm_staff_mark_score_path(@manager, format: :json), params: {
+      euc_ids: [euc.id],
+      company_evaluation_ids: company_evaluation_ids
+    }, as: :json
+
+    assert_response :success
+    assert_equal staff_mark_score_path(id: @manager.id, company_evaluation_ids: company_evaluation_ids),
+      JSON.parse(response.body).fetch("go_path")
+  end
+
+  test "score confirm returns staff root when no reviews remain" do
+    company_evaluation_ids = [company_evaluations(:ce_one).id]
+    remaining_reviews = EvaluationUserCapability
+      .joins(:company_evaluation_template)
+      .where(company_evaluation_template: {company_evaluation_id: company_evaluation_ids})
+      .where(manager_user_id: @manager.id, form_status: "self_assessment_done")
+    euc = remaining_reviews.first
+    remaining_reviews.where.not(id: euc.id).update_all(form_status: "manager_scored")
+
+    put score_confirm_staff_mark_score_path(@manager, format: :json), params: {
+      euc_ids: [euc.id],
+      company_evaluation_ids: company_evaluation_ids
+    }, as: :json
+
+    assert_response :success
+    assert_equal staff_root_path, JSON.parse(response.body).fetch("go_path")
+  end
 end

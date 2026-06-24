@@ -26,5 +26,5 @@ export function finalizeCalibrationPath(calibration_session_id) {
 }
 
 export function scoreConfirmPath(user_id) {
-  return `/staff/mark_scores/${user_id}/score_confirm.json`
+  return `/staff/mark_scores/${user_id}/score_confirm.json${window.location.search}`
 }
