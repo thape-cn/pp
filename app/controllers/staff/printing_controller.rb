@@ -5,14 +5,16 @@ module Staff
     after_action :verify_authorized
 
     def show
-      if request.ip == "::1" || request.ip == "172.17.1.38"
+      printing_pdf = request.ip == "::1" || request.ip == "172.17.1.38"
+      if printing_pdf
         sign_in User.where(email: CoreUIsettings.admin.emails).first
       end
       @evaluation_user_capability = authorize(EvaluationUserCapability.find(params[:id]), :print?)
       company_evaluation_template = @evaluation_user_capability.company_evaluation_template
 
       @job_role_performances = JobRoleEvaluationPerformance
-        .visible_for_staff_review_by(@evaluation_user_capability, current_user)
+        .performance_from_evaluation_user_capability(@evaluation_user_capability)
+      @job_role_performances = @job_role_performances.visible_in_staff_review if printing_pdf || !current_user.admin?
 
       @performance_capabilities = @evaluation_user_capability.performance_capabilities
       @management_capabilities = @evaluation_user_capability.management_capabilities
