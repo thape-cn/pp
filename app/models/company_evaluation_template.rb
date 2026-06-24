@@ -42,7 +42,7 @@ class CompanyEvaluationTemplate < ApplicationRecord
   end
 
   def calibration_table_partial
-    staff? ? "ui/calibration_sessions/staff_table" : "ui/calibration_sessions/manager_table"
+    (staff? || supervisor?) ? "ui/calibration_sessions/staff_table" : "ui/calibration_sessions/manager_table"
   end
 
   def square_template
@@ -56,7 +56,7 @@ class CompanyEvaluationTemplate < ApplicationRecord
   end
 
   def horizontal_position_for(evaluation_user_capability)
-    if staff?
+    if staff? || supervisor?
       evaluation_user_capability.group_of_staff_work_quality_and_work_attitude
     elsif manager_b?
       evaluation_user_capability.group_of_manager_only_management
@@ -66,7 +66,7 @@ class CompanyEvaluationTemplate < ApplicationRecord
   end
 
   def vertical_position_for(evaluation_user_capability)
-    if staff?
+    if staff? || supervisor?
       evaluation_user_capability.group_of_staff_work_load
     elsif manager_b?
       evaluation_user_capability.group_of_manager_only_profession
@@ -80,7 +80,7 @@ class CompanyEvaluationTemplate < ApplicationRecord
     vertical_score = CALIBRATION_VERTICAL_SCORES.fetch(row)
     horizontal_score = CALIBRATION_HORIZONTAL_SCORES.fetch(column)
 
-    if staff?
+    if staff? || supervisor?
       {
         calibration_work_quality: horizontal_score,
         calibration_work_load: vertical_score,

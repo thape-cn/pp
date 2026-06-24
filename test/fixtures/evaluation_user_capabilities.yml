@@ -312,6 +312,8 @@ euc_supervisor_high:
   coaching: 1
   goal_achieved: 1
   onsite_landscape: 1
+  work_load: 1
+  work_quality: 1
 
 euc_supervisor_mid:
   company_evaluation_template: ect_supervisor_mid
@@ -337,3 +339,5 @@ euc_supervisor_mid:
   coaching: 2
   goal_achieved: 2
   onsite_landscape: 2
+  work_load: 2
+  work_quality: 2

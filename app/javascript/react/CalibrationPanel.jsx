@@ -166,7 +166,7 @@ function CalibrationPanel() {
     )}
     <div className="row">
       <div className="col-2 text-end">
-        <span className="fs-6">{group_level == "staff" ? calibrationLabels().work_load_pct : (group_level == "manager_b" ? calibrationLabels().professional_capability : calibrationLabels().performance)}</span>
+        <span className="fs-6">{(group_level == "staff" || group_level == "supervisor")? calibrationLabels().work_load_pct : (group_level == "manager_b" ? calibrationLabels().professional_capability : calibrationLabels().performance)}</span>
         <br />
         {calibrationLabels().beyond_standard}
       </div>
@@ -182,7 +182,7 @@ function CalibrationPanel() {
     </div>
     <div className="row">
       <div className="col-2 text-end">
-        <span className="fs-6">{group_level == "staff" ? calibrationLabels().work_load_pct : (group_level == "manager_b" ? calibrationLabels().professional_capability : calibrationLabels().performance)}</span>
+        <span className="fs-6">{(group_level == "staff" || group_level == "supervisor") ? calibrationLabels().work_load_pct : (group_level == "manager_b" ? calibrationLabels().professional_capability : calibrationLabels().performance)}</span>
         <br />
         {calibrationLabels().standards_compliant}
       </div>
@@ -198,7 +198,7 @@ function CalibrationPanel() {
     </div>
     <div className="row">
       <div className="col-2 text-end">
-        <span className="fs-6">{group_level == "staff" ? calibrationLabels().work_load_pct :  (group_level == "manager_b" ? calibrationLabels().professional_capability : calibrationLabels().performance)}</span>
+        <span className="fs-6">{(group_level == "staff" || group_level == "supervisor") ? calibrationLabels().work_load_pct :  (group_level == "manager_b" ? calibrationLabels().professional_capability : calibrationLabels().performance)}</span>
         <br />
         {calibrationLabels().below_standard}
       </div>
@@ -217,24 +217,24 @@ function CalibrationPanel() {
       </div>
       <div className="col-3 border-top border-white border-top-2">
         <span className="fs-6">
-          {group_level == "staff" ? calibrationLabels().work_quality_pct : (group_level == "manager_b" ? calibrationLabels().management_capability : calibrationLabels().professional_capability)}
-          &nbsp;{(group_level == "staff" || group_level == "manager_b") ? null : `/ ${calibrationLabels().management_capability}`}
+          {(group_level == "staff" || group_level == "supervisor") ? calibrationLabels().work_quality_pct : (group_level == "manager_b" ? calibrationLabels().management_capability : calibrationLabels().professional_capability)}
+          &nbsp;{(group_level == "staff" || group_level == "supervisor" || group_level == "manager_b") ? null : `/ ${calibrationLabels().management_capability}`}
         </span>
         <br />
         {calibrationLabels().below_standard}
       </div>
       <div className="col-3 border-top border-white border-top-2">
         <span className="fs-6">
-          {group_level == "staff" ? calibrationLabels().work_quality_pct : (group_level == "manager_b" ? calibrationLabels().management_capability : calibrationLabels().professional_capability)}
-          &nbsp;{(group_level == "staff" || group_level == "manager_b") ? null : `/ ${calibrationLabels().management_capability}`}
+          {(group_level == "staff" || group_level == "supervisor") ? calibrationLabels().work_quality_pct : (group_level == "manager_b" ? calibrationLabels().management_capability : calibrationLabels().professional_capability)}
+          &nbsp;{(group_level == "staff" || group_level == "supervisor" || group_level == "manager_b") ? null : `/ ${calibrationLabels().management_capability}`}
         </span>
         <br />
         {calibrationLabels().standards_compliant}
       </div>
       <div className="col-3 border-top border-white border-top-2">
         <span className="fs-6">
-          {group_level == "staff" ? calibrationLabels().work_quality_pct : (group_level == "manager_b" ? calibrationLabels().management_capability : calibrationLabels().professional_capability)}
-          &nbsp;{(group_level == "staff" || group_level == "manager_b") ? null : `/ ${calibrationLabels().management_capability}`}
+          {(group_level == "staff" || group_level == "supervisor") ? calibrationLabels().work_quality_pct : (group_level == "manager_b" ? calibrationLabels().management_capability : calibrationLabels().professional_capability)}
+          &nbsp;{(group_level == "staff" || group_level == "supervisor" || group_level == "manager_b") ? null : `/ ${calibrationLabels().management_capability}`}
         </span>
         <br />
         {calibrationLabels().beyond_standard}

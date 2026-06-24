@@ -49,7 +49,7 @@ class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
   test "calibration table partial follows staff versus manager table layout" do
     assert_equal "ui/calibration_sessions/staff_table", company_evaluation_templates(:ect_staff).calibration_table_partial
     assert_equal "ui/calibration_sessions/manager_table", company_evaluation_templates(:ect_auxiliary).calibration_table_partial
-    assert_equal "ui/calibration_sessions/manager_table", supervisor_template.calibration_table_partial
+    assert_equal "ui/calibration_sessions/staff_table", supervisor_template.calibration_table_partial
     assert_equal "ui/calibration_sessions/manager_table", company_evaluation_templates(:ect_manager).calibration_table_partial
     assert_equal "ui/calibration_sessions/manager_table", CompanyEvaluationTemplate.new(group_level: "manager_b").calibration_table_partial
   end
@@ -66,7 +66,7 @@ class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
 
     assert_equal ["12"], company_evaluation_templates(:ect_staff).group_evaluation_user_capabilities([euc]).keys
     assert_equal ["31"], company_evaluation_templates(:ect_auxiliary).group_evaluation_user_capabilities([euc]).keys
-    assert_equal ["31"], supervisor_template.group_evaluation_user_capabilities([euc]).keys
+    assert_equal ["12"], supervisor_template.group_evaluation_user_capabilities([euc]).keys
     assert_equal ["31"], company_evaluation_templates(:ect_manager).group_evaluation_user_capabilities([euc]).keys
     assert_equal ["23"], CompanyEvaluationTemplate.new(group_level: "manager_b").group_evaluation_user_capabilities([euc]).keys
   end
@@ -83,7 +83,7 @@ class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
       company_evaluation_templates(:ect_auxiliary).calibration_attributes_for_square("31", euc)
     )
     assert_equal(
-      {calibration_management_profession_score: 1, calibration_performance_score: 1},
+      {calibration_work_quality: 1, calibration_work_load: 1, calibration_work_attitude: 2},
       supervisor_template.calibration_attributes_for_square("31", euc)
     )
     assert_equal(

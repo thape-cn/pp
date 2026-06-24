@@ -14,7 +14,7 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td rowspan="4" class="text-end"><%= t("evaluation.performance") -%></td>
+            <td rowspan="4" class="text-end"><%= t("evaluation.work_load_pct") -%></td>
             <td class="position-relative border border-primary bg-primary-gradient">
               <% eucs = @evaluation_user_capabilities_group.fetch("11", []) %>
               <h5>B <span class="fs-6 fw-light ms-2"><%= t("performance.panel_total", people_number: eucs.length, people_percent: (eucs.length * 100.0/@total_people_num).round(1)) -%></span></h5>
@@ -85,7 +85,7 @@
           </tr>
           <tr>
             <td colspan="3" class="text-end">
-              <%= t("evaluation.professional_management_capability") -%>
+              <%= t("evaluation.work_quality_pct") -%>
             </td>
           </tr>
         </tbody>
