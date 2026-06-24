@@ -63,7 +63,7 @@ json.evaluation_user_capability do
   end
   json.job_role_performance_metrics do
     @job_role_performances.each do |jrep|
-      json.set! jrep.obj_name, @evaluation_user_capability.company_evaluation_template.job_role_performance_metric(jrep) if jrep.obj_result.present?
+      json.set! jrep.obj_name, @evaluation_user_capability.company_evaluation_template.job_role_performance_metric_key(jrep) if jrep.obj_result.present?
     end
   end
   json.self_overall_output markdown(@evaluation_user_capability.self_overall_output)

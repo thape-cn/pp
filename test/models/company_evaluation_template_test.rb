@@ -101,6 +101,8 @@ class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
     rank_performance = JobRoleEvaluationPerformance.new(en_name: "p_individual_hours")
     output_performance = JobRoleEvaluationPerformance.new(en_name: "p_customer")
 
+    assert_equal "rank_performance_metric", template.job_role_performance_metric_key(rank_performance)
+    assert_equal "performance_metric", template.job_role_performance_metric_key(output_performance)
     assert_equal template.rank_performance_metric, template.job_role_performance_metric(rank_performance)
     assert_equal template.performance_metric, template.job_role_performance_metric(output_performance)
   end

@@ -3,7 +3,7 @@
     <tbody>
       <tr style="height: 66px;">
         <td rowspan="4" class="text-end">
-          <%= if group_level == "staff"
+          <%= if group_level == "staff" || group_level == "supervisor"
                 t("evaluation.work_load_pct")
               elsif group_level == "manager_b"
                 t("evaluation.professional_capability")
@@ -64,7 +64,7 @@
       </tr>
       <tr>
         <td colspan="3" class="text-end">
-          <%= if group_level == "staff"
+          <%= if group_level == "staff" || group_level == "supervisor"
                 t("evaluation.work_quality_pct")
               elsif group_level == "manager_b"
                 t("evaluation.management_capability")

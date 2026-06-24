@@ -34,11 +34,13 @@ class CompanyEvaluationTemplate < ApplicationRecord
   end
 
   def job_role_performance_metric(job_role_evaluation_performance)
-    if JobRoleEvaluationPerformance.hidden_rank_en_name?(job_role_evaluation_performance.en_name)
-      rank_performance_metric
-    else
-      performance_metric
-    end
+    public_send(job_role_performance_metric_key(job_role_evaluation_performance))
+  end
+
+  def job_role_performance_metric_key(job_role_evaluation_performance)
+    JobRoleEvaluationPerformance.hidden_rank_en_name?(job_role_evaluation_performance.en_name) ?
+      "rank_performance_metric" :
+      "performance_metric"
   end
 
   def calibration_table_partial

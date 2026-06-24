@@ -134,4 +134,15 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     assert_response :success
     assert_includes response.body, @hidden_performance.obj_name
   end
+
+  test "evaluation capability json exposes client-facing performance metric keys" do
+    sign_in users(:user_pptest3)
+
+    get staff_evaluation_user_capability_path(@evaluation_user_capability, format: :json)
+
+    assert_response :success
+    metrics = response.parsed_body.dig("evaluation_user_capability", "job_role_performance_metrics")
+    assert_equal "rank_performance_metric", metrics.fetch(@hidden_performance.obj_name)
+    assert_equal "performance_metric", metrics.fetch(@visible_performance.obj_name)
+  end
 end
