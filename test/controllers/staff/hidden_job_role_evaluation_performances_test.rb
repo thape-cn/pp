@@ -40,6 +40,16 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     assert_not_includes response.body, @hidden_performance.obj_name
   end
 
+  test "reviewer cannot see hidden rank performances in in evaluation page" do
+    sign_in users(:user_pptest3)
+
+    get staff_in_evaluation_path(@evaluation_user_capability)
+
+    assert_response :success
+    assert_includes response.body, @visible_performance.obj_name
+    assert_not_includes response.body, @hidden_performance.obj_name
+  end
+
   test "reviewed staff user cannot fetch hidden rank performance detail directly" do
     sign_in @evaluation_user_capability.user
 
