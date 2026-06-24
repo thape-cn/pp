@@ -88,7 +88,9 @@ class EvaluationUserCapability < ApplicationRecord
     profession_subtotal_pct_proportion = profession_subtotal_score.to_f * (company_evaluation_template.profession_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
     Rails.logger.debug "profession_subtotal_score: #{profession_subtotal_score}, profession_subtotal_rate: #{company_evaluation_template.profession_subtotal_rate}, profession_subtotal_pct_proportion: #{profession_subtotal_pct_proportion}"
 
-    pre_work_pct_proportion.to_f + management_subtotal_pct_proportion.to_f + profession_subtotal_pct_proportion.to_f + performance_subtotal_pct_proportion.to_f
+    raw_total_evaluation_score = pre_work_pct_proportion.to_f + management_subtotal_pct_proportion.to_f + profession_subtotal_pct_proportion.to_f + performance_subtotal_pct_proportion.to_f
+    Rails.logger.debug "raw_total_evaluation_score: #{raw_total_evaluation_score}"
+    raw_total_evaluation_score
   end
 
   def total_evaluation_score
