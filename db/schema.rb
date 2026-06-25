@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_25_092908) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -56,6 +56,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.decimal "collaboration", precision: 5, scale: 2
     t.string "company", null: false
     t.bigint "company_evaluation_template_id", null: false
+    t.decimal "complex_chassis_design", precision: 5, scale: 2
     t.decimal "concept", precision: 5, scale: 2
     t.decimal "cooperation", precision: 5, scale: 2
     t.decimal "craftsmanship", precision: 5, scale: 2
@@ -69,6 +70,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.string "department", null: false
     t.string "dept_code", null: false
     t.decimal "design_capability", precision: 5, scale: 2
+    t.decimal "detail_design", precision: 5, scale: 2
+    t.decimal "facade_design", precision: 5, scale: 2
     t.float "final_total_evaluation_score"
     t.string "form_status", default: "initial"
     t.decimal "goal_achieved", precision: 5, scale: 2
@@ -94,6 +97,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.text "manager_overall_plan"
     t.float "manager_scored_total_evaluation_score"
     t.bigint "manager_user_id"
+    t.decimal "master_planning", precision: 5, scale: 2
     t.decimal "mission_consensus", precision: 5, scale: 2
     t.decimal "norms", precision: 5, scale: 2
     t.decimal "norms_landscape", precision: 5, scale: 2
@@ -108,9 +112,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.decimal "presentation_interior_aico", precision: 5, scale: 2
     t.decimal "presentation_landscape", precision: 5, scale: 2
     t.decimal "presentation_planning", precision: 5, scale: 2
+    t.decimal "product_design", precision: 5, scale: 2
     t.decimal "product_design_landscape", precision: 5, scale: 2
     t.decimal "professional_level", precision: 5, scale: 2
     t.decimal "project_management", precision: 5, scale: 2
+    t.decimal "project_management_coordination", precision: 5, scale: 2
     t.decimal "realization", precision: 5, scale: 2
     t.decimal "realization_landscape", precision: 5, scale: 2
     t.decimal "results", precision: 5, scale: 2
@@ -313,6 +319,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.decimal "collaboration", precision: 5, scale: 2
     t.string "company", null: false
     t.integer "company_evaluation_template_id", null: false
+    t.decimal "complex_chassis_design", precision: 5, scale: 2
     t.decimal "concept", precision: 5, scale: 2
     t.decimal "cooperation", precision: 5, scale: 2
     t.decimal "craftsmanship", precision: 5, scale: 2
@@ -323,8 +330,10 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.string "department", null: false
     t.string "dept_code", null: false
     t.decimal "design_capability", precision: 5, scale: 2
+    t.decimal "detail_design", precision: 5, scale: 2
     t.string "edoc_file_id"
     t.string "edoc_guid"
+    t.decimal "facade_design", precision: 5, scale: 2
     t.string "final_total_evaluation_grade"
     t.float "final_total_evaluation_score"
     t.string "form_status", default: "initial"
@@ -351,6 +360,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.text "manager_overall_plan"
     t.float "manager_scored_total_evaluation_score"
     t.integer "manager_user_id"
+    t.decimal "master_planning", precision: 5, scale: 2
     t.decimal "mission_consensus", precision: 5, scale: 2
     t.decimal "norms", precision: 5, scale: 2
     t.decimal "norms_landscape", precision: 5, scale: 2
@@ -365,9 +375,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_22_000100) do
     t.decimal "presentation_interior_aico", precision: 5, scale: 2
     t.decimal "presentation_landscape", precision: 5, scale: 2
     t.decimal "presentation_planning", precision: 5, scale: 2
+    t.decimal "product_design", precision: 5, scale: 2
     t.decimal "product_design_landscape", precision: 5, scale: 2
     t.decimal "professional_level", precision: 5, scale: 2
     t.decimal "project_management", precision: 5, scale: 2
+    t.decimal "project_management_coordination", precision: 5, scale: 2
     t.decimal "realization", precision: 5, scale: 2
     t.decimal "realization_landscape", precision: 5, scale: 2
     t.decimal "results", precision: 5, scale: 2
