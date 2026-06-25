@@ -17,11 +17,18 @@
   </div>
   <% Capability.performance_column_names.each do |column_name| %>
     <% next if evaluation_user_capability.attributes[column_name].blank? %>
+    <% score = evaluation_user_capability.attributes[column_name] %>
+    <% metric = case column_name
+    when "work_load"
+      evaluation_user_capability.company_evaluation_template.work_load_metric
+    when "work_quality"
+      evaluation_user_capability.company_evaluation_template.work_quality_metric
+    end %>
     <div class="col-3">
       <div class="card">
         <h5 class="card-header"><%= t("evaluation.#{column_name}_pct") %></h5>
         <div class="card-body">
-          <p class="card-text"><%= evaluation_user_capability.attributes[column_name] -%></p>
+          <p class="card-text"><%= metric ? public_send(metric).invert[to_metrics_value(score)] || score : score -%></p>
         </div>
       </div>
     </div>
@@ -48,14 +55,21 @@
       </div>
     </div>
   <% end %>
-  <% if group_level == "staff" %>
+  <% if group_level == "staff" || group_level == "supervisor" %>
     <% Capability.calibration_column_names.each do |column_name| %>
       <% next if evaluation_user_capability.attributes[column_name].blank? %>
+      <% score = evaluation_user_capability.attributes[column_name] %>
+      <% metric = case column_name
+      when "calibration_work_load"
+        evaluation_user_capability.company_evaluation_template.work_load_metric
+      when "calibration_work_quality"
+        evaluation_user_capability.company_evaluation_template.work_quality_metric
+      end %>
       <div class="col-3">
         <div class="card">
           <h5 class="card-header"><%= t("calibration.#{column_name}") %></h5>
           <div class="card-body">
-            <p class="card-text"><%= evaluation_user_capability.attributes[column_name] -%></p>
+            <p class="card-text"><%= metric ? public_send(metric).invert[to_metrics_value(score)] || score : score -%></p>
           </div>
         </div>
       </div>
