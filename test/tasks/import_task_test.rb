@@ -33,4 +33,28 @@ class ImportTaskTest < ActiveSupport::TestCase
   ensure
     excel_file&.close!
   end
+
+  test "import job role still reads employee csv" do
+    existing_job_role = JobRole.create!(st_code: "TEST-CSV-001", job_level: 1, job_code: "Old", job_family: "Old Family")
+    csv_file = Tempfile.new(["job_roles", ".csv"])
+
+    CSV.open(csv_file.path, "w", write_headers: true, headers: %w[STCODE JOBLEVEL JOBCODE JOBFAMILY]) do |csv|
+      csv << ["TEST-CSV-001", 6, "高级造价工程师", "子公司概预算"]
+      csv << ["TEST-CSV-002", 7, "主任建筑师", "子公司方案"]
+    end
+
+    Rake::Task["import:job_role"].invoke(csv_file.path)
+
+    existing_job_role.reload
+    assert_equal 6, existing_job_role.job_level
+    assert_equal "高级造价工程师", existing_job_role.job_code
+    assert_equal "子公司概预算", existing_job_role.job_family
+
+    imported_job_role = JobRole.find_by!(st_code: "TEST-CSV-002")
+    assert_equal 7, imported_job_role.job_level
+    assert_equal "主任建筑师", imported_job_role.job_code
+    assert_equal "子公司方案", imported_job_role.job_family
+  ensure
+    csv_file&.close!
+  end
 end

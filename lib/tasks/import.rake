@@ -26,30 +26,34 @@ namespace :import do
   end
 
   desc "Import job role"
-  task :job_role, [:excel_file] => [:environment] do |task, args|
-    excel_file_path = args[:excel_file] || "/home/pp_vendor/EmployeeData/job_roles_#{Date.today.strftime("%m%d%Y")}.xlsx"
+  task :job_role, [:file] => [:environment] do |task, args|
+    file_path = args[:file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
 
-    xlsx = Roo::Excelx.new(excel_file_path)
-    xlsx.default_sheet = "job_roles" if xlsx.sheets.include?("job_roles")
-    xlsx.each(
-      st_code: "ST 代码",
-      job_level: "岗位职级",
-      job_code: "基准岗",
-      job_family: "岗位序列"
-    ) do |row|
-      st_code = row[:st_code].to_s
-      next if st_code.blank? || st_code == "ST 代码"
-
-      job_level = row[:job_level]
-      job_code = row[:job_code]
-      job_family = row[:job_family]
-
-      job_role = JobRole.find_or_initialize_by(st_code: st_code)
-      job_role.job_level = job_level
-      job_role.job_code = job_code
-      job_role.job_family = job_family
-      success = job_role.save
-      puts "job_role: #{st_code} failed #{job_role.errors.full_messages.to_sentence}" unless success
+    if File.extname(file_path).downcase.in?(%w[.xlsx .xlsm .xls])
+      xlsx = Roo::Excelx.new(file_path)
+      xlsx.default_sheet = "job_roles" if xlsx.sheets.include?("job_roles")
+      xlsx.each(
+        st_code: "ST 代码",
+        job_level: "岗位职级",
+        job_code: "基准岗",
+        job_family: "岗位序列"
+      ) do |row|
+        import_job_role(
+          st_code: row[:st_code],
+          job_level: row[:job_level],
+          job_code: row[:job_code],
+          job_family: row[:job_family]
+        )
+      end
+    else
+      CSV.foreach(file_path, headers: true) do |row|
+        import_job_role(
+          st_code: row["STCODE"],
+          job_level: row["JOBLEVEL"],
+          job_code: row["JOBCODE"],
+          job_family: row["JOBFAMILY"]
+        )
+      end
     end
   end
 
@@ -199,5 +203,17 @@ namespace :import do
   def correct_email(email)
     first_email_part = email.split("@")[0]
     "#{first_email_part}@thape.com.cn"
+  end
+
+  def import_job_role(st_code:, job_level:, job_code:, job_family:)
+    st_code = st_code.to_s
+    return if st_code.blank? || st_code.in?(["ST 代码", "STCODE"])
+
+    job_role = JobRole.find_or_initialize_by(st_code: st_code)
+    job_role.job_level = job_level
+    job_role.job_code = job_code
+    job_role.job_family = job_family
+    success = job_role.save
+    puts "job_role: #{st_code} failed #{job_role.errors.full_messages.to_sentence}" unless success
   end
 end
