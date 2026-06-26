@@ -159,7 +159,7 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       ostruct
     connection_pool (3.0.2)
-    crass (1.0.6)
+    crass (1.0.7)
     csv (3.3.5)
     date (3.5.1)
     debug (1.11.1)
