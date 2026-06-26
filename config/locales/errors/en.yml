@@ -10,6 +10,7 @@ en:
     evaluation_user_capability_job_role_capabilities_blank: "User job role can not find any capabilities configured, clerk code: %{clerk_code}, job_role st_code: %{st_code}, company_evaluation_template title: %{template_title}"
     evaluation_user_capability_failed: "evaluation_user_capability: %{dept_code} %{clerk_code} %{template_title} failed %{error_messages}"
     evaluation_user_capability_not_found: "EvaluationUserCapability not found: %{template_title}, JobRole: %{st_code}"
+    calibration_template_not_found: "Calibration template not found: %{calibration_template_name}, company evaluation template: %{template_title}"
     calibration_owner_not_found: "Calibration owner not found by clerk_code: %{clerk_code}"
     calibration_participant_not_found: "Calibration participants not found by clerk_code: %{clerk_code}"
     inconsistent_calibration_session_data: "Calibration session name %{calibration_session_name} having inconsistent data"

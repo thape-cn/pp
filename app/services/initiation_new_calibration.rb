@@ -54,6 +54,13 @@ class InitiationNewCalibration
         end
       end
 
+      if company_evaluation_template.present?
+        calibration_template = company_evaluation_template.calibration_templates.find_by(template_name: calibration_template_name)
+        if calibration_template.blank?
+          import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.calibration_template_not_found", template_title: template_title, calibration_template_name: calibration_template_name))
+        end
+      end
+
       calibration_owner = User.find_by(clerk_code: calibration_owner_clerk_code)
       if calibration_owner.blank?
         import_excel_file.import_excel_file_messages.create(row_number: row_number, message: I18n.t("errors.calibration_owner_not_found", clerk_code: calibration_owner_clerk_code))
@@ -116,7 +123,7 @@ class InitiationNewCalibration
       calibration_owner = User.find_by!(clerk_code: h[:calibration_owner].to_s)
       calibration_hr_reviewer = User.find_by!(clerk_code: h[:calibration_hr_reviewer].to_s)
 
-      calibration_template = company_evaluation_template.calibration_templates.find_or_create_by(template_name: h[:calibration_template_name].to_s)
+      calibration_template = company_evaluation_template.calibration_templates.find_by!(template_name: h[:calibration_template_name].to_s)
 
       calibration_session = calibration_template.calibration_sessions.find_or_initialize_by(session_name: h[:calibration_session_name].to_s, owner_id: calibration_owner.id)
       calibration_session.hr_reviewer_id = calibration_hr_reviewer.id
