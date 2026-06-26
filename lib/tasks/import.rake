@@ -26,14 +26,23 @@ namespace :import do
   end
 
   desc "Import job role"
-  task :job_role, [:csv_file] => [:environment] do |task, args|
-    csv_file_path = args[:csv_file] || "/home/pp_vendor/EmployeeData/thapeemployee_#{Date.today.strftime("%m%d%Y")}.csv"
+  task :job_role, [:excel_file] => [:environment] do |task, args|
+    excel_file_path = args[:excel_file] || "/home/pp_vendor/EmployeeData/job_roles_#{Date.today.strftime("%m%d%Y")}.xlsx"
 
-    CSV.foreach(csv_file_path, headers: true) do |row|
-      st_code = row["STCODE"]
-      job_level = row["JOBLEVEL"]
-      job_code = row["JOBCODE"]
-      job_family = row["JOBFAMILY"]
+    xlsx = Roo::Excelx.new(excel_file_path)
+    xlsx.default_sheet = "job_roles" if xlsx.sheets.include?("job_roles")
+    xlsx.each(
+      st_code: "ST 代码",
+      job_level: "岗位职级",
+      job_code: "基准岗",
+      job_family: "岗位序列"
+    ) do |row|
+      st_code = row[:st_code].to_s
+      next if st_code.blank? || st_code == "ST 代码"
+
+      job_level = row[:job_level]
+      job_code = row[:job_code]
+      job_family = row[:job_family]
 
       job_role = JobRole.find_or_initialize_by(st_code: st_code)
       job_role.job_level = job_level
