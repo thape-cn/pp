@@ -22,10 +22,10 @@ class CompanyEvaluationTemplate < ApplicationRecord
 
   def self.mark_score_group_options
     {
-      ">= 10,11 级" => 4,
-      "9 级" => 3,
-      "7,8 级" => 2,
-      "<= 6 级" => 1
+      "主管及以上" => 4,
+      "准主管" => 3,
+      "一二级 / AB级" => 2,
+      "三级 / C级及以下" => 1
     }
   end
 
