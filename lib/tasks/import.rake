@@ -156,7 +156,7 @@ namespace :import do
 
     xlsx = Roo::Excelx.new(excel_file_path)
     xlsx.each(
-      st_code: "st_code",
+      st_code: "ST 代码",
       role_name: "考评角色"
     ) do |h|
       role_name = h[:role_name].to_s
