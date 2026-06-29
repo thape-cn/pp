@@ -9,6 +9,27 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "supervisor html exposes table headers per mark score group" do
+    supervisor_capability_headers = [
+      ["detail_design", "深化设计"],
+      ["master_planning", "总图"],
+      ["complex_chassis_design", "复杂底盘"],
+      ["facade_design", "立面"],
+      ["product_design", "产品"],
+      ["project_management_coordination", "项目管理及协调"]
+    ].collect do |en_name, name|
+      capability = Capability.create!(
+        en_name: en_name,
+        name: name,
+        description: nil,
+        category_name: "专业能力"
+      )
+      EvaluationRoleCapability.create!(
+        evaluation_role: evaluation_roles(:er_technical_director),
+        capability: capability
+      )
+      en_name
+    end
+
     get staff_mark_score_path(@manager), params: {
       company_evaluation_ids: [company_evaluations(:ce_one).id]
     }
@@ -21,6 +42,14 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
 
     assert_includes high_group_accessors, "p_managedproject_output"
     assert_includes high_group_accessors, "p_managedproject_profit"
+    assert_equal [
+      "complex_chassis_design",
+      "facade_design",
+      "detail_design",
+      "product_design",
+      "master_planning",
+      "project_management_coordination"
+    ], high_group_accessors & supervisor_capability_headers
     assert_includes mid_group_accessors, "p_individual_hours"
     assert_includes mid_group_accessors, "p_individual_output"
     assert_not_includes mid_group_accessors, "p_managedproject_output"
