@@ -1,5 +1,14 @@
 module Staff
   class MarkScoresController < BaseController
+    SUPERVISOR_CAPABILITY_HEADER_ORDER = %w[
+      complex_chassis_design
+      facade_design
+      detail_design
+      product_design
+      master_planning
+      project_management_coordination
+    ].freeze
+
     before_action :check_brower, only: %i[show], if: -> { request.format.html? }
     after_action :verify_authorized
 
@@ -256,7 +265,25 @@ module Staff
         end
         header
       end
+      table_headers_of_capability = reorder_supervisor_capability_headers(table_headers_of_capability, group_level)
       build_table_headers_of_capability(table_headers_of_capability, table_headers_of_performance, group_level)
+    end
+
+    def reorder_supervisor_capability_headers(headers_of_capability, group_level)
+      return headers_of_capability unless group_level == "supervisor"
+
+      ordered_headers = headers_of_capability
+        .select { |header| SUPERVISOR_CAPABILITY_HEADER_ORDER.include?(header[:accessor]) }
+        .sort_by { |header| SUPERVISOR_CAPABILITY_HEADER_ORDER.index(header[:accessor]) }
+      return headers_of_capability if ordered_headers.empty?
+
+      headers_of_capability.collect do |header|
+        if SUPERVISOR_CAPABILITY_HEADER_ORDER.include?(header[:accessor])
+          ordered_headers.shift
+        else
+          header
+        end
+      end
     end
 
     def table_need_capabilities(evaluation_user_capabilities)
