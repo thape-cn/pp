@@ -278,7 +278,7 @@ GEM
       net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.5.1)
       net-protocol
-    net-ssh (7.3.2)
+    net-ssh (7.3.3)
     nio4r (2.7.5)
     nokogiri (1.19.4-aarch64-linux-gnu)
       racc (~> 1.4)
@@ -333,9 +333,6 @@ GEM
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
-    psych (5.4.0)
-      date
-      stringio
     public_suffix (7.0.5)
     puma (8.0.2)
       nio4r (~> 2.0)
@@ -402,9 +399,10 @@ GEM
       logger
       prism (>= 1.6.0)
       tsort
-    rdoc (7.2.0)
+    rdoc (8.0.0)
       erb
-      psych (>= 4.0.0)
+      prism (>= 1.6.0)
+      rbs (>= 4.0.0)
       tsort
     redcarpet (3.6.1)
     redis-client (0.30.0)
@@ -447,7 +445,7 @@ GEM
     ruby-lsp-rails (0.4.8)
       ruby-lsp (>= 0.26.0, < 0.27.0)
     ruby-progressbar (1.13.0)
-    rubyzip (3.4.0)
+    rubyzip (3.4.1)
     securerandom (0.4.1)
     selenium-webdriver (4.45.0)
       base64 (~> 0.2)
@@ -494,7 +492,6 @@ GEM
     standard-performance (1.9.0)
       lint_roller (~> 1.1)
       rubocop-performance (~> 1.26.0)
-    stringio (3.2.0)
     swd (2.0.3)
       activesupport (>= 3)
       attr_required (>= 0.0.5)
