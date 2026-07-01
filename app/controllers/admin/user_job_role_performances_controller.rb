@@ -8,9 +8,17 @@ module Admin
 
     def index
       @company_evaluation = CompanyEvaluation.find params[:company_evaluation_id]
+      @user_id = params[:user_id].presence
+      @manager_user_id = params[:manager_user_id].presence
       job_role_evaluation_performances = policy_scope(JobRoleEvaluationPerformance)
         .joins(:user)
         .where(company_evaluation_id: @company_evaluation.id)
+      job_role_evaluation_performances = job_role_evaluation_performances.where(user_id: @user_id) if @user_id.present?
+      if @manager_user_id.present?
+        job_role_evaluation_performances = job_role_evaluation_performances
+          .joins(:evaluation_user_capability)
+          .where(evaluation_user_capabilities: {manager_user_id: @manager_user_id})
+      end
       respond_to do |format|
         format.html do
           title = t(".breadcrumb_title", title: @company_evaluation.title)
