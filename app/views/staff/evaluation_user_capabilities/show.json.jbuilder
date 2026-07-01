@@ -68,6 +68,11 @@ json.evaluation_user_capability do
       json.set! jrep.obj_name, @evaluation_user_capability.company_evaluation_template.job_role_performance_metric_key(jrep) if jrep.obj_result.present?
     end
   end
+  json.job_role_performance_explains do
+    @job_role_performances.each do |jrep|
+      json.set! jrep.obj_name, jrep.obj_result_explain if jrep.obj_result.present? && jrep.obj_result_explain.present?
+    end
+  end
   json.self_overall_output markdown(@evaluation_user_capability.self_overall_output)
   json.self_overall_improvement markdown(@evaluation_user_capability.self_overall_improvement)
   json.self_overall_plan markdown(@evaluation_user_capability.self_overall_plan)

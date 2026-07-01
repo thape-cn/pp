@@ -13,7 +13,8 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
       obj_metric: "metric",
       obj_weight_pct: 50,
       obj_result_fixed: false,
-      obj_result: 1
+      obj_result: 1,
+      obj_result_explain: "result explanation"
     }
 
     @hidden_performance = JobRoleEvaluationPerformance.create!(
@@ -133,6 +134,8 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
 
     assert_response :success
     assert_includes response.body, @hidden_performance.obj_name
+    assert_equal "result explanation", response.parsed_body.fetch("obj_result_explain")
+    assert_equal I18n.t("evaluation.obj_result_explain"), response.parsed_body.fetch("obj_result_explain_label")
   end
 
   test "evaluation capability json exposes client-facing performance metric keys" do
@@ -148,5 +151,8 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     metrics = evaluation_user_capability.fetch("job_role_performance_metrics")
     assert_equal "rank_performance_metric", metrics.fetch(@hidden_performance.obj_name)
     assert_equal "performance_metric", metrics.fetch(@visible_performance.obj_name)
+
+    explains = evaluation_user_capability.fetch("job_role_performance_explains")
+    assert_equal "result explanation", explains.fetch(@visible_performance.obj_name)
   end
 end

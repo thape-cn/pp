@@ -31,6 +31,12 @@ export function JrepModalDialog({jrep_id, onClose}) {
         </div>
         <div className="modal-body">
           <div dangerouslySetInnerHTML={{__html: userJobRolePerformance.obj_metric}}></div>
+          {userJobRolePerformance.obj_result_explain &&
+            <div className="mt-3">
+              <strong>{userJobRolePerformance.obj_result_explain_label}</strong>
+              <div>{userJobRolePerformance.obj_result_explain}</div>
+            </div>
+          }
         </div>
         <div className="modal-footer">
           <button className="btn btn-secondary" type="button" data-coreui-dismiss="modal">{userJobRolePerformance.close}</button>

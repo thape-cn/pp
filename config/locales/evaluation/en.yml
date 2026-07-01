@@ -48,6 +48,7 @@ en:
     obj_metric: "Performance metric"
     obj_weight_pct: "Performance weight"
     obj_result: "Performance result"
+    obj_result_explain: "Performance result explanation"
     obj_result_fixed: "Performance result is fixed"
     self_overall_output: "Self overall output"
     self_overall_improvement: "Self overall improvement"

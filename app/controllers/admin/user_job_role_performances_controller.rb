@@ -74,6 +74,7 @@ module Admin
               I18n.t("evaluation.obj_name"),
               I18n.t("evaluation.obj_weight_pct"),
               I18n.t("evaluation.obj_result"),
+              I18n.t("evaluation.obj_result_explain"),
               I18n.t("capability.en_name"),
               I18n.t("evaluation.obj_metric"),
               I18n.t("evaluation.obj_result_fixed")]
@@ -91,6 +92,7 @@ module Admin
               values << jrep.obj_name
               values << jrep.obj_weight_pct
               values << jrep.obj_result
+              values << jrep.obj_result_explain
               values << jrep.en_name
               values << jrep.obj_metric
               values << (jrep.obj_result_fixed? ? "Y" : "N")
@@ -124,7 +126,7 @@ module Admin
     end
 
     def job_role_evaluation_performance_params
-      params.require(:job_role_evaluation_performance).permit(:obj_name, :obj_metric, :obj_weight_pct, :obj_result, :obj_result_fixed)
+      params.require(:job_role_evaluation_performance).permit(:obj_name, :obj_metric, :obj_weight_pct, :obj_result, :obj_result_explain, :obj_result_fixed)
     end
 
     def set_breadcrumbs

@@ -48,6 +48,7 @@ zh-CN:
     obj_metric: "业绩度量"
     obj_weight_pct: "业绩权重"
     obj_result: "业绩评分"
+    obj_result_explain: "业绩评分说明"
     obj_result_fixed: "锁定业绩评分"
     self_overall_output: "员工自评：本阶段工作产出"
     self_overall_improvement: "员工自评：本阶段待改善点"

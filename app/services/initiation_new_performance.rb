@@ -16,6 +16,7 @@ class InitiationNewPerformance
       obj_metric: "OBJECTIVE_metric",
       obj_weight_pct: "OBJECTIVE_weight",
       obj_result: "OBJECTIVE_result",
+      obj_result_explain: "OBJECTIVE_result_explain",
       obj_upload: "OBJECTIVE_upload"
     ) do |h|
       user = User.find_by(clerk_code: h[:user_clerk_code])
@@ -53,6 +54,7 @@ class InitiationNewPerformance
       obj_metric: "OBJECTIVE_metric",
       obj_weight_pct: "OBJECTIVE_weight",
       obj_result: "OBJECTIVE_result",
+      obj_result_explain: "OBJECTIVE_result_explain",
       obj_upload: "OBJECTIVE_upload"
     ) do |h|
       user = User.find_by(clerk_code: h[:user_clerk_code])
@@ -68,6 +70,7 @@ class InitiationNewPerformance
       jrep.obj_name = h[:obj_name]
       jrep.obj_metric = h[:obj_metric]
       jrep.obj_weight_pct = h[:obj_weight_pct] * 100
+      jrep.obj_result_explain = h[:obj_result_explain]
       if h[:obj_upload] == "N"
         jrep.obj_result = 0
         jrep.obj_result_fixed = false

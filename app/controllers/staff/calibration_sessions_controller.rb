@@ -58,6 +58,7 @@ module Staff
             capability_result: I18n.t("evaluation.capability_result"),
             performance: I18n.t("evaluation.performance"),
             obj_result: I18n.t("evaluation.obj_result"),
+            obj_result_explain: I18n.t("evaluation.obj_result_explain"),
             encourage: I18n.t("calibration.encourage"),
             enforce: I18n.t("calibration.enforce"),
             current_people: I18n.t("calibration.current_people"),

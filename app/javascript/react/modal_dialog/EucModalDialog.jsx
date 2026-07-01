@@ -49,16 +49,19 @@ function ProfessionalCapabilityDetail({profession_capability, callbackfn}) {
   </table>;
 }
 
-function PerformanceDetail({job_role_performances, callbackfn}) {
+function PerformanceDetail({job_role_performances, job_role_performance_explains, callbackfn}) {
+  const hasExplain = Object.values(job_role_performance_explains || {}).some(value => value);
+
   return <table className="table">
     <thead>
     <tr>
       <th className="w-75">{calibrationLabels().performance}</th>
       <th>{calibrationLabels().obj_result}</th>
+      {hasExplain && <th>{calibrationLabels().obj_result_explain}</th>}
     </tr>
     </thead>
     <tbody>
-    {Object.entries(job_role_performances).map(callbackfn)}
+    {Object.entries(job_role_performances).map(entry => callbackfn(entry, hasExplain))}
     </tbody>
   </table>;
 }
@@ -117,15 +120,18 @@ export function EucModalDialog({euc_id, group_level, onClose}) {
             );
           }}/>}
           {evaluationUserCapability.job_role_performances && group_level != "manager_b" && <PerformanceDetail job_role_performances={evaluationUserCapability.job_role_performances}
-          callbackfn={([key, value]) => {
+          job_role_performance_explains={evaluationUserCapability.job_role_performance_explains}
+          callbackfn={([key, value], hasExplain) => {
             const metricName = evaluationUserCapability.job_role_performance_metrics && evaluationUserCapability.job_role_performance_metrics[key] || "performance_metric";
             const metric = companyEvaluationTemplate[metricName] || [];
             const item = metric.find(item => item.value === value);
+            const explain = evaluationUserCapability.job_role_performance_explains && evaluationUserCapability.job_role_performance_explains[key];
 
             return (
               <tr key={key}>
                 <td>{key}</td>
                 <td>{item ? item.label : null}</td>
+                {hasExplain && <td>{explain || null}</td>}
               </tr>
             );
           }}/>}

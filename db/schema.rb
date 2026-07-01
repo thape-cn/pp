@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_25_092908) do
+ActiveRecord::Schema[8.1].define(version: 2026_07_01_000000) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -465,6 +465,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_25_092908) do
     t.text "obj_metric"
     t.string "obj_name", null: false
     t.integer "obj_result"
+    t.string "obj_result_explain"
     t.boolean "obj_result_fixed", default: true
     t.integer "obj_weight_pct", default: 0, null: false
     t.string "st_code", null: false

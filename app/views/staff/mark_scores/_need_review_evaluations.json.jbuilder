@@ -38,6 +38,7 @@ json.array! need_review_evaluations.includes(:job_role, :user) do |euc|
     json.set! h[:accessor], jrep&.obj_result || "none"
     json.set! "#{h[:accessor]}_fixed", jrep&.obj_result_fixed
     json.set! "#{h[:accessor]}_id", jrep&.id
+    json.set! "#{h[:accessor]}_obj_result_explain", jrep&.obj_result_explain
   end
   json.id_euc euc.id
   json.raw_total_evaluation_score euc.raw_total_evaluation_score

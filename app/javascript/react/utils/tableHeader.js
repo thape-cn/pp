@@ -119,7 +119,7 @@ export function prepareTableSubmitData(data) {
   return data.map(function (obj) {
     let newObj = {};
     for (let key in obj) {
-      if (!skip_to_submit_accessor.includes(key) && !key.endsWith('_fixed') && !key.endsWith('_id')) {
+      if (!skip_to_submit_accessor.includes(key) && !key.endsWith('_fixed') && !key.endsWith('_id') && !key.endsWith('_obj_result_explain')) {
         newObj[key] = obj[key];
       }
     }
