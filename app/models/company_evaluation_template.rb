@@ -24,7 +24,7 @@ class CompanyEvaluationTemplate < ApplicationRecord
     {
       "主管及以上" => 4,
       "准主管" => 3,
-      "一二级 / AB级" => 2,
+      "一级 / A级以下" => 2,
       "三级 / C级及以下" => 1
     }
   end
