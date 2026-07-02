@@ -2,11 +2,18 @@ import * as React from "react"
 import { createRoot } from 'react-dom/client';
 import MarkScores from '../react/MarkScores';
 
+function mountWhenReady(callback) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', callback);
+  } else {
+    callback();
+  }
+}
 
 const staff_node = document.getElementById('staff-mark')
 if (staff_node) {
   const staff_root = createRoot(staff_node);
-  document.addEventListener('DOMContentLoaded', () => {
+  mountWhenReady(() => {
     staff_root.render(<MarkScores group_level='staff' />);
   });
 }
@@ -14,7 +21,7 @@ if (staff_node) {
 const manager_a_node = document.getElementById('manager_a-mark');
 if (manager_a_node) {
   const manager_root = createRoot(manager_a_node);
-  document.addEventListener('DOMContentLoaded', () => {
+  mountWhenReady(() => {
     manager_root.render(<MarkScores group_level='manager_a' />);
   });
 }
@@ -22,7 +29,7 @@ if (manager_a_node) {
 const manager_b_node = document.getElementById('manager_b-mark');
 if (manager_b_node) {
   const manager_root = createRoot(manager_b_node);
-  document.addEventListener('DOMContentLoaded', () => {
+  mountWhenReady(() => {
     manager_root.render(<MarkScores group_level='manager_b' />);
   });
 }
@@ -30,7 +37,7 @@ if (manager_b_node) {
 const auxiliary_node = document.getElementById('auxiliary-mark');
 if (auxiliary_node) {
   const auxiliary_root = createRoot(auxiliary_node);
-  document.addEventListener('DOMContentLoaded', () => {
+  mountWhenReady(() => {
     auxiliary_root.render(<MarkScores group_level='auxiliary' />);
   });
 }
@@ -38,7 +45,7 @@ if (auxiliary_node) {
 const supervisor_node = document.getElementById('supervisor-mark');
 if (supervisor_node) {
   const supervisor_root = createRoot(supervisor_node);
-  document.addEventListener('DOMContentLoaded', () => {
+  mountWhenReady(() => {
     const mark_score_groups = JSON.parse(supervisor_node.getAttribute('data-mark-score-groups') || '[]');
     supervisor_root.render(
       <>
