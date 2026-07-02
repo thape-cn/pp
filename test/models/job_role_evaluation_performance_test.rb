@@ -65,4 +65,25 @@ class JobRoleEvaluationPerformanceTest < ActiveSupport::TestCase
     assert JobRoleEvaluationPerformance.hidden_rank_en_name?("p_managedproject_profit")
     assert_not JobRoleEvaluationPerformance.hidden_rank_en_name?("p_customer")
   end
+
+  test "managed by includes imported performance rows without capability id" do
+    evaluation_user_capability = evaluation_user_capabilities(:euc_pp10)
+    performance = JobRoleEvaluationPerformance.create!(
+      user: evaluation_user_capability.user,
+      company_evaluation: evaluation_user_capability.company_evaluation_template.company_evaluation,
+      dept_code: evaluation_user_capability.dept_code,
+      st_code: evaluation_user_capability.job_role.st_code,
+      obj_metric: "metric",
+      obj_name: "imported performance",
+      obj_weight_pct: 100,
+      import_guid: "managed-by-imported-performance",
+      en_name: "p_individual_output"
+    )
+
+    manager_performances = JobRoleEvaluationPerformance.managed_by(evaluation_user_capability.manager_user_id)
+    other_manager_performances = JobRoleEvaluationPerformance.managed_by(users(:user_pptest0).id)
+
+    assert_includes manager_performances, performance
+    refute_includes other_manager_performances, performance
+  end
 end

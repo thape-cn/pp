@@ -13,6 +13,23 @@ class JobRoleEvaluationPerformance < ApplicationRecord
   scope :visible_in_staff_review, -> {
     where(en_name: nil).or(where.not(en_name: HIDDEN_RANK_EN_NAMES))
   }
+  scope :managed_by, ->(manager_user_id) {
+    where(<<~SQL.squish, manager_user_id)
+      EXISTS (
+        SELECT 1
+        FROM evaluation_user_capabilities
+        INNER JOIN company_evaluation_templates
+          ON company_evaluation_templates.id = evaluation_user_capabilities.company_evaluation_template_id
+        INNER JOIN job_roles
+          ON job_roles.id = evaluation_user_capabilities.job_role_id
+        WHERE evaluation_user_capabilities.user_id = job_role_evaluation_performances.user_id
+          AND evaluation_user_capabilities.dept_code = job_role_evaluation_performances.dept_code
+          AND job_roles.st_code = job_role_evaluation_performances.st_code
+          AND company_evaluation_templates.company_evaluation_id = job_role_evaluation_performances.company_evaluation_id
+          AND evaluation_user_capabilities.manager_user_id = ?
+      )
+    SQL
+  }
 
   def self.visible_for_staff_review_by(evaluation_user_capability, user)
     performances = performance_from_evaluation_user_capability(evaluation_user_capability)

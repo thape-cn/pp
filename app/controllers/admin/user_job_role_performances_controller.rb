@@ -15,9 +15,7 @@ module Admin
         .where(company_evaluation_id: @company_evaluation.id)
       job_role_evaluation_performances = job_role_evaluation_performances.where(user_id: @user_id) if @user_id.present?
       if @manager_user_id.present?
-        job_role_evaluation_performances = job_role_evaluation_performances
-          .joins(:evaluation_user_capability)
-          .where(evaluation_user_capabilities: {manager_user_id: @manager_user_id})
+        job_role_evaluation_performances = job_role_evaluation_performances.managed_by(@manager_user_id)
       end
       respond_to do |format|
         format.html do
