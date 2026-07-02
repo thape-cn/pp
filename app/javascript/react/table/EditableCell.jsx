@@ -44,8 +44,8 @@ export const EditableCell = ({
   const rank_performance_metric = company_evaluation_templates[row_data.id_cet].rank_performance_metric;
   const jobRolePerformanceMetric = HIDDEN_RANK_EN_NAMES.includes(id) ? rank_performance_metric : performance_metric;
   const objResultExplain = row_data[`${id}_obj_result_explain`];
-  const objResultExplainNode = objResultExplain ? (
-    <div className="small text-body-secondary mt-1">{objResultExplain}</div>
+  const objResultExplainNode = (textAlignClass = "") => objResultExplain ? (
+    <div className={`small text-body-secondary mt-1 ${textAlignClass}`.trim()}>{objResultExplain}</div>
   ) : null;
 
   if (value == 'none') {
@@ -62,7 +62,7 @@ export const EditableCell = ({
               jrep_id={row_data[id+"_id"]}
             />
           </div>
-          {objResultExplainNode}
+          {objResultExplainNode("text-end")}
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
@@ -103,7 +103,7 @@ export const EditableCell = ({
               jrep_id={row_data[id+"_id"]}
             />
           </div>
-          {objResultExplainNode}
+          {objResultExplainNode("text-start")}
         </>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
