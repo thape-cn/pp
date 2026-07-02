@@ -43,6 +43,10 @@ export const EditableCell = ({
   const performance_metric = company_evaluation_templates[row_data.id_cet].performance_metric;
   const rank_performance_metric = company_evaluation_templates[row_data.id_cet].rank_performance_metric;
   const jobRolePerformanceMetric = HIDDEN_RANK_EN_NAMES.includes(id) ? rank_performance_metric : performance_metric;
+  const objResultExplain = row_data[`${id}_obj_result_explain`];
+  const objResultExplainNode = objResultExplain ? (
+    <div className="small text-body-secondary mt-1">{objResultExplain}</div>
+  ) : null;
 
   if (value == 'none') {
     return null;
@@ -50,12 +54,15 @@ export const EditableCell = ({
     if (id.startsWith('p_')) {
       const item = jobRolePerformanceMetric.find(item => item.value === value);
       return (
-        <div className="m-1 text-end">
-          <span className="me-2">{item ? item.label : null}</span>
-          <JobPerformanceInfo
-            out_class_name="m-1"
-            jrep_id={row_data[id+"_id"]}
-          />
+        <div className="m-1">
+          <div className="text-end">
+            <span className="me-2">{item ? item.label : null}</span>
+            <JobPerformanceInfo
+              out_class_name="m-1"
+              jrep_id={row_data[id+"_id"]}
+            />
+          </div>
+          {objResultExplainNode}
         </div>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
@@ -83,18 +90,21 @@ export const EditableCell = ({
       return <p className="m-1 text-end">{Math.round(row_data["raw_total_evaluation_score"] * 100) / 100}</p>;
     } else if (id.startsWith('p_')) {
       return (
-        <div className="input-group">
-          <select id={`r${index}-${id}`} value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
-            <option value='0'>{not_rated_text}</option>
-            {jobRolePerformanceMetric.map(option => (
-              <option key={option.value} value={option.value}>{option.label}</option>
-            ))}
-          </select>
-          <JobPerformanceInfo
-            out_class_name="input-group-text"
-            jrep_id={row_data[id+"_id"]}
-          />
-        </div>
+        <>
+          <div className="input-group">
+            <select id={`r${index}-${id}`} value={value} onChange={onChange} onBlur={onBlur} className="form-control form-control-sm">
+              <option value='0'>{not_rated_text}</option>
+              {jobRolePerformanceMetric.map(option => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
+            </select>
+            <JobPerformanceInfo
+              out_class_name="input-group-text"
+              jrep_id={row_data[id+"_id"]}
+            />
+          </div>
+          {objResultExplainNode}
+        </>
       );
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
       return <CapabilitySelect id={`r${index}-${id}`} value={value} ercd={row_data[id+"_ercd"]} onChange={onChange} onBlur={onBlur} metric={work_quality_metric} not_rated_text={not_rated_text} />;

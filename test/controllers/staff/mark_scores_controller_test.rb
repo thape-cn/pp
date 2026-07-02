@@ -30,6 +30,8 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
   test "supervisor json can be filtered by mark score group" do
     job_role_evaluation_performances(:jrep_supervisor_high_individual_hours)
       .update!(obj_result_explain: "behind target")
+    job_role_evaluation_performances(:jrep_supervisor_high_individual_output)
+      .update!(obj_result_explain: "output explanation")
 
     get staff_mark_score_path(@manager, format: :json), params: {
       company_evaluation_ids: [company_evaluations(:ce_one).id],
@@ -43,6 +45,7 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_equal [4], response_body.fetch("need_review_evaluations").pluck("mark_score_group").uniq
     assert_equal [4], response_body.fetch("company_evaluation_templates").values.pluck("mark_score_group").uniq
     assert_equal "behind target", response_body.fetch("need_review_evaluations").first.fetch("p_individual_hours_obj_result_explain")
+    assert_equal "output explanation", response_body.fetch("need_review_evaluations").first.fetch("p_individual_output_obj_result_explain")
   end
 
   test "supervisor save response stays filtered by mark score group" do
