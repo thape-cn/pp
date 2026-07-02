@@ -1,6 +1,7 @@
 <% if job_role_evaluation_performance.obj_result_fixed %>
   <%= job_role_evaluation_performance.obj_result -%>
   <%= svg_icon('free.svg#cil-lock-locked', 'icon') -%>
+  <%= job_role_evaluation_performance.obj_result_explain %>
 <% else %>
-  <%= job_role_evaluation_performance.obj_result -%>
+  <%= job_role_evaluation_performance.obj_result -%><%= job_role_evaluation_performance.obj_result_explain %>
 <% end %>
