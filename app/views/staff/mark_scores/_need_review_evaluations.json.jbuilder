@@ -11,7 +11,7 @@ json.array! need_review_evaluations.includes(:job_role, :user) do |euc|
     json.set! performance_column_name, euc.attributes[performance_column_name]&.to_f&.round(1) || "none"
     ercs_on_capability = ercs.find_all { |erc| erc.capability.en_name == performance_column_name }
     erc = ercs_on_role.find { |erc| erc.capability.en_name == performance_column_name }
-    if ercs_on_capability.length > 1 && erc.erc_description.present?
+    if ercs_on_capability.length > 1 && erc&.erc_description.present?
       json.set! "#{performance_column_name}_ercd", erc.erc_description
     end
   end
@@ -19,16 +19,16 @@ json.array! need_review_evaluations.includes(:job_role, :user) do |euc|
     json.set! management_column_name, euc.attributes[management_column_name]&.to_f&.round(1) || "none"
     ercs_on_capability = ercs.find_all { |erc| erc.capability.en_name == management_column_name }
     erc = ercs_on_role.find { |erc| erc.capability.en_name == management_column_name }
-    if ercs_on_capability.length > 1 && erc.erc_description.present?
-      json.set! "#{performance_column_name}_ercd", erc.erc_description
+    if ercs_on_capability.length > 1 && erc&.erc_description.present?
+      json.set! "#{management_column_name}_ercd", erc.erc_description
     end
   end
   Capability.profession_column_names.each do |profession_column_name|
     json.set! profession_column_name, euc.attributes[profession_column_name]&.to_f&.round(1) || "none"
     ercs_on_capability = ercs.find_all { |erc| erc.capability.en_name == profession_column_name }
     erc = ercs_on_role.find { |erc| erc.capability.en_name == profession_column_name }
-    if ercs_on_capability.length > 1 && erc.erc_description.present?
-      json.set! "#{performance_column_name}_ercd", erc.erc_description
+    if ercs_on_capability.length > 1 && erc&.erc_description.present?
+      json.set! "#{profession_column_name}_ercd", erc.erc_description
     end
   end
   json.id_cet euc.company_evaluation_template_id

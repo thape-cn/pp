@@ -48,6 +48,72 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_equal "output explanation", response_body.fetch("need_review_evaluations").first.fetch("p_individual_output_obj_result_explain")
   end
 
+  test "supervisor json tolerates shared capability header missing from one role" do
+    EvaluationRoleCapability.create!(
+      evaluation_role: evaluation_roles(:er_functional_lead),
+      capability: capabilities(:capable_work_load),
+      erc_description: "lead work load description"
+    )
+    EvaluationUserCapability.create!(
+      company_evaluation_template: company_evaluation_templates(:ect_supervisor_high),
+      user: users(:user_pptest2),
+      job_role: job_roles(:job_76),
+      manager_user: @manager,
+      company: "测试公司",
+      department: "测试组织",
+      dept_code: "000001",
+      title: "资深建筑师（方案）",
+      self_overall_output: "资深建筑师（方案） self_overall_output 1234567890",
+      self_overall_improvement: "资深建筑师（方案） self_overall_improvement 1234567890",
+      self_overall_plan: "资深建筑师（方案） self_overall_plan 1234567890",
+      manager_overall_output: "资深建筑师（方案） manager_overall_output 1234567890",
+      manager_overall_improvement: "资深建筑师（方案） manager_overall_improvement 1234567890",
+      manager_overall_plan: "资深建筑师（方案） manager_overall_plan 1234567890",
+      form_status: "self_assessment_done",
+      work_load: 1,
+      work_quality: 1,
+      work_attitude: 1
+    )
+    EvaluationUserCapability.create!(
+      company_evaluation_template: company_evaluation_templates(:ect_supervisor_high),
+      user: users(:user_pptest4),
+      job_role: job_roles(:job_82),
+      manager_user: @manager,
+      company: "测试公司",
+      department: "测试组织",
+      dept_code: "000001",
+      title: "助理主创建筑师",
+      self_overall_output: "助理主创建筑师 self_overall_output 1234567890",
+      self_overall_improvement: "助理主创建筑师 self_overall_improvement 1234567890",
+      self_overall_plan: "助理主创建筑师 self_overall_plan 1234567890",
+      manager_overall_output: "助理主创建筑师 manager_overall_output 1234567890",
+      manager_overall_improvement: "助理主创建筑师 manager_overall_improvement 1234567890",
+      manager_overall_plan: "助理主创建筑师 manager_overall_plan 1234567890",
+      form_status: "self_assessment_done",
+      work_load: 1,
+      work_quality: 1,
+      work_attitude: 1
+    )
+
+    get staff_mark_score_path(@manager, format: :json), params: {
+      company_evaluation_ids: [company_evaluations(:ce_one).id],
+      group_level: "supervisor",
+      mark_score_group: "4"
+    }
+
+    assert_response :success
+    response_body = JSON.parse(response.body)
+    high_role_row = response_body.fetch("need_review_evaluations").find do |row|
+      row.fetch("id_euc") == evaluation_user_capabilities(:euc_supervisor_high).id
+    end
+    functional_row = response_body.fetch("need_review_evaluations").find do |row|
+      row.fetch("title") == "资深建筑师（方案）"
+    end
+
+    assert_not high_role_row.key?("work_load_ercd")
+    assert_includes functional_row.fetch("work_load_ercd"), "日常工作及上级布置的其他工作任务"
+  end
+
   test "supervisor save response stays filtered by mark score group" do
     euc = evaluation_user_capabilities(:euc_supervisor_high)
 
