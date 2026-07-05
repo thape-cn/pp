@@ -133,6 +133,23 @@
   min-width: 90px;
 }
 
+.mark-scores-table-wrapper {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mark-scores-table {
+  width: max-content;
+  min-width: 100%;
+
+  th,
+  td {
+    white-space: nowrap;
+  }
+}
+
 .mt-button {
   margin-top: 1.4rem !important;
 }
