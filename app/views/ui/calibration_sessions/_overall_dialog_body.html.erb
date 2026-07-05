@@ -5,7 +5,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="w-75"><%= t("evaluation.fixed_output") -%></th>
+          <th class="w-50"><%= t("evaluation.fixed_output") -%></th>
           <th><%= t("evaluation.capability_result") -%></th>
         </tr>
       </thead>
@@ -56,11 +56,15 @@
     </table>
   <% end %>
   <% if job_role_performances.present? && company_evaluation_template.includes_performance_columns? %>
+    <% has_obj_result_explain = job_role_performances.any? { |jrep| jrep.obj_result_explain.present? } %>
     <table class="table">
       <thead>
         <tr>
-          <th class="w-75"><%= t("evaluation.performance") -%></th>
+          <th class="w-50"><%= t("evaluation.performance") -%></th>
           <th><%= t("evaluation.performance_result") -%></th>
+          <% if has_obj_result_explain %>
+            <th><%= t("evaluation.obj_result_explain") -%></th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -69,6 +73,9 @@
             <td><%= jrep.obj_name -%></td>
             <% metric = company_evaluation_template.job_role_performance_metric(jrep) -%>
             <td><%= public_send(metric).invert[jrep.obj_result] || jrep.obj_result -%></td>
+            <% if has_obj_result_explain %>
+              <td><%= jrep.obj_result_explain -%></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
@@ -78,7 +85,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="w-75"><%= t("evaluation.professional_capability") -%></th>
+          <th class="w-50"><%= t("evaluation.professional_capability") -%></th>
           <th><%= t("evaluation.capability_result") -%></th>
         </tr>
       </thead>
@@ -96,7 +103,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th class="w-75"><%= t("evaluation.management_capability") -%></th>
+          <th class="w-50"><%= t("evaluation.management_capability") -%></th>
           <th><%= t("evaluation.capability_result") -%></th>
         </tr>
       </thead>

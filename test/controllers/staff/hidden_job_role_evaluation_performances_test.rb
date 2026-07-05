@@ -82,6 +82,16 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     assert_not_includes response.body, @hidden_performance.obj_name
   end
 
+  test "reviewer can see performance result explanation in overall text" do
+    sign_in users(:user_pptest3)
+
+    get overall_text_staff_evaluation_user_capability_path(@evaluation_user_capability)
+
+    assert_response :success
+    assert_includes response.body, I18n.t("evaluation.obj_result_explain")
+    assert_includes response.body, @visible_performance.obj_result_explain
+  end
+
   test "pdf renderer cannot see hidden rank performances after signing in as admin" do
     get staff_printing_path(@evaluation_user_capability), headers: {"REMOTE_ADDR" => "::1"}
 
