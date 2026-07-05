@@ -33,6 +33,7 @@ json.array! need_calibration_eucs do |euc|
     json.set! h[:accessor], jrep&.obj_result || "none"
     json.set! "#{h[:accessor]}_fixed", true
     json.set! "#{h[:accessor]}_id", jrep&.id
+    json.set! "#{h[:accessor]}_obj_result_explain", jrep&.obj_result_explain
   end
   json.id_euc euc.id
   json.raw_total_evaluation_score euc.raw_total_evaluation_score
