@@ -141,21 +141,10 @@
 }
 
 .mark-scores-table {
-  width: 100%;
+  width: max-content;
   min-width: 100%;
 
   th,
-  td {
-    min-width: 8rem;
-  }
-
-  th {
-    max-width: 12rem;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    line-height: 1.25;
-  }
-
   td {
     white-space: nowrap;
   }
