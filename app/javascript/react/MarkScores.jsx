@@ -251,51 +251,49 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
 
   return (
   <>
-    <div className="mark-scores-table-wrapper table-responsive">
-      <table {...getTableProps()} className="mark-scores-table table table-striped table-bordered">
-        <thead>
-          {headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map(column => (
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render('Header')}
-                  {/* Add a sort direction indicator */}
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? ' 🔽'
-                        : ' 🔼'
-                      : ''}
-                  </span>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()}>
-          {rows.map(row => {
-            prepareRow(row);
-            const rowProps = row.getRowProps();
-            return (
-              // Use a React.Fragment here so the table markup is still valid
-              <React.Fragment key={rowProps.key}>
-                <tr {...row.getRowProps()}>
-                  {row.cells.map(cell => {
-                    return (
-                      <td {...cell.getCellProps()} className="p-1">
-                        {cell.column.id === 'rowNumber' ? cell.render('Cell', { rows }) : cell.render('Cell')}
-                      </td>
-                    )
-                  })}
-                </tr>
-                {expanded[row.index] &&
-                  renderRowSubComponent({ row, visibleColumns })}
-              </React.Fragment>
-            )
-          })}
-        </tbody>
-      </table>
-    </div>
+    <table {...getTableProps()} className="table table-striped table-bordered">
+      <thead>
+        {headerGroups.map(headerGroup => (
+          <tr {...headerGroup.getHeaderGroupProps()}>
+            {headerGroup.headers.map(column => (
+              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                {column.render('Header')}
+                {/* Add a sort direction indicator */}
+                <span>
+                  {column.isSorted
+                    ? column.isSortedDesc
+                      ? ' 🔽'
+                      : ' 🔼'
+                    : ''}
+                </span>
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {rows.map(row => {
+          prepareRow(row);
+          const rowProps = row.getRowProps();
+          return (
+            // Use a React.Fragment here so the table markup is still valid
+            <React.Fragment key={rowProps.key}>
+              <tr {...row.getRowProps()}>
+                {row.cells.map(cell => {
+                  return (
+                    <td {...cell.getCellProps()} className="p-1">
+                      {cell.column.id === 'rowNumber' ? cell.render('Cell', { rows }) : cell.render('Cell')}
+                    </td>
+                  )
+                })}
+              </tr>
+              {expanded[row.index] &&
+                renderRowSubComponent({ row, visibleColumns })}
+            </React.Fragment>              
+          )
+        })}
+      </tbody>
+    </table>
     {(data && data.length != 0) ?
     <div className="row mt-2">
       <div className="col-2 text-end">
