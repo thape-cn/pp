@@ -2,7 +2,18 @@ import * as React from "react"
 import { createRoot } from 'react-dom/client';
 import CalibrationPanel from '../react/CalibrationPanel';
 
-const calibration_node = createRoot(document.getElementById('calibration-panel'));
-document.addEventListener('DOMContentLoaded', () => {
-  calibration_node.render(<CalibrationPanel />);
-});
+function mountWhenReady(callback) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', callback);
+  } else {
+    callback();
+  }
+}
+
+const calibration_node = document.getElementById('calibration-panel');
+if (calibration_node) {
+  const calibration_root = createRoot(calibration_node);
+  mountWhenReady(() => {
+    calibration_root.render(<CalibrationPanel />);
+  });
+}
