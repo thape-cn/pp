@@ -54,18 +54,33 @@ export const EditableCell = ({
   } else if (row_data[id+"_fixed"] == true) {
     if (id.startsWith('p_')) {
       const item = jobRolePerformanceMetric.find(item => item.value === value);
-      return (
-        <div className="m-1">
-          <div className="text-end">
-            <span className="me-2">{item ? item.label : null}</span>
-            <JobPerformanceInfo
-              out_class_name="m-1"
-              jrep_id={row_data[id+"_id"]}
-            />
+      if (id == "p_individual_trackedlaborratio") {
+        return (
+          <div className="m-1">
+            <div className="text-end">
+              <span className="me-2"></span>
+              <JobPerformanceInfo
+                out_class_name="m-1"
+                jrep_id={row_data[id+"_id"]}
+              />
+            </div>
+            {objResultExplainNode("text-end")}
           </div>
-          {objResultExplainNode("text-end")}
-        </div>
-      );
+        )
+      } else {
+        return (
+          <div className="m-1">
+            <div className="text-end">
+              <span className="me-2">{item ? item.label : null}</span>
+              <JobPerformanceInfo
+                out_class_name="m-1"
+                jrep_id={row_data[id+"_id"]}
+              />
+            </div>
+            {objResultExplainNode("text-end")}
+          </div>
+        )
+      }
     } else if ( id == 'work_quality' || id == "calibration_work_quality") {
       const item = work_quality_metric.find(item => item.value === value);
       return <p className="m-1 text-end">{item ? item.label : null}</p>;
