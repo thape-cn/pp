@@ -6,7 +6,8 @@ const HIDDEN_RANK_EN_NAMES = [
   'p_managedproject_profit',
   'p_managedproject_output',
   'p_individual_output',
-  'p_individual_hours'
+  'p_individual_hours',
+  'p_individual_trackedlaborratio'
 ];
 
 export const EditableCell = ({

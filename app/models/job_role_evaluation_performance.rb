@@ -4,6 +4,7 @@ class JobRoleEvaluationPerformance < ApplicationRecord
     p_managedproject_output
     p_individual_output
     p_individual_hours
+    p_individual_trackedlaborratio
   ].freeze
 
   belongs_to :user
