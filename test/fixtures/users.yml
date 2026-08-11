@@ -50,6 +50,7 @@ user_pptest3:
   hire_date: "2023-06-21"
   clerk_code: "pptest3"
   is_active: false
+  read_manager_instruction: true
 
 user_pptest4:
   email: pptest4@thape.com.cn
