@@ -454,7 +454,7 @@ GEM
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
     semantic_range (3.1.1)
-    shakapacker (8.4.0)
+    shakapacker (10.3.1)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -580,7 +580,7 @@ DEPENDENCIES
   ruby-lsp
   ruby-lsp-rails
   selenium-webdriver (>= 4.31.0)
-  shakapacker (~> 8.2)
+  shakapacker (~> 10.3.1)
   sidekiq
   sqlite3 (~> 2.6)
   standard
