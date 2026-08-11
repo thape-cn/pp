@@ -1,9 +1,8 @@
 ---
 en:
   staff:
-    home:
-      read_manager_instructions:
-        title: "Performance appraisal scoring instructions"
-        i_read_this_instruction: "I have read this instruction"
-      create:
-        success: "Please start rating"
+    read_manager_instructions:
+      title: "Performance appraisal scoring instructions"
+      i_read_this_instruction: "I have read this instruction"
+    create:
+      success: "Please start rating"
