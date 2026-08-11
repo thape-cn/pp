@@ -116,10 +116,11 @@ export function prepareTableSubmitData(data) {
     "raw_total_evaluation_score_raw", "raw_total_evaluation_score",
     "raw_total_score_in_metric", "total_score_in_metric", "total_evaluation_score", "form_status_name",
     "group_level", "mark_score_group"];
+  const skip_to_submit_suffixes = ["_fixed", "_id", "_obj_result_explain", "_ercd"];
   return data.map(function (obj) {
     let newObj = {};
     for (let key in obj) {
-      if (!skip_to_submit_accessor.includes(key) && !key.endsWith('_fixed') && !key.endsWith('_id') && !key.endsWith('_obj_result_explain')) {
+      if (!skip_to_submit_accessor.includes(key) && !skip_to_submit_suffixes.some(suffix => key.endsWith(suffix))) {
         newObj[key] = obj[key];
       }
     }
