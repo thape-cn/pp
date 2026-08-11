@@ -5,23 +5,7 @@ export function markScoresTableHeader(group_level, table_header = null) {
     return JSON.parse(dataHeader)
   })()
 
-  const parsedDataHeaderWithSortType = parsedDataHeader.map(column => {
-    return {
-      ...column,
-      sortType: (rowA, rowB, columnId) => {
-        const a = parseFloat(rowA.values[columnId]);
-        const b = parseFloat(rowB.values[columnId]);
-
-        if (isNaN(a) || isNaN(b)) {
-          return String(rowA.values[columnId]).localeCompare(String(rowB.values[columnId]));
-        }
-
-        return a - b;
-      }
-    };
-  });
-
-  return parsedDataHeaderWithSortType;
+  return parsedDataHeader;
 }
 
 export function calibrationTableHeader() {

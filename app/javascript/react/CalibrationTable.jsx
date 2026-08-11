@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import {useSortBy, useExpanded, useTable} from 'react-table'
+import {flexRender, getCoreRowModel, getExpandedRowModel, getSortedRowModel, useReactTable} from '@tanstack/react-table'
 import {get, put} from '@rails/request.js'
 import {currentPageJsonPath} from "./utils/url";
 import {calibrationTableHeader, calibrationTableLabels, groupLevel, svgArrowFromTop, svgArrowFromBottom, prepareTableSubmitData} from "./utils/tableHeader";
@@ -33,26 +33,26 @@ function CalibratioTable() {
 
   const columns = React.useMemo(
     () => {
-      const original_calibration_table_header = calibrationTableHeader();
+      const original_calibration_table_header = calibrationTableHeader().map(column => ({
+        accessorKey: column.accessor,
+        header: column.Header
+      }));
       return [
       {
-        Header: calibrationTableLabels().row_number,
+        header: calibrationTableLabels().row_number,
         id: 'rowNumber',
-        Cell: ({ row, rows }) => {
-          const sortedRowIndex = rows.findIndex(sortedRow => sortedRow.id === row.id);
+        cell: ({ row, table }) => {
+          const sortedRowIndex = table.getRowModel().rows.findIndex(sortedRow => sortedRow.id === row.id);
           return <div className="m-1 text-end">{sortedRowIndex + 1}</div>;
         },
       },
       {
         // Make an expander cell
-        Header: () => "评论", // No header
+        header: () => "评论", // No header
         id: 'expander', // It needs an ID if no accessor
-        Cell: ({ row }) => (
-          // Use Cell to render an expander for each row.
-          // We can use the getToggleRowExpandedProps prop-getter
-          // to build the expander.
-          <span {...row.getToggleRowExpandedProps()} title={calibrationTableLabels().expand_tips}>
-            {row.isExpanded ?
+        cell: ({ row }) => (
+          <span onClick={row.getToggleExpandedHandler()} title={calibrationTableLabels().expand_tips}>
+            {row.getIsExpanded() ?
             <svg className="icon mt-2 ms-2">
               <use xlinkHref={svgArrowFromBottom()}></use>
             </svg>
@@ -63,23 +63,21 @@ function CalibratioTable() {
             }
           </span>
         ),
-        // We can override the cell renderer with a SubCell to be used with an expanded row
-        SubCell: () => null // No expander on an expanded row
       },
       {
-        Header: calibrationTableLabels().chinese_name,
-        accessor: "chinese_name",
-        Cell: ({ value: initialValue, row: { original} }) => <NameCell initialValue={initialValue} row_data={original} need_print={true} />,
+        header: calibrationTableLabels().chinese_name,
+        accessorKey: "chinese_name",
+        cell: ({ getValue, row: { original} }) => <NameCell initialValue={getValue()} row_data={original} need_print={true} />,
       },
       {
-        Header: calibrationTableLabels().title,
-        accessor: "title",
-        Cell: ({ value: initialValue }) =>  <p className="m-1">{initialValue}</p>,
+        header: calibrationTableLabels().title,
+        accessorKey: "title",
+        cell: ({ getValue }) =>  <p className="m-1">{getValue()}</p>,
       },
       {
-        Header: calibrationTableLabels().department,
-        accessor: "department",
-        Cell: ({ value: initialValue }) =>  <p className="m-1">{initialValue}</p>,
+        header: calibrationTableLabels().department,
+        accessorKey: "department",
+        cell: ({ getValue }) =>  <p className="m-1">{getValue()}</p>,
       },
       ...original_calibration_table_header
       ]
@@ -103,7 +101,7 @@ function CalibratioTable() {
 
   // Set our editable cell renderer as the default Cell renderer
   const defaultColumn = {
-    Cell: EditableCell,
+    cell: EditableCell,
   }
 
   const handleManagerOverallChange = (rowIndex, columnName, value) => {
@@ -111,10 +109,9 @@ function CalibratioTable() {
 
   // Create a function that will render our row sub components
   const renderRowSubComponent = React.useCallback(
-    ({ row, rowProps, visibleColumns }) => (
+    ({ row, visibleColumns }) => (
       <OverallReview
         row={row}
-        rowProps={rowProps}
         visibleColumns={visibleColumns}
         review_labels={calibrationTableLabels()}
         show_save_close_button={false}
@@ -124,14 +121,24 @@ function CalibratioTable() {
     []
   );
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    visibleColumns,
-  } = useTable({ columns, data, defaultColumn, updateRawData, renderRowSubComponent, company_evaluation_templates, not_rated_text: calibrationTableLabels().not_rated}, useSortBy, useExpanded);
+  const table = useReactTable({
+    columns,
+    data,
+    defaultColumn,
+    meta: {
+      updateRawData,
+      setFirstSaved: () => {},
+      company_evaluation_templates,
+      not_rated_text: calibrationTableLabels().not_rated
+    },
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
+    getRowCanExpand: () => true,
+    sortDescFirst: false
+  });
+
+  const visibleColumns = table.getVisibleLeafColumns();
 
   const handleSave = (event) => {
     event.preventDefault();
@@ -183,17 +190,23 @@ function CalibratioTable() {
       </>,
       document.getElementById("switch-nav")
     )}
-    <table {...getTableProps()} className="table table-striped table-bordered">
+    <table className="table table-striped table-bordered">
       <thead>
-      {headerGroups.map(headerGroup => (
-        <tr {...headerGroup.getHeaderGroupProps()}>
-          {headerGroup.headers.map(column => (
-            <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-              {column.render('Header')}
+      {table.getHeaderGroups().map(headerGroup => (
+        <tr key={headerGroup.id}>
+          {headerGroup.headers.map(header => (
+            <th
+              key={header.id}
+              colSpan={header.colSpan}
+              scope="col"
+              aria-sort={header.column.getIsSorted() === 'asc' ? 'ascending' : header.column.getIsSorted() === 'desc' ? 'descending' : undefined}
+              onClick={header.column.getToggleSortingHandler()}
+            >
+              {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
               {/* Add a sort direction indicator */}
               <span>
-                  {column.isSorted
-                    ? column.isSortedDesc
+                  {header.column.getIsSorted()
+                    ? header.column.getIsSorted() === 'desc'
                       ? ' 🔽'
                       : ' 🔼'
                     : ''}
@@ -203,24 +216,22 @@ function CalibratioTable() {
         </tr>
       ))}
       </thead>
-      <tbody {...getTableBodyProps()}>
-      {rows.map(row => {
-        prepareRow(row);
-        const rowProps = row.getRowProps();
+      <tbody>
+      {table.getRowModel().rows.map(row => {
         return (
           // Use a React.Fragment here so the table markup is still valid
-          <React.Fragment key={rowProps.key}>
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
+          <React.Fragment key={row.id}>
+            <tr>
+              {row.getVisibleCells().map(cell => {
                 return (
-                  <td {...cell.getCellProps()} className="p-1">
-                    {cell.column.id === 'rowNumber' ? cell.render('Cell', { rows }) : cell.render('Cell')}
+                  <td key={cell.id} className="p-1">
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 )
               })}
             </tr>
-            {row.isExpanded &&
-              renderRowSubComponent({row, rowProps, visibleColumns})}
+            {row.getIsExpanded() &&
+              renderRowSubComponent({row, visibleColumns})}
           </React.Fragment>
         )
       })}

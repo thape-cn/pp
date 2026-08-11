@@ -11,14 +11,19 @@ const HIDDEN_RANK_EN_NAMES = [
 ];
 
 export const EditableCell = ({
-  value: initialValue,
+  getValue,
   row: { index, original: row_data},
   column: { id },
-  updateRawData, // This is a custom function that we supplied to our table instance
-  setFirstSaved,
-  company_evaluation_templates,
-  not_rated_text
+  table
 }) => {
+  const initialValue = getValue();
+  const {
+    updateRawData,
+    setFirstSaved,
+    company_evaluation_templates,
+    not_rated_text
+  } = table.options.meta;
+
   // We need to keep and update the state of the cell normally
   const [value, setValue] = React.useState(initialValue)
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import {useSortBy, useExpanded, useTable} from 'react-table'
+import {flexRender, getCoreRowModel, getSortedRowModel, useReactTable} from '@tanstack/react-table'
 import {get, put} from '@rails/request.js'
 import {markScoresTableHeader, reviewLabels, svgArrowFromTop, svgArrowFromBottom, prepareTableSubmitData} from "./utils/tableHeader";
 import {currentPageJsonPath} from "./utils/url";
@@ -93,16 +93,15 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
     () => {
       const original_mark_scores_table_header = markScoresTableHeader(group_level, table_header);
       const extended_mark_scores_table_header = original_mark_scores_table_header.map(column => ({
-        ...column,
-        Header: () => <PopoversHeader header={column.Header} accessor={column.accessor} description={column.description} />,
-        sortType: (rowA, rowB, columnId) => {
-          if ("raw_total_evaluation_score_raw" == columnId)
-            columnId = "raw_total_evaluation_score"
-          const a = parseFloat(rowA.values[columnId]);
-          const b = parseFloat(rowB.values[columnId]);
+        accessorKey: column.accessor,
+        header: () => <PopoversHeader header={column.Header} accessor={column.accessor} description={column.description} />,
+        sortingFn: (rowA, rowB, columnId) => {
+          const valueColumnId = columnId === "raw_total_evaluation_score_raw" ? "raw_total_evaluation_score" : columnId;
+          const a = parseFloat(rowA.getValue(valueColumnId));
+          const b = parseFloat(rowB.getValue(valueColumnId));
 
           if (isNaN(a) || isNaN(b)) {
-            return String(rowA.values[columnId]).localeCompare(String(rowB.values[columnId]));
+            return String(rowA.getValue(valueColumnId)).localeCompare(String(rowB.getValue(valueColumnId)));
           }
 
           return a - b;
@@ -111,22 +110,20 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
 
       return [
       {
-        Header: reviewLabels().row_number,
+        header: reviewLabels().row_number,
         id: 'rowNumber',
-        Cell: ({ row, rows }) => {
-          const sortedRowIndex = rows.findIndex(sortedRow => sortedRow.id === row.id);
+        cell: ({ row, table }) => {
+          const sortedRowIndex = table.getRowModel().rows.findIndex(sortedRow => sortedRow.id === row.id);
           return <div className="m-1 text-end">{sortedRowIndex + 1}</div>;
         },
       },
       {
         // Make an expander cell
-        Header: () => reviewLabels().comment,
+        header: () => reviewLabels().comment,
         id: 'expander', // It needs an ID if no accessor
-        Cell: ({ row }) => (
+        cell: ({ row }) => (
           <span
-            {...row.getToggleRowExpandedProps({
-              onClick: () => setExpandedByRowIndex(row.index)
-            })}
+            onClick={() => setExpandedByRowIndex(row.index)}
             title={reviewLabels().expand_tips}
           >
             {expanded[row.index] ?
@@ -139,24 +136,22 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
             </svg>
             }
           </span>
-        ),
-        // We can override the cell renderer with a SubCell to be used with an expanded row
-        SubCell: () => null // No expander on an expanded row
+        )
       },    
       {
-        Header: reviewLabels().chinese_name,
-        accessor: "chinese_name",
-        Cell: ({ value: initialValue, row: { original} }) => <NameCell initialValue={initialValue} row_data={original} need_print={false} />,
+        header: reviewLabels().chinese_name,
+        accessorKey: "chinese_name",
+        cell: ({ getValue, row: { original} }) => <NameCell initialValue={getValue()} row_data={original} need_print={false} />,
       },
       {
-        Header: reviewLabels().title,
-        accessor: "title",
-        Cell: ({ value: initialValue }) =>  <p className="m-1">{initialValue}</p>,
+        header: reviewLabels().title,
+        accessorKey: "title",
+        cell: ({ getValue }) =>  <p className="m-1">{getValue()}</p>,
       },
       {
-        Header: reviewLabels().department,
-        accessor: "department",
-        Cell: ({ value: initialValue }) =>  <p className="m-1">{initialValue}</p>,
+        header: reviewLabels().department,
+        accessorKey: "department",
+        cell: ({ getValue }) =>  <p className="m-1">{getValue()}</p>,
       },
       ...extended_mark_scores_table_header
       ]
@@ -180,7 +175,7 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
 
   // Set our editable cell renderer as the default Cell renderer
   const defaultColumn = {
-    Cell: EditableCell,
+    cell: EditableCell,
   }
 
   const handleManagerOverallChange = (rowIndex, columnName, value) => {
@@ -212,32 +207,22 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
     []
   );
 
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-    visibleColumns,
-    state: { sortBy }, // Destructure sortBy from state
-  } = useTable(
-    {
-      columns, data, defaultColumn, updateRawData, setFirstSaved, renderRowSubComponent,
-      company_evaluation_templates, not_rated_text:  reviewLabels().not_rated,
-      autoResetExpanded: false, // This prevents the expanded state from resetting when data changes
-      autoResetSortBy: false,   // This prevents the sorting state from resetting when data changes
-      expanded
+  const table = useReactTable({
+    columns,
+    data,
+    defaultColumn,
+    meta: {
+      updateRawData,
+      setFirstSaved,
+      company_evaluation_templates,
+      not_rated_text: reviewLabels().not_rated
     },
-    useSortBy, useExpanded
-  );
+    getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    sortDescFirst: false
+  });
 
-  // Create a new state for sorted columns
-  const [sortedColumns, setSortedColumns] = React.useState(sortBy);
-
-  // Update sortedColumns state when sortBy changes
-  React.useEffect(() => {
-    setSortedColumns(sortBy);
-  }, [sortBy]);
+  const visibleColumns = table.getVisibleLeafColumns();
 
   function submitDataEucsIds() {
     return data.map(function (obj) {
@@ -251,17 +236,23 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
 
   return (
   <>
-    <table {...getTableProps()} className="table table-striped table-bordered">
+    <table className="table table-striped table-bordered">
       <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                {column.render('Header')}
+        {table.getHeaderGroups().map(headerGroup => (
+          <tr key={headerGroup.id}>
+            {headerGroup.headers.map(header => (
+              <th
+                key={header.id}
+                colSpan={header.colSpan}
+                scope="col"
+                aria-sort={header.column.getIsSorted() === 'asc' ? 'ascending' : header.column.getIsSorted() === 'desc' ? 'descending' : undefined}
+                onClick={header.column.getToggleSortingHandler()}
+              >
+                {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 {/* Add a sort direction indicator */}
                 <span>
-                  {column.isSorted
-                    ? column.isSortedDesc
+                  {header.column.getIsSorted()
+                    ? header.column.getIsSorted() === 'desc'
                       ? ' 🔽'
                       : ' 🔼'
                     : ''}
@@ -271,18 +262,16 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
           </tr>
         ))}
       </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map(row => {
-          prepareRow(row);
-          const rowProps = row.getRowProps();
+      <tbody>
+        {table.getRowModel().rows.map(row => {
           return (
             // Use a React.Fragment here so the table markup is still valid
-            <React.Fragment key={rowProps.key}>
-              <tr {...row.getRowProps()}>
-                {row.cells.map(cell => {
+            <React.Fragment key={row.id}>
+              <tr>
+                {row.getVisibleCells().map(cell => {
                   return (
-                    <td {...cell.getCellProps()} className="p-1">
-                      {cell.column.id === 'rowNumber' ? cell.render('Cell', { rows }) : cell.render('Cell')}
+                    <td key={cell.id} className="p-1">
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </td>
                   )
                 })}
