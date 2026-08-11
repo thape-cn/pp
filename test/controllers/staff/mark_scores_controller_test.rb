@@ -137,6 +137,33 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
     assert_equal [4], response_body.fetch("need_review_evaluations").pluck("mark_score_group").uniq
   end
 
+  test "save does not overwrite a review after manager scoring is complete" do
+    euc = evaluation_user_capabilities(:euc_supervisor_high)
+    euc.update!(
+      form_status: "manager_scored",
+      work_quality: 3,
+      work_load: 3,
+      work_attitude: 3
+    )
+
+    put staff_mark_score_path(@manager, format: :json), params: {
+      company_evaluation_ids: [company_evaluations(:ce_one).id],
+      group_level: "supervisor",
+      mark_score_group: "4",
+      mark_score: [{
+        id_user: euc.user_id,
+        id_cet: euc.company_evaluation_template_id,
+        id_euc: euc.id,
+        work_quality: 0,
+        work_load: 0,
+        work_attitude: 0
+      }]
+    }, as: :json
+
+    assert_response :success
+    assert_equal [3, 3, 3], euc.reload.values_at(:work_quality, :work_load, :work_attitude).map(&:to_i)
+  end
+
   test "score confirm returns mark scores path when reviews remain" do
     euc = evaluation_user_capabilities(:euc_supervisor_high)
     company_evaluation_ids = [company_evaluations(:ce_one).id]
@@ -167,5 +194,32 @@ class Staff::MarkScoresControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_equal staff_root_path, JSON.parse(response.body).fetch("go_path")
+  end
+
+  test "score confirm is idempotent after manager scoring is complete" do
+    euc = evaluation_user_capabilities(:euc_supervisor_high)
+    company_evaluation_ids = [company_evaluations(:ce_one).id]
+
+    put score_confirm_staff_mark_score_path(@manager, format: :json), params: {
+      euc_ids: [euc.id],
+      company_evaluation_ids: company_evaluation_ids
+    }, as: :json
+
+    assert_response :success
+    assert_equal 1, euc.euc_form_status_histories.where(
+      previous_form_status: "self_assessment_done",
+      form_status: "manager_scored"
+    ).count
+
+    put score_confirm_staff_mark_score_path(@manager, format: :json), params: {
+      euc_ids: [euc.id],
+      company_evaluation_ids: company_evaluation_ids
+    }, as: :json
+
+    assert_response :success
+    assert_equal 1, euc.euc_form_status_histories.where(
+      previous_form_status: "self_assessment_done",
+      form_status: "manager_scored"
+    ).count
   end
 end

@@ -58,7 +58,9 @@ module Staff
 
     def update
       manager = authorize(policy_scope(User).find(params[:id]), :mark_scores?)
-      need_update_evaluations = policy_scope(EvaluationUserCapability).where(id: save_params[:mark_score].collect { |ms| ms[:id_euc] })
+      need_update_evaluations = policy_scope(EvaluationUserCapability)
+        .where(id: save_params[:mark_score].collect { |ms| ms[:id_euc] })
+        .where(form_status: "self_assessment_done")
       need_update_evaluations.each do |euc|
         p = save_params[:mark_score].find { |ms| ms[:id_euc] == euc.id }.to_h
         update_h = p.select { |key, value| !key.start_with?("p_") && value != "none" && key != "id_cet" && key != "id_euc" && key != "id_user" }
@@ -104,7 +106,9 @@ module Staff
 
     def score_confirm
       authorize(policy_scope(User).find(params[:id]), :score_confirm?)
-      evaluation_user_capabilities = policy_scope(EvaluationUserCapability).where(id: params[:euc_ids])
+      evaluation_user_capabilities = policy_scope(EvaluationUserCapability)
+        .where(id: params[:euc_ids])
+        .where(form_status: "self_assessment_done")
       evaluation_user_capabilities.each do |evaluation_user_capability|
         evaluation_user_capability.update_form_status_to("manager_scored", current_user)
         evaluation_user_capability.update_columns(

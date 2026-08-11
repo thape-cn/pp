@@ -5,6 +5,8 @@ import {scoreConfirmPath} from "../utils/url";
 
 export function MarkScoreConfirmDialog({accepted, message, euc_ids, onClose}) {
   const modalRef = React.useRef();
+  const submittingRef = React.useRef(false);
+  const [submitting, setSubmitting] = React.useState(false);
   React.useEffect(() => {
     const modal = new coreui.Modal('#coreuiModal');
     modal.show();
@@ -15,13 +17,19 @@ export function MarkScoreConfirmDialog({accepted, message, euc_ids, onClose}) {
 
   const handleConfirm = (event) => {
     event.preventDefault();
+    if (submittingRef.current) return;
+
+    submittingRef.current = true;
+    setSubmitting(true);
     put(scoreConfirmPath(userId()), {body: {euc_ids}}).then((response) => {
-      if (response.ok) {
-        const result_json = response.json;
-        result_json.then(result => {
-          window.location.href = result.go_path;
-        });
-      }
+      if (!response.ok) throw new Error("Failed to confirm mark scores");
+
+      return response.json;
+    }).then(result => {
+      window.location.href = result.go_path;
+    }).catch(() => {
+      submittingRef.current = false;
+      setSubmitting(false);
     });
   }
 
@@ -36,7 +44,7 @@ export function MarkScoreConfirmDialog({accepted, message, euc_ids, onClose}) {
           {message}
         </div>
         <div className="modal-footer">
-          {accepted ? <button onClick={handleConfirm} className="btn btn-primary">{reviewLabels().submit}</button> : null}
+          {accepted ? <button onClick={handleConfirm} className="btn btn-primary" disabled={submitting}>{reviewLabels().submit}</button> : null}
           <button className="btn btn-secondary" type="button" data-coreui-dismiss="modal">{reviewLabels().close}</button>
         </div>
       </div>
