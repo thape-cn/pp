@@ -259,12 +259,14 @@ euc_pp12:
   manager_overall_output: "助理主创建筑师 manager_overall_output 1234567890"
   manager_overall_improvement: "助理主创建筑师 manager_overall_improvement 1234567890"
   manager_overall_plan: "助理主创建筑师 manager_overall_plan 1234567890"
-  form_status: "self_assessment_done"
-  annual_output: 0
-  coaching: 0
-  customer_needs_non: 0
-  goal_achieved: 0
-  professional_level: 0
+  form_status: "manager_scored"
+  annual_output: 5
+  coaching: 5
+  customer_needs_non: 5
+  goal_achieved: 5
+  professional_level: 5
+  manager_scored_total_evaluation_score: 5
+  final_total_evaluation_score: 5
 
 euc_pp13:
   company_evaluation_template: ect_auxiliary
@@ -281,12 +283,14 @@ euc_pp13:
   manager_overall_output: "A级建筑师（方案） manager_overall_output 1234567890"
   manager_overall_improvement: "A级建筑师（方案） manager_overall_improvement 1234567890"
   manager_overall_plan: "A级建筑师（方案） manager_overall_plan 1234567890"
-  form_status: "self_assessment_done"
-  annual_output: 0
-  coaching: 0
-  customer_needs_non: 0
-  goal_achieved: 0
-  professional_level: 0
+  form_status: "manager_scored"
+  annual_output: 5
+  coaching: 5
+  customer_needs_non: 5
+  goal_achieved: 5
+  professional_level: 5
+  manager_scored_total_evaluation_score: 5
+  final_total_evaluation_score: 5
 
 euc_supervisor_high:
   company_evaluation_template: ect_supervisor_high

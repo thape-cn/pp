@@ -9,4 +9,4 @@ cs_two_auxiliary:
   calibration_template: ct_two_auxiliary_enforce
   owner: user_pptest10
   session_name: 2023年年中人力部门辅助层强制
-  session_status: "waiting_manager_score"
+  session_status: "calibrating"
