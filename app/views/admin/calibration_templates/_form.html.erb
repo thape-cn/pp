@@ -1,109 +1,98 @@
-<div class="container-fluid" data-controller="try-calculate" data-try-calculate-group-level-value="<%= @company_evaluation_template.group_level -%>">
+<div class="container-fluid">
   <div class="row mb-3">
-    <%= f.label :template_name, t("calibration.template_name"), class: 'col-4 col-form-label' %>
+    <%= f.label :template_name, t("calibration.template_name"), class: "col-4 col-form-label" %>
     <div class="col-8">
       <%= f.text_field :template_name, class: "form-control" %>
     </div>
   </div>
-  <% if @company_evaluation_template.staff_distribution? %>
+  <div class="row mb-3">
+    <%= f.label :company_evaluation_template_ids, t("admin.calibration_templates.form.company_evaluation_templates"), class: "col-4 col-form-label" %>
+    <div class="col-8" data-controller="selectizes">
+      <%= f.select :company_evaluation_template_ids,
+        @available_company_evaluation_templates.collect { |company_evaluation_template| [company_evaluation_template.title, company_evaluation_template.id] },
+        {}, multiple: true, required: true, class: "form-control", data: {"selectizes-target": "select"} %>
+    </div>
+  </div>
+
+  <fieldset class="border rounded p-3 mb-3" data-controller="try-calculate" data-try-calculate-group-level-value="staff">
+    <legend class="float-none w-auto px-2 fs-6"><%= t("admin.calibration_templates.form.staff_distribution") %></legend>
     <div class="row mb-3">
-      <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-4 col-form-label' %>
+      <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: "col-4 col-form-label" %>
       <div class="col-4">
-        <%= f.number_field :apa_grade_rate, class: "form-control", data: {'try-calculate-target': 'apaRate'} -%>
+        <%= f.number_field :apa_grade_rate, class: "form-control", data: {"try-calculate-target": "apaRate"} %>
       </div>
-      <div class="col-2">
-        <p class="form-control border-0">
-          <span data-try-calculate-target="apa">0</span>
-          <%= t(".apa_grade_people") -%>
-        </p>
-      </div>
+      <div class="col-2"><p class="form-control border-0"><span data-try-calculate-target="apa">0</span> <%= t(".apa_grade_people") %></p></div>
     </div>
     <div class="row mb-3">
-      <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: 'col-4 col-form-label' %>
+      <%= f.label :b_grade_rate, t("calibration.b_grade_rate"), class: "col-4 col-form-label" %>
       <div class="col-4">
-        <%= f.number_field :b_grade_rate, class: "form-control", data: {'try-calculate-target': 'bRate'} -%>
+        <%= f.number_field :b_grade_rate, class: "form-control", data: {"try-calculate-target": "bRate"} %>
       </div>
-      <div class="col-2">
-        <p class="form-control border-0">
-          <span data-try-calculate-target="b">0</span>
-          <%= t(".b_grade_people") -%>
-        </p>
-      </div>
+      <div class="col-2"><p class="form-control border-0"><span data-try-calculate-target="b">0</span> <%= t(".b_grade_people") %></p></div>
     </div>
     <div class="row mb-3">
-      <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: 'col-4 col-form-label' %>
+      <%= f.label :cd_grade_rate, t("calibration.cd_grade_rate"), class: "col-4 col-form-label" %>
       <div class="col-4">
-        <%= f.number_field :cd_grade_rate, class: "form-control", data: {'try-calculate-target': 'cdRate'} -%>
+        <%= f.number_field :cd_grade_rate, class: "form-control", data: {"try-calculate-target": "cdRate"} %>
       </div>
-      <div class="col-2">
-        <p class="form-control border-0">
-          <span data-try-calculate-target="cd">0</span>
-          <%= t(".cd_grade_people") -%>
-        </p>
+      <div class="col-2"><p class="form-control border-0"><span data-try-calculate-target="cd">0</span> <%= t(".cd_grade_people") %></p></div>
+    </div>
+    <div class="row">
+      <%= label_tag :staff_calibration_people_count, t("calibration.calibration_people_count"), class: "col-4 col-form-label" %>
+      <div class="col-4">
+        <%= number_field_tag :staff_calibration_people_count, nil, class: "form-control", data: {"try-calculate-target": "peopleCount"} %>
+      </div>
+      <div class="col-4">
+        <%= button_tag t("calibration.try_calculate"), type: "button", class: "btn btn-secondary", data: {action: "click->try-calculate#click"} %>
       </div>
     </div>
-  <% elsif @company_evaluation_template.manager_distribution? %>
+  </fieldset>
+
+  <fieldset class="border rounded p-3 mb-3" data-controller="try-calculate" data-try-calculate-group-level-value="manager_a">
+    <legend class="float-none w-auto px-2 fs-6"><%= t("admin.calibration_templates.form.manager_distribution") %></legend>
     <div class="row mb-3">
-      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-4 col-form-label' %>
+      <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: "col-4 col-form-label" %>
       <div class="col-4">
-        <%= f.number_field :beyond_standard_rate, class: "form-control", data: {'try-calculate-target': 'beyondRate'} -%>
+        <%= f.number_field :beyond_standard_rate, class: "form-control", data: {"try-calculate-target": "beyondRate"} %>
       </div>
-      <div class="col-2">
-        <p class="form-control border-0">
-          <span data-try-calculate-target="beyond">0</span>
-          <%= t(".beyond_standard_people") -%>
-        </p>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: 'col-4 col-form-label' %>
-      <div class="col-4">
-        <%= f.number_field :standards_compliant_rate, class: "form-control", data: {'try-calculate-target': 'standardRate'} -%>
-      </div>
-      <div class="col-2">
-        <p class="form-control border-0">
-          <span data-try-calculate-target="standard">0</span>
-          <%= t(".standards_compliant_people") -%>
-        </p>
-      </div>
+      <div class="col-2"><p class="form-control border-0"><span data-try-calculate-target="beyond">0</span> <%= t(".beyond_standard_people") %></p></div>
     </div>
     <div class="row mb-3">
-      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: 'col-4 col-form-label' %>
+      <%= f.label :standards_compliant_rate, t("calibration.standards_compliant_rate"), class: "col-4 col-form-label" %>
       <div class="col-4">
-        <%= f.number_field :below_standard_rate, class: "form-control", data: {'try-calculate-target': 'belowRate'} -%>
+        <%= f.number_field :standards_compliant_rate, class: "form-control", data: {"try-calculate-target": "standardRate"} %>
       </div>
-      <div class="col-2">
-        <p class="form-control border-0">
-          <span data-try-calculate-target="below">0</span>
-          <%= t(".below_standard_people") -%>
-        </p>
+      <div class="col-2"><p class="form-control border-0"><span data-try-calculate-target="standard">0</span> <%= t(".standards_compliant_people") %></p></div>
+    </div>
+    <div class="row mb-3">
+      <%= f.label :below_standard_rate, t("calibration.below_standard_rate"), class: "col-4 col-form-label" %>
+      <div class="col-4">
+        <%= f.number_field :below_standard_rate, class: "form-control", data: {"try-calculate-target": "belowRate"} %>
+      </div>
+      <div class="col-2"><p class="form-control border-0"><span data-try-calculate-target="below">0</span> <%= t(".below_standard_people") %></p></div>
+    </div>
+    <div class="row">
+      <%= label_tag :manager_calibration_people_count, t("calibration.calibration_people_count"), class: "col-4 col-form-label" %>
+      <div class="col-4">
+        <%= number_field_tag :manager_calibration_people_count, nil, class: "form-control", data: {"try-calculate-target": "peopleCount"} %>
+      </div>
+      <div class="col-4">
+        <%= button_tag t("calibration.try_calculate"), type: "button", class: "btn btn-secondary", data: {action: "click->try-calculate#click"} %>
       </div>
     </div>
-  <% end %>
+  </fieldset>
+
   <div class="row">
     <div class="col-6">
-      <div class="row">
-        <%= f.label :calibration_people_count, t("calibration.calibration_people_count"), class: 'col-4  col-form-label' %>
-        <div class="col-4">
-          <%= text_field_tag :calibration_people_count, nil, class: "form-control", data: {'try-calculate-target': 'peopleCount'} %>
-        </div>
-        <div class="col-4">
-          <%= button_tag t("calibration.try_calculate"), type: 'button', class: "btn btn-secondary", data: {action: "click->try-calculate#click"} -%>
-        </div>
+      <div class="form-check form-switch form-switch-xl">
+        <%= f.check_box :enforce_distribute, class: "form-check-input" %>
+        <%= f.label :enforce_distribute, t("calibration.enforce_distribute"), class: "form-check-label" %>
       </div>
     </div>
     <div class="col-6">
-      <div class="form-group">
-        <div class="form-check form-switch form-switch-xl">
-          <%= f.check_box :enforce_distribute, class: "form-check-input" %>
-          <%= f.label :enforce_distribute, t("calibration.enforce_distribute"), class: "form-check-label" %>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="form-check form-switch form-switch-xl">
-          <%= f.check_box :enforce_highest_only, class: "form-check-input" %>
-          <%= f.label :enforce_highest_only, t("calibration.enforce_highest_only"), class: "form-check-label" %>
-        </div>
+      <div class="form-check form-switch form-switch-xl">
+        <%= f.check_box :enforce_highest_only, class: "form-check-input" %>
+        <%= f.label :enforce_highest_only, t("calibration.enforce_highest_only"), class: "form-check-label" %>
       </div>
     </div>
   </div>

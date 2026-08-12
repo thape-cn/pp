@@ -5,11 +5,10 @@ namespace :admin do
   resource :hr_home, only: %i[show]
 
   resources :company_evaluations, only: %i[index new create edit update] do
-    resources :templates, controller: "evaluation_templates", only: %i[index new create edit update] do
-      resources :calibration_templates, only: %i[new create edit update destroy] do
-        member do
-          get :confirm_destroy
-        end
+    resources :templates, controller: "evaluation_templates", only: %i[index new create edit update]
+    resources :calibration_templates, only: %i[index new create edit update destroy] do
+      member do
+        get :confirm_destroy
       end
     end
     resources :user_capabilities, except: %i[destroy] do

@@ -1,6 +1,7 @@
 <% content_for :head do %>
+  <%= append_stylesheet_pack_tag 'selectize' %>
   <%= append_javascript_pack_tag 'stimulus' %>
-  <%= append_javascript_pack_tag 'try_calculate' %>
+  <%= append_javascript_pack_tag 'selectize' %>
 <% end %>
 
 <%- content_for :action_bar do %>
@@ -8,6 +9,11 @@
     <li class="action_bar-item">
       <%= link_to new_admin_company_evaluation_template_path, class: "btn btn-outline-primary", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do %>
         <%= t("form.new") -%> <%= svg_icon('free.svg#cil-plus', %w[icon]) -%>
+      <% end %>
+    </li>
+    <li class="action_bar-item">
+      <%= link_to admin_company_evaluation_calibration_templates_path(company_evaluation_id: @company_evaluation.id), class: "btn btn-outline-primary" do %>
+        <%= t("admin.calibration_templates.index.title") -%>
       <% end %>
     </li>
   </ol>
@@ -59,66 +65,8 @@
                 <%= link_to edit_admin_company_evaluation_template_path(id: template.id, company_evaluation_id: @company_evaluation.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                   <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
                 <% end %>
-                <%= link_to new_admin_company_evaluation_template_calibration_template_path(template_id: template.id, company_evaluation_id: @company_evaluation.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                  <%= svg_icon('free.svg#cil-plus', %w[icon icon-lg]) -%>
-                <% end %>
               </td>
             </tr>
-            <% template.calibration_templates.each do |ct| %>
-              <% if template.staff_distribution? %>
-                <tr>
-                  <td colspan="2" class="text-end"><%= ct.template_name -%></td>
-                  <td><%= t('calibration.apa_grade') -%>: <%= ct.apa_grade_rate -%>%</td>
-                  <td><%= t('calibration.b_grade') -%>: <%= ct.b_grade_rate -%>%</td>
-                  <td><%= t('calibration.cd_grade') -%>: <%= ct.cd_grade_rate -%>%</td>
-                  <td><%= t('calibration.enforce') -%>:
-                    <% if ct.enforce_distribute? %>
-                      <% if ct.enforce_highest_only? %>
-                        <%= svg_icon('free.svg#cil-mood-bad', %w[icon]) -%>
-                      <% else %>
-                        <%= svg_icon('free.svg#cil-mood-very-bad', %w[icon]) -%>
-                      <% end %>
-                    <% end %>
-                  </td>
-                  <td>
-                    <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                      <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
-                    <% end %>
-                    <% if ct.calibration_sessions.blank? %>
-                      <%= link_to confirm_destroy_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                        <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg]) -%>
-                      <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% else %>
-                <tr>
-                  <td colspan="2" class="text-end"><%= ct.template_name -%></td>
-                  <td><%= t('calibration.beyond_standard_rate') -%>: <%= ct.beyond_standard_rate -%>%</td>
-                  <td><%= t('calibration.standards_compliant_rate') -%>: <%= ct.standards_compliant_rate -%>%</td>
-                  <td><%= t('calibration.below_standard_rate') -%>: <%= ct.below_standard_rate -%>%</td>
-                  <td><%= t('calibration.enforce') -%>:
-                    <% if ct.enforce_distribute? %>
-                      <% if ct.enforce_highest_only? %>
-                        <%= svg_icon('free.svg#cil-mood-bad', %w[icon]) -%>
-                      <% else %>
-                        <%= svg_icon('free.svg#cil-mood-very-bad', %w[icon]) -%>
-                      <% end %>
-                    <% end %>
-                  </td>
-                  <td>
-                    <%= link_to edit_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                      <%= svg_icon('free.svg#cil-pen', %w[icon icon-lg]) -%>
-                    <% end %>
-                    <% if ct.calibration_sessions.blank? %>
-                      <%= link_to confirm_destroy_admin_company_evaluation_template_calibration_template_path(id: ct.id, company_evaluation_id: @company_evaluation.id, template_id: template.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
-                        <%= svg_icon('free.svg#cil-delete', %w[icon icon-lg]) -%>
-                      <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-              <% end %>
-            <% end %>
           <% end %>
         </tbody>
       </table>

@@ -2,6 +2,17 @@
 en:
   admin:
     calibration_templates:
+      index:
+        title: "Calibration templates"
+        breadcrumb_title: "%{title}'s calibration templates"
+        template_name: "Template name"
+        company_evaluation_templates: "Evaluation templates"
+        staff_distribution: "Staff distribution"
+        manager_distribution: "Manager distribution"
+        enforcement: "Enforcement"
+        highest_only: "Highest grade only"
+        all_grades: "All grades"
+        not_enforced: "Not enforced"
       new:
         title: "New calibration templates"
       edit:
@@ -9,6 +20,9 @@ en:
       confirm_destroy:
         title: "Confirm to delete calibration template?"
       form:
+        company_evaluation_templates: "Evaluation templates"
+        staff_distribution: "Staff distribution rates"
+        manager_distribution: "Manager distribution rates"
         apa_grade_people: "people"
         b_grade_people: "people"
         cd_grade_people: "people"

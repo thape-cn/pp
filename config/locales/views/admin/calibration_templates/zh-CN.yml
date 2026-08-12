@@ -2,6 +2,17 @@
 zh-CN:
   admin:
     calibration_templates:
+      index:
+        title: "校准模版"
+        breadcrumb_title: "%{title}的校准模版"
+        template_name: "模版名称"
+        company_evaluation_templates: "考评模版"
+        staff_distribution: "员工分布"
+        manager_distribution: "主管分布"
+        enforcement: "强制分布"
+        highest_only: "仅最高等级"
+        all_grades: "所有等级"
+        not_enforced: "不强制"
       new:
         title: "新建校准模版"
       edit:
@@ -9,6 +20,9 @@ zh-CN:
       confirm_destroy:
         title: "确认删除校准模版？"
       form:
+        company_evaluation_templates: "考评模版"
+        staff_distribution: "员工分布比例"
+        manager_distribution: "主管分布比例"
         apa_grade_people: "人"
         b_grade_people: "人"
         cd_grade_people: "人"

@@ -2,6 +2,7 @@ class CompanyEvaluation < ApplicationRecord
   include MetricHelper
 
   has_many :company_evaluation_templates
+  has_many :calibration_templates, -> { distinct }, through: :company_evaluation_templates
   has_many :import_excel_files
   has_many :ended_company_evaluation_role_capabilities
   validates :title, :start_date, :end_date, presence: true

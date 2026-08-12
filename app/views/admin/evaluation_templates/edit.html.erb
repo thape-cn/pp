@@ -24,6 +24,14 @@
             </div>
           </div>
           <div class="row mb-2">
+            <%= f.label :calibration_template_ids, t("admin.evaluation_templates.edit.calibration_templates"), class: 'col-2 col-form-label' %>
+            <div class="col-10" data-controller="selectizes">
+              <%= f.select :calibration_template_ids,
+                @available_calibration_templates.collect { |calibration_template| [calibration_template.template_name, calibration_template.id] },
+                {}, multiple: true, class: "form-control", data: {"selectizes-target": "select"} %>
+            </div>
+          </div>
+          <div class="row mb-2">
             <%= f.label :brief, t("admin.evaluation_templates.edit.brief"), class: 'col-2 col-form-label' %>
             <div class="col-10">
               <%= f.text_area :brief, class: 'form-control', rows: 8, maxlength: 5000, placeholder: t("admin.evaluation_templates.edit.brief_placeholder") %>

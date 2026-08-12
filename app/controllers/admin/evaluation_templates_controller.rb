@@ -4,6 +4,7 @@ module Admin
     after_action :verify_policy_scoped, only: :index
     before_action :set_company_evaluation, only: %i[new create edit update]
     before_action :set_company_evaluation_template, only: %i[edit update]
+    before_action :set_available_calibration_templates, only: :edit
     before_action :set_breadcrumbs, if: -> { request.format.html? }
 
     def index
@@ -39,7 +40,7 @@ module Admin
     end
 
     def set_company_evaluation_template
-      @company_evaluation_template = authorize CompanyEvaluationTemplate.find(params[:id])
+      @company_evaluation_template = authorize @company_evaluation.company_evaluation_templates.find(params[:id])
     end
 
     def company_evaluation_template_params
@@ -50,7 +51,12 @@ module Admin
           :management_subtotal_rate, :profession_subtotal_rate, :performance_subtotal_rate,
           :professional_management_metric, :performance_metric, :rank_performance_metric,
           :self_overall_output_hint, :self_overall_improvement_hint, :self_overall_plan_hint,
-          :manager_overall_output_hint, :manager_overall_improvement_hint, :manager_overall_plan_hint)
+          :manager_overall_output_hint, :manager_overall_improvement_hint, :manager_overall_plan_hint,
+          calibration_template_ids: [])
+    end
+
+    def set_available_calibration_templates
+      @available_calibration_templates = @company_evaluation.calibration_templates.order(:template_name)
     end
 
     def set_breadcrumbs
