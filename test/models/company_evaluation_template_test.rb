@@ -1,6 +1,13 @@
 require "test_helper"
 
 class CompanyEvaluationTemplateTest < ActiveSupport::TestCase
+  test "has many calibration templates through the join model" do
+    assert_equal [
+      calibration_templates(:ct_one_staff_enforce),
+      calibration_templates(:ct_one_staff_nonenforce)
+    ].sort_by(&:id), company_evaluation_templates(:ect_staff).calibration_templates.sort_by(&:id)
+  end
+
   EvaluationStub = Struct.new(
     :group_of_staff_work_load,
     :group_of_staff_work_quality_and_work_attitude,

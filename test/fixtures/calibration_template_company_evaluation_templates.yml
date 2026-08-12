@@ -1,0 +1,24 @@
+---
+ct_one_staff_enforce_ect_staff:
+  calibration_template: ct_one_staff_enforce
+  company_evaluation_template: ect_staff
+
+ct_one_staff_nonenforce_ect_staff:
+  calibration_template: ct_one_staff_nonenforce
+  company_evaluation_template: ect_staff
+
+ct_two_manager_enforce_ect_manager:
+  calibration_template: ct_two_manager_enforce
+  company_evaluation_template: ect_manager
+
+ct_two_manager_nonenforce_ect_manager:
+  calibration_template: ct_two_manager_nonenforce
+  company_evaluation_template: ect_manager
+
+ct_two_auxiliary_enforce_ect_auxiliary:
+  calibration_template: ct_two_auxiliary_enforce
+  company_evaluation_template: ect_auxiliary
+
+ct_two_auxiliary_nonenforce_ect_auxiliary:
+  calibration_template: ct_two_auxiliary_nonenforce
+  company_evaluation_template: ect_auxiliary

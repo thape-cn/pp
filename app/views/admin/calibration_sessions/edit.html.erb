@@ -29,7 +29,7 @@
             <div class="row mb-3">
               <%= f.label :calibration_template, t('calibration.calibration_template'), class: 'col-4 col-form-label' %>
               <div class="col-8">
-                <%= f.select :calibration_template_id, @calibration_session.calibration_template.company_evaluation_template.calibration_templates.collect {|ct| [ct.template_name, ct.id]}, {}, class: 'form-control' -%>
+                <%= f.select :calibration_template_id, @calibration_session.company_evaluation_template.calibration_templates.collect {|ct| [ct.template_name, ct.id]}, {}, class: 'form-control' -%>
               </div>
             </div>
           <% end %>

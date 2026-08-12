@@ -14,7 +14,7 @@ module Admin
       @session_status = params[:session_status]
       add_to_breadcrumbs t(".title"), admin_calibration_sessions_path(company_evaluation_id: params[:company_evaluation_id])
       calibration_sessions = policy_scope(CalibrationSession)
-        .includes(calibration_template: :company_evaluation_template,
+        .includes(calibration_template: :company_evaluation_templates,
           calibration_session_judges: :judge,
           calibration_session_users: [:evaluation_user_capability, :user])
         .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
@@ -49,7 +49,7 @@ module Admin
       add_to_breadcrumbs t("admin.calibration_sessions.show.title"), admin_calibration_session_path(id: @calibration_session.id)
       add_to_breadcrumbs t(".title")
 
-      company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template
+      company_evaluation_template = @calibration_session.company_evaluation_template
       evaluation_user_capabilities = @calibration_session.calibration_session_users.collect(&:evaluation_user_capability)
       @total_people_num = evaluation_user_capabilities.length
       @evaluation_user_capabilities_group = company_evaluation_template.group_evaluation_user_capabilities(evaluation_user_capabilities)

@@ -15,7 +15,10 @@ class Initiation
 
       csu.destroy
     end
-    calibration_template_ids = CalibrationTemplate.where(company_evaluation_template_id: company_evaluation_template_ids).pluck(:id)
+    calibration_template_ids = CalibrationTemplate.joins(:company_evaluation_templates)
+      .where(company_evaluation_templates: {id: company_evaluation_template_ids})
+      .distinct
+      .pluck(:id)
     CalibrationSession.where(calibration_template_id: calibration_template_ids).each do |session|
       next if session.calibration_session_users.present?
 

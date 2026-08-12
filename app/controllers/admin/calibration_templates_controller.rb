@@ -6,12 +6,12 @@ module Admin
     before_action :set_calibration_template, only: %i[edit update destroy confirm_destroy]
 
     def new
-      @calibration_template = authorize CalibrationTemplate.new(company_evaluation_template_id: @company_evaluation_template.id)
+      @calibration_template = authorize CalibrationTemplate.new(company_evaluation_templates: [@company_evaluation_template])
       render layout: false
     end
 
     def create
-      authorize CalibrationTemplate.create(calibration_template_params.merge(company_evaluation_template_id: @company_evaluation_template.id))
+      authorize CalibrationTemplate.create(calibration_template_params.merge(company_evaluation_templates: [@company_evaluation_template]))
     end
 
     def edit

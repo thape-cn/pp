@@ -11,7 +11,7 @@ module Admin
 
     def undo_confirm
       @undo_company_evaluation_template = @calibration_session_user
-        .calibration_session.calibration_template.company_evaluation_template
+        .evaluation_user_capability.company_evaluation_template
       render layout: false
     end
 

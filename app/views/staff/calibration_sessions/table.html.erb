@@ -11,7 +11,7 @@
           <%= link_to I18n.t("form.table_grid"), table_staff_calibration_session_path(id: @calibration_session.id), role: "tab", "aria-controls": "nav-table", "aria-selected": "false", class: "nav-link active" -%>
         </div>
       </nav>
-      <% company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template %>
+      <% company_evaluation_template = @calibration_session.company_evaluation_template %>
       <%= render partial: company_evaluation_template.calibration_table_partial, locals: {session_status: @calibration_session.session_status, calibration_session_users: @calibration_session.calibration_session_users, company_evaluation_template: company_evaluation_template} -%>
     </div>
   </div>

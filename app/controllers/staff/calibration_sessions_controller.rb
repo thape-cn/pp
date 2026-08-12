@@ -13,7 +13,7 @@ module Staff
     def index
       add_to_breadcrumbs t(".title")
       calibration_sessions = policy_scope(CalibrationSession)
-        .includes(calibration_template: :company_evaluation_template,
+        .includes(calibration_template: :company_evaluation_templates,
           calibration_session_judges: :judge,
           calibration_session_users: [:evaluation_user_capability, :user])
         .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
@@ -32,7 +32,7 @@ module Staff
       return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.finalized") unless @calibration_session.session_status == "calibrating"
       return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.can_not_start") unless @calibration_session.can_start_calibration?
 
-      @group_level = @calibration_session.calibration_template.company_evaluation_template.group_level
+      @group_level = @calibration_session.company_evaluation_template.group_level
       respond_to do |format|
         format.html do
           @calibration_labels = {
@@ -80,7 +80,7 @@ module Staff
     end
 
     def update
-      company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template
+      company_evaluation_template = @calibration_session.company_evaluation_template
       @group_level = company_evaluation_template.group_level
 
       update_calibration_group(params[:calibration], company_evaluation_template)
@@ -126,7 +126,7 @@ module Staff
 
       evaluation_user_capabilities = @calibration_session.calibration_session_users.collect(&:evaluation_user_capability)
       @total_people_num = evaluation_user_capabilities.length
-      company_evaluation_template = @calibration_session.calibration_template.company_evaluation_template
+      company_evaluation_template = @calibration_session.company_evaluation_template
       @evaluation_user_capabilities_group = company_evaluation_template.group_evaluation_user_capabilities(evaluation_user_capabilities)
       render company_evaluation_template.square_template
     end

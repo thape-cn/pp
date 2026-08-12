@@ -8,7 +8,7 @@ module Staff
       return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.finalized") unless @calibration_session.session_status == "calibrating"
       return redirect_to staff_root_path, alert: I18n.t("staff.calibration_sessions.show.can_not_start") unless @calibration_session.can_start_calibration?
 
-      @group_level = @calibration_session.calibration_template.company_evaluation_template.group_level
+      @group_level = @calibration_session.company_evaluation_template.group_level
       need_calibration_eucs = @calibration_session
         .calibration_session_users.collect(&:evaluation_user_capability)
         .reject(&:blank?) # user must having evaluation_user_capability, even it's only having performance.
@@ -70,7 +70,7 @@ module Staff
 
       log_calibration_session_save(
         source: "table",
-        group_level: @calibration_session.calibration_template.company_evaluation_template.group_level,
+        group_level: @calibration_session.company_evaluation_template.group_level,
         eucs: @need_calibration_eucs
       )
 

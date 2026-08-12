@@ -6,6 +6,11 @@ class CalibrationSession < ApplicationRecord
   has_many :calibration_session_users, dependent: :destroy
   has_many :calibration_session_save_logs, dependent: :destroy
 
+  def company_evaluation_template
+    calibration_session_users.filter_map(&:evaluation_user_capability).first&.company_evaluation_template ||
+      calibration_template.company_evaluation_templates.first
+  end
+
   def lower_quotas_staff
     populations = {apa_grade_rate: calibration_template.apa_grade_rate, b_grade_rate: calibration_template.b_grade_rate, cd_grade_rate: calibration_template.cd_grade_rate}
     seats = calibration_session_users.size
@@ -93,8 +98,9 @@ class CalibrationSession < ApplicationRecord
   end
 
   def self.reconcile_session_status(company_evaluation_ids)
-    CalibrationTemplate.includes(:company_evaluation_template)
-      .where(company_evaluation_template: {company_evaluation_id: company_evaluation_ids})
+    CalibrationTemplate.joins(:company_evaluation_templates)
+      .where(company_evaluation_templates: {company_evaluation_id: company_evaluation_ids})
+      .distinct
       .each do |calibration_template|
       calibration_template.calibration_sessions.find_each do |calibration_session|
         calibration_session.reconcile_session_status

@@ -6,7 +6,8 @@ class CompanyEvaluationTemplate < ApplicationRecord
   CALIBRATION_HORIZONTAL_SCORES = {"1" => 1, "2" => 3, "3" => 5}.freeze
 
   belongs_to :company_evaluation
-  has_many :calibration_templates
+  has_many :calibration_template_company_evaluation_templates, dependent: :destroy
+  has_many :calibration_templates, through: :calibration_template_company_evaluation_templates
   has_many :evaluation_user_capabilities
   validates :title, :group_level, presence: true
 

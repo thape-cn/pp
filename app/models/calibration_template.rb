@@ -1,6 +1,8 @@
 class CalibrationTemplate < ApplicationRecord
-  belongs_to :company_evaluation_template
+  has_many :calibration_template_company_evaluation_templates, dependent: :destroy
+  has_many :company_evaluation_templates, through: :calibration_template_company_evaluation_templates
   has_many :calibration_sessions
+  validates :company_evaluation_templates, presence: true
 
   def self.hamilton_method(populations, seats)
     total_population = populations.values.inject(:+)
@@ -18,7 +20,9 @@ class CalibrationTemplate < ApplicationRecord
 
   def self.open_for_user_calibration_template_ids
     open_company_evaluation_ids = CompanyEvaluation.open_for_user.pluck(:id)
-    open_for_user_company_evaluation_template_ids = CompanyEvaluationTemplate.where(company_evaluation_id: open_company_evaluation_ids).pluck(:id)
-    where(company_evaluation_template_id: open_for_user_company_evaluation_template_ids).pluck(:id)
+    joins(:company_evaluation_templates)
+      .where(company_evaluation_templates: {company_evaluation_id: open_company_evaluation_ids})
+      .distinct
+      .pluck(:id)
   end
 end

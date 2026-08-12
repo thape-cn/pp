@@ -14,7 +14,7 @@ module CP
       @session_name = params[:session_name]
       @session_status = params[:session_status]
       calibration_sessions = policy_scope(CalibrationSession)
-        .includes(calibration_template: :company_evaluation_template,
+        .includes(calibration_template: :company_evaluation_templates,
           calibration_session_judges: :judge,
           calibration_session_users: [:evaluation_user_capability, :user])
         .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)

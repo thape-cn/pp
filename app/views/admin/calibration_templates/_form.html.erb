@@ -1,11 +1,11 @@
-<div class="container-fluid" data-controller="try-calculate" data-try-calculate-group-level-value="<%= calibration_template.company_evaluation_template.group_level -%>">
+<div class="container-fluid" data-controller="try-calculate" data-try-calculate-group-level-value="<%= @company_evaluation_template.group_level -%>">
   <div class="row mb-3">
     <%= f.label :template_name, t("calibration.template_name"), class: 'col-4 col-form-label' %>
     <div class="col-8">
       <%= f.text_field :template_name, class: "form-control" %>
     </div>
   </div>
-  <% if calibration_template.company_evaluation_template.staff_distribution? %>
+  <% if @company_evaluation_template.staff_distribution? %>
     <div class="row mb-3">
       <%= f.label :apa_grade_rate, t("calibration.apa_grade_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
@@ -42,7 +42,7 @@
         </p>
       </div>
     </div>
-  <% elsif calibration_template.company_evaluation_template.manager_distribution? %>
+  <% elsif @company_evaluation_template.manager_distribution? %>
     <div class="row mb-3">
       <%= f.label :beyond_standard_rate, t("calibration.beyond_standard_rate"), class: 'col-4 col-form-label' %>
       <div class="col-4">
