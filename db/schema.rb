@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_12_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_12_000100) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -203,12 +203,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_000000) do
     t.integer "below_standard_rate", default: 30, null: false
     t.integer "beyond_standard_rate", default: 30, null: false
     t.integer "cd_grade_rate", default: 30, null: false
+    t.integer "company_evaluation_id", null: false
     t.datetime "created_at", null: false
     t.boolean "enforce_distribute", default: false, null: false
     t.boolean "enforce_highest_only", default: false, null: false
     t.integer "standards_compliant_rate", default: 40, null: false
     t.string "template_name"
     t.datetime "updated_at", null: false
+    t.index ["company_evaluation_id"], name: "index_calibration_templates_on_company_evaluation_id"
   end
 
   create_table "capabilities", force: :cascade do |t|
@@ -569,6 +571,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_000000) do
   add_foreign_key "calibration_sessions", "calibration_templates"
   add_foreign_key "calibration_template_company_evaluation_templates", "calibration_templates"
   add_foreign_key "calibration_template_company_evaluation_templates", "company_evaluation_templates"
+  add_foreign_key "calibration_templates", "company_evaluations"
   add_foreign_key "company_evaluation_templates", "company_evaluations"
   add_foreign_key "euc_form_status_histories", "evaluation_user_capabilities"
   add_foreign_key "evaluation_role_capabilities", "capabilities"

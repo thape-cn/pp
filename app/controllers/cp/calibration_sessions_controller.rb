@@ -20,7 +20,7 @@ module CP
         .where(calibration_template_id: CalibrationTemplate.open_for_user_calibration_template_ids)
       calibration_sessions = if params[:company_evaluation_id].present?
         calibration_sessions
-          .where(calibration_templates: {company_evaluation_templates: {company_evaluation_id: params[:company_evaluation_id]}})
+          .where(calibration_templates: {company_evaluation_id: params[:company_evaluation_id]})
       else
         calibration_sessions
       end

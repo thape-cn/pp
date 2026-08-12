@@ -21,6 +21,36 @@ class CalibrationTemplateTest < ActiveSupport::TestCase
     assert_includes additional_template.calibration_templates, calibration_template
   end
 
+  test "belongs to one company evaluation" do
+    calibration_template = calibration_templates(:ct_one_staff_enforce)
+
+    assert_equal company_evaluations(:ce_one), calibration_template.company_evaluation
+  end
+
+  test "cannot link to an evaluation template from another company evaluation" do
+    calibration_template = calibration_templates(:ct_one_staff_enforce)
+    other_company_evaluation_template = CompanyEvaluationTemplate.create!(
+      company_evaluation: company_evaluations(:ce_two),
+      title: "Other evaluation template",
+      group_level: "staff"
+    )
+
+    assert_raises ActiveRecord::RecordInvalid do
+      calibration_template.company_evaluation_templates << other_company_evaluation_template
+    end
+    assert_not_includes calibration_template.company_evaluation_templates.reload, other_company_evaluation_template
+  end
+
+  test "cannot move to another company evaluation while linked" do
+    calibration_template = calibration_templates(:ct_one_staff_enforce)
+
+    calibration_template.company_evaluation = company_evaluations(:ce_two)
+
+    assert_not calibration_template.valid?
+    assert_includes calibration_template.errors[:company_evaluation_templates],
+      "must belong to the same company evaluation"
+  end
+
   test "hamilton_method calculates correct seat allocations case 343" do
     populations = {below_standard_rate: 30, standards_compliant_rate: 40, beyond_standard_rate: 30}
     seats = 15

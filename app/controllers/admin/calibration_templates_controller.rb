@@ -9,22 +9,20 @@ module Admin
 
     def index
       @calibration_templates = policy_scope(CalibrationTemplate)
-        .joins(:company_evaluation_templates)
-        .where(company_evaluation_templates: {company_evaluation_id: @company_evaluation.id})
+        .where(company_evaluation_id: @company_evaluation.id)
         .includes(:company_evaluation_templates)
-        .distinct
         .order(:template_name)
       add_to_breadcrumbs t(".breadcrumb_title", title: @company_evaluation.title)
       set_meta_tags(title: t(".breadcrumb_title", title: @company_evaluation.title))
     end
 
     def new
-      @calibration_template = authorize CalibrationTemplate.new
+      @calibration_template = authorize @company_evaluation.calibration_templates.new
       render layout: false
     end
 
     def create
-      @calibration_template = CalibrationTemplate.new(calibration_template_attributes)
+      @calibration_template = @company_evaluation.calibration_templates.new(calibration_template_attributes)
       @calibration_template.company_evaluation_templates = selected_company_evaluation_templates
       authorize @calibration_template
       @calibration_template.save
@@ -35,10 +33,8 @@ module Admin
     end
 
     def update
-      other_company_templates = @calibration_template.company_evaluation_templates
-        .where.not(company_evaluation_id: @company_evaluation.id)
       @calibration_template.assign_attributes(calibration_template_attributes)
-      @calibration_template.company_evaluation_templates = other_company_templates + selected_company_evaluation_templates
+      @calibration_template.company_evaluation_templates = selected_company_evaluation_templates
       @calibration_template.save
     end
 

@@ -22,7 +22,11 @@ module Admin
     end
 
     def create
-      authorize CompanyEvaluationTemplate.create(company_evaluation_template_params.merge(company_evaluation_id: @company_evaluation.id))
+      attributes = company_evaluation_template_attributes.merge(
+        calibration_template_ids: selected_calibration_templates.map(&:id)
+      )
+      @company_evaluation_template = authorize @company_evaluation.company_evaluation_templates.new(attributes)
+      @company_evaluation_template.save
     end
 
     def edit
@@ -30,7 +34,9 @@ module Admin
     end
 
     def update
-      @company_evaluation_template.update(company_evaluation_template_params)
+      @company_evaluation_template.update(company_evaluation_template_attributes.merge(
+        calibration_template_ids: selected_calibration_templates.map(&:id)
+      ))
     end
 
     private
@@ -53,6 +59,16 @@ module Admin
           :self_overall_output_hint, :self_overall_improvement_hint, :self_overall_plan_hint,
           :manager_overall_output_hint, :manager_overall_improvement_hint, :manager_overall_plan_hint,
           calibration_template_ids: [])
+    end
+
+    def company_evaluation_template_attributes
+      company_evaluation_template_params.except(:calibration_template_ids)
+    end
+
+    def selected_calibration_templates
+      @company_evaluation.calibration_templates
+        .where(id: company_evaluation_template_params[:calibration_template_ids])
+        .to_a
     end
 
     def set_available_calibration_templates

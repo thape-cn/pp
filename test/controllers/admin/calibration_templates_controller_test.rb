@@ -31,17 +31,23 @@ class Admin::CalibrationTemplatesControllerTest < ActionDispatch::IntegrationTes
       company_evaluation_templates(:ect_staff),
       company_evaluation_templates(:ect_supervisor_high)
     ]
+    other_company_evaluation_template = CompanyEvaluationTemplate.create!(
+      company_evaluation: company_evaluations(:ce_two),
+      title: "Other evaluation template",
+      group_level: "staff"
+    )
 
     assert_difference "CalibrationTemplate.count", 1 do
       post admin_company_evaluation_calibration_templates_path(company_evaluation_id: @company_evaluation.id), params: {
         calibration_template: {
           template_name: "Shared calibration template",
-          company_evaluation_template_ids: selected_templates.map(&:id)
+          company_evaluation_template_ids: selected_templates.map(&:id) + [other_company_evaluation_template.id]
         }
       }
     end
 
     calibration_template = CalibrationTemplate.find_by!(template_name: "Shared calibration template")
+    assert_equal @company_evaluation, calibration_template.company_evaluation
     assert_equal selected_templates.sort_by(&:id), calibration_template.company_evaluation_templates.sort_by(&:id)
   end
 

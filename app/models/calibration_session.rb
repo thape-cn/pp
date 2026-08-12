@@ -5,6 +5,7 @@ class CalibrationSession < ApplicationRecord
   has_many :calibration_session_judges, dependent: :destroy
   has_many :calibration_session_users, dependent: :destroy
   has_many :calibration_session_save_logs, dependent: :destroy
+  validate :calibration_template_belongs_to_users_company_evaluation
 
   def company_evaluation_template
     calibration_session_users.filter_map(&:evaluation_user_capability).first&.company_evaluation_template ||
@@ -98,10 +99,7 @@ class CalibrationSession < ApplicationRecord
   end
 
   def self.reconcile_session_status(company_evaluation_ids)
-    CalibrationTemplate.joins(:company_evaluation_templates)
-      .where(company_evaluation_templates: {company_evaluation_id: company_evaluation_ids})
-      .distinct
-      .each do |calibration_template|
+    CalibrationTemplate.where(company_evaluation_id: company_evaluation_ids).each do |calibration_template|
       calibration_template.calibration_sessions.find_each do |calibration_session|
         calibration_session.reconcile_session_status
       end
@@ -113,5 +111,18 @@ class CalibrationSession < ApplicationRecord
     no_any_new_calibration_session = !calibration_session_users.any? { |csu| csu.new_calibration_session_id.present? }
     eucs_all_in_manager_scored = all_evaluation_user_capabilities.all? { |euc| %w[manager_scored department_calibrated hr_review_completed].include?(euc.form_status) }
     no_any_new_calibration_session && eucs_all_in_manager_scored
+  end
+
+  private
+
+  def calibration_template_belongs_to_users_company_evaluation
+    return if calibration_template.blank?
+
+    company_evaluation_ids = calibration_session_users.filter_map do |session_user|
+      session_user.evaluation_user_capability&.company_evaluation_template&.company_evaluation_id
+    end.uniq
+    return if company_evaluation_ids.empty? || company_evaluation_ids == [calibration_template.company_evaluation_id]
+
+    errors.add(:calibration_template, "must belong to the calibration users' company evaluation")
   end
 end

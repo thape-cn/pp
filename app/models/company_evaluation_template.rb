@@ -10,6 +10,7 @@ class CompanyEvaluationTemplate < ApplicationRecord
   has_many :calibration_templates, through: :calibration_template_company_evaluation_templates
   has_many :evaluation_user_capabilities
   validates :title, :group_level, presence: true
+  validate :calibration_templates_belong_to_company_evaluation
 
   def self.group_level_options
     {
@@ -100,5 +101,14 @@ class CompanyEvaluationTemplate < ApplicationRecord
         calibration_performance_score: vertical_score
       }
     end
+  end
+
+  private
+
+  def calibration_templates_belong_to_company_evaluation
+    return if company_evaluation.blank?
+    return if calibration_templates.all? { |template| template.company_evaluation_id == company_evaluation_id }
+
+    errors.add(:calibration_templates, "must belong to the same company evaluation")
   end
 end

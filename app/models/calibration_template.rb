@@ -1,8 +1,10 @@
 class CalibrationTemplate < ApplicationRecord
+  belongs_to :company_evaluation
   has_many :calibration_template_company_evaluation_templates, dependent: :destroy
   has_many :company_evaluation_templates, through: :calibration_template_company_evaluation_templates
   has_many :calibration_sessions
   validates :company_evaluation_templates, presence: true
+  validate :company_evaluation_templates_belong_to_company_evaluation
 
   def self.hamilton_method(populations, seats)
     total_population = populations.values.inject(:+)
@@ -19,10 +21,15 @@ class CalibrationTemplate < ApplicationRecord
   end
 
   def self.open_for_user_calibration_template_ids
-    open_company_evaluation_ids = CompanyEvaluation.open_for_user.pluck(:id)
-    joins(:company_evaluation_templates)
-      .where(company_evaluation_templates: {company_evaluation_id: open_company_evaluation_ids})
-      .distinct
-      .pluck(:id)
+    where(company_evaluation_id: CompanyEvaluation.open_for_user.select(:id)).pluck(:id)
+  end
+
+  private
+
+  def company_evaluation_templates_belong_to_company_evaluation
+    return if company_evaluation.blank?
+    return if company_evaluation_templates.all? { |template| template.company_evaluation_id == company_evaluation_id }
+
+    errors.add(:company_evaluation_templates, "must belong to the same company evaluation")
   end
 end

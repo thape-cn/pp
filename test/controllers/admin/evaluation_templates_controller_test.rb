@@ -43,4 +43,30 @@ class Admin::EvaluationTemplatesControllerTest < ActionDispatch::IntegrationTest
     assert_response :no_content
     assert_equal [calibration_template], @company_evaluation_template.calibration_templates.reload
   end
+
+  test "update ignores a calibration template from another company evaluation" do
+    other_company_evaluation_template = CompanyEvaluationTemplate.create!(
+      company_evaluation: company_evaluations(:ce_two),
+      title: "Other evaluation template",
+      group_level: "staff"
+    )
+    other_calibration_template = CalibrationTemplate.create!(
+      company_evaluation: company_evaluations(:ce_two),
+      company_evaluation_templates: [other_company_evaluation_template],
+      template_name: "Other calibration template"
+    )
+
+    put admin_company_evaluation_template_path(
+      id: @company_evaluation_template.id,
+      company_evaluation_id: @company_evaluation.id
+    ), params: {
+      company_evaluation_template: {
+        title: @company_evaluation_template.title,
+        calibration_template_ids: [other_calibration_template.id]
+      }
+    }
+
+    assert_response :no_content
+    assert_empty @company_evaluation_template.calibration_templates.reload
+  end
 end

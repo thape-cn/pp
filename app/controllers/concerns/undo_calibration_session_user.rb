@@ -2,6 +2,13 @@ module UndoCalibrationSessionUser
   extend ActiveSupport::Concern
 
   def undo
+    undo_user = @calibration_session_user.user
+    evaluation_user_capability = @calibration_session_user.evaluation_user_capability
+    previous_calibration_session = @calibration_session_user.calibration_session
+    company_evaluation = evaluation_user_capability.company_evaluation_template.company_evaluation
+    undo_calibration_template = company_evaluation.calibration_templates
+      .find(calibration_session_user_params[:undo_calibration_template_id])
+
     result = case params["commit"]
     when I18n.t("calibration.to_manager_score")
       @calibration_session_user.evaluation_user_capability.update_form_status_to("self_assessment_done", current_user)
@@ -9,10 +16,6 @@ module UndoCalibrationSessionUser
       @calibration_session_user.evaluation_user_capability.update_form_status_to("manager_scored", current_user)
     end
 
-    undo_user = @calibration_session_user.user
-    evaluation_user_capability = @calibration_session_user.evaluation_user_capability
-    previous_calibration_session = @calibration_session_user.calibration_session
-    undo_calibration_template = CalibrationTemplate.find_by(id: calibration_session_user_params[:undo_calibration_template_id])
     undo_calibration_count = undo_user.calibration_session_users
       .where(evaluation_user_capability_id: evaluation_user_capability.id).count
     if result == true

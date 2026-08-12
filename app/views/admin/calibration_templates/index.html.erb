@@ -39,7 +39,7 @@
             <tr>
               <td><%= calibration_template.template_name %></td>
               <td>
-                <% calibration_template.company_evaluation_templates.select { |template| template.company_evaluation_id == @company_evaluation.id }.each do |template| %>
+                <% calibration_template.company_evaluation_templates.each do |template| %>
                   <div><%= template.title %></div>
                 <% end %>
               </td>
