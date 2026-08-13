@@ -1,6 +1,7 @@
 <% content_for :head do %>
   <%= append_stylesheet_pack_tag 'selectize' %>
   <%= append_javascript_pack_tag 'stimulus' %>
+  <%= append_javascript_pack_tag 'selectize' %>
   <%= append_javascript_pack_tag 'selectize_user_ids' %>
   <%= append_javascript_pack_tag 'toggle_people_performance' %>
 <% end %>
@@ -18,9 +19,9 @@
             <label><%= t("user.company") -%></label>
             <%= select_tag :company, options_for_select(@companies, @company), {class: 'form-control'} -%>
           </div>
-          <div class="col-2">
+          <div class="col-3" data-controller="selectizes">
             <label><%= t("user.department") -%></label>
-            <%= select_tag :department, options_for_select(@departments, @department), {include_blank: true, class: 'form-control'} -%>
+            <%= select_tag :department, options_for_select(@departments, @department), {multiple: true, class: 'form-control', data: {"selectizes-target": "select"}} -%>
           </div>
           <div class="col-2" data-controller="selectize-user-ids">
             <label><%= t("user.manager_user") -%></label>
