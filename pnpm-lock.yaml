@@ -198,7 +198,7 @@ importers:
         version: 18.3.1
       react-dnd:
         specifier: ^16.0.1
-        version: 16.0.1(react@18.3.1)
+        version: 16.0.1(@types/node@26.4.1)(react@18.3.1)
       react-dnd-html5-backend:
         specifier: ^16.0.1
         version: 16.0.1
@@ -2156,8 +2156,8 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
-  minimizer-webpack-plugin@5.9.0:
-    resolution: {integrity: sha512-OASqv+dewv8vjkOBjqMOHvxUaXhtGBLZAXq7JbmYE8TSzBvOswiGq5JcBdc8ypuLL/8YUT1OEyupga6/iqdyTA==}
+  minimizer-webpack-plugin@5.10.0:
+    resolution: {integrity: sha512-2//60T4S0X1Ug/dqLDOgDaGlZsN1Lv8hf8oB0NOV/KIHSaXlPwXBBIbim79dE2Z7NEs52ES8YHoSv6Lmsk+XNg==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       '@minify-html/node': '*'
@@ -5501,7 +5501,7 @@ snapshots:
 
   minimist@1.2.8: {}
 
-  minimizer-webpack-plugin@5.9.0(cssnano@5.1.15(postcss@8.5.28))(csso@4.2.0)(postcss@8.5.28)(svgo@2.8.4)(webpack@5.110.3):
+  minimizer-webpack-plugin@5.10.0(cssnano@5.1.15(postcss@8.5.28))(csso@4.2.0)(postcss@8.5.28)(svgo@2.8.4)(webpack@5.110.3):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       jest-worker: 27.5.1
@@ -5874,7 +5874,7 @@ snapshots:
     dependencies:
       dnd-core: 16.0.1
 
-  react-dnd@16.0.1(react@18.3.1):
+  react-dnd@16.0.1(@types/node@26.4.1)(react@18.3.1):
     dependencies:
       '@react-dnd/invariant': 4.0.2
       '@react-dnd/shallowequal': 4.0.2
@@ -5882,6 +5882,8 @@ snapshots:
       fast-deep-equal: 3.1.3
       hoist-non-react-statics: 3.3.2
       react: 18.3.1
+    optionalDependencies:
+      '@types/node': 26.4.1
 
   react-dom@18.3.1(react@18.3.1):
     dependencies:
@@ -6456,7 +6458,7 @@ snapshots:
       events: 3.3.0
       graceful-fs: 4.2.11
       mime-db: 1.54.0
-      minimizer-webpack-plugin: 5.9.0(cssnano@5.1.15(postcss@8.5.28))(csso@4.2.0)(postcss@8.5.28)(svgo@2.8.4)(webpack@5.110.3)
+      minimizer-webpack-plugin: 5.10.0(cssnano@5.1.15(postcss@8.5.28))(csso@4.2.0)(postcss@8.5.28)(svgo@2.8.4)(webpack@5.110.3)
       neo-async: 2.6.2
       schema-utils: 4.3.3
       tapable: 2.3.3
