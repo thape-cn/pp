@@ -1,9 +1,9 @@
 class CreateCalibrationTemplateCompanyEvaluationTemplates < ActiveRecord::Migration[8.1]
   def up
     create_table :calibration_template_company_evaluation_templates do |t|
-      t.references :calibration_template, null: false, foreign_key: true, type: :integer,
+      t.references :calibration_template, null: false, foreign_key: true,
         index: {name: "idx_ct_cets_on_calibration_template_id"}
-      t.references :company_evaluation_template, null: false, foreign_key: true, type: :integer,
+      t.references :company_evaluation_template, null: false, foreign_key: true,
         index: {name: "idx_ct_cets_on_company_evaluation_template_id"}
     end
 
@@ -20,12 +20,12 @@ class CreateCalibrationTemplateCompanyEvaluationTemplates < ActiveRecord::Migrat
     SQL
 
     remove_reference :calibration_templates, :company_evaluation_template,
-      null: false, foreign_key: true, type: :integer
+      null: false, foreign_key: true
   end
 
   def down
     add_reference :calibration_templates, :company_evaluation_template,
-      null: true, foreign_key: true, type: :integer
+      null: true, foreign_key: true
 
     execute <<~SQL.squish
       UPDATE calibration_templates
