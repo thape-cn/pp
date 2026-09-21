@@ -1,7 +1,7 @@
 class AddCompanyEvaluationToCalibrationTemplates < ActiveRecord::Migration[8.1]
   def up
     add_reference :calibration_templates, :company_evaluation,
-      null: true, foreign_key: true, type: :integer
+      null: true, foreign_key: true
 
     conflicting_template_ids = select_values <<~SQL.squish
       SELECT calibration_templates.id
@@ -46,6 +46,6 @@ class AddCompanyEvaluationToCalibrationTemplates < ActiveRecord::Migration[8.1]
 
   def down
     remove_reference :calibration_templates, :company_evaluation,
-      foreign_key: true, type: :integer
+      foreign_key: true
   end
 end
