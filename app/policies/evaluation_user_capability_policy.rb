@@ -97,8 +97,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
     cp_managed_company_user_ids = UserJobRole.where(is_active: true).where(company: user.corp_president_managed_companies.pluck(:managed_company)).pluck(:user_id)
     return true if cp_managed_company_user_ids.include?(record.user_id)
 
-    hr_managed_company_user_ids = UserJobRole.where(is_active: true).where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
-    return true if hr_managed_company_user_ids.include?(record.user_id)
+    return true if hr_managed_company?
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
@@ -113,8 +112,7 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
   def print?
     return true if user.admin?
 
-    hr_managed_company_user_ids = UserJobRole.where(is_active: true).where(company: user.hr_user_managed_companies.pluck(:managed_company)).pluck(:user_id)
-    return true if hr_managed_company_user_ids.include?(record.user_id)
+    return true if hr_managed_company?
 
     hrbp_user_managed_departments = user.hrbp_user_managed_departments.pluck(:managed_dept_code)
     return true if hrbp_user_managed_departments.include?(record.dept_code)
@@ -160,5 +158,15 @@ class EvaluationUserCapabilityPolicy < ApplicationPolicy
         record.calibration_session_users.any? { |csu| csu.calibration_session.calibration_session_judges.any? { |csj| csj.judge_id == user.id } }
       true
     end
+  end
+
+  private
+
+  def hr_managed_company?
+    managed_companies = user.hr_user_managed_companies.pluck(:managed_company)
+
+    # Match the scope's access through either the evaluation's company or an active job role.
+    managed_companies.include?(record.company) ||
+      UserJobRole.where(is_active: true, company: managed_companies, user_id: record.user_id).exists?
   end
 end
