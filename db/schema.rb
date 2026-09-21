@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_07_01_000000) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_12_000100) do
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -189,20 +189,28 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_01_000000) do
     t.index ["owner_id"], name: "index_calibration_sessions_on_owner_id"
   end
 
+  create_table "calibration_template_company_evaluation_templates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "calibration_template_id", null: false
+    t.bigint "company_evaluation_template_id", null: false
+    t.index ["calibration_template_id", "company_evaluation_template_id"], name: "idx_ct_cets_on_template_ids", unique: true
+    t.index ["calibration_template_id"], name: "idx_ct_cets_on_calibration_template_id"
+    t.index ["company_evaluation_template_id"], name: "idx_ct_cets_on_company_evaluation_template_id"
+  end
+
   create_table "calibration_templates", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "apa_grade_rate", default: 30, null: false
     t.integer "b_grade_rate", default: 40, null: false
     t.integer "below_standard_rate", default: 30, null: false
     t.integer "beyond_standard_rate", default: 30, null: false
     t.integer "cd_grade_rate", default: 30, null: false
-    t.bigint "company_evaluation_template_id", null: false
+    t.bigint "company_evaluation_id", null: false
     t.datetime "created_at", null: false
     t.boolean "enforce_distribute", default: false, null: false
     t.boolean "enforce_highest_only", default: false, null: false
     t.integer "standards_compliant_rate", default: 40, null: false
     t.string "template_name"
     t.datetime "updated_at", null: false
-    t.index ["company_evaluation_template_id"], name: "index_calibration_templates_on_company_evaluation_template_id"
+    t.index ["company_evaluation_id"], name: "index_calibration_templates_on_company_evaluation_id"
   end
 
   create_table "capabilities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -562,7 +570,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_07_01_000000) do
   add_foreign_key "calibration_session_users", "calibration_sessions"
   add_foreign_key "calibration_session_users", "users"
   add_foreign_key "calibration_sessions", "calibration_templates"
-  add_foreign_key "calibration_templates", "company_evaluation_templates"
+  add_foreign_key "calibration_template_company_evaluation_templates", "calibration_templates"
+  add_foreign_key "calibration_template_company_evaluation_templates", "company_evaluation_templates"
+  add_foreign_key "calibration_templates", "company_evaluations"
   add_foreign_key "company_evaluation_templates", "company_evaluations"
   add_foreign_key "euc_form_status_histories", "evaluation_user_capabilities"
   add_foreign_key "evaluation_role_capabilities", "capabilities"
