@@ -501,7 +501,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_01_000000) do
     t.string "report_type", null: false
     t.string "locale", null: false
     t.string "status", default: "queued", null: false
-    t.json "options", default: {}, null: false
+    t.json "options", null: false
     t.datetime "completed_at"
     t.datetime "expires_at"
     t.datetime "created_at", null: false

@@ -25,6 +25,8 @@ class ReportExport < ApplicationRecord
 
   enum :status, %w[queued processing retrying completed failed].index_with(&:itself)
 
+  attribute :options, default: -> { {} }
+
   validates :report_type, inclusion: {in: GENERATORS.keys}
   validates :locale, inclusion: {in: I18n.available_locales.map(&:to_s)}
   validates :company_evaluation, presence: true, if: -> { report_type.in?(EVALUATION_REPORTS) }

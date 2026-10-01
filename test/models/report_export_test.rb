@@ -4,6 +4,14 @@ require_relative "../support/report_export_helpers"
 class ReportExportTest < ActiveSupport::TestCase
   include ReportExportHelpers
 
+  test "persists empty options when none are supplied" do
+    report_export = ReportExport.create!(user: users(:user_guochunzhong), report_type: "admin_users", locale: "zh-CN")
+
+    assert_equal({}, report_export.reload.options)
+    report_export.options["example"] = true
+    assert_equal({}, ReportExport.new.options)
+  end
+
   test "validates report type locale and required evaluation" do
     report_export = ReportExport.new(user: users(:user_guochunzhong), report_type: "anything", locale: "unknown")
     assert_not report_export.valid?

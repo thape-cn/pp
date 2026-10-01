@@ -6,7 +6,7 @@ class CreateReportExports < ActiveRecord::Migration[8.1]
       t.string :report_type, null: false
       t.string :locale, null: false
       t.string :status, null: false, default: "queued"
-      t.json :options, null: false, default: {}
+      t.json :options, null: false
       t.datetime :completed_at
       t.datetime :expires_at
       t.timestamps
