@@ -43,4 +43,23 @@ class Staff::CalibrationSessionsTest < ApplicationSystemTestCase
     assert_equal 5, @other_evaluation.reload.calibration_performance_score
     assert_equal 5, @other_evaluation.calibration_management_profession_score
   end
+
+  test "calibration owner opens and closes employee details repeatedly" do
+    visit staff_calibration_session_path(@calibration_session, locale: "en")
+
+    [@dragged_evaluation, @other_evaluation, @dragged_evaluation].each do |evaluation|
+      employee = find("#calibration-panel span.btn.btn-secondary", text: evaluation.user.chinese_name)
+      employee.find("span").click
+
+      assert_selector "#coreuiModal:focus"
+      within "#coreuiModal.show" do
+        assert_selector ".modal-title", text: evaluation.user.chinese_name
+        assert_text evaluation.self_overall_output
+        find(".modal-footer").click_button "Close", exact: true
+      end
+
+      assert_no_selector "#coreuiModal.show"
+      assert_no_selector "#coreuiModal .modal-dialog", visible: :all
+    end
+  end
 end

@@ -14,9 +14,9 @@ export function ManagerOverallKeyin({
       showSaveCloseButton
       ?
       <>
-        <div class="alert alert-dark alert-dismissible fade show mb-1" role="alert">
+        <div className="alert alert-dark alert-dismissible fade show mb-1" role="alert">
           {html_hint}
-          <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
+          <button type="button" className="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
         </div>
         <textarea className="form-control" id={keyin_control_id} rows="3" value={value}
                   onChange={onChange}/>

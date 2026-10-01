@@ -29,7 +29,7 @@ class Staff::MarkScoresTest < ApplicationSystemTestCase
     assert_equal 3, @evaluation.reload.work_quality
   end
 
-  test "manager sorts employees and expands a comment row" do
+  test "manager sorts employees and saves an expanded comment row" do
     visit_mark_scores
 
     within "#staff-mark" do
@@ -45,8 +45,13 @@ class Staff::MarkScoresTest < ApplicationSystemTestCase
 
       employee_row = find("tbody tr", text: @evaluation.user.chinese_name)
       employee_row.all("td")[1].find("span").click
-      assert_selector "textarea#manager_overall_output"
+      assert_field "manager_overall_output", with: @evaluation.manager_overall_output
+      fill_in "manager_overall_output", with: "Updated manager output after sorting"
+      click_button "保存评论并关闭"
+      assert_no_selector "textarea#manager_overall_output"
     end
+
+    assert_equal "Updated manager output after sorting", @evaluation.reload.manager_overall_output
   end
 
   private
