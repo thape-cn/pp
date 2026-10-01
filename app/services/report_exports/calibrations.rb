@@ -35,7 +35,7 @@ module ReportExports
           I18n.t("calibration.judge"),
           I18n.t("user.user_id"),
           I18n.t("calibration.calibration_template")]
-        calibration_session_users.find_each do |csu|
+        each_with_performance_scores(calibration_session_users, evaluation_association: :evaluation_user_capability) do |csu, scores|
           euc = csu.evaluation_user_capability
           values = []
           values << csu.user.chinese_name
@@ -52,7 +52,7 @@ module ReportExports
           values << euc.manager_user_id
           values << euc.manager_scored_in_metric
           values << euc.final_score_in_metric
-          values << euc.total_score_in_metric
+          values << euc.total_score_in_metric(uploaded_performance_result: scores.fetch(euc.id, 0))
           values << csu.calibration_session.session_name
           values << csu.calibration_session.owner.chinese_name
           values << csu.calibration_session.owner_id

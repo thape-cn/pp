@@ -5,6 +5,7 @@ module ReportExports
         .joins(:company_evaluation_template)
         .includes(:user, :job_role, :manager_user, :company_evaluation_template)
         .where(company_evaluation_template: {company_evaluation_id: company_evaluation.id})
+      detail_labels = capability_detail_labels
       p = Axlsx::Package.new
       wb = p.workbook
 
@@ -26,33 +27,19 @@ module ReportExports
           I18n.t("evaluation.total_evaluation_score"),
           I18n.t("evaluation.evaluation_label"),
           I18n.t("evaluation.evaluation_value")]
-        evaluation_user_capabilities.find_each do |euc|
-          values = evaluation_values(euc)
+        each_with_performance_scores(evaluation_user_capabilities) do |euc, scores|
+          values = evaluation_values(euc, scores.fetch(euc.id, 0))
           add_row_to_sheet(sheet, values, I18n.t("evaluation.self_overall_output"), euc.self_overall_output)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.self_overall_improvement"), euc.self_overall_improvement)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.self_overall_plan"), euc.self_overall_plan)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.manager_overall_output"), euc.manager_overall_output)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.manager_overall_improvement"), euc.manager_overall_improvement)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.manager_overall_plan"), euc.manager_overall_plan)
-          Capability.performance_column_names.each do |column_name|
-            next if euc.attributes[column_name].blank?
+          detail_labels.each do |column_name, label|
+            value = euc.read_attribute(column_name)
+            next if value.blank?
 
-            add_row_to_sheet(sheet, values, I18n.t("evaluation.#{column_name}_pct"), euc.attributes[column_name])
-          end
-          Capability.profession_column_label_and_names.each do |cp|
-            next if euc.attributes[cp.second].blank?
-
-            add_row_to_sheet(sheet, values, cp.first, euc.attributes[cp.second])
-          end
-          Capability.management_column_label_and_names.each do |cp|
-            next if euc.attributes[cp.second].blank?
-
-            add_row_to_sheet(sheet, values, cp.first, euc.attributes[cp.second])
-          end
-          Capability.calibration_column_names.each do |column_name|
-            next if euc.attributes[column_name].blank?
-
-            add_row_to_sheet(sheet, values, I18n.t("calibration.#{column_name}"), euc.attributes[column_name])
+            add_row_to_sheet(sheet, values, label, value)
           end
         end
       end
@@ -63,7 +50,7 @@ module ReportExports
 
     private
 
-    def evaluation_values(euc)
+    def evaluation_values(euc, uploaded_performance_result)
       values = []
       values << euc.user.chinese_name
       values << euc.user_id
@@ -79,7 +66,7 @@ module ReportExports
       values << euc.manager_user_id
       values << euc.manager_scored_in_metric
       values << euc.final_score_in_metric
-      values << euc.total_score_in_metric
+      values << euc.total_score_in_metric(uploaded_performance_result: uploaded_performance_result)
 
       values
     end

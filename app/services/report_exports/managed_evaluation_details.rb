@@ -5,6 +5,7 @@ module ReportExports
         .joins(:company_evaluation_template)
         .includes(:user, :job_role, :manager_user, :company_evaluation_template)
         .where(company_evaluation_template: {company_evaluation_id: company_evaluation.id})
+      detail_labels = capability_detail_labels
       p = Axlsx::Package.new
       wb = p.workbook
 
@@ -31,25 +32,11 @@ module ReportExports
           add_row_to_sheet(sheet, values, I18n.t("evaluation.manager_overall_output"), euc.manager_overall_output)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.manager_overall_improvement"), euc.manager_overall_improvement)
           add_row_to_sheet(sheet, values, I18n.t("evaluation.manager_overall_plan"), euc.manager_overall_plan)
-          Capability.performance_column_names.each do |column_name|
-            next if euc.attributes[column_name].blank?
+          detail_labels.each do |column_name, label|
+            value = euc.read_attribute(column_name)
+            next if value.blank?
 
-            add_row_to_sheet(sheet, values, I18n.t("evaluation.#{column_name}_pct"), euc.attributes[column_name])
-          end
-          Capability.profession_column_label_and_names.each do |cp|
-            next if euc.attributes[cp.second].blank?
-
-            add_row_to_sheet(sheet, values, cp.first, euc.attributes[cp.second])
-          end
-          Capability.management_column_label_and_names.each do |cp|
-            next if euc.attributes[cp.second].blank?
-
-            add_row_to_sheet(sheet, values, cp.first, euc.attributes[cp.second])
-          end
-          Capability.calibration_column_names.each do |column_name|
-            next if euc.attributes[column_name].blank?
-
-            add_row_to_sheet(sheet, values, I18n.t("calibration.#{column_name}"), euc.attributes[column_name])
+            add_row_to_sheet(sheet, values, label, value)
           end
         end
       end

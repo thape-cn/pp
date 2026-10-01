@@ -36,11 +36,11 @@ module ScoredInMetric
       end
     end
 
-    def total_score_in_metric
+    def total_score_in_metric(uploaded_performance_result: nil)
       if company_evaluation_template.manager_b?
         reverse_2d_metric(calibration_management_score || management_subtotal_score, calibration_profession_score || profession_subtotal_score)
       else
-        reverse_5_metric(total_evaluation_score)
+        reverse_5_metric(total_evaluation_score(uploaded_performance_result: uploaded_performance_result))
       end
     end
 

@@ -2,7 +2,7 @@ module ReportExports
   class Performances < Base
     def call(output_path)
       job_role_evaluation_performances = policy_scope(JobRoleEvaluationPerformance)
-        .includes(:user, :evaluation_user_capability)
+        .includes(:user)
         .where(company_evaluation_id: company_evaluation.id)
       company_by_dept_code = UserJobRole.distinct.pluck(:dept_code, :company).to_h
       department_by_dept_code = UserJobRole.distinct.pluck(:dept_code, :department).to_h

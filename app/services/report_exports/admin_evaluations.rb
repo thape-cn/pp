@@ -24,7 +24,7 @@ module ReportExports
           I18n.t("evaluation.manager_scored_total_evaluation_score"),
           I18n.t("evaluation.final_total_evaluation_score"),
           I18n.t("evaluation.total_evaluation_score")]
-        evaluation_user_capabilities.find_each do |euc|
+        each_with_performance_scores(evaluation_user_capabilities) do |euc, scores|
           values = []
           values << euc.user.chinese_name
           values << euc.user_id
@@ -40,7 +40,7 @@ module ReportExports
           values << euc.manager_user_id
           values << euc.manager_scored_in_metric
           values << euc.final_score_in_metric
-          values << euc.total_score_in_metric
+          values << euc.total_score_in_metric(uploaded_performance_result: scores.fetch(euc.id, 0))
 
           row = sheet.add_row values
           row.cells[2].type = :string

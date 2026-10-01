@@ -34,11 +34,11 @@ class EvaluationUserCapability < ApplicationRecord
     + (calibration_work_attitude.nil? ? work_attitude : calibration_work_attitude).to_f * (company_evaluation_template.work_attitude_pct / 100.0)
   end
 
-  def performance_weight_result
+  def performance_weight_result(uploaded_result: nil)
     raw_result = if company_evaluation_template.auxiliary? || company_evaluation_template.supervisor?
       annual_output # TODO: should general to performance_column_names and add rate to evaluation_role_capabilities
     else
-      performance_weight_upload_result
+      uploaded_result || performance_weight_upload_result
     end
     return 0 if raw_result.nil?
 
@@ -93,14 +93,14 @@ class EvaluationUserCapability < ApplicationRecord
     raw_total_evaluation_score
   end
 
-  def total_evaluation_score
+  def total_evaluation_score(uploaded_performance_result: nil)
     work_pct_proportion = work_capability_pct.to_f * (company_evaluation_template.pct_proportion / 100.0)
     # Rails.logger.debug "work_pct_proportion: #{work_pct_proportion}"
 
     non_work_proportion_total = company_evaluation_template.management_subtotal_rate + company_evaluation_template.profession_subtotal_rate + company_evaluation_template.performance_subtotal_rate
     # Rails.logger.debug "non_work_proportion_total: #{non_work_proportion_total}"
 
-    performance_subtotal_pct_proportion = (calibration_performance_score.nil? ? performance_weight_result : calibration_performance_score).to_f * (company_evaluation_template.performance_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
+    performance_subtotal_pct_proportion = (calibration_performance_score.nil? ? performance_weight_result(uploaded_result: uploaded_performance_result) : calibration_performance_score).to_f * (company_evaluation_template.performance_subtotal_rate / non_work_proportion_total.to_f) * (company_evaluation_template.rate_proportion / 100.0)
     # Rails.logger.debug "performance_subtotal_pct_proportion: #{performance_subtotal_pct_proportion}"
 
     if calibration_management_profession_score.present?
