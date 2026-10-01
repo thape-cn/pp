@@ -20,6 +20,13 @@ Rails.application.routes.draw do
   draw :hr
   draw :staff
 
+  resources :report_exports, only: %i[index show] do
+    member do
+      get :download
+      post :retry
+    end
+  end
+
   namespace :ui do
     resource :avatar_area, only: %i[show]
     resources :nav_group_items, only: %i[] do

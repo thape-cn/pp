@@ -1,0 +1,37 @@
+<p class="text-body-secondary"><%= t("report_exports.retention") %></p>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t("report_exports.report") %></th>
+        <th><%= t("report_exports.created_at") %></th>
+        <th><%= t("report_exports.status") %></th>
+        <th><%= t("report_exports.actions") %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @report_exports.each do |report_export| %>
+        <tr>
+          <td>
+            <%= link_to t("report_exports.types.#{report_export.report_type}"), report_export_path(report_export) %>
+            <% if report_export.company_evaluation %>
+              <div class="text-body-secondary"><%= report_export.company_evaluation.title %></div>
+            <% end %>
+          </td>
+          <td><%= l(report_export.created_at, format: :short) %></td>
+          <td><%= t("report_exports.statuses.#{report_export.expired? ? 'expired' : report_export.status}") %></td>
+          <td>
+            <% if report_export.downloadable? %>
+              <%= link_to t("report_exports.download"), download_report_export_path(report_export), class: "btn btn-outline-primary btn-sm" %>
+            <% else %>
+              <%= link_to t("report_exports.view"), report_export_path(report_export), class: "btn btn-outline-secondary btn-sm" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+      <% if @report_exports.empty? %>
+        <tr><td colspan="4"><%= t("report_exports.empty") %></td></tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,42 @@
+en:
+  report_exports:
+    index:
+      title: My exports
+    show:
+      title: Report export
+    report: Report
+    created_at: Requested at
+    status: Status
+    actions: Actions
+    download: Download file
+    view: View progress
+    retry: Export again
+    empty: No exports yet.
+    retention: The latest 100 exports are shown. Files are available for 7 days after generation.
+    pending: Your report is queued or being generated. This page refreshes every 5 seconds. You can leave and download it later from My exports.
+    failure: The export could not be completed. Try again, or ask an administrator to check the background job logs if it keeps failing.
+    unavailable: The file is not ready or has expired. Please export again from the original report page.
+    statuses:
+      queued: Queued
+      processing: Generating
+      retrying: Waiting to retry automatically
+      completed: Completed
+      failed: Failed
+      expired: Expired
+    types:
+      admin_evaluations: Performance evaluation Excel report
+      admin_evaluation_details: Detailed performance evaluation Excel report
+      admin_archived_evaluations: Deleted evaluation Excel report
+      admin_calibrations: User calibration Excel report
+      admin_performances: Job performance Excel report
+      admin_users: Users Excel report
+      admin_job_roles: Job roles Excel report
+      admin_progress: Evaluation progress Excel report
+      hr_evaluations: Performance evaluation Excel report
+      hr_evaluation_details: Detailed performance evaluation Excel report
+      hr_progress: Evaluation progress Excel report
+      cp_evaluations: Performance evaluation Excel report
+      staff_evaluations: Performance evaluation Excel report
+      staff_evaluation_details: Detailed performance evaluation Excel report
+      staff_progress: Evaluation progress Excel report
+      staff_printing: Performance evaluation PDF

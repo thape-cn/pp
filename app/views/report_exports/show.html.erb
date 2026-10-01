@@ -1,0 +1,29 @@
+<% if @report_export.pending? %>
+  <% content_for :head do %>
+    <meta http-equiv="refresh" content="5">
+  <% end %>
+<% end %>
+
+<div class="card mb-3">
+  <div class="card-body">
+    <h2 class="h5"><%= t("report_exports.types.#{@report_export.report_type}") %></h2>
+    <% if @report_export.company_evaluation %>
+      <p><%= @report_export.company_evaluation.title %></p>
+    <% end %>
+    <p role="status"><%= t("report_exports.statuses.#{@report_export.expired? ? 'expired' : @report_export.status}") %></p>
+    <% if @report_export.pending? %>
+      <p><%= t("report_exports.pending") %></p>
+    <% elsif @report_export.downloadable? %>
+      <p><%= t("report_exports.retention") %></p>
+      <%= link_to t("report_exports.download"), download_report_export_path(@report_export), class: "btn btn-primary" %>
+    <% elsif @report_export.failed? %>
+      <p><%= t("report_exports.failure") %></p>
+      <% if policy(@report_export).retry? %>
+        <%= button_to t("report_exports.retry"), retry_report_export_path(@report_export), class: "btn btn-primary" %>
+      <% end %>
+    <% else %>
+      <p><%= t("report_exports.unavailable") %></p>
+    <% end %>
+  </div>
+</div>
+<%= link_to t("report_exports.index.title"), report_exports_path, class: "btn btn-outline-secondary" %>

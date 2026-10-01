@@ -1,11 +1,12 @@
 module HR
   class HomeController < BaseController
-    include ExcelExport
     include Pagy::Method
 
     helper_method :pagy
 
     def index
+      return enqueue_report_export("hr_progress") if request.format.xlsx?
+
       @display_label = params[:label].presence
       @display_form_status = EvaluationUserCapability.form_status_options[@display_label]
       @company_evaluations = policy_scope(CompanyEvaluation).open_for_user
@@ -36,10 +37,6 @@ module HR
 
       respond_to do |format|
         format.html { render }
-        format.xlsx do
-          send_file evaluation_progress_excel_file(@evaluation_user_capabilities),
-            filename: "hr_evaluation_progress.xlsx"
-        end
       end
     end
 

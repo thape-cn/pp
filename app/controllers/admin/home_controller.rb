@@ -1,12 +1,13 @@
 module Admin
   class HomeController < BaseController
     before_action :check_brower, if: -> { request.format.html? }
-    include ExcelExport
     include Pagy::Method
 
     helper_method :pagy
 
     def index
+      return enqueue_report_export("admin_progress") if request.format.xlsx?
+
       @display_label = params[:label].presence
       @display_form_status = EvaluationUserCapability.form_status_options[@display_label]
       @company_evaluations = policy_scope(CompanyEvaluation).open_for_user
@@ -17,10 +18,6 @@ module Admin
 
       respond_to do |format|
         format.html { render }
-        format.xlsx do
-          send_file evaluation_progress_excel_file(@evaluation_user_capabilities),
-            filename: "admin_evaluation_progress.xlsx"
-        end
       end
     end
 

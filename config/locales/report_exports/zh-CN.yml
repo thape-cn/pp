@@ -1,0 +1,42 @@
+zh-CN:
+  report_exports:
+    index:
+      title: 我的导出
+    show:
+      title: 报表导出
+    report: 报表
+    created_at: 提交时间
+    status: 状态
+    actions: 操作
+    download: 下载文件
+    view: 查看进度
+    retry: 重新导出
+    empty: 暂无导出记录。
+    retention: 显示最近 100 条导出记录。文件生成后保留 7 天。
+    pending: 报表正在后台排队或生成，本页每 5 秒自动刷新。您可以离开此页，稍后从“我的导出”下载。
+    failure: 导出未完成，请重新导出；若多次失败，请联系管理员查看后台任务日志。
+    unavailable: 文件尚未生成或已过期，请从原报表页面重新导出。
+    statuses:
+      queued: 排队中
+      processing: 正在生成
+      retrying: 正在等待自动重试
+      completed: 已完成
+      failed: 导出失败
+      expired: 已过期
+    types:
+      admin_evaluations: 绩效评价 Excel 报表
+      admin_evaluation_details: 绩效评价 Excel 明细报表
+      admin_archived_evaluations: 已删除绩效评价 Excel 报表
+      admin_calibrations: 人员校准 Excel 报表
+      admin_performances: 岗位绩效 Excel 报表
+      admin_users: 人员 Excel 报表
+      admin_job_roles: 岗位 Excel 报表
+      admin_progress: 评价进度 Excel 报表
+      hr_evaluations: 绩效评价 Excel 报表
+      hr_evaluation_details: 绩效评价 Excel 明细报表
+      hr_progress: 评价进度 Excel 报表
+      cp_evaluations: 绩效评价 Excel 报表
+      staff_evaluations: 绩效评价 Excel 报表
+      staff_evaluation_details: 绩效评价 Excel 明细报表
+      staff_progress: 评价进度 Excel 报表
+      staff_printing: 绩效评价 PDF

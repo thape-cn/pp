@@ -31,18 +31,10 @@ module Staff
 
     def pdf
       evaluation_user_capability = authorize(EvaluationUserCapability.find(params[:id]), :print?)
-      browser = Ferrum::Browser.new(process_timeout: 30)
-      browser.go_to staff_printing_url(id: evaluation_user_capability.id)
-      browser.network.wait_for_idle
-
-      temp_file = Tempfile.new(["printed", ".pdf"])
-      browser.pdf(path: temp_file.path)
-
-      pdf_data = File.read(temp_file.path)
-      send_data(pdf_data, filename: "#{params[:id]}_printed.pdf", type: "application/pdf", disposition: "inline")
-
-      temp_file.close
-      temp_file.unlink
+      enqueue_report_export("staff_printing", options: {
+        evaluation_user_capability_id: evaluation_user_capability.id,
+        printing_url: staff_printing_url(id: evaluation_user_capability.id, locale: I18n.locale)
+      })
     end
   end
 end

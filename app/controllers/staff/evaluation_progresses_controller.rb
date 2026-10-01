@@ -1,11 +1,12 @@
 module Staff
   class EvaluationProgressesController < BaseController
-    include ExcelExport
     include Pagy::Method
 
     helper_method :pagy
 
     def show
+      return enqueue_report_export("staff_progress") if request.format.xlsx?
+
       if current_user.hrbp_user_managed_departments.present? || current_user.secretary_managed_departments.present?
         @display_label = params[:label].presence
         @display_form_status = EvaluationUserCapability.form_status_options[@display_label]
@@ -20,10 +21,6 @@ module Staff
 
         respond_to do |format|
           format.html { render }
-          format.xlsx do
-            send_file evaluation_progress_excel_file(@evaluation_user_capabilities),
-              filename: "evaluation_progress.xlsx"
-          end
         end
       else
         redirect_to root_path

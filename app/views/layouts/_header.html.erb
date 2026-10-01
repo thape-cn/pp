@@ -15,6 +15,11 @@
       <% end %>
     </div>
     <ul class="header-nav ms-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item d-flex align-items-center">
+          <%= link_to t("report_exports.index.title"), report_exports_path, class: "nav-link" %>
+        </li>
+      <% end %>
       <li class="nav-item dropdown d-flex align-items-center" data-controller="expender" data-expender-loaded-value="<%= false %>" data-expender-url-value="<%= ui_avatar_area_path %>">
         <a class="nav-link py-0" data-action="expender#click" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <div class="avatar avatar-md">

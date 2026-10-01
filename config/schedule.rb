@@ -23,6 +23,7 @@ end
 
 every :day, at: "1:30am", roles: [:db] do
   rake "maintain:reconcile_session_status"
+  runner "PurgeExpiredReportExportsJob.perform_async"
 end
 
 every "0 11 * * 1,3,5", roles: [:db] do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_12_000100) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_01_000000) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
@@ -495,6 +495,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_000100) do
     t.index ["evaluation_role_id"], name: "index_job_roles_on_evaluation_role_id"
   end
 
+  create_table "report_exports", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "company_evaluation_id"
+    t.string "report_type", null: false
+    t.string "locale", null: false
+    t.string "status", default: "queued", null: false
+    t.json "options", default: {}, null: false
+    t.datetime "completed_at"
+    t.datetime "expires_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_evaluation_id"], name: "index_report_exports_on_company_evaluation_id"
+    t.index ["expires_at"], name: "index_report_exports_on_expires_at"
+    t.index ["user_id", "created_at"], name: "index_report_exports_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_report_exports_on_user_id"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "role_name"
@@ -583,6 +600,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_12_000100) do
   add_foreign_key "job_role_evaluation_performances", "evaluation_user_capabilities"
   add_foreign_key "job_role_evaluation_performances", "users"
   add_foreign_key "job_roles", "evaluation_roles"
+  add_foreign_key "report_exports", "company_evaluations"
+  add_foreign_key "report_exports", "users"
   add_foreign_key "user_job_roles", "job_roles"
   add_foreign_key "user_job_roles", "users"
   add_foreign_key "user_roles", "roles"

@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :calibration_session_judges, foreign_key: "judge_id"
   has_many :calibration_session_users
   has_many :import_excel_files
+  has_many :report_exports, dependent: :destroy
 
   normalizes :email, with: ->(email) { email.downcase.strip }
 
