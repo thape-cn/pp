@@ -1,12 +1,21 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import {flexRender, getCoreRowModel, getExpandedRowModel, getSortedRowModel, useReactTable} from '@tanstack/react-table'
+import {flexRender, useTable, tableFeatures, columnVisibilityFeature, rowSortingFeature, createSortedRowModel, sortFns, rowExpandingFeature, createExpandedRowModel} from '@tanstack/react-table'
 import {get, put} from '@rails/request.js'
 import {currentPageJsonPath} from "./utils/url";
 import {calibrationTableHeader, calibrationTableLabels, groupLevel, svgArrowFromTop, svgArrowFromBottom, prepareTableSubmitData} from "./utils/tableHeader";
 import {EditableCell} from "./table/EditableCell";
 import {NameCell} from "./table/NameCell";
 import {OverallReview} from "./table/OverallReview";
+
+const features = tableFeatures({
+  columnVisibilityFeature,
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns,
+  rowExpandingFeature,
+  expandedRowModel: createExpandedRowModel(),
+});
 
 const group_level = groupLevel();
 
@@ -121,7 +130,8 @@ function CalibratioTable() {
     []
   );
 
-  const table = useReactTable({
+  const table = useTable({
+    features,
     columns,
     data,
     defaultColumn,
@@ -131,9 +141,6 @@ function CalibratioTable() {
       company_evaluation_templates,
       not_rated_text: calibrationTableLabels().not_rated
     },
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
-    getExpandedRowModel: getExpandedRowModel(),
     getRowCanExpand: () => true,
     sortDescFirst: false
   });

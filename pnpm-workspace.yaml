@@ -1,4 +1,7 @@
 allowBuilds:
   postinstall-postinstall: true
+minimumReleaseAgeExclude:
+  - '@tanstack/react-table@9.2.5'
+  - '@tanstack/table-core@9.2.5'
 onlyBuiltDependencies:
   - postinstall-postinstall

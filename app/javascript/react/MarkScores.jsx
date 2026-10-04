@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createPortal } from 'react-dom';
-import {flexRender, getCoreRowModel, getSortedRowModel, useReactTable} from '@tanstack/react-table'
+import {flexRender, useTable, tableFeatures, columnVisibilityFeature, rowSortingFeature, createSortedRowModel, sortFns} from '@tanstack/react-table'
 import {get, put} from '@rails/request.js'
 import {markScoresTableHeader, reviewLabels, svgArrowFromTop, svgArrowFromBottom, prepareTableSubmitData} from "./utils/tableHeader";
 import {currentPageJsonPath} from "./utils/url";
@@ -9,6 +9,13 @@ import {NameCell} from "./table/NameCell";
 import {PopoversHeader} from "./table/PopoversHeader";
 import {OverallReview} from "./table/OverallReview";
 import {MarkScoreConfirmDialog} from "./modal_dialog/MarkScoreConfirmDialog";
+
+const features = tableFeatures({
+  columnVisibilityFeature,
+  rowSortingFeature,
+  sortedRowModel: createSortedRowModel(),
+  sortFns,
+});
 
 // Custom hook for fetching data
 function useFetchData(group_level, mark_score_group, setUpdatedData) {
@@ -94,8 +101,12 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
       const original_mark_scores_table_header = markScoresTableHeader(group_level, table_header);
       const extended_mark_scores_table_header = original_mark_scores_table_header.map(column => ({
         accessorKey: column.accessor,
+        // The raw-score display column shares the numeric value used by the rating column.
+        accessorFn: column.accessor === "raw_total_evaluation_score_raw"
+          ? row => row.raw_total_evaluation_score
+          : undefined,
         header: () => <PopoversHeader header={column.Header} accessor={column.accessor} description={column.description} />,
-        sortingFn: (rowA, rowB, columnId) => {
+        sortFn: (rowA, rowB, columnId) => {
           const valueColumnId = columnId === "raw_total_evaluation_score_raw" ? "raw_total_evaluation_score" : columnId;
           const a = parseFloat(rowA.getValue(valueColumnId));
           const b = parseFloat(rowB.getValue(valueColumnId));
@@ -207,7 +218,8 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
     []
   );
 
-  const table = useReactTable({
+  const table = useTable({
+    features,
     columns,
     data,
     defaultColumn,
@@ -217,8 +229,6 @@ function MarkScores({group_level, mark_score_group = null, table_header = null})
       company_evaluation_templates,
       not_rated_text: reviewLabels().not_rated
     },
-    getCoreRowModel: getCoreRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     sortDescFirst: false
   });
 
