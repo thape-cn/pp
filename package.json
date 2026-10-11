@@ -9,7 +9,7 @@
     "@babel/plugin-transform-runtime": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@babel/preset-react": "^7.29.7",
-    "@babel/runtime": "^7.29.7",
+    "@babel/runtime": "^7.29.10",
     "@coreui/chartjs": "^3.1.2",
     "@coreui/coreui": "4.3.2",
     "@coreui/icons": "^3.1.0",
