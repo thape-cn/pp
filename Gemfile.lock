@@ -159,7 +159,7 @@ GEM
       deep_merge (~> 1.2, >= 1.2.1)
       ostruct
     connection_pool (3.0.2)
-    crass (1.0.7)
+    crass (1.0.8)
     csv (3.3.6)
     date (3.6.0)
     debug (1.11.1)
@@ -273,13 +273,15 @@ GEM
       net-protocol
     net-protocol (0.4.0)
       timeout
-    net-scp (4.1.0)
-      net-ssh (>= 2.6.5, < 8.0.0)
-    net-sftp (4.0.0)
-      net-ssh (>= 5.0.0, < 8.0.0)
+    net-scp (4.1.1)
+      net-ssh (>= 2.6.5, < 9.0.0)
+    net-sftp (4.0.1)
+      net-ssh (>= 5.0.0, < 9.0.0)
     net-smtp (0.5.2)
       net-protocol
-    net-ssh (7.3.6)
+    net-ssh (8.0.2)
+      logger
+      openssl (>= 3.2.0)
     nio4r (2.7.5)
     nokogiri (1.19.4-aarch64-linux-gnu)
       racc (~> 1.4)
@@ -295,11 +297,11 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
-    omniauth (2.1.4)
-      hashie (>= 3.4.6)
+    omniauth (2.2.0)
+      hashie (>= 3.5.2)
       logger
-      rack (>= 2.2.3)
-      rack-protection
+      rack (>= 2.2.8)
+      rack-protection (>= 2.2.0)
     omniauth_openid_connect (0.8.0)
       omniauth (>= 1.9, < 3)
       openid_connect (~> 2.2)
@@ -315,6 +317,7 @@ GEM
       tzinfo
       validate_url
       webfinger (~> 2.0)
+    openssl (4.0.2)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
     package_json (0.2.0)
@@ -357,7 +360,7 @@ GEM
     rack-session (2.1.2)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
-    rack-test (2.2.0)
+    rack-test (2.3.0)
       rack (>= 1.3)
     rackup (2.3.1)
       rack (>= 3)
@@ -415,7 +418,7 @@ GEM
       actionpack (>= 7.0)
       railties (>= 7.0)
     rexml (3.4.4)
-    roo (3.0.0)
+    roo (4.0.0)
       base64 (~> 0.2)
       csv (~> 3)
       logger (~> 1)
@@ -466,13 +469,13 @@ GEM
       logger (>= 1.7.0)
       rack (>= 3.2.0)
       redis-client (>= 0.29.0)
-    sqlite3 (2.10.0-aarch64-linux-gnu)
-    sqlite3 (2.10.0-aarch64-linux-musl)
-    sqlite3 (2.10.0-arm-linux-gnu)
-    sqlite3 (2.10.0-arm-linux-musl)
-    sqlite3 (2.10.0-arm64-darwin)
-    sqlite3 (2.10.0-x86_64-linux-gnu)
-    sqlite3 (2.10.0-x86_64-linux-musl)
+    sqlite3 (2.10.1-aarch64-linux-gnu)
+    sqlite3 (2.10.1-aarch64-linux-musl)
+    sqlite3 (2.10.1-arm-linux-gnu)
+    sqlite3 (2.10.1-arm-linux-musl)
+    sqlite3 (2.10.1-arm64-darwin)
+    sqlite3 (2.10.1-x86_64-linux-gnu)
+    sqlite3 (2.10.1-x86_64-linux-musl)
     sshkit (1.25.1)
       base64
       logger
@@ -527,7 +530,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    whenever (1.1.3)
+    whenever (1.1.4)
       chronic (>= 0.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
@@ -595,4 +598,4 @@ RUBY VERSION
   ruby 4.0.5
 
 BUNDLED WITH
-  4.0.22
+  4.0.23
