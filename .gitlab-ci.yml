@@ -1,32 +1,22 @@
 ---
-image: "ruby:3.3"
-
-services:
-  - mysql:8.0
+image: "cimg/ruby:${RUBY_VERSION}-node"
 
 variables:
+  RUBY_VERSION: "4.0.9"
   RAILS_ENV: test
-  MYSQL_DATABASE: thape_pp_test
-  MYSQL_HOST: mysql
-  MYSQL_ALLOW_EMPTY_PASSWORD: "true"
   CACHE_FALLBACK_KEY: "$CI_COMMIT_REF_SLUG"
   PNPM_STORE_DIR: "$CI_PROJECT_DIR/.pnpm-store"
 
-before_script:
-  # Setup Node.js
-  - curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
-  - bash nodesource_setup.sh
-  - apt-get install -y nodejs
-
-  # Enable pnpm
-  - npm config set registry https://registry.npmmirror.com/ --global
-  - corepack enable pnpm
-  - corepack prepare pnpm@10.19.0 --activate
-  - pnpm config set registry https://registry.npmmirror.com/
+before_script: &setup
+  # The image includes Node.js. Match pnpm to package.json instead of Corepack's default.
+  - npm config set registry https://registry.npmmirror.com/
+  - sudo npm install --global --registry=https://registry.npmmirror.com/ "$(node -p 'require("./package.json").packageManager')"
+  - bin/pnpm config set registry https://registry.npmmirror.com/
+  - bin/pnpm config set store-dir "$PNPM_STORE_DIR"
 
   # Verify installations
   - node -v
-  - pnpm -v
+  - bin/pnpm -v
   - ruby -v
   - which ruby
 
@@ -36,7 +26,7 @@ before_script:
   - bundle install --jobs $(nproc)
 
   # Install JavaScript dependencies
-  - pnpm install --frozen-lockfile
+  - bin/pnpm install --frozen-lockfile
 
 stages:
   - test
@@ -44,12 +34,37 @@ stages:
 
 test:
   stage: test
-  services:
-    - mysql:8.0
+  image:
+    name: "cimg/ruby:${RUBY_VERSION}-browsers"
+    entrypoint: [""]
   variables:
-    MYSQL_DATABASE: thape_pp_test
-    MYSQL_HOST: mysql
-    MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+    HEADLESS: "1"
+    SE_BROWSER_PATH: /usr/local/bin/chrome-ci
+    SE_OFFLINE: "true"
+    SE_AVOID_STATS: "true"
+  before_script:
+    - *setup
+    # The browsers image includes Chrome but no ChromeDriver. Install a matching
+    # driver during setup so Selenium never needs an online lookup during tests.
+    - |
+      chrome_version=$(google-chrome --product-version)
+      driver_version=$(curl -fsSL --retry 3 --connect-timeout 15 --max-time 60 \
+        "https://raw.githubusercontent.com/GoogleChromeLabs/chrome-for-testing/gh-pages/LATEST_RELEASE_${chrome_version%.*}")
+      driver_dir=$(mktemp -d)
+      curl -fsSL --retry 3 --connect-timeout 15 --max-time 120 \
+        "https://storage.googleapis.com/chrome-for-testing-public/${driver_version}/linux64/chromedriver-linux64.zip" \
+        -o "$driver_dir/chromedriver.zip"
+      unzip -q "$driver_dir/chromedriver.zip" -d "$driver_dir"
+      sudo install -m 0755 "$driver_dir/chromedriver-linux64/chromedriver" /usr/local/bin/chromedriver
+      rm -rf "$driver_dir"
+      # This wrapper is used only by the disposable GitLab test container.
+      sudo tee "$SE_BROWSER_PATH" >/dev/null <<'SH'
+      #!/bin/sh
+      exec /usr/bin/google-chrome --no-sandbox --disable-dev-shm-usage "$@"
+      SH
+      sudo chmod +x "$SE_BROWSER_PATH"
+      "$SE_BROWSER_PATH" --version
+      chromedriver --version
   cache:
     - key:
         files:
@@ -67,6 +82,12 @@ test:
     - bundle exec standardrb
     - bin/rails test
     - bin/rails test:system
+  artifacts:
+    when: on_failure
+    expire_in: 7 days
+    paths:
+      - log/test.log
+      - tmp/screenshots/
   only:
     - main
     - merge_requests
