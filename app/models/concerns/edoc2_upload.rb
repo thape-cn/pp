@@ -35,7 +35,7 @@ module Edoc2Upload
 
         file_info_hash = {
           Id: edoc_guid,
-          entrystate: "1", # 档案库
+          entrystate: res[0].fetch("entrystate"), # 跟随所属案卷的归档状态
           archtypeid: arch_type_id,
           name: "#{user.clerk_code}#{user.chinese_name}#{company_evaluation_template.title}_#{id}",
           pnName: user.chinese_name,
