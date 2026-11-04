@@ -4,6 +4,16 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
   # removes noisy logs when launching tests
   Capybara.server = :puma, {Silent: true}
 
+  parallelize_before_fork do
+    # Resolve paths once so workers don't race over Selenium Manager's metadata.
+    finder = Selenium::WebDriver::DriverFinder.new(
+      Selenium::WebDriver::Chrome::Options.new,
+      Selenium::WebDriver::Chrome::Service.new
+    )
+    Selenium::WebDriver::Chrome::Service.driver_path = finder.driver_path
+    Selenium::WebDriver::Chrome.path = finder.browser_path if finder.browser_path?
+  end
+
   Capybara.register_driver :headless_chrome do |app|
     options = Selenium::WebDriver::Chrome::Options.new(args: %w[headless window-size=1400,1000])
     options.logging_prefs = {browser: "ALL"}
