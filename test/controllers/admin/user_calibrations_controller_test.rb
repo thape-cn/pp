@@ -45,7 +45,7 @@ class Admin::UserCalibrationsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select "tbody tr", count: 1
-    assert_select "tbody td:first-child span.bg-danger-gradient", text: @session_user.user.chinese_name
+    assert_select "tbody td:first-child span.bg-danger", text: @session_user.user.chinese_name
   end
 
   test "index combines the user and missing evaluation filters" do
