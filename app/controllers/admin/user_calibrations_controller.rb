@@ -13,8 +13,9 @@ module Admin
       add_to_breadcrumbs title
       set_meta_tags(title: title)
       calibration_session_users = policy_scope(CalibrationSessionUser)
+        .joins(calibration_session: :calibration_template)
         .includes(:user, {calibration_session: {calibration_template: :company_evaluation}})
-        .where(calibration_session: {calibration_template: {company_evaluation_id: @company_evaluation.id}})
+        .where(calibration_templates: {company_evaluation_id: @company_evaluation.id})
       @user_id = params[:user_id].presence
       calibration_session_users = if @user_id.present?
         calibration_session_users.where(user_id: @user_id)
