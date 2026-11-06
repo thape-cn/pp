@@ -9,7 +9,8 @@ class Edoc2UploadTest < ActiveSupport::TestCase
 
   %w[0 1].each do |state|
     test "metadata follows dossier entry state #{state}" do
-      metadata = with_edoc2_dossier({"dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid", "entrystate" => state}) do
+      dossier = {"dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid", "entrystate" => state, "agencyFileNumber" => "archive-number"}
+      metadata = with_edoc2_dossier(dossier) do
         @euc.upload_meta_arch("2026-07-01")
       end
 
@@ -20,6 +21,19 @@ class Edoc2UploadTest < ActiveSupport::TestCase
       assert_equal "2026-07-01", metadata[:writtendate]
       assert_equal [{fileId: 123, operateType: "upload"}], metadata[:fileList]
     end
+  end
+
+  test "metadata uses entry state zero for an archived dossier without an archive number" do
+    dossier = {"dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid", "entrystate" => "1", "agencyFileNumber" => ""}
+
+    metadata = with_edoc2_dossier(dossier) do
+      assert_equal({"result" => true, "code" => 0}, @euc.upload_meta_arch("2026-07-01"))
+    end
+
+    assert_equal "0", metadata[:entrystate]
+    assert_equal "dossier-guid", metadata[:dossierId]
+    assert_equal "archive-type-guid", metadata[:archtypeid]
+    assert_equal [{fileId: 123, operateType: "upload"}], metadata[:fileList]
   end
 
   test "missing dossier state fails before submitting metadata" do
@@ -38,7 +52,7 @@ class Edoc2UploadTest < ActiveSupport::TestCase
       assert_includes error.message, "1992998"
     end
 
-    assert_equal "1", metadata[:entrystate]
+    assert_equal "0", metadata[:entrystate]
   end
 
   private

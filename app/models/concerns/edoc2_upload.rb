@@ -32,10 +32,11 @@ module Edoc2Upload
       if dossier
         dossier_id = dossier["dossierId"]
         entry_state = dossier.fetch("entrystate")
+        archived_without_number = entry_state.to_s == "1" && dossier["agencyFileNumber"].blank?
 
         file_info_hash = {
           Id: edoc_guid,
-          entrystate: entry_state, # 跟随所属案卷的归档状态
+          entrystate: archived_without_number ? "0" : entry_state, # Edoc2 requires a dossier number for archived uploads.
           archtypeid: dossier["archTypeId"],
           name: "#{user.clerk_code}#{user.chinese_name}#{company_evaluation_template.title}_#{id}",
           pnName: user.chinese_name,
@@ -71,7 +72,7 @@ module Edoc2Upload
         begin
           meta_arch_return_hash = Edoc2.meta_arch(file_info_hash)
         rescue Edoc2::Edoc2API_Error => error
-          if entry_state.to_s == "1" && dossier["agencyFileNumber"].blank?
+          if archived_without_number
             raise Edoc2::Edoc2API_Error,
               "EUC #{id}: archived Edoc2 dossier #{dossier_id} has no archive number (agencyFileNumber). #{error.message}"
           end
