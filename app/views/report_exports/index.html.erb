@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+<% end %>
+
 <p class="text-body-secondary"><%= t("report_exports.retention") %></p>
 <div class="table-responsive">
   <table class="table table-striped">

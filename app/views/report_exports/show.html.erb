@@ -1,5 +1,6 @@
-<% if @report_export.pending? %>
-  <% content_for :head do %>
+<% content_for :head do %>
+  <%= append_javascript_pack_tag 'stimulus' %>
+  <% if @report_export.pending? %>
     <meta http-equiv="refresh" content="5">
   <% end %>
 <% end %>
