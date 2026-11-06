@@ -9,7 +9,7 @@ class Edoc2UploadTest < ActiveSupport::TestCase
 
   %w[0 1].each do |state|
     test "metadata follows dossier entry state #{state}" do
-      metadata = with_edoc2_dossier("dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid", "entrystate" => state) do
+      metadata = with_edoc2_dossier({"dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid", "entrystate" => state}) do
         @euc.upload_meta_arch("2026-07-01")
       end
 
@@ -23,14 +23,27 @@ class Edoc2UploadTest < ActiveSupport::TestCase
   end
 
   test "missing dossier state fails before submitting metadata" do
-    with_edoc2_dossier("dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid") do
+    with_edoc2_dossier({"dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid"}) do
       assert_raises(KeyError) { @euc.upload_meta_arch("2026-07-01") }
     end
   end
 
+  test "rejected metadata reports the missing archive number for an archived dossier" do
+    dossier = {"dossierId" => "dossier-guid", "archTypeId" => "archive-type-guid", "entrystate" => "1", "agencyFileNumber" => ""}
+    api_error = Edoc2::Edoc2API_Error.new("参数异常 (1992998)")
+
+    metadata = with_edoc2_dossier(dossier, upload_error: api_error) do
+      error = assert_raises(Edoc2::Edoc2API_Error) { @euc.upload_meta_arch("2026-07-01") }
+      assert_includes error.message, "EUC #{@euc.id}: archived Edoc2 dossier dossier-guid has no archive number"
+      assert_includes error.message, "1992998"
+    end
+
+    assert_equal "1", metadata[:entrystate]
+  end
+
   private
 
-  def with_edoc2_dossier(dossier)
+  def with_edoc2_dossier(dossier, upload_error: nil)
     original_lookup = Edoc2.method(:get_dossier_and_arch_type_id_list)
     original_upload = Edoc2.method(:meta_arch)
     metadata = nil
@@ -42,6 +55,8 @@ class Edoc2UploadTest < ActiveSupport::TestCase
     end
     Edoc2.define_singleton_method(:meta_arch) do |payload|
       metadata = payload
+      raise upload_error if upload_error
+
       {"result" => true, "code" => 0}
     end
     yield

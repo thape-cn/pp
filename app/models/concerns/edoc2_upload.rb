@@ -27,16 +27,16 @@ module Edoc2Upload
     def upload_meta_arch(written_date)
       return unless edoc_file_id.present? && edoc_guid.present?
 
-      res = Edoc2.get_dossier_and_arch_type_id_list(user.clerk_code)
+      dossier = Edoc2.get_dossier_and_arch_type_id_list(user.clerk_code).first
 
-      if res.length > 0
-        dossier_id = res[0]["dossierId"]
-        arch_type_id = res[0]["archTypeId"]
+      if dossier
+        dossier_id = dossier["dossierId"]
+        entry_state = dossier.fetch("entrystate")
 
         file_info_hash = {
           Id: edoc_guid,
-          entrystate: res[0].fetch("entrystate"), # 跟随所属案卷的归档状态
-          archtypeid: arch_type_id,
+          entrystate: entry_state, # 跟随所属案卷的归档状态
+          archtypeid: dossier["archTypeId"],
           name: "#{user.clerk_code}#{user.chinese_name}#{company_evaluation_template.title}_#{id}",
           pnName: user.chinese_name,
           number: "",
@@ -68,7 +68,15 @@ module Edoc2Upload
           }]
         }
         Rails.logger.info "file_info_hash: #{file_info_hash}"
-        meta_arch_return_hash = Edoc2.meta_arch(file_info_hash)
+        begin
+          meta_arch_return_hash = Edoc2.meta_arch(file_info_hash)
+        rescue Edoc2::Edoc2API_Error => error
+          if entry_state.to_s == "1" && dossier["agencyFileNumber"].blank?
+            raise Edoc2::Edoc2API_Error,
+              "EUC #{id}: archived Edoc2 dossier #{dossier_id} has no archive number (agencyFileNumber). #{error.message}"
+          end
+          raise
+        end
         Rails.logger.info "meta_arch_return_hash: #{meta_arch_return_hash}"
         meta_arch_return_hash
       end
