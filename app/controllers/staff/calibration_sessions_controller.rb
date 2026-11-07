@@ -84,6 +84,8 @@ module Staff
       @group_level = company_evaluation_template.group_level
 
       update_calibration_group(params[:calibration], company_evaluation_template)
+      # The template lookup cached evaluations before their scores were updated.
+      @calibration_session.calibration_session_users.reload
 
       log_calibration_session_save(
         source: "square",

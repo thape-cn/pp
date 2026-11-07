@@ -42,6 +42,63 @@ class Staff::CalibrationSessionsTest < ApplicationSystemTestCase
     assert_equal 1, @dragged_evaluation.calibration_management_profession_score
     assert_equal 5, @other_evaluation.reload.calibration_performance_score
     assert_equal 5, @other_evaluation.calibration_management_profession_score
+
+    within target_grid do
+      assert_text "PP Test 13"
+    end
+
+    page.refresh
+
+    within "#calibration-panel > .row:nth-of-type(2) > .col-3", match: :first do
+      assert_text "PP Test 13"
+    end
+  end
+
+  test "employee stays in grade D after dragging from grade C and saving" do
+    calibration_session = calibration_sessions(:cs_one_staff)
+    employee_evaluation = evaluation_user_capabilities(:euc_pp11)
+    employee_evaluation.update!(form_status: "manager_scored", work_load: 3, work_quality: 1)
+    other_evaluation = evaluation_user_capabilities(:euc_pp8)
+    other_evaluation.update!(form_status: "manager_scored", work_load: 1, work_quality: 1)
+    CalibrationSessionUser.create!(calibration_session: calibration_session,
+      user: other_evaluation.user, evaluation_user_capability: other_evaluation)
+    calibration_session.update!(session_status: "calibrating")
+
+    visit staff_calibration_session_path(calibration_session, locale: "en")
+
+    source_grid = find("#calibration-panel > .row:nth-of-type(2) > .col-3", match: :first)
+    target_grid = find("#calibration-panel > .row:nth-of-type(3) > .col-3", match: :first)
+    within source_grid do
+      find("span.btn.btn-secondary", text: "PP Test 11").drag_to(target_grid)
+      assert_no_text "PP Test 11"
+    end
+    within target_grid do
+      assert_text "PP Test 11"
+      assert_text "PP Test 8"
+    end
+
+    click_button "Save"
+    assert_text "Update success"
+
+    assert_equal 1, employee_evaluation.reload.calibration_work_load
+    assert_equal 1, employee_evaluation.calibration_work_quality
+    within target_grid do
+      assert_text "PP Test 11"
+      assert_text "PP Test 8"
+    end
+    within source_grid do
+      assert_no_text "PP Test 11"
+    end
+
+    page.refresh
+
+    within "#calibration-panel > .row:nth-of-type(3) > .col-3", match: :first do
+      assert_text "PP Test 11"
+      assert_text "PP Test 8"
+    end
+    within "#calibration-panel > .row:nth-of-type(2) > .col-3", match: :first do
+      assert_no_text "PP Test 11"
+    end
   end
 
   test "calibration owner opens and closes employee details repeatedly" do
