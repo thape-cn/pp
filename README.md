@@ -16,7 +16,7 @@ bin/rails server # login as guochunzhong@thape.com.cn / pp_rocks
 
 ### Background report exports
 
-All Excel reports and evaluation PDF downloads run in Sidekiq. Apply the migration
+All Excel reports run in Sidekiq. Apply the migration
 with `bin/rails db:migrate` and restart the web and Sidekiq processes when deploying.
 For local development, start Redis and run `bundle exec sidekiq` alongside `bin/dev`.
 The Sidekiq initializer starts a `reports` capsule with one worker per process to
@@ -32,8 +32,11 @@ Generation errors are retried up to three times before the request is marked fai
 Files use the configured Active Storage service and expire after seven days.
 The existing Whenever schedule queues daily cleanup; update the crontab on deployment.
 Web and worker processes must share the same Active Storage files (the deployment
-already links `storage`). PDF workers also need Chrome and access to the app's
-printing URL, using the existing printing endpoint's trusted network configuration.
+already links `storage`).
+
+Evaluation PDF downloads are generated during the web request and displayed inline.
+The web process needs Chrome and access to the app's printing URL, using the existing
+printing endpoint's trusted network configuration.
 
 ### How to Import the Database
 

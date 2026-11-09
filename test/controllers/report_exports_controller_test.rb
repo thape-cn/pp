@@ -57,18 +57,6 @@ class ReportExportsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "PDF export is queued with an authorized printing URL" do
-    Sidekiq.testing!(:fake) do
-      get pdf_staff_printing_path(evaluation_user_capabilities(:euc_one), format: :pdf)
-      report_export = ReportExport.order(:id).last
-      assert_redirected_to report_export_path(report_export, format: :html)
-      assert_equal "staff_printing", report_export.report_type
-      assert_equal evaluation_user_capabilities(:euc_one).id, report_export.options["evaluation_user_capability_id"]
-      assert_includes report_export.options["printing_url"], "/staff/printing/"
-      assert_not report_export.file.attached?
-    end
-  end
-
   test "requester can view progress and download the completed workbook" do
     report_export = create_report_export
     get report_export_path(report_export)
