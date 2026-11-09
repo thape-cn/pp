@@ -78,6 +78,18 @@ class ReportExportsControllerTest < ActionDispatch::IntegrationTest
     assert_equal report_export.reload.file.download, response.body
   end
 
+  test "index marks creation times for browser local time conversion" do
+    Time.use_zone("UTC") do
+      create_report_export(created_at: Time.utc(2026, 11, 9, 20, 30))
+
+      %w[zh-CN en].each do |locale|
+        get report_exports_path(locale: locale)
+        assert_response :success
+        assert_select 'tbody tr td:nth-child(2) time[data-local="time"][datetime="2026-11-09T20:30:00Z"]'
+      end
+    end
+  end
+
   test "other users cannot list view download or retry an export" do
     report_export = create_report_export(status: :failed)
     sign_in users(:user_pptest4)
