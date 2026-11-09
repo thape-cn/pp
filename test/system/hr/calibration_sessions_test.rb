@@ -10,6 +10,7 @@ class HR::CalibrationSessionsTest < ApplicationSystemTestCase
 
   test "HR opens employee details with mapped work attitude scores from the calibration square" do
     reviewer = users(:user_guochunzhong)
+    reviewer.update!(preferred_language: "zh-CN")
     evaluation = evaluation_user_capabilities(:euc_supervisor_high)
     evaluation.update!(form_status: "department_calibrated", work_attitude: 3,
       calibration_work_attitude: 5, calibration_work_load: 3, calibration_work_quality: 3)
