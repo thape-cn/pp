@@ -12,7 +12,7 @@
         <tr>
           <td><%= iefm.row_number -%></td>
           <td><%= iefm.message -%></td>
-          <td><%= local_time(iefm.created_at) -%></td>
+          <td><%= local_time(iefm.created_at, :short) -%></td>
         </tr>
       <% end %>
     </tbody>

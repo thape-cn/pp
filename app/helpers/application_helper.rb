@@ -1,4 +1,17 @@
 module ApplicationHelper
+  def local_time_i18n
+    {
+      date: {
+        dayNames: t("date.day_names"),
+        abbrDayNames: t("date.abbr_day_names"),
+        monthNames: t("date.month_names").drop(1),
+        abbrMonthNames: t("date.abbr_month_names").drop(1)
+      },
+      time: {am: t("time.am"), pm: t("time.pm")},
+      datetime: {formats: {default: t("time.formats.long")}}
+    }
+  end
+
   def svg_icon(cil_name, icon_class, options = {})
     options["xlink:href"] = asset_path(cil_name)
     content_tag :svg, nil, class: icon_class do

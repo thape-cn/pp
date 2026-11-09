@@ -15,8 +15,8 @@
                     <address>
                       <strong><%= user.chinese_name %></strong><br>
                       <a href="mailto:<%= user.email -%>"><%= user.email -%></a>
-                      <p class="m-0"><%= t("user.current_sign_in_at") -%>: <%= local_time(user.current_sign_in_at) if user.current_sign_in_at.present? -%></p>
-                      <p class="m-0"><%= t("user.last_sign_in_at") -%>: <%= local_time(user.last_sign_in_at) if user.last_sign_in_at.present? -%></p>
+                      <p class="m-0"><%= t("user.current_sign_in_at") -%>: <%= local_time(user.current_sign_in_at, :short) if user.current_sign_in_at.present? -%></p>
+                      <p class="m-0"><%= t("user.last_sign_in_at") -%>: <%= local_time(user.last_sign_in_at, :short) if user.last_sign_in_at.present? -%></p>
                       <p class="m-0"><%= t("user.user_is_active") -%>: <%= user.is_active %></p>
                     </address>
                     <div class="form-group row">

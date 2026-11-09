@@ -37,17 +37,22 @@ class ReportExportsTest < ApplicationSystemTestCase
     assert_link "下载文件", href: download_report_export_path(report_export)
   end
 
-  test "creation times use the browser timezone" do
+  test "creation times use the app language and browser timezone" do
     create_report_export(created_at: Time.utc(2026, 11, 9, 20, 30))
     browser = page.driver.browser
 
     browser.execute_cdp("Emulation.setTimezoneOverride", timezoneId: "Asia/Shanghai")
     visit report_exports_path
-    assert_selector "tbody tr td:nth-child(2) time[data-localized]", text: "November 10, 2026 4:30am"
+    assert_selector "tbody tr td:nth-child(2) time[data-localized]", text: "11月10日 04:30"
+    assert_match(/2026年11月10日.*04:30/, find("tbody tr td:nth-child(2) time")[:title])
 
     browser.execute_cdp("Emulation.setTimezoneOverride", timezoneId: "UTC")
     visit report_exports_path
-    assert_selector "tbody tr td:nth-child(2) time[data-localized]", text: "November 9, 2026 8:30pm"
+    assert_selector "tbody tr td:nth-child(2) time[data-localized]", text: "11月09日 20:30"
+
+    visit report_exports_path(locale: "en")
+    assert_selector "tbody tr td:nth-child(2) time[data-localized]", text: "09 Nov 20:30"
+    assert_match(/November 09, 2026 20:30/, find("tbody tr td:nth-child(2) time")[:title])
   ensure
     browser&.execute_cdp("Emulation.setTimezoneOverride", timezoneId: "")
   end

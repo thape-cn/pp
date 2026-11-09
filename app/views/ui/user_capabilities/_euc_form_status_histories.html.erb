@@ -14,7 +14,7 @@
           <td><%= EvaluationUserCapability.form_status_options.invert[euc_history.previous_form_status] -%></td>
           <td><%= EvaluationUserCapability.form_status_options.invert[euc_history.form_status] -%></td>
           <td><%= euc_history.user.chinese_name -%></td>
-          <td><%= local_time(euc_history.created_at) -%></td>
+          <td><%= local_time(euc_history.created_at, :short) -%></td>
         </tr>
       <% end %>
     </tbody>

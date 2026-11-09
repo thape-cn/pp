@@ -22,7 +22,7 @@
               <div class="text-body-secondary"><%= report_export.company_evaluation.title %></div>
             <% end %>
           </td>
-          <td><%= local_time(report_export.created_at) %></td>
+          <td><%= local_time(report_export.created_at, :short) %></td>
           <td><%= t("report_exports.statuses.#{report_export.expired? ? 'expired' : report_export.status}") %></td>
           <td>
             <% if report_export.downloadable? %>

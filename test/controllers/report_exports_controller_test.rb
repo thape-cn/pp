@@ -85,7 +85,10 @@ class ReportExportsControllerTest < ActionDispatch::IntegrationTest
       %w[zh-CN en].each do |locale|
         get report_exports_path(locale: locale)
         assert_response :success
-        assert_select 'tbody tr td:nth-child(2) time[data-local="time"][datetime="2026-11-09T20:30:00Z"]'
+        assert_select "html[lang='#{locale}']"
+        assert_select 'tbody tr td:nth-child(2) time[data-local="time"][datetime="2026-11-09T20:30:00Z"]' do |elements|
+          assert_equal I18n.t("time.formats.short", locale: locale), elements.first["data-format"]
+        end
       end
     end
   end

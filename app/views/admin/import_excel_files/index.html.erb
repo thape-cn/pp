@@ -34,7 +34,7 @@
                   <%= link_to ief.excel_file.filename, rails_blob_path(ief.excel_file, disposition: "attachment"), data: { "coreui-title" => ief.title, "coreui-toggle" => "tooltip", "coreui-placement" => "top" } -%>
                 <% end %>
               </td>
-              <td><%= local_time(ief.created_at) -%></td>
+              <td><%= local_time(ief.created_at, :short) -%></td>
               <td>
                 <% if policy(ief).destroy_confirm? %>
                   <%= link_to destroy_confirm_admin_company_evaluation_import_excel_file_path(id: ief.id), class: "ms-1 align-middle", data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true, "coreui-placement": "top", "coreui-toggle": "tooltip", "coreui-title": t("form.destroy") } do -%>

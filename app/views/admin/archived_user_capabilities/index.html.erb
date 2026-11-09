@@ -65,7 +65,7 @@
                 <%= euc.deleted_reason -%>
               </td>
               <td>
-                <%= local_time(euc.deleted_time) -%>
+                <%= local_time(euc.deleted_time, :short) -%>
                 <%= link_to confirm_restore_admin_company_evaluation_archived_user_capability_path(id: euc.id), data: {controller: "modal", action: "modal#click", 'modal-page-reload-value': true} do -%>
                   <%= svg_icon('free.svg#cil-action-undo', %w[icon icon-lg]) -%>
                 <% end %>

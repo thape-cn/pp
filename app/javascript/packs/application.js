@@ -14,5 +14,16 @@
 // const images = require.context('./images', true)
 // const imagePath = (name) => images(name, true)
 import LocalTime from "local-time"
+
+const localTimeI18n = document.querySelector('meta[name="local-time-i18n"]')
+if (localTimeI18n) {
+  const locale = document.documentElement.lang
+  const translations = LocalTime.config.i18n[locale] ||= {}
+  for (const [section, values] of Object.entries(JSON.parse(localTimeI18n.content))) {
+    translations[section] = { ...translations[section], ...values }
+  }
+  LocalTime.config.locale = locale
+}
+
 LocalTime.start();
 import "simplebar";
