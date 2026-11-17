@@ -29,8 +29,9 @@ class ReportExportsTest < ApplicationSystemTestCase
     assert_equal [report_export.id], GenerateReportExportJob.jobs.last["args"]
 
     GenerateReportExportJob.new.perform(report_export.id)
-    assert_text "已完成", wait: 8
-    assert_link "下载文件", href: download_report_export_path(report_export)
+    # Wait for the completed page before reading text across the meta refresh.
+    assert_link "下载文件", href: download_report_export_path(report_export), wait: 8
+    assert_text "已完成"
     click_link "我的导出", match: :first
     assert_current_path report_exports_path
     assert_text "已完成"
