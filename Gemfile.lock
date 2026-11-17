@@ -158,7 +158,7 @@ GEM
     config (5.6.1)
       deep_merge (~> 1.2, >= 1.2.1)
       ostruct
-    connection_pool (3.0.2)
+    connection_pool (3.0.3)
     crass (1.0.8)
     csv (3.3.7)
     date (3.6.0)
@@ -338,7 +338,7 @@ GEM
       activesupport (>= 7.0.0)
       rack
     public_suffix (7.0.5)
-    puma (8.1.1)
+    puma (8.1.2)
       nio4r (~> 2.0)
     pundit (2.5.2)
       activesupport (>= 3.0.0)
@@ -411,7 +411,7 @@ GEM
     redcarpet (3.6.1)
     redis-client (0.31.0)
       connection_pool
-    regexp_parser (2.13.1)
+    regexp_parser (2.13.2)
     reline (0.7.0)
       io-console (~> 0.5)
     responders (3.2.1)
@@ -526,10 +526,10 @@ GEM
       faraday (~> 2.0)
       faraday-follow_redirects
     websocket (1.2.11)
-    websocket-driver (0.8.2)
+    websocket-driver (0.9.0)
       base64
-      websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.5)
+      websocket-extensions (>= 0.2.0)
+    websocket-extensions (0.2.0)
     whenever (1.1.4)
       chronic (>= 0.6.3)
     xpath (3.2.0)
