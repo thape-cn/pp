@@ -175,7 +175,7 @@ GEM
     devise-i18n (1.16.1)
       devise (>= 5.0.0)
       rails-i18n
-    domain_name (0.7.20261031)
+    domain_name (0.7.20261117)
     drb (2.2.3)
     ed25519 (1.4.0)
     erb (6.0.7)
@@ -351,7 +351,7 @@ GEM
       faraday-follow_redirects
       json-jwt (>= 1.11.0)
       rack (>= 2.1.0)
-    rack-protection (4.2.1)
+    rack-protection (4.2.2)
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
       rack (>= 3.0.0, < 4)
@@ -411,7 +411,7 @@ GEM
     redcarpet (3.6.1)
     redis-client (0.31.0)
       connection_pool
-    regexp_parser (2.13.2)
+    regexp_parser (2.13.4)
     reline (0.7.0)
       io-console (~> 0.5)
     responders (3.2.1)
@@ -435,9 +435,11 @@ GEM
       rubocop-ast (>= 1.49.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.51.0)
+    rubocop-ast (1.52.0)
+      ast (~> 2.4)
       parser (>= 3.3.7.2)
       prism (>= 1.7)
+      racc
     rubocop-performance (1.26.1)
       lint_roller (~> 1.1)
       rubocop (>= 1.75.0, < 2.0)
@@ -451,7 +453,7 @@ GEM
     ruby-progressbar (1.13.0)
     rubyzip (3.7.0)
     securerandom (0.4.1)
-    selenium-webdriver (4.52.0)
+    selenium-webdriver (4.53.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rubyzip (>= 1.2.2, < 4.0)
