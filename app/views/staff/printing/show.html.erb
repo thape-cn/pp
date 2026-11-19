@@ -4,11 +4,13 @@
 
 <div class="fs-3 fw-semibold"><%= title -%></div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    window.print();
-  });
-</script>
+<% unless @printing_pdf %>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      window.print();
+    });
+  </script>
+<% end %>
 
 <div class="row justify-content-center">
   <div class="col-12">

@@ -78,6 +78,7 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     get staff_printing_path(@evaluation_user_capability)
 
     assert_response :success
+    assert_select "script", text: /window\.print\(\)/, count: 1
     assert_includes response.body, @visible_performance.obj_name
     assert_not_includes response.body, @hidden_performance.obj_name
   end
@@ -96,6 +97,7 @@ class Staff::HiddenJobRoleEvaluationPerformancesTest < ActionDispatch::Integrati
     get staff_printing_path(@evaluation_user_capability), headers: {"REMOTE_ADDR" => "::1"}
 
     assert_response :success
+    assert_select "script", text: /window\.print\(\)/, count: 0
     assert_includes response.body, @visible_performance.obj_name
     assert_not_includes response.body, @hidden_performance.obj_name
   end
