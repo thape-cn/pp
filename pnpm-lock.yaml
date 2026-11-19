@@ -150,7 +150,7 @@ importers:
         version: 0.0.9
       '@selectize/selectize':
         specifier: ^0.15.2
-        version: 0.15.2(jquery@3.7.1)
+        version: 0.15.2(jquery@3.8.0)
       '@tanstack/react-table':
         specifier: 9.2.5
         version: 9.2.5(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -179,8 +179,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       jquery:
-        specifier: ^3.7.1
-        version: 3.7.1
+        specifier: ^3.8.0
+        version: 3.8.0
       local-time:
         specifier: ^2.1.0
         version: 2.1.0
@@ -1417,8 +1417,8 @@ packages:
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
 
-  colord@2.13.0:
-    resolution: {integrity: sha512-2g8RPH6UvoD1ZXYmccAuo0zfMw4mxqzXbeToeVoMSm6na0QEDXggahcZdlTFnFdahlV3I158ipRb2AIvCcwiAQ==}
+  colord@2.14.0:
+    resolution: {integrity: sha512-eSdMel9EBvdFxnchObp7gljRoqYQLr+zXhaxjkym7syVphw1FIhfQwgsA5Bv3jArflZPJEa1rmQtGpa7NRc7Rw==}
 
   colorette@2.0.20:
     resolution: {integrity: sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==}
@@ -1652,8 +1652,8 @@ packages:
   ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
 
-  electron-to-chromium@1.5.487:
-    resolution: {integrity: sha512-qWotOhQYeYEj+DK4+Y+cfPj44qiC6ETIiWtJLfmDJydED2BJJ7loPA4SfBbbrMI6X/X3tryJgxnY9nxsO545Zw==}
+  electron-to-chromium@1.5.489:
+    resolution: {integrity: sha512-1cF87WItryk9lj5wg5SLsNegUihdkcHuOfrANPpO02y/d2krm1Oc3GjA9KBwlT5o145FTa1bbjdLc7pZnvtnYQ==}
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -2005,8 +2005,8 @@ packages:
   jquery-ui@1.14.2:
     resolution: {integrity: sha512-1gSl7PUjyipa2adSr780Ujk16faicrV7PjPPzPtvWk7tTqBnsqp67NNV9jZK2+BIxUPXWSnIUU/LBCgwgGZE+Q==}
 
-  jquery@3.7.1:
-    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
+  jquery@3.8.0:
+    resolution: {integrity: sha512-AOYt0viqPysMUTq45O8gF9DuOnBT3Il/8WtM/TT8z/2QeGsZ70ImwSJtNFxznn2R71v8yIgaEunOGo82OY/f0g==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -4335,9 +4335,9 @@ snapshots:
 
   '@react-dnd/shallowequal@4.0.2': {}
 
-  '@selectize/selectize@0.15.2(jquery@3.7.1)':
+  '@selectize/selectize@0.15.2(jquery@3.8.0)':
     dependencies:
-      jquery: 3.7.1
+      jquery: 3.8.0
     optionalDependencies:
       jquery-ui: 1.14.2
 
@@ -4707,7 +4707,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.11.38
       caniuse-lite: 1.0.30001826
-      electron-to-chromium: 1.5.487
+      electron-to-chromium: 1.5.489
       node-releases: 2.0.65
       update-browserslist-db: 1.4.0(browserslist@4.29.6)
 
@@ -4787,7 +4787,7 @@ snapshots:
 
   color-name@1.1.4: {}
 
-  colord@2.13.0: {}
+  colord@2.14.0: {}
 
   colorette@2.0.20: {}
 
@@ -4953,11 +4953,11 @@ snapshots:
   datatables.net-bs5@1.13.11:
     dependencies:
       datatables.net: 1.13.11
-      jquery: 3.7.1
+      jquery: 3.8.0
 
   datatables.net@1.13.11:
     dependencies:
-      jquery: 3.7.1
+      jquery: 3.8.0
 
   date-fns@2.30.0:
     dependencies:
@@ -5030,7 +5030,7 @@ snapshots:
 
   ee-first@1.1.1: {}
 
-  electron-to-chromium@1.5.487: {}
+  electron-to-chromium@1.5.489: {}
 
   emoji-regex@8.0.0: {}
 
@@ -5382,10 +5382,10 @@ snapshots:
 
   jquery-ui@1.14.2:
     dependencies:
-      jquery: 3.7.1
+      jquery: 3.8.0
     optional: true
 
-  jquery@3.7.1: {}
+  jquery@3.8.0: {}
 
   js-tokens@4.0.0: {}
 
@@ -5669,7 +5669,7 @@ snapshots:
     dependencies:
       browserslist: 4.29.6
       caniuse-api: 3.0.0
-      colord: 2.13.0
+      colord: 2.14.0
       postcss: 8.5.33
       postcss-value-parser: 4.2.0
 
@@ -5721,7 +5721,7 @@ snapshots:
 
   postcss-minify-gradients@5.1.1(postcss@8.5.33):
     dependencies:
-      colord: 2.13.0
+      colord: 2.14.0
       cssnano-utils: 3.1.0(postcss@8.5.33)
       postcss: 8.5.33
       postcss-value-parser: 4.2.0
