@@ -1,6 +1,21 @@
 require "test_helper"
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  module ResetChromeSession
+    def reset!
+      super
+    rescue Selenium::WebDriver::Error::InvalidArgumentError => error
+      # Chrome 158 rejects the wildcard origin Capybara uses to clear browser state.
+      raise unless error.message.include?("* is not a valid URL")
+
+      # A replacement ChromeDriver can listen on a different port.
+      options.delete(:http_client)
+      quit
+    end
+  end
+
+  Capybara::Selenium::Driver::ChromeDriver.prepend(ResetChromeSession)
+
   # removes noisy logs when launching tests
   Capybara.server = :puma, {Silent: true}
 
