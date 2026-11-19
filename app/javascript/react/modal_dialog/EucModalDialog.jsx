@@ -108,6 +108,8 @@ export function EucModalDialog({euc_id, group_level, onClose}) {
               item = companyEvaluationTemplate.work_load_metric.find(item => item.value === value);
             } else if (key == "work_attitude") {
               item = companyEvaluationTemplate.work_attitude_metric.find(item => item.value === value);
+            } else if (key == "annual_output") {
+              item = companyEvaluationTemplate.performance_metric.find(item => item.value === value);
             } else {
               item = companyEvaluationTemplate.professional_management_metric.find(item => item.value === value);
             }

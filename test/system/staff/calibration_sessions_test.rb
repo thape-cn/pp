@@ -119,4 +119,27 @@ class Staff::CalibrationSessionsTest < ApplicationSystemTestCase
       assert_no_selector "#coreuiModal .modal-dialog", visible: :all
     end
   end
+
+  test "non-design annual output uses the performance scale in calibration details" do
+    @dragged_evaluation.company_evaluation_template.update!(
+      performance_metric: "grading_3_metric",
+      professional_management_metric: "grading_9_metric"
+    )
+
+    {5 => "超出标准", 3 => "符合标准", 1 => "低于标准"}.each do |score, label|
+      @dragged_evaluation.update!(annual_output: score)
+      visit staff_calibration_session_path(@calibration_session, locale: "zh-CN")
+
+      find("#calibration-panel span.btn.btn-secondary", text: @dragged_evaluation.user.chinese_name).find("span").click
+
+      within "#coreuiModal.show" do
+        within "tr", text: "年度工作产出" do
+          assert_selector "td", exact_text: label
+        end
+        within "tr", text: "专业水平" do
+          assert_selector "td", exact_text: "5-优秀"
+        end
+      end
+    end
+  end
 end
