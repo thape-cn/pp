@@ -16,11 +16,19 @@ class Admin::UserCalibrationsTest < ApplicationSystemTestCase
     session_user = calibration_session_users(:cs_one_staff_u1)
     session_user.update_column(:evaluation_user_capability_id, EvaluationUserCapability.maximum(:id) + 1)
 
-    visit admin_company_evaluation_user_calibrations_path(company_evaluation_id: company_evaluations(:ce_one).id, locale: "en")
+    calibrations_path = admin_company_evaluation_user_calibrations_path(
+      company_evaluation_id: company_evaluations(:ce_one).id, locale: "en"
+    )
+    visit calibrations_path
 
     assert_selector "tbody tr", count: 3
     check "Choose calibration without evaluation user capability"
     click_button "Confirm"
+
+    # Wait for the form navigation before querying the replacement document.
+    assert_current_path(URI.parse(calibrations_path).path, ignore_query: true) do |url|
+      url.query_values.to_h["select_no_evaluation_user_capability"] == "true"
+    end
 
     assert_selector "tbody tr", count: 1
     within "tbody" do
