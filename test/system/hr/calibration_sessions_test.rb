@@ -33,4 +33,33 @@ class HR::CalibrationSessionsTest < ApplicationSystemTestCase
       end
     end
   end
+
+  test "HR sees annual output on the performance scale in calibration square details" do
+    reviewer = users(:user_guochunzhong)
+    reviewer.update!(preferred_language: "zh-CN")
+    session = calibration_sessions(:cs_two_auxiliary)
+    session.update!(hr_reviewer: reviewer, session_status: "proofreading")
+    evaluation = evaluation_user_capabilities(:euc_pp13)
+    evaluation.company_evaluation_template.update!(
+      performance_metric: "grading_3_metric",
+      professional_management_metric: "grading_9_metric"
+    )
+    login_as reviewer, scope: :user
+
+    {5 => "超出标准", 3 => "符合标准", 1 => "低于标准", 4.5 => "4.5"}.each do |score, label|
+      evaluation.update!(annual_output: score)
+      visit square_hr_calibration_session_path(session, locale: "zh-CN")
+
+      find("span.btn", text: evaluation.user.chinese_name).find("a").click
+
+      within "#coreuiModal.show" do
+        within ".card", text: /\A年度工作产出\s/ do
+          assert_selector ".card-text", exact_text: label
+        end
+        within ".card", text: /\A专业水平\s/ do
+          assert_selector ".card-text", exact_text: "5.0"
+        end
+      end
+    end
+  end
 end
